@@ -1,3 +1,29 @@
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+}
+
+/* Footer link */
+footer a {
+  display: block;
+  margin-top: 10px;
+  color: #8b8bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
 * {
   margin: 0;
   padding: 0;
