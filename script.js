@@ -1,32 +1,88 @@
 const characterImg = document.getElementById("character-img");
 const messageBox = document.getElementById("message-box");
 
-const sequence = [
-  {
-    img: "assets/characters/goblin/avatar/neutral.png",
-    text: "Starting session...",
-  },
-  {
-    img: "assets/characters/goblin/avatar/annoyed.png",
-    text: "Already distracted??",
-  },
-  {
-    img: "assets/characters/goblin/avatar/angry.png",
-    text: "BRO??",
-  },
-  {
-    img: "assets/characters/goblin/avatar/cheerful.png",
-    text: "Okay fine, locked in.",
-  },
-];
+let currentCharacter = "goblin";
 
-let index = 0;
+/*
+STRUCTURE:
+character → event → { mood, messages[] }
+*/
 
-function runSequence() {
-  characterImg.src = sequence[index].img;
-  messageBox.innerText = sequence[index].text;
+const characters = {
+  goblin: {
+    basePath: "assets/characters/goblin/avatar/",
 
-  index = (index + 1) % sequence.length;
+    start: {
+      mood: "neutral",
+      messages: [
+        "Starting session… try not to mess this up.",
+        "Alright… let’s see how long you last.",
+      ],
+    },
+
+    distraction: {
+      mood: "angry",
+      messages: [
+        "BRO?? already distracted??",
+        "That was fast. Impressive… in a bad way.",
+      ],
+    },
+
+    complete: {
+      mood: "cheerful",
+      messages: [
+        "Okay… that was actually decent.",
+        "You didn’t fail for once. Nice.",
+      ],
+    },
+  },
+
+  monk: {
+    basePath: "assets/characters/monk/avatar/",
+
+    start: {
+      mood: "neutral",
+      messages: ["Begin calmly.", "Focus starts with intention."],
+    },
+
+    distraction: {
+      mood: "annoyed",
+      messages: ["Return to your task.", "Your mind is wandering."],
+    },
+
+    complete: {
+      mood: "cheerful",
+      messages: ["Well done.", "You stayed disciplined."],
+    },
+  },
+};
+
+function selectCharacter(char) {
+  currentCharacter = char;
+  trigger("start");
 }
 
-setInterval(runSequence, 2500);
+function trigger(event) {
+  const char = characters[currentCharacter];
+  const config = char[event];
+
+  const mood = config.mood;
+  const messages = config.messages;
+
+  const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+
+  const imgPath = `${char.basePath}${mood}.png`;
+
+  characterImg.src = imgPath;
+  messageBox.innerText = randomMessage;
+}
+function setActiveCard(selected) {
+  document.querySelectorAll(".character-card").forEach((card) => {
+    card.classList.remove("active-card");
+  });
+
+  selected.classList.add("active-card");
+}
+
+// INIT
+trigger("start");

@@ -7,73 +7,199 @@
     <title>CogniFocus</title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="icon" type="image/png" href="assets/logo/app-logo.png" />
 
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <!-- Header -->
-    <header class="header">
-      <img alt="CogniFocus Logo" src="assets/favicon.png" class="logo" />
-      <h2>CogniFocus</h2>
-    </header>
-
-    <!-- Floating Background Characters -->
-    <div class="floating-container">
-      <img
-        alt="Goblin Image"
-        src="assets/characters/goblin/avatar/neutral.png"
-        class="float goblin"
-      />
-      <img
-        alt="Monk Image"
-        src="assets/characters/monk/avatar/neutral.png"
-        class="float monk"
-      />
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>Stop Using Boring Timers.</h1>
-      <p>Meet focus companions that react to your behavior.</p>
-    </section>
-
-    <!-- Reaction Demo -->
-    <section class="demo">
-      <div class="character-box">
+    <!-- NAV -->
+    <nav class="navbar navbar-dark px-4">
+      <div class="d-flex align-items-center">
         <img
-          alt="Character Image"
+          src="assets/logo/app-logo.png"
+          class="logo me-2"
+          alt="CogniFocus logo"
+        />
+        <span class="fw-bold">CogniFocus</span>
+      </div>
+
+      <a href="#early" class="btn btn-info btn-sm">Early Access</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="container text-center py-5">
+      <h1 class="display-5 fw-bold">
+        STOPPPPP Using Boring Productivity APPS &#128557;
+      </h1>
+      <p class="text-muted mb-4 hero-muted-override">
+        Choose how you want to be pushed. Focus companions react to your
+        <span class="d-inline-block ms-1">
+          <span class="reaction-card" title="Neutral">😐</span>
+          <span class="reaction-card" title="Annoyed">😒</span>
+          <span class="reaction-card" title="Angry">😡</span>
+          <span class="reaction-card" title="Cheerful">😃</span>
+        </span>
+        BEHAVIOUR, not just time. Focus, but alive.
+      </p>
+
+      <!-- DEMO -->
+      <div class="demo-box mx-auto p-4">
+        <!-- Character -->
+        <img
           id="character-img"
-          src="assets/characters/goblin/avatar/neutral.png"
+          class="character-img mb-3"
+          alt="Character avatar"
         />
-        <div id="message-box">Starting session...</div>
+
+        <!-- Message -->
+        <div id="message-box" class="mb-3"></div>
+
+        <!-- Actions -->
+        <div>
+          <button
+            class="btn btn-outline-info btn-sm me-2"
+            onclick="trigger('start')"
+          >
+            Start
+          </button>
+          <button
+            class="btn btn-outline-warning btn-sm me-2"
+            onclick="trigger('distraction')"
+          >
+            Distracted
+          </button>
+          <button
+            class="btn btn-outline-success btn-sm"
+            onclick="trigger('complete')"
+          >
+            Finish
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- CHARACTERS -->
+    <section class="container text-center py-5">
+      <h3 class="mb-4">Choose Your Energy</h3>
+
+      <div class="row justify-content-center g-4">
+        <!-- Goblin -->
+        <div class="col-md-3">
+          <div
+            class="card custom-card p-3 character-card"
+            role="button"
+            tabindex="0"
+            onclick="
+              selectCharacter('goblin');
+              setActiveCard(this);
+            "
+            onkeypress="
+              if (event.key === 'Enter') {
+                selectCharacter('goblin');
+                setActiveCard(this);
+              }
+            "
+          >
+            <h5>Goblin</h5>
+            <p class="small hero-muted-override">Chaotic. Roasts you.</p>
+          </div>
+        </div>
+
+        <!-- Monk -->
+        <div class="col-md-3">
+          <div
+            class="card custom-card p-3 character-card"
+            role="button"
+            tabindex="0"
+            onclick="
+              selectCharacter('monk');
+              setActiveCard(this);
+            "
+            onkeypress="
+              if (event.key === 'Enter') {
+                selectCharacter('monk');
+                setActiveCard(this);
+              }
+            "
+          >
+            <h5>Monk</h5>
+            <p class="small hero-muted-override">Calm. Focused.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Characters Section -->
-    <section class="characters">
-      <div class="card">
-        <img
-          alt="Goblin Image"
-          src="assets/characters/goblin/avatar/cheerful.png"
-        />
-        <h3>Focus Goblin</h3>
-        <p>Chaotic. Roasts you.</p>
-      </div>
+    <!-- EARLY ACCESS -->
+    <section id="early" class="container py-5 text-center">
+      <div class="early-box p-4 mx-auto">
+        <h4>Try It Before Launch</h4>
+        <p class="text-muted hero-muted-override">
+          Test CogniFocus before everyone else.
+        </p>
 
-      <div class="card">
-        <img alt="Monk Image" src="assets/characters/monk/avatar/neutral.png" />
-        <h3>Monk Mode</h3>
-        <p>Calm. Focused.</p>
+        <ol class="small early-list-center">
+          <li>Join Discord</li>
+          <li>Access test version</li>
+          <li>Give feedback</li>
+        </ol>
+
+        <div class="mt-3">
+          <a href="YOUR_DISCORD_LINK" class="btn btn-info me-2">Join Discord</a>
+        </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-      <p>CogniFocus - Focus, but alive.</p>
-      <a href="https://qasimk2120.github.io/cognifocus-policy/" target="_blank">
-        Privacy Policy
-      </a>
+    <!-- FOOTER -->
+    <footer class="text-center py-4">
+      <p class="small mb-2">CogniFocus — Focus, but alive.</p>
+
+      <div class="mb-2">
+        <a
+          href="https://www.tiktok.com/@cognielevate"
+          target="_blank"
+          rel="noopener"
+          class="me-2"
+          >TikTok</a
+        >
+        <a
+          href="https://www.instagram.com/cognielevate/"
+          target="_blank"
+          rel="noopener"
+          class="me-2"
+          >Instagram</a
+        >
+        <a
+          href="https://www.facebook.com/share/1Am7kCzkjG/"
+          target="_blank"
+          rel="noopener"
+          class="me-2"
+          >Facebook</a
+        >
+        <a
+          href="https://x.com/cognielevate"
+          target="_blank"
+          rel="noopener"
+          class="me-2"
+          >X</a
+        >
+        <a href="https://wa.me/923262878356" target="_blank" rel="noopener"
+          >WhatsApp</a
+        >
+      </div>
+
+      <p class="small text-muted">
+        Built by
+        <a href="https://qasimk2120.github.io/" target="_blank" rel="noopener"
+          >CogniElevate</a
+        >
+      </p>
     </footer>
 
     <script src="script.js"></script>
