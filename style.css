@@ -1,9 +1,20 @@
 /* Header (navbar) with black-blue gradient and solid outline */
 .navbar {
-  background: linear-gradient(90deg, #10131a 0%, #1a2a44 100%) !important;
+  background: rgba(20, 30, 60, 0.45);
   border-bottom: 1px solid #23304a;
   box-shadow: 0 2px 12px 0 rgba(20, 30, 60, 0.08);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
 }
+
+footer {
+  background: rgba(20, 30, 60, 0.38);
+  border-top: 1px solid #23304a;
+  box-shadow: 0 -2px 12px 0 rgba(20, 30, 60, 0.08);
+  backdrop-filter: blur(14px) saturate(1.1);
+  -webkit-backdrop-filter: blur(14px) saturate(1.1);
+}
+
 /* Animated background faces */
 .bg-face-anim {
   position: fixed;
@@ -164,4 +175,143 @@ body {
 
 .custom-card p {
   color: #9a9bb0;
+}
+.floating-socials {
+  position: fixed;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  z-index: 100;
+}
+
+/* Icon style */
+.floating-socials a {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+
+/* Icon image */
+.floating-socials img {
+  width: 18px;
+  height: 18px;
+  filter: invert(1) opacity(0.8);
+}
+
+/* Hover effect */
+.floating-socials a:hover {
+  transform: translateX(6px) scale(1.1);
+  background: rgba(94, 234, 212, 0.15);
+}
+
+.floating-socials a:hover img {
+  filter: invert(1) brightness(1.2);
+}
+/* Floating container */
+.floating-socials {
+  position: fixed;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 100;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+/* Base button */
+.floating-socials a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* Icons */
+.floating-socials img {
+  width: 18px;
+  height: 18px;
+  filter: invert(1) opacity(0.85);
+}
+
+/* Hover animation */
+.floating-socials a:hover {
+  transform: translateX(6px) scale(1.1);
+  background: rgba(94, 234, 212, 0.15);
+}
+
+/* Tooltip */
+.floating-socials a::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50px;
+  white-space: nowrap;
+  background: #1a1d27;
+  color: white;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.25s ease;
+}
+
+.floating-socials a:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* WhatsApp highlight */
+.floating-socials .whatsapp {
+  background: rgba(37, 211, 102, 0.15);
+}
+
+/* Pulse animation */
+.floating-socials .whatsapp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.4);
+  animation: pulse 2s infinite;
+  z-index: -1;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
 }

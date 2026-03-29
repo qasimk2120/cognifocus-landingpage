@@ -124,6 +124,21 @@ function setActiveCard(selected) {
 
   selected.classList.add("active-card");
 }
+window.addEventListener("DOMContentLoaded", () => {
+  let lastScrollY = window.scrollY;
+  const socials = document.getElementById("floatingSocials");
 
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > lastScrollY) {
+      socials.style.opacity = "0";
+      socials.style.transform = "translateY(-50%) translateX(-20px)";
+    } else {
+      socials.style.opacity = "1";
+      socials.style.transform = "translateY(-50%) translateX(0)";
+    }
+
+    lastScrollY = window.scrollY;
+  });
+});
 // INIT
 trigger("start");
