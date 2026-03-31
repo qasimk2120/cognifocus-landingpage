@@ -142,8 +142,3 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 // INIT
 trigger("start");
-document.querySelector(".waitlist-form").addEventListener("submit", () => {
-  setTimeout(() => {
-    alert("You're in 👀 Check your email.");
-  }, 300);
-});
