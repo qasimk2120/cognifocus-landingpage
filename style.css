@@ -315,3 +315,74 @@ body {
     opacity: 0;
   }
 }
+/* Unified Waitlist Styles */
+.waitlist-box {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+.waitlist-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.waitlist-input {
+  width: 100% !important;
+  padding: 14px !important;
+  border-radius: 12px !important;
+  border: 1px solid rgba(77, 208, 255, 0.25) !important;
+  background: rgba(20, 30, 60, 0.6) !important;
+  color: #ffffff !important;
+  outline: none !important;
+  transition: all 0.25s ease !important;
+  box-sizing: border-box !important;
+}
+
+.waitlist-input:focus {
+  border-color: #4dd0ff !important;
+  box-shadow: 0 0 12px rgba(77, 208, 255, 0.4) !important;
+  background: rgba(20, 30, 60, 0.8) !important;
+}
+
+.waitlist-btn {
+  width: 100% !important;
+  background: #0dcaf0 !important;
+  color: #060a13 !important;
+  border: none !important;
+  padding: 14px !important;
+  border-radius: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition:
+    transform 0.2s,
+    background 0.2s !important;
+}
+
+.waitlist-btn:hover {
+  transform: scale(1.02) !important;
+  background: #0bb5d8 !important;
+}
+
+.waitlist-note {
+  font-size: 13px;
+  color: #9a9bb0;
+}
+.locked-card {
+  opacity: 0.7;
+  filter: grayscale(0.4);
+  transition: 0.3s;
+}
+
+.locked-card:hover {
+  opacity: 1;
+  transform: translateY(-4px);
+}
+
+.waitlist-input,
+.waitlist-btn {
+  width: 100%;
+  display: block;
+}
