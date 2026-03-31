@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You | CogniFocus</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" type="image/png" href="assets/logo/app-logo.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(84, 255, 196, 0.12),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 80% 0%,
+            rgba(83, 198, 255, 0.12),
+            transparent 40%
+          ),
+          #060a13;
+        color: #e8e9f0;
+        position: relative;
+        overflow-x: hidden;
+      }
+      main {
+        flex: 1 0 auto;
+        position: relative;
+        z-index: 1;
+      }
+      .thankyou-hero {
+        max-width: 420px;
+        margin: 60px auto 0 auto;
+        background: rgba(20, 20, 30, 0.7);
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+        padding: 2.5rem 2rem 2rem 2rem;
+        text-align: center;
+      }
+      .thankyou-hero h1 {
+        color: #0dcaf0;
+        font-size: 2.1rem;
+        margin-bottom: 0.7rem;
+      }
+      .thankyou-hero p {
+        color: #b8d0f6;
+        font-size: 1.1rem;
+        margin-bottom: 1.2rem;
+      }
+      .thankyou-hero .waitlist-btn {
+        max-width: 220px;
+        margin: 0 auto 1.5rem auto;
+        display: block;
+      }
+      .thankyou-logo {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-bottom: 1.2rem;
+        border: 2px solid #1a2a44;
+        background: #10131a;
+        object-fit: cover;
+      }
+      footer {
+        flex-shrink: 0;
+        width: 100%;
+        background: rgba(20, 30, 60, 0.38);
+        border-top: 1px solid #23304a;
+        box-shadow: 0 -2px 12px 0 rgba(20, 30, 60, 0.08);
+
+        -webkit-backdrop-filter: blur(14px) saturate(1.1);
+        backdrop-filter: blur(14px) saturate(1.1);
+        margin-top: auto;
+      }
+      /* No inline animation styles needed, use style.css */
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark px-4">
+      <div class="d-flex align-items-center">
+        <img
+          src="assets/logo/app-logo.png"
+          class="logo me-2"
+          alt="CogniFocus logo"
+        />
+        <span class="fw-bold"
+          >CogniFocus <span aria-label="brain" title="Focus">🧠</span></span
+        >
+      </div>
+    </nav>
+    <main>
+      <div class="thankyou-hero">
+        <img
+          src="assets/logo/app-logo.png"
+          class="thankyou-logo"
+          alt="CogniFocus logo"
+        />
+        <h1>Thank You! 🎉</h1>
+        <p>
+          You're officially on the waitlist.<br />Check your email for updates
+          and early access.<br /><span style="color: #4dd0ff"
+            >Stay focused until launch!</span
+          >
+        </p>
+        <a href="index.html" class="waitlist-btn">Back to Home</a>
+      </div>
+    </main>
+    <script src="script.js"></script>
+    <footer class="text-center py-4">
+      <p class="small mb-2">
+        CogniFocus — Focus, but alive. <span title="Alive">✨</span>
+      </p>
+      <p class="small text-muted hero-muted-override">
+        Built by
+        <a
+          href="https://qasimk2120.github.io/cognielevate/"
+          target="_blank"
+          rel="noopener"
+          >CogniElevate</a
+        >
+        🚀
+      </p>
+    </footer>
+  </body>
+</html>
