@@ -142,3 +142,9 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 // INIT
 trigger("start");
+document.querySelector(".waitlist-form").addEventListener("submit", () => {
+  setTimeout(() => {
+    const success = document.getElementById("waitlist-success");
+    success.classList.remove("d-none");
+  }, 500);
+});
