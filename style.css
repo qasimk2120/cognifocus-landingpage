@@ -386,3 +386,9 @@ body {
   width: 100%;
   display: block;
 }
+.waitlist-note {
+  margin-top: 12px;
+  color: #9aa3b2;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
