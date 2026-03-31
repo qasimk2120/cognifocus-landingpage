@@ -142,9 +142,26 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 // INIT
 trigger("start");
-document.querySelector(".waitlist-form").addEventListener("submit", () => {
-  setTimeout(() => {
-    const success = document.getElementById("waitlist-success");
-    success.classList.remove("d-none");
-  }, 500);
-});
+document
+  .querySelector(".waitlist-form")
+  .addEventListener("submit", function (e) {
+    e.preventDefault(); // 🚨 THIS IS THE FIX
+
+    const form = this;
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      mode: "no-cors", // important for Brevo
+    })
+      .then(() => {
+        const success = document.getElementById("waitlist-success");
+        success.classList.remove("d-none");
+
+        form.reset(); // optional clean UX
+      })
+      .catch(() => {
+        alert("Something went wrong 😅");
+      });
+  });
