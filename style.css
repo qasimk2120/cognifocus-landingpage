@@ -356,6 +356,7 @@ body {
   font-weight: 700 !important;
   text-transform: uppercase !important;
   cursor: pointer !important;
+  margin-bottom: 5px !important;
   transition:
     transform 0.2s,
     background 0.2s !important;
