@@ -260,11 +260,18 @@
 
             <!-- required hidden fields -->
             <input type="hidden" name="locale" value="en" />
+            <label for="email_address_check" class="visually-hidden"
+              >Leave this field empty (anti-spam)</label
+            >
             <input
               type="text"
+              id="email_address_check"
               name="email_address_check"
               value=""
-              style="display: none"
+              class="input-hide"
+              placeholder="Leave empty"
+              title="Leave empty"
+              autocomplete="off"
             />
 
             <button type="submit" class="waitlist-btn">Let Me In 🔥</button>

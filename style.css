@@ -416,3 +416,6 @@ body {
     transform: translateY(0);
   }
 }
+.input-hide {
+  display: none;
+}

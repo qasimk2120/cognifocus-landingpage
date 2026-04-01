@@ -1,43 +1,4 @@
-// --- Animated background faces ---
-const faceImages = [
-  "assets/characters/goblin/face/angry.png",
-  "assets/characters/goblin/face/annoyed.png",
-  "assets/characters/goblin/face/cheerful.png",
-  "assets/characters/goblin/face/neutral.png",
-  "assets/characters/monk/face/angry.png",
-  "assets/characters/monk/face/annoyed.png",
-  "assets/characters/monk/face/cheerful.png",
-  "assets/characters/monk/face/neutral.png",
-];
-
-function randomBetween(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
-function spawnFace() {
-  const img = document.createElement("img");
-  img.src = faceImages[Math.floor(Math.random() * faceImages.length)];
-  img.className = "bg-face-anim";
-  img.style.left = randomBetween(2, 90) + "vw";
-  img.style.top = randomBetween(5, 80) + "vh";
-  img.style.width = randomBetween(48, 80) + "px";
-  img.style.animationDuration = randomBetween(3, 7) + "s";
-  document.body.appendChild(img);
-  setTimeout(
-    () => {
-      img.classList.add("fade-out");
-      setTimeout(() => img.remove(), 1200);
-    },
-    randomBetween(2200, 4000),
-  );
-}
-
-function animateFaces() {
-  spawnFace();
-  if (Math.random() > 0.5) setTimeout(spawnFace, 800);
-  setTimeout(animateFaces, randomBetween(1800, 3500));
-}
-
+// --- Animated background faces now loaded from shared.js ---
 window.addEventListener("DOMContentLoaded", animateFaces);
 const characterImg = document.getElementById("character-img");
 const messageBox = document.getElementById("message-box");
@@ -104,18 +65,18 @@ function selectCharacter(char) {
 }
 
 function trigger(event) {
+  if (!characterImg || !messageBox) return;
+
   const char = characters[currentCharacter];
   const config = char[event];
 
-  const mood = config.mood;
-  const messages = config.messages;
+  const randomMessage =
+    config.messages[Math.floor(Math.random() * config.messages.length)];
 
-  const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-
-  const imgPath = `${char.basePath}${mood}.png`;
-
-  characterImg.src = imgPath;
+  characterImg.src = `${char.basePath}${config.mood}.png`;
   messageBox.innerText = randomMessage;
+  // SHOW CHARACTER
+  characterImg.classList.remove("character-hidden");
 }
 function setActiveCard(selected) {
   document.querySelectorAll(".character-card").forEach((card) => {
@@ -142,9 +103,3 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 // INIT
 trigger("start");
-document.querySelector(".waitlist-form").addEventListener("submit", () => {
-  setTimeout(() => {
-    const success = document.getElementById("waitlist-success");
-    success.classList.remove("d-none");
-  }, 500);
-});
