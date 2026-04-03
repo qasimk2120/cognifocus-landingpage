@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://qasimk2120.github.io/cognifocus-landingpage/sitemap.xml
