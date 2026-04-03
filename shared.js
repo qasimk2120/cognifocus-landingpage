@@ -37,3 +37,5 @@ function animateFaces() {
   if (Math.random() > 0.5) setTimeout(spawnFace, 800);
   setTimeout(animateFaces, randomBetween(1800, 3500));
 }
+
+window.animateFaces = animateFaces;

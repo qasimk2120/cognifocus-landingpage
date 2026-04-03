@@ -1,9 +1,6 @@
-// --- Animated background faces now loaded from shared.js ---
-window.addEventListener("DOMContentLoaded", animateFaces);
-const characterImg = document.getElementById("character-img");
-const messageBox = document.getElementById("message-box");
-
-let currentCharacter = "goblin";
+var characterImg = null;
+var messageBox = null;
+var currentCharacter = "goblin";
 
 /*
 STRUCTURE:
@@ -65,6 +62,9 @@ function selectCharacter(char) {
 }
 
 function trigger(event) {
+  characterImg = characterImg || document.getElementById("character-img");
+  messageBox = messageBox || document.getElementById("message-box");
+
   if (!characterImg || !messageBox) return;
 
   const char = characters[currentCharacter];
@@ -85,11 +85,32 @@ function setActiveCard(selected) {
 
   selected.classList.add("active-card");
 }
+
+window.selectCharacter = selectCharacter;
+window.trigger = trigger;
+window.setActiveCard = setActiveCard;
+
 window.addEventListener("DOMContentLoaded", () => {
+  characterImg = document.getElementById("character-img");
+  messageBox = document.getElementById("message-box");
+
+  if (typeof window.animateFaces === "function") {
+    window.animateFaces();
+  }
+
+  const defaultCard = document.querySelector('.character-card[onclick*="goblin"]');
+  if (defaultCard) {
+    setActiveCard(defaultCard);
+  }
+
+  trigger("start");
+
   let lastScrollY = window.scrollY;
   const socials = document.getElementById("floatingSocials");
 
   window.addEventListener("scroll", () => {
+    if (!socials) return;
+
     if (window.scrollY > lastScrollY) {
       socials.style.opacity = "0";
       socials.style.transform = "translateY(-50%) translateX(-20px)";
@@ -101,5 +122,3 @@ window.addEventListener("DOMContentLoaded", () => {
     lastScrollY = window.scrollY;
   });
 });
-// INIT
-trigger("start");
