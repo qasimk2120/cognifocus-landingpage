@@ -7,6 +7,40 @@
   backdrop-filter: blur(16px) saturate(1.2);
 }
 
+.nav-link-chip {
+  padding: 0.45rem 0.85rem;
+  border: 1px solid rgba(77, 208, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #dceeff;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-link-chip:hover {
+  background: rgba(77, 208, 255, 0.12);
+  border-color: rgba(77, 208, 255, 0.34);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 767.98px) {
+  .navbar {
+    gap: 0.85rem;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+}
+
 footer {
   background: rgba(20, 30, 60, 0.38);
   border-top: 1px solid #23304a;
@@ -227,50 +261,123 @@ body {
   line-height: 1.15;
 }
 
-.shield-grid {
-  display: grid;
+.shield-carousel {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 
+.shield-carousel-viewport {
+  overflow: hidden;
+}
+
+.shield-track {
+  display: flex;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
 .shield-card {
-  padding: 1.1rem 1.15rem;
-  background: rgba(255, 255, 255, 0.045);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 18px;
-  box-shadow: 0 12px 28px rgba(4, 8, 18, 0.18);
+  flex: 0 0 100%;
+  min-height: 220px;
+  padding: 1.35rem 1.35rem 1.25rem;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(77, 208, 255, 0.06)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  box-shadow:
+    0 18px 36px rgba(4, 8, 18, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  opacity: 0.72;
+  transform: scale(0.98);
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
     box-shadow 0.25s ease,
-    background 0.25s ease;
+    background 0.25s ease,
+    opacity 0.25s ease;
 }
 
-.shield-card:hover {
-  transform: translateY(-4px);
+.shield-card.is-active {
+  opacity: 1;
+  transform: scale(1);
   border-color: rgba(77, 208, 255, 0.34);
-  background: rgba(77, 208, 255, 0.08);
-  box-shadow: 0 16px 34px rgba(6, 12, 24, 0.28);
+  box-shadow:
+    0 22px 42px rgba(6, 12, 24, 0.3),
+    0 0 0 1px rgba(77, 208, 255, 0.08);
 }
 
 .shield-card h5 {
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.7rem;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 700;
 }
 
 .shield-card p {
   color: #b8d0f6;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
-@media (min-width: 992px) {
-  .shield-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.shield-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
 
-  .shield-card:last-child {
-    grid-column: 1 / -1;
-  }
+.shield-nav-btn {
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(77, 208, 255, 0.2);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e8f7ff;
+  font-size: 1.2rem;
+  line-height: 1;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.shield-nav-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(77, 208, 255, 0.12);
+  border-color: rgba(77, 208, 255, 0.38);
+}
+
+.shield-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.shield-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: 999px;
+  background: rgba(184, 208, 246, 0.35);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.shield-dot.is-active {
+  background: #4dd0ff;
+  transform: scale(1.15);
+  box-shadow: 0 0 14px rgba(77, 208, 255, 0.45);
 }
 
 @media (max-width: 767.98px) {
@@ -281,6 +388,20 @@ body {
   .feature-panel {
     padding: 1.35rem;
     border-radius: 20px;
+  }
+
+  .shield-card {
+    min-height: 0;
+    padding: 1.15rem;
+  }
+
+  .shield-carousel-controls {
+    gap: 0.75rem;
+  }
+
+  .shield-nav-btn {
+    width: 42px;
+    height: 42px;
   }
 }
 

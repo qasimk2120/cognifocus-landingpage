@@ -4,7 +4,7 @@ var currentCharacter = "goblin";
 
 /*
 STRUCTURE:
-character → event → { mood, messages[] }
+character -> event -> { mood, messages[] }
 */
 
 const characters = {
@@ -14,8 +14,8 @@ const characters = {
     start: {
       mood: "neutral",
       messages: [
-        "Starting session… try not to mess this up.",
-        "Alright… let’s see how long you last.",
+        "Starting session... try not to mess this up.",
+        "Alright... let's see how long you last.",
       ],
     },
 
@@ -23,15 +23,15 @@ const characters = {
       mood: "angry",
       messages: [
         "BRO?? already distracted??",
-        "That was fast. Impressive… in a bad way.",
+        "That was fast. Impressive... in a bad way.",
       ],
     },
 
     complete: {
       mood: "cheerful",
       messages: [
-        "Okay… that was actually decent.",
-        "You didn’t fail for once. Nice.",
+        "Okay... that was actually decent.",
+        "You didn't fail for once. Nice.",
       ],
     },
   },
@@ -86,6 +86,47 @@ function setActiveCard(selected) {
   selected.classList.add("active-card");
 }
 
+function initShieldCarousel() {
+  const track = document.getElementById("shieldTrack");
+  const prevBtn = document.getElementById("shieldPrev");
+  const nextBtn = document.getElementById("shieldNext");
+  const dots = Array.from(document.querySelectorAll(".shield-dot"));
+
+  if (!track || !prevBtn || !nextBtn || dots.length === 0) return;
+
+  const slides = Array.from(track.querySelectorAll(".shield-card"));
+  let currentIndex = 0;
+
+  function renderSlide(index) {
+    currentIndex = (index + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    slides.forEach((slide, slideIndex) => {
+      slide.classList.toggle("is-active", slideIndex === currentIndex);
+    });
+
+    dots.forEach((dot, dotIndex) => {
+      dot.classList.toggle("is-active", dotIndex === currentIndex);
+    });
+  }
+
+  prevBtn.addEventListener("click", () => {
+    renderSlide(currentIndex - 1);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    renderSlide(currentIndex + 1);
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      renderSlide(index);
+    });
+  });
+
+  renderSlide(0);
+}
+
 window.selectCharacter = selectCharacter;
 window.trigger = trigger;
 window.setActiveCard = setActiveCard;
@@ -97,6 +138,8 @@ window.addEventListener("DOMContentLoaded", () => {
   if (typeof window.animateFaces === "function") {
     window.animateFaces();
   }
+
+  initShieldCarousel();
 
   const defaultCard = document.querySelector('.character-card[onclick*="goblin"]');
   if (defaultCard) {
