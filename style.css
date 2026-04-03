@@ -287,18 +287,21 @@ body {
 }
 
 .how-panel,
-.faq-panel {
+.faq-panel,
+.why-panel {
   max-width: 1080px;
 }
 
 .how-heading,
-.faq-heading {
+.faq-heading,
+.why-heading {
   max-width: 700px;
   margin-bottom: 1.5rem;
 }
 
 .how-card,
-.faq-item {
+.faq-item,
+.why-card {
   height: 100%;
   padding: 1.25rem 1.3rem;
   background: linear-gradient(
@@ -311,6 +314,21 @@ body {
   box-shadow:
     0 18px 42px rgba(0, 0, 0, 0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.why-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #4dd0ff, rgba(77, 208, 255, 0.08));
+  opacity: 0.85;
 }
 
 .how-step {
@@ -330,7 +348,8 @@ body {
 }
 
 .how-card h3,
-.faq-item h3 {
+.faq-item h3,
+.why-card h3 {
   margin-bottom: 0.6rem;
   color: #ffffff;
   font-size: 1.08rem;
@@ -338,7 +357,8 @@ body {
 }
 
 .how-card p,
-.faq-item p {
+.faq-item p,
+.why-card p {
   color: #b8d0f6;
   line-height: 1.65;
 }
