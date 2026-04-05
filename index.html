@@ -152,15 +152,20 @@
         <img
           src="assets/logo/app-logo.png"
           class="logo me-2"
-          alt="Cognifocus Logo"
+          alt="CogniFocus Logo"
         />
-        <span class="fw-bold">CogniFocus 🧠</span>
+        <span class="brand-text">CogniFocus</span>
+        <span class="brand-emoji">🧠</span>
       </div>
 
       <div class="nav-actions d-flex align-items-center gap-2">
         <a href="#energy" class="nav-link-chip">Energy</a>
+        <a href="#why" class="nav-link-chip">Why</a>
         <a href="#features" class="nav-link-chip">Features</a>
-        <a href="#early" class="nav-link-chip highlight-chip">Waitlist</a>
+        <a href="#how" class="nav-link-chip">How</a>
+        <a href="#faq" class="nav-link-chip">FAQ</a>
+
+        <a href="#early" class="btn btn-glow">Join Waitlist</a>
       </div>
     </nav>
 
@@ -181,9 +186,19 @@
         to your BEHAVIOUR, not just time. Focus, but alive.
         <strong>
           A focus companion app designed to help you stay focused and avoid
-          distractions.
+          DISTRACTIONS &#x2620;
         </strong>
       </p>
+
+      <div class="hero-cta mt-4">
+        <a href="#early" class="btn btn-glow btn-lg me-2">
+          🚀 Get Early Access
+        </a>
+
+        <a href="#features" class="btn btn-outline-light btn-lg">
+          See How It Works
+        </a>
+      </div>
 
       <!-- DEMO -->
       <div class="demo-box mx-auto p-4">
@@ -199,20 +214,17 @@
 
         <!-- Actions -->
         <div>
-          <button
-            class="btn btn-outline-info btn-sm me-2"
-            onclick="trigger('start')"
-          >
+          <button class="btn btn-ghost btn-sm me-2" onclick="trigger('start')">
             Start
           </button>
           <button
-            class="btn btn-outline-warning btn-sm me-2"
+            class="btn btn-ghost warning btn-sm me-2"
             onclick="trigger('distraction')"
           >
             Distracted
           </button>
           <button
-            class="btn btn-outline-success btn-sm"
+            class="btn btn-ghost success btn-sm"
             onclick="trigger('complete')"
           >
             Finish
@@ -322,7 +334,7 @@
       </div>
     </section>
 
-    <section class="container py-5">
+    <section id="why" class="container py-5">
       <div class="why-panel mx-auto">
         <div class="text-center why-heading mx-auto">
           <span class="feature-kicker"
@@ -510,7 +522,7 @@
       </div>
     </section>
 
-    <section class="container py-5">
+    <section id="how" class="container py-5">
       <div class="how-panel mx-auto">
         <div class="text-center how-heading mx-auto">
           <span class="feature-kicker"
@@ -560,7 +572,7 @@
       </div>
     </section>
 
-    <section class="container py-5">
+    <section id="faq" class="container py-5">
       <div class="faq-panel mx-auto">
         <div class="text-center faq-heading mx-auto">
           <span class="feature-kicker"
@@ -661,9 +673,41 @@
               style="display: none"
             />
 
-            <button type="submit" class="waitlist-btn">
+            <button type="submit" class="waitlist-btn btn-glow">
               Let Me In &#128293;
             </button>
+            <script>
+              // --- NAV + SCROLL MAGIC ---
+              const navbar = document.querySelector(".app-navbar");
+              const sections = document.querySelectorAll("section[id]");
+              const navLinks = document.querySelectorAll(".nav-link-chip");
+
+              window.addEventListener("scroll", () => {
+                if (window.scrollY > 40) {
+                  navbar.classList.add("scrolled");
+                } else {
+                  navbar.classList.remove("scrolled");
+                }
+
+                let scrollY = window.scrollY;
+
+                sections.forEach((section) => {
+                  const top = section.offsetTop - 120;
+                  const height = section.offsetHeight;
+                  const id = section.getAttribute("id");
+
+                  if (scrollY >= top && scrollY < top + height) {
+                    navLinks.forEach((link) => {
+                      link.classList.remove("active");
+
+                      if (link.getAttribute("href") === `#${id}`) {
+                        link.classList.add("active");
+                      }
+                    });
+                  }
+                });
+              });
+            </script>
           </form>
 
           <p class="waitlist-note">&#128293; 35+ people already joined</p>
