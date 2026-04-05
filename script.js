@@ -2,15 +2,9 @@ var characterImg = null;
 var messageBox = null;
 var currentCharacter = "goblin";
 
-/*
-STRUCTURE:
-character -> event -> { mood, messages[] }
-*/
-
 const characters = {
   goblin: {
     basePath: "assets/characters/goblin/avatar/",
-
     start: {
       mood: "neutral",
       messages: [
@@ -18,7 +12,6 @@ const characters = {
         "Alright... let's see how long you last.",
       ],
     },
-
     distraction: {
       mood: "angry",
       messages: [
@@ -26,7 +19,6 @@ const characters = {
         "That was fast. Impressive... in a bad way.",
       ],
     },
-
     complete: {
       mood: "cheerful",
       messages: [
@@ -38,17 +30,14 @@ const characters = {
 
   monk: {
     basePath: "assets/characters/monk/avatar/",
-
     start: {
       mood: "neutral",
       messages: ["Begin calmly.", "Focus starts with intention."],
     },
-
     distraction: {
       mood: "annoyed",
       messages: ["Return to your task.", "Your mind is wandering."],
     },
-
     complete: {
       mood: "cheerful",
       messages: ["Well done.", "You stayed disciplined."],
@@ -75,9 +64,9 @@ function trigger(event) {
 
   characterImg.src = `${char.basePath}${config.mood}.png`;
   messageBox.innerText = randomMessage;
-  // SHOW CHARACTER
   characterImg.classList.remove("character-hidden");
 }
+
 function setActiveCard(selected) {
   document.querySelectorAll(".character-card").forEach((card) => {
     card.classList.remove("active-card");
@@ -101,32 +90,26 @@ function initShieldCarousel() {
     currentIndex = (index + slides.length) % slides.length;
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
 
-    slides.forEach((slide, slideIndex) => {
-      slide.classList.toggle("is-active", slideIndex === currentIndex);
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("is-active", i === currentIndex);
     });
 
-    dots.forEach((dot, dotIndex) => {
-      dot.classList.toggle("is-active", dotIndex === currentIndex);
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("is-active", i === currentIndex);
     });
   }
 
-  prevBtn.addEventListener("click", () => {
-    renderSlide(currentIndex - 1);
-  });
+  prevBtn.addEventListener("click", () => renderSlide(currentIndex - 1));
+  nextBtn.addEventListener("click", () => renderSlide(currentIndex + 1));
 
-  nextBtn.addEventListener("click", () => {
-    renderSlide(currentIndex + 1);
-  });
-
-  dots.forEach((dot, index) => {
-    dot.addEventListener("click", () => {
-      renderSlide(index);
-    });
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => renderSlide(i));
   });
 
   renderSlide(0);
 }
 
+// expose globally
 window.selectCharacter = selectCharacter;
 window.trigger = trigger;
 window.setActiveCard = setActiveCard;
@@ -135,6 +118,7 @@ window.addEventListener("DOMContentLoaded", () => {
   characterImg = document.getElementById("character-img");
   messageBox = document.getElementById("message-box");
 
+  // background animation
   if (typeof window.animateFaces === "function") {
     window.animateFaces();
   }
@@ -150,6 +134,24 @@ window.addEventListener("DOMContentLoaded", () => {
 
   trigger("start");
 
+  // 🔥 SAFE navbar logic
+  const navbar = document.querySelector(".app-navbar");
+
+  if (navbar) {
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+
+      lastScrollY = window.scrollY;
+    });
+  }
+
+  // floating socials
   let lastScrollY = window.scrollY;
   const socials = document.getElementById("floatingSocials");
 
@@ -167,38 +169,3 @@ window.addEventListener("DOMContentLoaded", () => {
     lastScrollY = window.scrollY;
   });
 });
-const navbar = document.querySelector(".app-navbar");
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll(".nav-link-chip");
-
-/* Sticky shadow */
-window.addEventListener("scroll", () => {
-  if (window.scrollY > 40) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-
-  updateActiveLink();
-});
-
-/* Active section tracking */
-function updateActiveLink() {
-  let scrollY = window.scrollY;
-
-  sections.forEach((section) => {
-    const top = section.offsetTop - 120;
-    const height = section.offsetHeight;
-    const id = section.getAttribute("id");
-
-    if (scrollY >= top && scrollY < top + height) {
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === `#${id}`) {
-          link.classList.add("active");
-        }
-      });
-    }
-  });
-}

@@ -68,3 +68,37 @@ body.confirmation-page {
   background: #10131a;
   object-fit: cover;
 }
+.navbar {
+  background: rgba(6, 10, 19, 0.85);
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(77, 208, 255, 0.08);
+}
+
+body.confirmation-page {
+  padding-top: 70px;
+}
+.character-enter {
+  animation: popIn 0.4s ease forwards;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0.7) translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* message box upgrade */
+#message-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: #cfe8ff;
+  min-height: 40px;
+}

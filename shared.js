@@ -18,11 +18,14 @@ function spawnFace() {
   const img = document.createElement("img");
   img.src = faceImages[Math.floor(Math.random() * faceImages.length)];
   img.className = "bg-face-anim";
+
   img.style.left = randomBetween(2, 90) + "vw";
   img.style.top = randomBetween(5, 80) + "vh";
   img.style.width = randomBetween(48, 80) + "px";
   img.style.animationDuration = randomBetween(3, 7) + "s";
+
   document.body.appendChild(img);
+
   setTimeout(
     () => {
       img.classList.add("fade-out");
@@ -38,4 +41,5 @@ function animateFaces() {
   setTimeout(animateFaces, randomBetween(1800, 3500));
 }
 
+// expose globally
 window.animateFaces = animateFaces;
