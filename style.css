@@ -55,11 +55,8 @@
 }
 /* Header (navbar) with black-blue gradient and solid outline */
 .navbar {
-  background: rgba(20, 30, 60, 0.45);
-  border-bottom: 1px solid #23304a;
-  box-shadow: 0 2px 12px 0 rgba(20, 30, 60, 0.08);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
-  backdrop-filter: blur(16px) saturate(1.2);
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 html {
   scroll-behavior: smooth;
@@ -70,8 +67,10 @@ html {
   width: 100%;
   z-index: 999;
 
-  background: rgba(10, 15, 25, 0.55);
-  -webkit-backdrop-filter: blur(14px);
+  min-height: 64px;
+
+  background: rgba(10, 15, 25, 0.75);
+  -webkit-backdrop-filter: blur(14px); /* Safari support */
   backdrop-filter: blur(14px);
 
   border-bottom: 1px solid rgba(77, 208, 255, 0.15);
@@ -92,6 +91,7 @@ body {
 .nav-link-chip {
   display: inline-flex;
   align-items: center;
+  position: relative;
   justify-content: center;
   gap: 0.35rem;
   padding: 0.45rem 0.85rem;
@@ -118,9 +118,6 @@ body {
     color 0.2s ease,
     transform 0.2s ease,
     box-shadow 0.2s ease;
-}
-.nav-link-chip {
-  position: relative;
 }
 
 /* ACTIVE STATE */
@@ -270,8 +267,8 @@ body {
 
 /* LOGO */
 .logo {
-  width: 30px;
-  height: 30px;
+  height: 32px;
+  width: auto;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid #1a2a44;
