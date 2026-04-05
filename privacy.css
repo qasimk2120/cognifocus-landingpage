@@ -2,13 +2,24 @@
   min-height: 100vh;
 }
 
+.navbar {
+  background: rgba(6, 10, 19, 0.85);
+  -webkit-backdrop-filter: blur(12px); /* Safari support */
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(77, 208, 255, 0.08);
+}
+
 .privacy-hero {
   max-width: 860px;
   margin: 0 auto;
+  margin-top: 80px;
   padding: 4.25rem 1.5rem 2.25rem;
   text-align: center;
 }
-
+body.privacy-page {
+  padding-top: 70px; /* matches navbar height */
+}
 .privacy-badge {
   display: inline-flex;
   align-items: center;
