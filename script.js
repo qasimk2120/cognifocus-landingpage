@@ -141,7 +141,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   initShieldCarousel();
 
-  const defaultCard = document.querySelector('.character-card[onclick*="goblin"]');
+  const defaultCard = document.querySelector(
+    '.character-card[onclick*="goblin"]',
+  );
   if (defaultCard) {
     setActiveCard(defaultCard);
   }
@@ -165,3 +167,38 @@ window.addEventListener("DOMContentLoaded", () => {
     lastScrollY = window.scrollY;
   });
 });
+const navbar = document.querySelector(".app-navbar");
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav-link-chip");
+
+/* Sticky shadow */
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 40) {
+    navbar.classList.add("scrolled");
+  } else {
+    navbar.classList.remove("scrolled");
+  }
+
+  updateActiveLink();
+});
+
+/* Active section tracking */
+function updateActiveLink() {
+  let scrollY = window.scrollY;
+
+  sections.forEach((section) => {
+    const top = section.offsetTop - 120;
+    const height = section.offsetHeight;
+    const id = section.getAttribute("id");
+
+    if (scrollY >= top && scrollY < top + height) {
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === `#${id}`) {
+          link.classList.add("active");
+        }
+      });
+    }
+  });
+}

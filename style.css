@@ -6,6 +6,33 @@
   -webkit-backdrop-filter: blur(16px) saturate(1.2);
   backdrop-filter: blur(16px) saturate(1.2);
 }
+html {
+  scroll-behavior: smooth;
+}
+.app-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+
+  background: rgba(10, 15, 25, 0.55);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(77, 208, 255, 0.15);
+  transition: all 0.3s ease;
+}
+
+/* SCROLL STATE */
+.app-navbar.scrolled {
+  background: rgba(10, 15, 25, 0.85);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* PUSH CONTENT DOWN (IMPORTANT) */
+body {
+  padding-top: 70px;
+}
 
 .nav-link-chip {
   display: inline-flex;
@@ -36,6 +63,32 @@
     color 0.2s ease,
     transform 0.2s ease,
     box-shadow 0.2s ease;
+}
+.nav-link-chip {
+  position: relative;
+}
+
+/* ACTIVE STATE */
+.nav-link-chip.active {
+  color: #ffffff;
+  border-color: rgba(77, 208, 255, 0.6);
+  background: rgba(77, 208, 255, 0.18);
+
+  box-shadow:
+    0 0 12px rgba(77, 208, 255, 0.4),
+    inset 0 0 6px rgba(77, 208, 255, 0.2);
+}
+
+/* SPECIAL CTA CHIP */
+.highlight-chip {
+  background: #0dcaf0;
+  color: #060a13;
+  border: none;
+}
+
+.highlight-chip:hover {
+  background: #0bb5d8;
+  transform: scale(1.05);
 }
 
 .nav-link-chip:hover {
