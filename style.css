@@ -888,3 +888,12 @@ body {
     transform: translateY(0);
   }
 }
+.hero-cta {
+  margin-top: 24px;
+}
+.btn-outline-light {
+  opacity: 0.8;
+}
+.btn-outline-light:hover {
+  opacity: 1;
+}
