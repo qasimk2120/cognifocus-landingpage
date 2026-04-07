@@ -1,0 +1,22 @@
+[
+  {
+    "version": "3.0.0",
+    "category": "Product Baseline",
+    "date": "2026-04-07",
+    "title": "Public changelog starts here",
+    "summary": "This release is a big step forward for CogniFocus. We've redesigned the core app flow with a new Focus tab, refreshed onboarding, a smoother Focus Shield experience, new appearance settings including dark mode, and new timer clock styles.",
+    "notes": "## Big step forward\nThis release is a big step forward for CogniFocus. We've redesigned the core app flow with a new Focus tab, refreshed onboarding, a smoother Focus Shield experience, new appearance settings including dark mode, and new timer clock styles. The app now feels cleaner, faster, and more intentional across the full journey.\n\n## What's included\n- A redesigned core app flow centered around the new Focus tab\n- Refreshed onboarding for a smoother first-run experience\n- A more polished and intentional Focus Shield flow\n- New appearance settings, including dark mode\n- New timer clock styles for a more customizable focus experience\n\n## Why this entry exists\nThis public changelog starts from the latest documented release state because earlier release notes were not being tracked on the website.\n\n## Going forward\nFrom this point on, new public-facing releases and notable improvements can be added here as separate changelog entries.",
+    "link": "index.html",
+    "linkLabel": "See the product page"
+  },
+  {
+    "version": "Website",
+    "category": "Site Update",
+    "date": "2026-04-07",
+    "title": "Landing page and policy pages refreshed",
+    "summary": "The website was updated with better responsive behavior, a dedicated Terms of Use page, and a new What's New page powered by a local JSON changelog.",
+    "notes": "## What's improved\n- The landing page navigation and button rows were adjusted to behave better on smaller screens\n- Privacy Policy and Terms of Use now share a more consistent site shell and footer navigation\n- A dedicated What's New page was added so future release notes can be posted without depending on the private app repository\n\n## How updates are posted now\n1. Open `updates.json`\n2. Add a new object at the top of the array\n3. Fill in the title, date, summary, and Markdown notes\n4. Deploy the site\n\n## Why this approach\nUsing a local changelog file keeps release notes simple, safe, and easy to maintain while the main app repository stays private.",
+    "link": "whats-new.html",
+    "linkLabel": "Open this changelog"
+  }
+]

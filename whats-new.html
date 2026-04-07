@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What's New | CogniFocus</title>
+    <meta
+      name="description"
+      content="See the latest CogniFocus updates, release notes, improvements, and new features from the website changelog."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://cognifocus.app/whats-new.html" />
+    <link rel="icon" type="image/png" href="assets/logo/app-logo.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cognifocus.app/whats-new.html" />
+    <meta property="og:title" content="What's New | CogniFocus" />
+    <meta
+      property="og:description"
+      content="Read the latest CogniFocus release notes, updates, and product improvements."
+    />
+    <meta
+      property="og:image"
+      content="https://cognifocus.app/assets/og/og-image.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="CogniFocus app logo for a distraction-aware focus timer with character reactions"
+    />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://cognifocus.app/whats-new.html"
+    />
+    <meta property="twitter:title" content="What's New | CogniFocus" />
+    <meta
+      property="twitter:description"
+      content="Read the latest CogniFocus release notes, updates, and product improvements."
+    />
+    <meta
+      property="twitter:image"
+      content="https://cognifocus.app/assets/og/og-image.png"
+    />
+    <meta
+      property="twitter:image:alt"
+      content="CogniFocus app logo for a distraction-aware focus timer with character reactions"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="privacy.css" />
+    <link rel="stylesheet" href="whats-new.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "CogniFocus What's New"
+      }
+    </script>
+    <script src="shared.js?v=20260403-1" defer></script>
+    <script src="whats-new.js?v=20260407-1" defer></script>
+  </head>
+  <body class="policy-page" data-updates-src="updates.json">
+    <nav
+      class="navbar navbar-dark app-navbar fixed-top px-4 d-flex justify-content-between align-items-center"
+    >
+      <div class="nav-brand">
+        <img
+          src="assets/logo/app-logo.png"
+          class="logo me-2"
+          alt="CogniFocus logo"
+        />
+        <span class="nav-brand-text">
+          <span class="brand-text">CogniFocus</span>
+          <span class="brand-emoji" aria-label="brain" title="Focus"
+            >&#129504;</span
+          >
+        </span>
+      </div>
+
+      <div class="nav-actions d-flex align-items-center gap-2">
+        <a href="index.html" class="nav-link-chip">Home</a>
+        <a href="whats-new.html" class="nav-link-chip nav-update-link"
+          >What's New &#128276;</a
+        >
+        <a href="privacy.html" class="nav-link-chip">Privacy</a>
+        <a href="terms.html" class="nav-link-chip">Terms</a>
+      </div>
+    </nav>
+
+    <header class="policy-hero whats-new-hero">
+      <div class="policy-badge">
+        What's New <span aria-hidden="true">&#128640;</span>
+      </div>
+      <h1>Latest Updates, In One Place</h1>
+      <p class="policy-keyword-variation">
+        This page pulls from a local changelog file so you can publish polished
+        user-facing updates without exposing anything from the private app repo.
+      </p>
+      <p class="policy-subtitle">
+        Add a new entry to <code>updates.json</code>, and it will show up here
+        as your user-facing update log.
+      </p>
+    </header>
+
+    <main class="policy-main whats-new-main">
+      <section class="policy-card policy-card-highlight updates-intro-card">
+        <div class="policy-card-header">
+          <div class="policy-icon">&#128221;</div>
+          <div>
+            <h2>How to post updates</h2>
+            <p>
+              Add a new object to <code>updates.json</code> and write the notes
+              in Markdown. That becomes the detailed release note users see
+              here.
+            </p>
+          </div>
+        </div>
+
+        <ul class="policy-list">
+          <li>Use <code>title</code> for the headline users should see.</li>
+          <li>Use <code>summary</code> for the short preview text.</li>
+          <li>Use <code>notes</code> for detailed release notes in Markdown.</li>
+          <li>New entries appear automatically on this page.</li>
+        </ul>
+      </section>
+
+      <section class="policy-card changelog-note-card">
+        <div class="policy-card-header">
+          <div class="policy-icon">&#128161;</div>
+          <div>
+            <h2>Where this changelog starts</h2>
+            <p>
+              Earlier releases were not archived here, so this page starts from
+              the latest documented release state and continues forward from
+              there.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="latest-release-block">
+        <div class="section-heading">
+          <span class="feature-kicker"
+            >Latest Update <span aria-hidden="true">&#10024;</span></span
+          >
+          <h2>Most recent documented update</h2>
+        </div>
+        <div id="latestRelease" class="release-grid-state">
+          <div class="loading-card">Loading latest update...</div>
+        </div>
+      </section>
+
+      <section class="release-history-block">
+        <div class="section-heading">
+          <span class="feature-kicker"
+            >Update History <span aria-hidden="true">&#128218;</span></span
+          >
+          <h2>Detailed notes for earlier logged updates</h2>
+        </div>
+        <div id="releaseHistory" class="release-history">
+          <div class="loading-card">Loading update history...</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center py-4">
+      <p class="small mb-2">
+        CogniFocus &mdash; Focus, but alive. <span title="Alive">&#10024;</span>
+      </p>
+      <p class="small text-muted hero-muted-override">
+        Built by
+        <a
+          href="https://qasimk2120.github.io/cognielevate/"
+          target="_blank"
+          rel="noopener"
+          >CogniElevate</a
+        >
+        &#128640;
+      </p>
+      <p class="small mb-0 footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
+      </p>
+    </footer>
+  </body>
+</html>
