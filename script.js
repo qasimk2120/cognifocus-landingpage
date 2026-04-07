@@ -27,22 +27,6 @@ const characters = {
       ],
     },
   },
-
-  monk: {
-    basePath: "assets/characters/monk/avatar/",
-    start: {
-      mood: "neutral",
-      messages: ["Begin calmly.", "Focus starts with intention."],
-    },
-    distraction: {
-      mood: "annoyed",
-      messages: ["Return to your task.", "Your mind is wandering."],
-    },
-    complete: {
-      mood: "cheerful",
-      messages: ["Well done.", "You stayed disciplined."],
-    },
-  },
 };
 
 function selectCharacter(char) {

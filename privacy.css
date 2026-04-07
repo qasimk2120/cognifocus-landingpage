@@ -11,9 +11,19 @@
   padding: 4.25rem 1.5rem 2.25rem;
   text-align: center;
 }
+
+.privacy-hero {
+  margin-top: 0;
+  padding-top: 1.5rem;
+  text-align: left;
+}
 body.privacy-page,
 body.policy-page {
   padding-top: 70px; /* matches navbar height */
+}
+
+body.privacy-page {
+  padding-top: 96px;
 }
 .privacy-badge,
 .policy-badge {
@@ -38,6 +48,24 @@ body.policy-page {
   color: #ffffff;
   font-size: clamp(2rem, 5vw, 3.35rem);
   line-height: 1.05;
+}
+
+.privacy-hero h1 {
+  text-align: center;
+}
+
+.privacy-hero h1,
+.privacy-hero .privacy-badge,
+.privacy-hero .privacy-keyword-variation,
+.privacy-hero .privacy-subtitle {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.privacy-hero .privacy-keyword-variation,
+.privacy-hero .privacy-subtitle {
+  max-width: none;
+  text-align: left;
 }
 
 .privacy-subtitle,
@@ -169,6 +197,10 @@ body.policy-page {
   text-decoration: none;
 }
 
+.privacy-contact-card a {
+  margin-left: calc(48px + 1rem);
+}
+
 .privacy-contact-card a:hover,
 .policy-contact-card a:hover {
   text-decoration: underline;
@@ -177,7 +209,7 @@ body.policy-page {
 @media (max-width: 767.98px) {
   .privacy-hero,
   .policy-hero {
-    padding: 3rem 1rem 1.75rem;
+    padding: 3rem 1.25rem 1.75rem;
   }
 
   .privacy-main,
@@ -202,5 +234,15 @@ body.policy-page {
     height: 42px;
     border-radius: 12px;
     font-size: 1rem;
+  }
+
+  .privacy-hero h1,
+  .privacy-hero .privacy-keyword-variation,
+  .privacy-hero .privacy-subtitle {
+    padding-left: 0.1rem;
+  }
+
+  .privacy-contact-card a {
+    margin-left: calc(42px + 0.8rem);
   }
 }

@@ -4,10 +4,6 @@ const faceImages = [
   "assets/characters/goblin/face/annoyed.png",
   "assets/characters/goblin/face/cheerful.png",
   "assets/characters/goblin/face/neutral.png",
-  "assets/characters/monk/face/angry.png",
-  "assets/characters/monk/face/annoyed.png",
-  "assets/characters/monk/face/cheerful.png",
-  "assets/characters/monk/face/neutral.png",
 ];
 
 function randomBetween(min, max) {
