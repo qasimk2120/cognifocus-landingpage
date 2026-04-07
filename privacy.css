@@ -1,26 +1,22 @@
-.privacy-page {
+.privacy-page,
+.policy-page {
   min-height: 100vh;
 }
 
-.navbar {
-  background: rgba(6, 10, 19, 0.85);
-  -webkit-backdrop-filter: blur(12px); /* Safari support */
-  backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid rgba(77, 208, 255, 0.08);
-}
-
-.privacy-hero {
+.privacy-hero,
+.policy-hero {
   max-width: 860px;
   margin: 0 auto;
   margin-top: 80px;
   padding: 4.25rem 1.5rem 2.25rem;
   text-align: center;
 }
-body.privacy-page {
+body.privacy-page,
+body.policy-page {
   padding-top: 70px; /* matches navbar height */
 }
-.privacy-badge {
+.privacy-badge,
+.policy-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -36,14 +32,18 @@ body.privacy-page {
   text-transform: uppercase;
 }
 
-.privacy-hero h1 {
+.privacy-hero h1,
+.policy-hero h1 {
   margin-bottom: 1rem;
   color: #ffffff;
   font-size: clamp(2rem, 5vw, 3.35rem);
   line-height: 1.05;
 }
 
-.privacy-subtitle {
+.privacy-subtitle,
+.policy-subtitle,
+.privacy-keyword-variation,
+.policy-keyword-variation {
   max-width: 700px;
   margin: 0 auto;
   color: #b8d0f6;
@@ -51,13 +51,31 @@ body.privacy-page {
   line-height: 1.7;
 }
 
-.privacy-main {
+.privacy-main,
+.policy-main {
   max-width: 920px;
   margin: 0 auto;
   padding: 0 1.5rem 4.5rem;
 }
 
-.privacy-card {
+.privacy-summary-card,
+.terms-pact-card {
+  position: relative;
+}
+
+.privacy-summary-card::before,
+.terms-pact-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #4dd0ff, rgba(77, 208, 255, 0.08));
+  opacity: 0.9;
+}
+
+.privacy-card,
+.policy-card {
   margin-bottom: 1rem;
   padding: 1.5rem;
   background: linear-gradient(
@@ -74,21 +92,24 @@ body.privacy-page {
   backdrop-filter: blur(14px);
 }
 
-.privacy-card-highlight {
+.privacy-card-highlight,
+.policy-card-highlight {
   border-color: rgba(77, 208, 255, 0.24);
   box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.28),
     0 0 0 1px rgba(77, 208, 255, 0.06);
 }
 
-.privacy-card-header {
+.privacy-card-header,
+.policy-card-header {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
   margin-bottom: 0.9rem;
 }
 
-.privacy-icon {
+.privacy-icon,
+.policy-icon {
   flex: 0 0 48px;
   display: flex;
   align-items: center;
@@ -102,33 +123,44 @@ body.privacy-page {
   font-size: 1.2rem;
 }
 
-.privacy-card h2 {
+.privacy-card h2,
+.policy-card h2 {
   margin: 0 0 0.35rem;
   color: #ffffff;
   font-size: 1.15rem;
 }
 
-.privacy-card p {
+.privacy-card p,
+.policy-card p {
   margin: 0.65rem 0 0;
   color: #b8d0f6;
   line-height: 1.7;
 }
 
-.privacy-card a {
+.privacy-card strong,
+.policy-card strong {
+  color: #ffffff;
+}
+
+.privacy-card a,
+.policy-card a {
   color: #86e4ff;
 }
 
-.privacy-list {
+.privacy-list,
+.policy-list {
   margin: 0.9rem 0 0;
   padding-left: 1.15rem;
   color: #b8d0f6;
 }
 
-.privacy-list li + li {
+.privacy-list li + li,
+.policy-list li + li {
   margin-top: 0.55rem;
 }
 
-.privacy-contact-card a {
+.privacy-contact-card a,
+.policy-contact-card a {
   display: inline-flex;
   align-items: center;
   margin-top: 0.4rem;
@@ -137,29 +169,35 @@ body.privacy-page {
   text-decoration: none;
 }
 
-.privacy-contact-card a:hover {
+.privacy-contact-card a:hover,
+.policy-contact-card a:hover {
   text-decoration: underline;
 }
 
 @media (max-width: 767.98px) {
-  .privacy-hero {
+  .privacy-hero,
+  .policy-hero {
     padding: 3rem 1rem 1.75rem;
   }
 
-  .privacy-main {
+  .privacy-main,
+  .policy-main {
     padding: 0 1rem 3.5rem;
   }
 
-  .privacy-card {
+  .privacy-card,
+  .policy-card {
     padding: 1.15rem;
     border-radius: 18px;
   }
 
-  .privacy-card-header {
+  .privacy-card-header,
+  .policy-card-header {
     gap: 0.8rem;
   }
 
-  .privacy-icon {
+  .privacy-icon,
+  .policy-icon {
     width: 42px;
     height: 42px;
     border-radius: 12px;

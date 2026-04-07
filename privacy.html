@@ -62,22 +62,27 @@
       }
     </script>
   </head>
-  <body class="privacy-page">
-    <nav class="navbar navbar-dark px-4 fixed-top">
-      <div class="d-flex align-items-center">
+  <body class="privacy-page policy-page">
+    <nav
+      class="navbar navbar-dark app-navbar fixed-top px-4 d-flex justify-content-between align-items-center"
+    >
+      <div class="nav-brand">
         <img
           src="assets/logo/app-logo.png"
           class="logo me-2"
           alt="CogniFocus logo"
         />
-        <span class="fw-bold"
-          >CogniFocus
-          <span aria-label="brain" title="Focus">&#129504;</span></span
-        >
+        <span class="nav-brand-text">
+          <span class="brand-text">CogniFocus</span>
+          <span class="brand-emoji" aria-label="brain" title="Focus"
+            >&#129504;</span
+          >
+        </span>
       </div>
 
       <div class="nav-actions d-flex align-items-center gap-2">
         <a href="index.html" class="nav-link-chip">Home</a>
+        <a href="terms.html" class="nav-link-chip">Terms</a>
       </div>
     </nav>
 
@@ -91,13 +96,32 @@
         user privacy, and permissions for all users.
       </p>
       <p class="privacy-subtitle">
-        Last updated: April 2026. This page explains what information CogniFocus
-        handles, what stays on your device, and how permissions such as Focus
-        Shield are used.
+        Last updated: April 7, 2026. This page explains what information
+        CogniFocus handles, what stays on your device, and how permissions such
+        as Distraction Shield are used.
       </p>
     </header>
 
     <main class="privacy-main">
+      <section class="privacy-card privacy-summary-card">
+        <div class="privacy-card-header">
+          <div class="privacy-icon">&#128273;</div>
+          <div>
+            <h2>Privacy at a Glance</h2>
+            <p>
+              A quick summary before the full policy details below.
+            </p>
+          </div>
+        </div>
+
+        <ul class="privacy-list">
+          <li>Focus data is designed to stay on your device.</li>
+          <li>CogniFocus does not sell your personal information.</li>
+          <li>Anonymous analytics may be used to improve reliability and product quality.</li>
+          <li>Android permissions are used only to support focus features like Distraction Shield.</li>
+        </ul>
+      </section>
+
       <section class="privacy-card privacy-card-highlight">
         <div class="privacy-card-header">
           <div class="privacy-icon">&#129504;</div>
@@ -343,10 +367,17 @@
       </p>
       <p class="small text-muted hero-muted-override">
         Built by
-        <a href="https://cognielevate.co/" target="_blank" rel="noopener"
+        <a
+          href="https://qasimk2120.github.io/cognielevate/"
+          target="_blank"
+          rel="noopener"
           >CogniElevate</a
         >
         &#128640;
+      </p>
+      <p class="small mb-0 footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Use</a>
       </p>
     </footer>
   </body>
