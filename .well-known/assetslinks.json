@@ -1,0 +1,15 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.ionic.cognifocus",
+      "sha256_cert_fingerprints": [
+        "0D:0C:EC:2D:0E:5B:9E:EC:D4:6E:C3:86:C5:5D:80:B3:35:AD:87:9D:8B:90:6A:2C:26:18:EB:09:A3:41:12:CF"
+      ]
+    }
+  }
+]
