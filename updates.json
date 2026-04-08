@@ -1,5 +1,15 @@
 [
   {
+    "version": "3.1.1",
+    "category": "Refinement Release",
+    "date": "2026-04-08",
+    "title": "Sharpened",
+    "summary": "Version 3.1.1 sharpens the app's first impression with a tighter onboarding flow, clearer Shield setup and status feedback, better light and dark theme support, and a more transparent in-app update experience.",
+    "notes": "## First impression, sharpened\nVersion 3.1.1 focuses on the first-run experience and the parts of Shield that need to feel immediately clear. Onboarding is tighter, Shield feels more alive and readable, and the update flow now communicates progress more clearly.\n\n## What's improved\n- Rebuilt onboarding into a tighter, more cinematic Goblin-led flow with cleaner copy and smoother motion\n- Removed weaker onboarding steps so the flow lands faster and keeps the tension intact\n- Improved Shield setup and Shield status pages with stronger copy, cleaner layouts, and less generic explanation text\n- Added clearer live Shield states including Setup Required, Ready, Waiting for session, and Monitoring distractions\n- Updated Shield overlay visuals and reason pills to work properly in both light and dark themes\n- Improved the in-app update prompt with a real Starting update... state, dev debug info, and fallback feedback when the native handoff is not obvious\n- Polished home and onboarding labels so the app feels less generic and more in-world\n\n## Overall result\nThis release makes CogniFocus feel more polished from the first screen onward, while giving Shield better feedback, stronger presentation, and clearer status communication during real use.",
+    "link": "index.html",
+    "linkLabel": "See the product page"
+  },
+  {
     "version": "3.0.0",
     "category": "Product Baseline",
     "date": "2026-04-07",
