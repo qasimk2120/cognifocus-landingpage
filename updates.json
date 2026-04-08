@@ -6,7 +6,7 @@
     "title": "Sharpened",
     "summary": "Version 3.1.1 sharpens the app's first impression with a tighter onboarding flow, clearer Shield setup and status feedback, better light and dark theme support, and a more transparent in-app update experience.",
     "notes": "## First impression, sharpened\nVersion 3.1.1 focuses on the first-run experience and the parts of Shield that need to feel immediately clear. Onboarding is tighter, Shield feels more alive and readable, and the update flow now communicates progress more clearly.\n\n## What's improved\n- Rebuilt onboarding into a tighter, more cinematic Goblin-led flow with cleaner copy and smoother motion\n- Removed weaker onboarding steps so the flow lands faster and keeps the tension intact\n- Improved Shield setup and Shield status pages with stronger copy, cleaner layouts, and less generic explanation text\n- Added clearer live Shield states including Setup Required, Ready, Waiting for session, and Monitoring distractions\n- Updated Shield overlay visuals and reason pills to work properly in both light and dark themes\n- Improved the in-app update prompt with a real Starting update... state, dev debug info, and fallback feedback when the native handoff is not obvious\n- Polished home and onboarding labels so the app feels less generic and more in-world\n\n## Overall result\nThis release makes CogniFocus feel more polished from the first screen onward, while giving Shield better feedback, stronger presentation, and clearer status communication during real use.",
-    "link": "index.html",
+    "link": "/",
     "linkLabel": "See the product page"
   },
   {
@@ -16,7 +16,7 @@
     "title": "Public changelog starts here",
     "summary": "This release is a big step forward for CogniFocus. We've redesigned the core app flow with a new Focus tab, refreshed onboarding, a smoother Focus Shield experience, new appearance settings including dark mode, and new timer clock styles.",
     "notes": "## Big step forward\nThis release is a big step forward for CogniFocus. We've redesigned the core app flow with a new Focus tab, refreshed onboarding, a smoother Focus Shield experience, new appearance settings including dark mode, and new timer clock styles. The app now feels cleaner, faster, and more intentional across the full journey.\n\n## What's included\n- A redesigned core app flow centered around the new Focus tab\n- Refreshed onboarding for a smoother first-run experience\n- A more polished and intentional Focus Shield flow\n- New appearance settings, including dark mode\n- New timer clock styles for a more customizable focus experience\n\n## Why this entry exists\nThis public changelog starts from the latest documented release state because earlier release notes were not being tracked on the website.\n\n## Going forward\nFrom this point on, new public-facing releases and notable improvements can be added here as separate changelog entries.",
-    "link": "index.html",
+    "link": "/",
     "linkLabel": "See the product page"
   },
   {
