@@ -1097,6 +1097,13 @@ small {
   padding: 10px;
 }
 
+.play-store-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  align-items: stretch;
+}
+
 .waitlist-form {
   display: flex;
   flex-direction: column;
@@ -1144,6 +1151,23 @@ small {
 .waitlist-note {
   font-size: 13px;
   color: #9a9bb0;
+}
+
+.play-store-link {
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  color: #bfe8ff;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-decoration: none;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease;
+}
+
+.play-store-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .hero-cta {
