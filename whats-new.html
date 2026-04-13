@@ -62,7 +62,7 @@
       }
     </script>
     <script src="shared.js?v=20260403-1" defer></script>
-    <script src="whats-new.js?v=20260407-1" defer></script>
+    <script src="whats-new.js?v=20260413-1" defer></script>
   </head>
   <body class="policy-page" data-updates-src="updates.json">
     <nav
@@ -96,14 +96,14 @@
       <div class="policy-badge">
         What's New <span aria-hidden="true">&#128640;</span>
       </div>
-      <h1>Latest Updates, In One Place</h1>
+      <h1>See What&rsquo;s New in CogniFocus</h1>
       <p class="policy-keyword-variation">
-        This page pulls from a local changelog file so you can publish polished
-        user-facing updates without exposing anything from the private app repo.
+        Follow the latest product improvements, feature rollouts, polish passes,
+        and reliability updates across the app.
       </p>
       <p class="policy-subtitle">
-        Add a new entry to <code>updates.json</code>, and it will show up here
-        as your user-facing update log.
+        Each release entry highlights what changed, why it matters, and how the
+        CogniFocus experience keeps getting sharper over time.
       </p>
     </header>
 
@@ -112,20 +112,20 @@
         <div class="policy-card-header">
           <div class="policy-icon">&#128221;</div>
           <div>
-            <h2>How to post updates</h2>
+            <h2>What you&rsquo;ll find here</h2>
             <p>
-              Add a new object to <code>updates.json</code> and write the notes
-              in Markdown. That becomes the detailed release note users see
-              here.
+              This page is the public release timeline for CogniFocus, with the
+              newest update featured first and earlier documented releases
+              listed below.
             </p>
           </div>
         </div>
 
         <ul class="policy-list">
-          <li>Use <code>title</code> for the headline users should see.</li>
-          <li>Use <code>summary</code> for the short preview text.</li>
-          <li>Use <code>notes</code> for detailed release notes in Markdown.</li>
-          <li>New entries appear automatically on this page.</li>
+          <li>New features, polish passes, and quality improvements.</li>
+          <li>Short summaries for quick scanning.</li>
+          <li>Detailed notes when you want the full picture.</li>
+          <li>Links back to the main product page when relevant.</li>
         </ul>
       </section>
 
@@ -133,11 +133,10 @@
         <div class="policy-card-header">
           <div class="policy-icon">&#128161;</div>
           <div>
-            <h2>Where this changelog starts</h2>
+            <h2>Release timeline</h2>
             <p>
-              Earlier releases were not archived here, so this page starts from
-              the latest documented release state and continues forward from
-              there.
+              This archive starts from the first public release state documented
+              on the website and continues forward from there.
             </p>
           </div>
         </div>
@@ -148,7 +147,7 @@
           <span class="feature-kicker"
             >Latest Update <span aria-hidden="true">&#10024;</span></span
           >
-          <h2>Most recent documented update</h2>
+          <h2>Newest documented release</h2>
         </div>
         <div id="latestRelease" class="release-grid-state">
           <div class="loading-card">Loading latest update...</div>
@@ -160,7 +159,7 @@
           <span class="feature-kicker"
             >Update History <span aria-hidden="true">&#128218;</span></span
           >
-          <h2>Detailed notes for earlier logged updates</h2>
+          <h2>Earlier documented releases</h2>
         </div>
         <div id="releaseHistory" class="release-history">
           <div class="loading-card">Loading update history...</div>

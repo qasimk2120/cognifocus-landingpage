@@ -239,7 +239,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     if (updates.length === 0) {
       const emptyHtml =
-        '<div class="empty-state-card">No updates have been published yet. Add your first entry to <code>updates.json</code> and it will appear here.</div>';
+        '<div class="empty-state-card">No public updates have been posted yet. Check back soon for the first release note.</div>';
       latestContainer.innerHTML = emptyHtml;
       historyContainer.innerHTML = emptyHtml;
       return;
@@ -255,7 +255,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
     if (history.length === 0) {
       historyContainer.innerHTML =
-        '<div class="empty-state-card">This is the first documented update in the changelog. New entries added to <code>updates.json</code> will appear here automatically.</div>';
+        '<div class="empty-state-card">This is the first documented release in the public timeline so far.</div>';
       return;
     }
 
