@@ -1,5 +1,13 @@
 [
   {
+    "version": "4.0.0",
+    "category": "Focus Expansion",
+    "date": "2026-04-17",
+    "title": "Sharper focus, stronger control",
+    "summary": "Manual Block outside sessions, session objectives used in reactions, mid-session adjustments, smarter guidance, Planned Sessions for Pro, improved personalities, UI & performance refinements.",
+    "notes": "## What's New\n- Manual Block — stronger control outside sessions\n- Session objectives visible and used in reactions\n- Adjust session mid-focus without restarting\n- Smarter focus guidance (drift + burnout nudges)\n- Planned Sessions added to Pro\n- Improved personality responses\n\n## Improvements\n- UI consistency, notification reliability, performance, and stability\n\n## Result\nMore control. Less excuses."
+  },
+  {
     "version": "3.3.0",
     "category": "Localization Foundation",
     "date": "2026-04-12",
