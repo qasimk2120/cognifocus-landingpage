@@ -206,7 +206,116 @@ body.privacy-page {
   text-decoration: underline;
 }
 
+@media (prefers-color-scheme: light) {
+  body.policy-page {
+    background:
+      radial-gradient(
+        circle at 18% 16%,
+        rgba(39, 180, 134, 0.12),
+        transparent 36%
+      ),
+      radial-gradient(
+        circle at 82% 4%,
+        rgba(44, 142, 204, 0.14),
+        transparent 38%
+      ),
+      #f5f8fc;
+    color: #102033;
+  }
+
+  .privacy-hero h1,
+  .policy-hero h1,
+  .privacy-card h2,
+  .policy-card h2,
+  .privacy-card strong,
+  .policy-card strong {
+    color: #102033;
+  }
+
+  .privacy-subtitle,
+  .policy-subtitle,
+  .privacy-keyword-variation,
+  .policy-keyword-variation,
+  .privacy-card p,
+  .policy-card p,
+  .privacy-list,
+  .policy-list {
+    color: #44566f;
+  }
+
+  .privacy-badge,
+  .policy-badge {
+    background: rgba(16, 112, 164, 0.08);
+    border-color: rgba(16, 112, 164, 0.22);
+    color: #0e6ea8;
+  }
+
+  .privacy-card,
+  .policy-card {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(240, 247, 255, 0.94)
+    );
+    border-color: rgba(54, 125, 171, 0.2);
+    box-shadow:
+      0 20px 48px rgba(21, 48, 84, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  }
+
+  .privacy-card-highlight,
+  .policy-card-highlight {
+    border-color: rgba(16, 112, 164, 0.28);
+    box-shadow:
+      0 24px 54px rgba(21, 48, 84, 0.14),
+      0 0 0 1px rgba(16, 112, 164, 0.06);
+  }
+
+  .privacy-icon,
+  .policy-icon {
+    background: rgba(77, 208, 255, 0.12);
+    border-color: rgba(16, 112, 164, 0.2);
+    color: #0d5f91;
+  }
+
+  .privacy-card a,
+  .policy-card a,
+  .privacy-contact-card a,
+  .policy-contact-card a {
+    color: #0e6ea8;
+  }
+
+  .privacy-summary-card::before,
+  .terms-pact-card::before {
+    background: linear-gradient(90deg, #0e8dcb, rgba(14, 141, 203, 0.08));
+  }
+
+  body.policy-page footer {
+    background: rgba(255, 255, 255, 0.7);
+    border-top-color: rgba(21, 48, 84, 0.12);
+  }
+
+  body.policy-page .hero-muted-override {
+    color: #44566f !important;
+    text-shadow: none;
+  }
+}
+
+@media (max-width: 991.98px) {
+  body.privacy-page.policy-page,
+  body.terms-page.policy-page,
+  body.delete-account-page.policy-page {
+    padding-top: 138px;
+  }
+}
+
 @media (max-width: 767.98px) {
+  body.privacy-page.policy-page,
+  body.terms-page.policy-page,
+  body.delete-account-page.policy-page {
+    padding-top: 188px;
+  }
+
   .privacy-hero,
   .policy-hero {
     padding: 3rem 1.25rem 1.75rem;
@@ -244,5 +353,13 @@ body.privacy-page {
 
   .privacy-contact-card a {
     margin-left: calc(42px + 0.8rem);
+  }
+}
+
+@media (max-width: 575.98px) {
+  body.privacy-page.policy-page,
+  body.terms-page.policy-page,
+  body.delete-account-page.policy-page {
+    padding-top: 212px;
   }
 }

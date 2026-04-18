@@ -1,84 +1,71 @@
-:root {
-  --bg: #f6f8fb;
-  --card: #ffffff;
-  --muted: #64748b;
-  --accent: #334155;
+body.delete-account-page {
+  padding-top: 96px;
 }
-html,
-body {
-  height: 100%;
+
+.delete-hero {
+  max-width: 860px;
+  margin-top: 0;
+  padding-top: 1.5rem;
+  text-align: left;
 }
-body {
-  margin: 0;
-  font-family:
-    system-ui,
-    -apple-system,
-    Segoe UI,
-    Roboto,
-    Ubuntu,
-    "Helvetica Neue",
-    Arial;
-  line-height: 1.5;
-  color: var(--accent);
-  background: linear-gradient(180deg, var(--bg), #fbfdff);
+
+.delete-hero h1 {
+  text-align: center;
 }
-.wrap {
-  min-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 20px;
+
+.delete-hero h1,
+.delete-hero .policy-keyword-variation,
+.delete-hero .policy-subtitle {
+  margin-left: 0;
+  margin-right: 0;
 }
-.card {
+
+.delete-hero .policy-keyword-variation,
+.delete-hero .policy-subtitle {
+  max-width: none;
+  text-align: left;
+}
+
+.delete-summary-card {
+  position: relative;
+}
+
+.delete-summary-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
   width: 100%;
-  max-width: 780px;
-  background: var(--card);
-  border-radius: 12px;
-  box-shadow: 0 6px 24px rgba(16, 24, 40, 0.06);
-  padding: 28px;
+  height: 3px;
+  background: linear-gradient(90deg, #4dd0ff, rgba(77, 208, 255, 0.08));
+  opacity: 0.9;
 }
-h1 {
-  margin: 0 0 10px;
-  font-size: 1.4rem;
+
+.delete-steps {
+  padding-left: 1.35rem;
 }
-h2 {
-  margin: 20px 0 8px;
-  font-size: 1rem;
-  color: var(--accent);
-}
-p {
-  margin: 0 0 12px;
-  color: var(--muted);
-}
-ul {
-  margin: 8px 0 12px 20px;
-  color: var(--muted);
-}
-li {
-  margin: 6px 0;
-}
-.muted {
-  color: var(--muted);
-}
-.footer {
-  border-top: 1px solid #eef2f6;
-  padding-top: 14px;
-  margin-top: 18px;
-  font-size: 0.95rem;
+
+.delete-account-page .policy-contact-card a {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px;
+  width: fit-content;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
-@media (max-width: 420px) {
-  .card {
-    padding: 20px;
-    border-radius: 10px;
+
+@media (prefers-color-scheme: light) {
+  .delete-summary-card::before {
+    background: linear-gradient(90deg, #0e8dcb, rgba(14, 141, 203, 0.08));
   }
-  .wrap {
-    padding: 28px 16px;
+}
+
+@media (max-width: 767.98px) {
+  .delete-hero {
+    padding-top: 1.25rem;
   }
-  h1 {
-    font-size: 1.2rem;
+
+  .delete-hero h1,
+  .delete-hero .policy-keyword-variation,
+  .delete-hero .policy-subtitle {
+    padding-left: 0.1rem;
   }
 }

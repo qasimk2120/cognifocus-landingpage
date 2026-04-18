@@ -2,99 +2,175 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>CogniFocus – Account & Data Deletion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Account & Data Deletion | CogniFocus</title>
     <meta
       name="description"
-      content="Instructions for deleting your CogniFocus account and associated data. In-app option and manual request via email provided."
+      content="Instructions for deleting your CogniFocus account and associated data from Settings, plus details about local data, subscriptions, and retained purchase records."
     />
-    <meta name="robots" content="noindex, nofollow, noarchive" />
-    <meta name="googlebot" content="noindex, nofollow" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://cognifocus.app/delete-account.html" />
     <meta name="theme-color" content="#060a13" />
     <link rel="icon" type="image/png" href="assets/logo/app-logo.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="privacy.css" />
     <link rel="stylesheet" href="delete-account.css" />
   </head>
-  <body>
-    <main class="wrap">
-      <article class="card" role="main">
-        <header>
-          <h1>CogniFocus – Account & Data Deletion</h1>
-          <p class="muted">
-            Below are the available options to delete your account and
-            associated data.
-          </p>
-        </header>
+  <body class="delete-account-page policy-page">
+    <nav
+      class="navbar navbar-dark app-navbar fixed-top px-4 d-flex justify-content-between align-items-center"
+    >
+      <div class="nav-brand">
+        <img
+          src="assets/logo/app-logo.png"
+          class="logo me-2"
+          alt="CogniFocus logo"
+        />
+        <span class="nav-brand-text">
+          <span class="brand-text">CogniFocus</span>
+        </span>
+      </div>
 
-        <section aria-labelledby="intro">
-          <h2 id="intro">Introduction</h2>
-          <p>
-            Users may delete their account and associated data. Choose the
-            in-app option for immediate removal, or send a manual request via
-            email.
-          </p>
-        </section>
+      <div class="nav-actions d-flex align-items-center gap-2">
+        <a href="/" class="nav-link-chip">Home</a>
+        <a href="privacy.html" class="nav-link-chip">Privacy</a>
+        <a href="terms.html" class="nav-link-chip">Terms</a>
+        <a
+          href="whats-new.html"
+          class="nav-link-chip nav-update-link secondary-cta"
+          >What's New</a
+        >
+      </div>
+    </nav>
 
-        <section aria-labelledby="option1">
-          <h2 id="option1">Option 1 (In-app deletion)</h2>
-          <p class="muted">Steps to delete your account from within the app:</p>
-          <ul>
-            <li>Open CogniFocus</li>
-            <li>Go to Settings</li>
-            <li>Tap "Delete Account"</li>
-          </ul>
-        </section>
+    <header class="policy-hero delete-hero">
+      <h1>Account &amp; Data Deletion</h1>
+      <p class="policy-keyword-variation">
+        How to delete your CogniFocus account and associated app data.
+      </p>
+      <p class="policy-subtitle">
+        You can delete your CogniFocus account from Settings. This page explains
+        what is deleted, what may remain with subscription providers, and how to
+        get help.
+      </p>
+    </header>
 
-        <section aria-labelledby="option2">
-          <h2 id="option2">Option 2 (Manual request)</h2>
-          <p class="muted">If you prefer a manual request, email us at:</p>
-          <p><strong>getcognifocus@gmail.com</strong></p>
-        </section>
-
-        <section aria-labelledby="deleted">
-          <h2 id="deleted">Data deleted</h2>
-          <p class="muted">
-            When you delete your account we remove the following:
-          </p>
-          <ul>
-            <li>Account information (Google account if linked)</li>
-            <li>Focus sessions and stats</li>
-            <li>Streaks and progress</li>
-            <li>App preferences</li>
-          </ul>
-        </section>
-
-        <section aria-labelledby="retention">
-          <h2 id="retention">Data retention</h2>
-          <p>
-            Some data may be retained for up to 30 days for security or legal
-            reasons.
-          </p>
-        </section>
-
-        <section aria-labelledby="anonymous">
-          <h2 id="anonymous">Anonymous users</h2>
-          <ul>
-            <li>Anonymous users do not have a permanent account</li>
-            <li>Their data is stored locally</li>
-            <li>Data is deleted when the app is uninstalled</li>
-          </ul>
-        </section>
-
-        <footer class="footer">
-          <div><strong>CogniFocus</strong></div>
-          <div class="muted">
-            Contact:
-            <a href="mailto:getcognifocus@gmail.com">getcognifocus@gmail.com</a>
+    <main class="policy-main delete-main">
+      <section class="policy-card policy-card-highlight delete-summary-card">
+        <div class="policy-card-header">
+          <div class="policy-icon" aria-hidden="true">&#128465;</div>
+          <div>
+            <h2>Delete From Settings</h2>
+            <p>
+              The recommended way to delete your account is directly inside
+              CogniFocus.
+            </p>
           </div>
-        </footer>
-      </article>
+        </div>
+        <ol class="policy-list delete-steps">
+          <li>Open CogniFocus.</li>
+          <li>Go to Settings.</li>
+          <li>Tap Delete Account.</li>
+          <li>Confirm the deletion prompt.</li>
+        </ol>
+      </section>
+
+      <section class="policy-card">
+        <div class="policy-card-header">
+          <div class="policy-icon" aria-hidden="true">&#128190;</div>
+          <div>
+            <h2>What Gets Deleted</h2>
+            <p>
+              Account deletion removes synced profile and stats data that can be
+              deleted from the client, clears local app data, and deletes the
+              Firebase account.
+            </p>
+          </div>
+        </div>
+        <ul class="policy-list">
+          <li>Firebase account information linked to CogniFocus</li>
+          <li>Synced profile settings and onboarding state</li>
+          <li>Daily stats, streak, progress, and planned session data</li>
+          <li>Local app state, preferences, selected blocked apps, and session state</li>
+        </ul>
+      </section>
+
+      <section class="policy-card">
+        <div class="policy-card-header">
+          <div class="policy-icon" aria-hidden="true">&#128179;</div>
+          <div>
+            <h2>Subscriptions Are Separate</h2>
+            <p>
+              Deleting your CogniFocus account does not cancel a Google Play
+              subscription.
+            </p>
+          </div>
+        </div>
+        <p>
+          Subscriptions must be managed or cancelled through Google Play. Some
+          purchase records may remain with Google Play or RevenueCat as required
+          for subscription management, restoration, compliance, fraud
+          prevention, tax, legal, or platform requirements.
+        </p>
+      </section>
+
+      <section class="policy-card">
+        <div class="policy-card-header">
+          <div class="policy-icon" aria-hidden="true">&#128241;</div>
+          <div>
+            <h2>Local Data</h2>
+            <p>
+              Locally stored data may also be removed when you clear app data or
+              uninstall CogniFocus.
+            </p>
+          </div>
+        </div>
+        <p>
+          Local data may include app state and preferences, theme, motion,
+          accessibility and color settings, selected blocked apps, focus session
+          state, planned sessions, reminder state, and some progress or
+          session-related data.
+        </p>
+      </section>
+
+      <section class="policy-card policy-contact-card">
+        <div class="policy-card-header">
+          <div class="policy-icon" aria-hidden="true">&#128231;</div>
+          <div>
+            <h2>Need Help?</h2>
+            <p>
+              For account or privacy requests, use the support option in
+              CogniFocus Settings. You can also contact us by email.
+            </p>
+          </div>
+        </div>
+        <a href="mailto:getcognifocus@gmail.com">getcognifocus@gmail.com</a>
+      </section>
     </main>
+
+    <footer class="text-center py-4">
+      <p class="small mb-2">
+        CogniFocus &mdash; Focus, but alive. <span title="Alive">&#10024;</span>
+      </p>
+      <p class="small text-muted hero-muted-override">
+        Built by
+        <a
+          href="https://qasimk2120.github.io/cognielevate/"
+          target="_blank"
+          rel="noopener"
+          >CogniElevate</a
+        >
+        &#128640;
+      </p>
+      <p class="small mb-0 footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="delete-account.html">Delete Account</a>
+      </p>
+    </footer>
   </body>
 </html>
