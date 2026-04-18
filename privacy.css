@@ -86,22 +86,6 @@ body.privacy-page {
   padding: 0 1.5rem 4.5rem;
 }
 
-.privacy-summary-card,
-.terms-pact-card {
-  position: relative;
-}
-
-.privacy-summary-card::before,
-.terms-pact-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto auto 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, #4dd0ff, rgba(77, 208, 255, 0.08));
-  opacity: 0.9;
-}
-
 .privacy-card,
 .policy-card {
   margin-bottom: 1rem;
@@ -283,11 +267,6 @@ body.privacy-page {
   .privacy-contact-card a,
   .policy-contact-card a {
     color: #0e6ea8;
-  }
-
-  .privacy-summary-card::before,
-  .terms-pact-card::before {
-    background: linear-gradient(90deg, #0e8dcb, rgba(14, 141, 203, 0.08));
   }
 
   body.policy-page footer {

@@ -26,20 +26,6 @@ body.delete-account-page {
   text-align: left;
 }
 
-.delete-summary-card {
-  position: relative;
-}
-
-.delete-summary-card::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto auto 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, #4dd0ff, rgba(77, 208, 255, 0.08));
-  opacity: 0.9;
-}
-
 .delete-steps {
   padding-left: 1.35rem;
 }
@@ -50,12 +36,6 @@ body.delete-account-page {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-}
-
-@media (prefers-color-scheme: light) {
-  .delete-summary-card::before {
-    background: linear-gradient(90deg, #0e8dcb, rgba(14, 141, 203, 0.08));
-  }
 }
 
 @media (max-width: 767.98px) {
