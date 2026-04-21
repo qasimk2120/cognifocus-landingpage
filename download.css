@@ -1,0 +1,93 @@
+body.download-page {
+  padding-top: 96px;
+}
+
+.download-hero {
+  max-width: 860px;
+  margin-top: 0;
+  padding-top: 1.5rem;
+}
+
+.download-main {
+  max-width: 860px;
+}
+
+.download-card {
+  max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.7rem 1.35rem;
+}
+
+.download-logo-wrap {
+  margin-bottom: 0.85rem;
+}
+
+.download-logo {
+  width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  border: 1px solid rgba(77, 208, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+}
+
+.download-card h2 {
+  margin-bottom: 0.55rem;
+}
+
+.download-status {
+  margin: 0;
+  color: #b8d0f6;
+}
+
+.download-cta-group {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.download-note {
+  margin: 0;
+  color: #9ec4f4;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 991.98px) {
+  body.download-page.policy-page {
+    padding-top: 138px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  body.download-page.policy-page {
+    padding-top: 188px;
+  }
+
+  .download-hero {
+    padding-top: 1.25rem;
+  }
+
+  .download-card {
+    padding: 1.2rem 1rem;
+  }
+
+  .download-note {
+    font-size: 0.9rem;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .download-logo {
+    border-color: rgba(16, 112, 164, 0.24);
+    background: rgba(255, 255, 255, 0.84);
+    box-shadow: 0 12px 24px rgba(20, 46, 80, 0.15);
+  }
+
+  .download-status,
+  .download-note {
+    color: #44566f;
+  }
+}
