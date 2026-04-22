@@ -1,5 +1,29 @@
 [
   {
+    "version": "4.2.0",
+    "category": "Shield & Progress Update",
+    "date": "2026-04-22",
+    "title": "What's New (v4.2.0)",
+    "summary": "Shield readiness is clearer, planned-session reminders are stronger, XP and Focus Score foundations are in place, account sync protects more state, and purchase, setup, and session notifications are more reliable.",
+    "notes": "## What's New\n- Shield now clearly tells you when apps or permissions are missing before a focus session\n- Planned Sessions now send stronger reminders and keep missed sessions visible instead of making them disappear\n- New XP, levels, and Focus Score foundations reward real focus quality, not random tapping\n- Cleaner Goblin reactions for streak risk, comebacks, XP moments, and missed planned sessions\n- Account sync now protects more progress, settings, and planned-session state across reinstalls\n- Purchase and account setup flows are more stable\n- Session notifications are more reliable during active focus sessions"
+  },
+  {
+    "version": "4.1.2",
+    "category": "Onboarding Polish",
+    "date": "2026-04-21",
+    "title": "What's New (v4.1.2)",
+    "summary": "Onboarding, app selection, smaller-screen layouts, device consistency, Shield setup, visual polish, stability, and performance all feel cleaner and more reliable.",
+    "notes": "## What's New\n- Onboarding is smoother and easier to follow\n- Choosing apps for your Shield is now faster and more intuitive\n- Better layout and spacing on smaller screens\n- Improved consistency across different devices\n- Cleaner visuals with more refined spacing and typography\n- Shield setup is now faster and more reliable\n- General polish and stability improvements\n- Better Performance across the app"
+  },
+  {
+    "version": "4.1.1",
+    "category": "App Selection & Purchase Polish",
+    "date": "2026-04-20",
+    "title": "What's New (v4.1.1)",
+    "summary": "Selected apps stay pinned while editing, Shield actions are more consistent, yearly pricing is clearer, legal dialogs are easier to close, and launch flows received polish.",
+    "notes": "## What's New\n- Selected apps now stay pinned while you build or edit your block list\n- Shield editing actions now match the rest of the app controls\n- Yearly Pro pricing is clearer with the monthly equivalent up front\n- Terms and Privacy dialogs are shorter, scrollable, and easier to close\n- Small launch polish across paywall, Shield, and onboarding flows"
+  },
+  {
     "version": "4.0.0",
     "category": "Focus Expansion",
     "date": "2026-04-17",
