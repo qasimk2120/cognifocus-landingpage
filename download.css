@@ -1,19 +1,21 @@
 body.download-page {
-  padding-top: 96px;
+  padding-top: 82px;
 }
 
 .download-hero {
-  max-width: 860px;
+  width: min(calc(100vw - 64px), 1560px);
+  max-width: none;
   margin-top: 0;
   padding-top: 1.5rem;
 }
 
 .download-main {
-  max-width: 860px;
+  width: min(calc(100vw - 64px), 1560px);
+  max-width: none;
 }
 
 .download-card {
-  max-width: 620px;
+  max-width: 760px;
   margin-left: auto;
   margin-right: auto;
   padding: 1.7rem 1.35rem;
@@ -57,13 +59,18 @@ body.download-page {
 
 @media (max-width: 991.98px) {
   body.download-page.policy-page {
-    padding-top: 138px;
+    padding-top: 136px;
   }
 }
 
 @media (max-width: 767.98px) {
+  .download-hero,
+  .download-main {
+    width: calc(100vw - 24px);
+  }
+
   body.download-page.policy-page {
-    padding-top: 188px;
+    padding-top: 122px;
   }
 
   .download-hero {

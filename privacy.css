@@ -5,7 +5,8 @@
 
 .privacy-hero,
 .policy-hero {
-  max-width: 860px;
+  width: min(calc(100vw - 64px), 1560px);
+  max-width: none;
   margin: 0 auto;
   margin-top: 80px;
   padding: 4.25rem 1.5rem 2.25rem;
@@ -19,11 +20,11 @@
 }
 body.privacy-page,
 body.policy-page {
-  padding-top: 70px; /* matches navbar height */
+  padding-top: 82px;
 }
 
 body.privacy-page {
-  padding-top: 96px;
+  padding-top: 82px;
 }
 .privacy-badge,
 .policy-badge {
@@ -72,7 +73,7 @@ body.privacy-page {
 .policy-subtitle,
 .privacy-keyword-variation,
 .policy-keyword-variation {
-  max-width: 700px;
+  max-width: 900px;
   margin: 0 auto;
   color: #b8d0f6;
   font-size: 1rem;
@@ -81,7 +82,8 @@ body.privacy-page {
 
 .privacy-main,
 .policy-main {
-  max-width: 920px;
+  width: min(calc(100vw - 64px), 1560px);
+  max-width: none;
   margin: 0 auto;
   padding: 0 1.5rem 4.5rem;
 }
@@ -281,18 +283,25 @@ body.privacy-page {
 }
 
 @media (max-width: 991.98px) {
-  body.privacy-page.policy-page,
-  body.terms-page.policy-page,
-  body.delete-account-page.policy-page {
-    padding-top: 138px;
+body.privacy-page.policy-page,
+body.terms-page.policy-page,
+body.delete-account-page.policy-page {
+    padding-top: 136px;
   }
 }
 
 @media (max-width: 767.98px) {
-  body.privacy-page.policy-page,
-  body.terms-page.policy-page,
-  body.delete-account-page.policy-page {
-    padding-top: 188px;
+.privacy-hero,
+.policy-hero,
+.privacy-main,
+.policy-main {
+    width: calc(100vw - 24px);
+  }
+
+body.privacy-page.policy-page,
+body.terms-page.policy-page,
+body.delete-account-page.policy-page {
+    padding-top: 122px;
   }
 
   .privacy-hero,
@@ -336,9 +345,9 @@ body.privacy-page {
 }
 
 @media (max-width: 575.98px) {
-  body.privacy-page.policy-page,
-  body.terms-page.policy-page,
-  body.delete-account-page.policy-page {
-    padding-top: 212px;
+body.privacy-page.policy-page,
+body.terms-page.policy-page,
+body.delete-account-page.policy-page {
+    padding-top: 120px;
   }
 }

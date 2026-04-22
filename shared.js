@@ -37,5 +37,47 @@ function animateFaces() {
   setTimeout(animateFaces, randomBetween(1800, 3500));
 }
 
+function initSharedNavMenu() {
+  const navbars = Array.from(document.querySelectorAll(".app-navbar"));
+  if (navbars.length === 0) return;
+
+  navbars.forEach((navbar) => {
+    const toggle = navbar.querySelector(".nav-toggle");
+    const actions = navbar.querySelector(".nav-actions");
+
+    if (!toggle || !actions) return;
+
+    function setOpen(isOpen) {
+      navbar.classList.toggle("menu-open", isOpen);
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    }
+
+    toggle.addEventListener("click", () => {
+      setOpen(!navbar.classList.contains("menu-open"));
+    });
+
+    actions.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
+    });
+
+    document.addEventListener("click", (event) => {
+      if (!navbar.contains(event.target)) {
+        setOpen(false);
+      }
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 991.98) {
+        setOpen(false);
+      }
+    });
+  });
+}
+
 // expose globally
 window.animateFaces = animateFaces;
+window.initSharedNavMenu = initSharedNavMenu;
+
+document.addEventListener("DOMContentLoaded", () => {
+  initSharedNavMenu();
+});

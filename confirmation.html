@@ -57,24 +57,33 @@
     <nav
       class="navbar navbar-dark app-navbar px-4 d-flex justify-content-between align-items-center"
     >
-      <div class="nav-brand">
+      <a class="nav-brand" href="/" aria-label="CogniFocus home">
         <img
-          src="assets/logo/app-logo.png"
-          class="logo me-2"
-          alt="CogniFocus logo"
+          src="assets/logo/text-logo-tight.png"
+          class="text-logo"
+          alt="CogniFocus"
         />
-        <span class="nav-brand-text">
-          <span class="brand-text">CogniFocus</span>
-          <span class="brand-emoji" aria-label="brain" title="Focus"
-            >&#129504;</span
-          >
-        </span>
-      </div>
+      </a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
 
       <div class="nav-actions d-flex align-items-center gap-2">
         <a href="/" class="nav-link-chip">Home</a>
-        <a href="whats-new.html" class="nav-link-chip nav-update-link"
-          >What's New &#128276;</a
+        <a href="/#focus-loop" class="nav-link-chip">Product</a>
+        <a href="/#why" class="nav-link-chip">Why It Works</a>
+        <a href="pricing.html" class="nav-link-chip">Pricing</a>
+        <a href="whats-new.html" class="nav-link-chip">What's New</a>
+        <a href="/#faq" class="nav-link-chip">FAQ</a>
+        <a href="download.html" class="btn btn-glow primary-cta"
+          >Get CogniFocus</a
         >
       </div>
     </nav>

@@ -58,37 +58,85 @@
       {
         "@context": "https://schema.org",
         "@type": "CollectionPage",
-        "name": "CogniFocus What's New"
+        "name": "CogniFocus What's New",
+        "url": "https://cognifocus.app/whats-new.html",
+        "description": "Public CogniFocus release notes, product updates, feature rollouts, and reliability improvements."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "CogniFocus release timeline",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "What's New (v4.2.0)",
+            "description": "Shield readiness, planned-session reminders, XP, Focus Score, account sync, purchase, setup, and notification reliability improvements."
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "What's New (v4.1.2)",
+            "description": "Onboarding, app selection, smaller-screen layouts, Shield setup, visual polish, stability, and performance improvements."
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "What's New (v4.1.1)",
+            "description": "App selection, Shield actions, yearly pricing clarity, legal dialog, paywall, Shield, and onboarding polish."
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Sharper focus, stronger control",
+            "description": "Manual Block, session objectives, mid-session adjustments, Planned Sessions, and UI performance refinements."
+          }
+        ]
       }
     </script>
     <script src="shared.js?v=20260403-1" defer></script>
     <script src="whats-new.js?v=20260422-1" defer></script>
   </head>
-  <body class="policy-page" data-updates-src="updates.json?v=20260422-1">
+  <body
+    class="policy-page"
+    data-updates-src="updates.json?v=20260422-1"
+    data-static-updates="true"
+  >
     <nav
       class="navbar navbar-dark app-navbar fixed-top px-4 d-flex justify-content-between align-items-center"
     >
-      <div class="nav-brand">
+      <a class="nav-brand" href="/" aria-label="CogniFocus home">
         <img
-          src="assets/logo/app-logo.png"
-          class="logo me-2"
-          alt="CogniFocus logo"
+          src="assets/logo/text-logo-tight.png"
+          class="text-logo"
+          alt="CogniFocus"
         />
-        <span class="nav-brand-text">
-          <span class="brand-text">CogniFocus</span>
-          <span class="brand-emoji" aria-label="brain" title="Focus"
-            >&#129504;</span
-          >
-        </span>
-      </div>
+      </a>
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+      </button>
 
       <div class="nav-actions d-flex align-items-center gap-2">
         <a href="/" class="nav-link-chip">Home</a>
-        <a href="whats-new.html" class="nav-link-chip nav-update-link"
-          >What's New &#128276;</a
+        <a href="/#focus-loop" class="nav-link-chip">Product</a>
+        <a href="/#why" class="nav-link-chip">Why It Works</a>
+        <a href="pricing.html" class="nav-link-chip">Pricing</a>
+        <a href="whats-new.html" class="nav-link-chip active" aria-current="page"
+          >What's New</a
         >
-        <a href="privacy.html" class="nav-link-chip">Privacy</a>
-        <a href="terms.html" class="nav-link-chip">Terms</a>
+        <a href="/#faq" class="nav-link-chip">FAQ</a>
+        <a href="download.html" class="btn btn-glow primary-cta"
+          >Get CogniFocus</a
+        >
       </div>
     </nav>
 
@@ -150,7 +198,62 @@
           <h2>Newest documented release</h2>
         </div>
         <div id="latestRelease" class="release-grid-state">
-          <div class="loading-card">Loading latest update...</div>
+          <article class="release-card">
+            <div class="release-meta">
+              <span class="release-badge">Latest</span>
+              <span class="release-tag">4.2.0</span>
+              <span class="release-status">Shield &amp; Progress Update</span>
+              <span class="release-status">April 22, 2026</span>
+            </div>
+            <h3>What's New (v4.2.0)</h3>
+            <p class="release-summary">
+              Shield readiness is clearer, planned-session reminders are
+              stronger, XP and Focus Score foundations are in place, account
+              sync protects more state, and purchase, setup, and session
+              notifications are more reliable.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>What's New</h2>
+                <ul>
+                  <li>
+                    Shield now clearly tells you when apps or permissions are
+                    missing before a focus session.
+                  </li>
+                  <li>
+                    Planned Sessions now send stronger reminders and keep
+                    missed sessions visible instead of making them disappear.
+                  </li>
+                  <li>
+                    New XP, levels, and Focus Score foundations reward real
+                    focus quality, not random tapping.
+                  </li>
+                  <li>
+                    Cleaner Goblin reactions for streak risk, comebacks, XP
+                    moments, and missed planned sessions.
+                  </li>
+                  <li>
+                    Account sync now protects more progress, settings, and
+                    planned-session state across reinstalls.
+                  </li>
+                  <li>Purchase and account setup flows are more stable.</li>
+                  <li>
+                    Session notifications are more reliable during active focus
+                    sessions.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -162,7 +265,466 @@
           <h2>Earlier documented releases</h2>
         </div>
         <div id="releaseHistory" class="release-history">
-          <div class="loading-card">Loading update history...</div>
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">4.1.2</span>
+              <span class="release-status">Onboarding Polish</span>
+              <span class="release-status">April 21, 2026</span>
+            </div>
+            <h3>What's New (v4.1.2)</h3>
+            <p class="release-summary">
+              Onboarding, app selection, smaller-screen layouts, device
+              consistency, Shield setup, visual polish, stability, and
+              performance all feel cleaner and more reliable.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>What's New</h2>
+                <ul>
+                  <li>Onboarding is smoother and easier to follow.</li>
+                  <li>
+                    Choosing apps for your Shield is now faster and more
+                    intuitive.
+                  </li>
+                  <li>Better layout and spacing on smaller screens.</li>
+                  <li>Improved consistency across different devices.</li>
+                  <li>
+                    Cleaner visuals with more refined spacing and typography.
+                  </li>
+                  <li>Shield setup is now faster and more reliable.</li>
+                  <li>General polish and stability improvements.</li>
+                  <li>Better performance across the app.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">4.1.1</span>
+              <span class="release-status">App Selection &amp; Purchase Polish</span>
+              <span class="release-status">April 20, 2026</span>
+            </div>
+            <h3>What's New (v4.1.1)</h3>
+            <p class="release-summary">
+              Selected apps stay pinned while editing, Shield actions are more
+              consistent, yearly pricing is clearer, legal dialogs are easier
+              to close, and launch flows received polish.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>What's New</h2>
+                <ul>
+                  <li>
+                    Selected apps now stay pinned while you build or edit your
+                    block list.
+                  </li>
+                  <li>
+                    Shield editing actions now match the rest of the app
+                    controls.
+                  </li>
+                  <li>
+                    Yearly Pro pricing is clearer with the monthly equivalent
+                    up front.
+                  </li>
+                  <li>
+                    Terms and Privacy dialogs are shorter, scrollable, and
+                    easier to close.
+                  </li>
+                  <li>
+                    Small launch polish across paywall, Shield, and onboarding
+                    flows.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">4.0.0</span>
+              <span class="release-status">Focus Expansion</span>
+              <span class="release-status">April 17, 2026</span>
+            </div>
+            <h3>Sharper focus, stronger control</h3>
+            <p class="release-summary">
+              Manual Block outside sessions, session objectives used in
+              reactions, mid-session adjustments, smarter guidance, Planned
+              Sessions for Pro, improved personalities, UI and performance
+              refinements.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>What's New</h2>
+                <ul>
+                  <li>Manual Block gives stronger control outside sessions.</li>
+                  <li>
+                    Session objectives are visible and used in reactions.
+                  </li>
+                  <li>
+                    You can adjust a session mid-focus without restarting.
+                  </li>
+                  <li>Smarter focus guidance adds drift and burnout nudges.</li>
+                  <li>Planned Sessions were added to Pro.</li>
+                  <li>Personality responses, UI consistency, notifications,
+                    performance, and stability were improved.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">3.3.0</span>
+              <span class="release-status">Localization Foundation</span>
+              <span class="release-status">April 12, 2026</span>
+            </div>
+            <h3>Text system got smarter</h3>
+            <p class="release-summary">
+              CogniFocus now has a stronger text foundation for future language
+              support and character-based app voice improvements.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>Text system improved</h2>
+                <p>
+                  This update prepares CogniFocus for future language support
+                  and more personality-aware text across the app.
+                </p>
+                <ul>
+                  <li>Improved the text system for future localization.</li>
+                  <li>
+                    Prepared the app for character-based voice and UI copy in
+                    later updates.
+                  </li>
+                  <li>Made legal and update-related text clearer.</li>
+                  <li>Continued polish across Settings and onboarding.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">3.2.2</span>
+              <span class="release-status">Accessibility &amp; Update Clarity</span>
+              <span class="release-status">April 12, 2026</span>
+            </div>
+            <h3>More accessible, easier to follow</h3>
+            <p class="release-summary">
+              This update adds support for reduced motion, stronger contrast,
+              and color-vision options. It also improves how new updates are
+              shown inside the app.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>Accessibility expanded</h2>
+                <ul>
+                  <li>Added reduced motion support.</li>
+                  <li>Improved contrast for readability.</li>
+                  <li>Added color-vision support options.</li>
+                  <li>Added an in-app What's New dialog.</li>
+                  <li>Made update messaging clearer.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">3.2.1</span>
+              <span class="release-status">Shield Reliability Update</span>
+              <span class="release-status">April 12, 2026</span>
+            </div>
+            <h3>Shield got more reliable</h3>
+            <p class="release-summary">
+              Focus Shield now holds up better during active sessions,
+              especially in tougher distraction cases.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>Shield got stronger</h2>
+                <ul>
+                  <li>Improved Shield reliability during focus sessions.</li>
+                  <li>
+                    Strengthened distraction monitoring in tougher cases.
+                  </li>
+                  <li>
+                    Added accessibility improvements across multiple screens.
+                  </li>
+                  <li>Improved UI consistency in different app areas.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">3.2.0</span>
+              <span class="release-status">Focus Expansion</span>
+              <span class="release-status">April 11, 2026</span>
+            </div>
+            <h3>Daily objectives, feedback, and better session flow</h3>
+            <p class="release-summary">
+              This update adds Daily Objective, lightweight post-session
+              feedback, app sharing, and better polish around active sessions.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>Focus experience expanded</h2>
+                <ul>
+                  <li>Added Daily Objective to Focus.</li>
+                  <li>Added lightweight post-session feedback.</li>
+                  <li>Added native app sharing.</li>
+                  <li>Added a teaser for future companions on intro screens.</li>
+                  <li>Improved theme consistency and urgency visuals.</li>
+                  <li>Improved notifications and Shield reliability.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">3.1.3</span>
+              <span class="release-status">Update Prompt Release</span>
+              <span class="release-status">April 8, 2026</span>
+            </div>
+            <h3>Updates are easier to notice</h3>
+            <p class="release-summary">
+              CogniFocus now makes it clearer when a new update is available
+              and helps users understand the next step more easily.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>Update flow improved</h2>
+                <ul>
+                  <li>Added an in-app update prompt.</li>
+                  <li>Made update availability clearer.</li>
+                  <li>Reduced guesswork around what to do next.</li>
+                  <li>
+                    Added groundwork for better release status handling.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">3.1.2</span>
+              <span class="release-status">UI Consistency Pass</span>
+              <span class="release-status">April 8, 2026</span>
+            </div>
+            <h3>Cleaner and more consistent</h3>
+            <p class="release-summary">
+              This update improves spacing, styling, and theme consistency
+              across the app to make everything feel more polished.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>UI consistency improved</h2>
+                <ul>
+                  <li>Cleaned up component styling.</li>
+                  <li>Improved spacing and layout consistency.</li>
+                  <li>Improved theme consistency across screens.</li>
+                  <li>Reduced visual rough edges.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">3.1.1</span>
+              <span class="release-status">Refinement Release</span>
+              <span class="release-status">April 8, 2026</span>
+            </div>
+            <h3>Sharper first impression</h3>
+            <p class="release-summary">
+              This update improves onboarding, Shield setup clarity, theme
+              support, and the in-app update flow.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>First impression improved</h2>
+                <ul>
+                  <li>
+                    Improved onboarding flow with cleaner copy and smoother
+                    motion.
+                  </li>
+                  <li>Improved Shield setup and Shield status screens.</li>
+                  <li>
+                    Added clearer Shield states like Setup Required, Ready,
+                    Waiting for session, and Monitoring distractions.
+                  </li>
+                  <li>Improved Shield overlay visuals in light and dark mode.</li>
+                  <li>Improved the in-app update experience.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">3.0.0</span>
+              <span class="release-status">Product Baseline</span>
+              <span class="release-status">April 7, 2026</span>
+            </div>
+            <h3>A major step forward</h3>
+            <p class="release-summary">
+              This release redesigned the core app flow with a new Focus tab,
+              refreshed onboarding, improved Focus Shield, dark mode, and new
+              timer clock styles.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>Big product update</h2>
+                <ul>
+                  <li>Redesigned the app flow around the new Focus tab.</li>
+                  <li>Refreshed onboarding.</li>
+                  <li>Improved Focus Shield flow.</li>
+                  <li>Added appearance settings including dark mode.</li>
+                  <li>Added new timer clock styles.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="release-card-compact">
+            <div class="release-meta">
+              <span class="release-tag">Website</span>
+              <span class="release-status">Site Update</span>
+              <span class="release-status">April 7, 2026</span>
+            </div>
+            <h3>Website refreshed</h3>
+            <p class="release-summary">
+              The website now works better on smaller screens and includes
+              dedicated Terms and What's New pages.
+            </p>
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+            <div class="release-details" hidden>
+              <div class="release-notes">
+                <h2>Website improvements</h2>
+                <ul>
+                  <li>
+                    Improved navigation and button layout on smaller screens.
+                  </li>
+                  <li>
+                    Made Privacy Policy and Terms pages more consistent.
+                  </li>
+                  <li>Added a dedicated What's New page.</li>
+                </ul>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
     </main>
@@ -182,6 +744,7 @@
         &#128640;
       </p>
       <p class="small mb-0 footer-links">
+        <a href="pricing.html">Pricing</a>
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms.html">Terms of Use</a>
       </p>

@@ -1,122 +1,128 @@
-var characterImg = null;
-var messageBox = null;
-var currentCharacter = "goblin";
+function initLoopTimerDemo() {
+  const timerValue = document.getElementById("loopTimerValue");
+  const timerRing = document.querySelector(".timer-ring");
+  const liveBadge = document.querySelector(".session-live");
+  const controlButtons = Array.from(
+    document.querySelectorAll("[data-timer-action]"),
+  );
 
-const characters = {
-  goblin: {
-    basePath: "assets/characters/goblin/avatar/",
-    start: {
-      mood: "neutral",
-      messages: [
-        "Starting session... try not to mess this up.",
-        "Alright... let's see how long you last.",
-      ],
-    },
-    distraction: {
-      mood: "angry",
-      messages: [
-        "BRO?? already distracted??",
-        "That was fast. Impressive... in a bad way.",
-      ],
-    },
-    complete: {
-      mood: "cheerful",
-      messages: [
-        "Okay... that was actually decent.",
-        "You didn't fail for once. Nice.",
-      ],
-    },
-  },
-};
+  if (!timerValue || !timerRing) return;
 
-function selectCharacter(char) {
-  currentCharacter = char;
-  trigger("start");
-}
+  const totalSeconds = 25 * 60;
+  let elapsed = 2;
+  let isPaused = false;
 
-function trigger(event) {
-  characterImg = characterImg || document.getElementById("character-img");
-  messageBox = messageBox || document.getElementById("message-box");
+  function renderTimer() {
+    const remaining = Math.max(totalSeconds - elapsed, 0);
+    const minutes = String(Math.floor(remaining / 60)).padStart(2, "0");
+    const seconds = String(remaining % 60).padStart(2, "0");
+    const progress = Math.max(8, (remaining / totalSeconds) * 100);
 
-  if (!characterImg || !messageBox) return;
+    timerValue.textContent = `${minutes}:${seconds}`;
+    timerRing.style.setProperty("--timer-progress", `${progress}%`);
+  }
 
-  const char = characters[currentCharacter];
-  const config = char[event];
+  function tickTimer() {
+    if (!isPaused) {
+      elapsed = (elapsed + 1) % totalSeconds;
+      renderTimer();
+    }
+  }
 
-  const randomMessage =
-    config.messages[Math.floor(Math.random() * config.messages.length)];
+  function setPaused(nextPaused) {
+    isPaused = nextPaused;
 
-  characterImg.src = `${char.basePath}${config.mood}.png`;
-  messageBox.innerText = randomMessage;
-  characterImg.classList.remove("character-hidden");
-}
+    if (liveBadge) {
+      liveBadge.textContent = isPaused ? "Paused" : "Live";
+      liveBadge.classList.toggle("is-paused", isPaused);
+    }
 
-function setActiveCard(selected) {
-  document.querySelectorAll(".character-card").forEach((card) => {
-    card.classList.remove("active-card");
-  });
+    controlButtons.forEach((button) => {
+      if (button.dataset.timerAction !== "toggle") return;
 
-  selected.classList.add("active-card");
-}
-
-function initShieldCarousel() {
-  const track = document.getElementById("shieldTrack");
-  const prevBtn = document.getElementById("shieldPrev");
-  const nextBtn = document.getElementById("shieldNext");
-  const dots = Array.from(document.querySelectorAll(".shield-dot"));
-
-  if (!track || !prevBtn || !nextBtn || dots.length === 0) return;
-
-  const slides = Array.from(track.querySelectorAll(".shield-card"));
-  let currentIndex = 0;
-
-  function renderSlide(index) {
-    currentIndex = (index + slides.length) % slides.length;
-    track.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("is-active", i === currentIndex);
-    });
-
-    dots.forEach((dot, i) => {
-      dot.classList.toggle("is-active", i === currentIndex);
+      button.textContent = isPaused ? "Resume" : "Pause";
+      button.setAttribute("aria-pressed", String(isPaused));
+      button.setAttribute(
+        "aria-label",
+        isPaused ? "Resume demo timer" : "Pause demo timer",
+      );
+      button.classList.toggle("is-active", !isPaused);
     });
   }
 
-  prevBtn.addEventListener("click", () => renderSlide(currentIndex - 1));
-  nextBtn.addEventListener("click", () => renderSlide(currentIndex + 1));
+  controlButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const action = button.dataset.timerAction;
 
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => renderSlide(i));
+      if (action === "toggle") {
+        setPaused(!isPaused);
+        return;
+      }
+
+      if (action === "minus") {
+        elapsed = Math.min(totalSeconds - 1, elapsed + 5 * 60);
+      }
+
+      if (action === "plus") {
+        elapsed = Math.max(0, elapsed - 5 * 60);
+      }
+
+      renderTimer();
+    });
   });
 
-  renderSlide(0);
+  renderTimer();
+  window.setInterval(tickTimer, 1000);
 }
 
-// expose globally
-window.selectCharacter = selectCharacter;
-window.trigger = trigger;
-window.setActiveCard = setActiveCard;
+function initProofGoblinFaceCycle() {
+  const face = document.getElementById("proofGoblinFace");
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (!face || prefersReducedMotion) return;
+
+  const faces = [
+    {
+      src: "assets/characters/goblin/face/annoyed.png",
+      alt: "Annoyed Goblin companion reacting to distraction",
+    },
+    {
+      src: "assets/characters/goblin/face/cheerful.png",
+      alt: "Cheerful Goblin companion celebrating clean focus",
+    },
+    {
+      src: "assets/characters/goblin/face/neutral.png",
+      alt: "Neutral Goblin companion watching the session",
+    },
+    {
+      src: "assets/characters/goblin/face/angry.png",
+      alt: "Angry Goblin companion warning about distraction",
+    },
+  ];
+  let index = 0;
+
+  window.setInterval(() => {
+    index = (index + 1) % faces.length;
+    face.classList.add("is-switching");
+
+    window.setTimeout(() => {
+      face.src = faces[index].src;
+      face.alt = faces[index].alt;
+      face.classList.remove("is-switching");
+    }, 280);
+  }, 2400);
+}
 
 window.addEventListener("DOMContentLoaded", () => {
-  characterImg = document.getElementById("character-img");
-  messageBox = document.getElementById("message-box");
-
   // background animation
   if (typeof window.animateFaces === "function") {
     window.animateFaces();
   }
 
-  initShieldCarousel();
-
-  const defaultCard = document.querySelector(
-    '.character-card[onclick*="goblin"]',
-  );
-  if (defaultCard) {
-    setActiveCard(defaultCard);
-  }
-
-  trigger("start");
+  initLoopTimerDemo();
+  initProofGoblinFaceCycle();
 
   // 🔥 SAFE navbar logic
   const navbar = document.querySelector(".app-navbar");

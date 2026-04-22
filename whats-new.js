@@ -204,6 +204,31 @@ function createUpdateCard(update, options) {
   return card;
 }
 
+function hydrateReleaseToggle(card) {
+  const toggleBtn = card.querySelector(".release-toggle-btn");
+  const details = card.querySelector(".release-details");
+
+  if (!toggleBtn || !details || toggleBtn.dataset.hydrated === "true") return;
+
+  toggleBtn.dataset.hydrated = "true";
+  toggleBtn.addEventListener("click", () => {
+    const willOpen = details.hasAttribute("hidden");
+    details.toggleAttribute("hidden", !willOpen);
+    details.classList.toggle("is-open", willOpen);
+    toggleBtn.classList.toggle("is-open", willOpen);
+    toggleBtn.setAttribute("aria-expanded", String(willOpen));
+    toggleBtn.textContent = willOpen
+      ? "Hide detailed notes"
+      : "Read detailed notes";
+  });
+}
+
+function hydrateStaticReleaseCards() {
+  document
+    .querySelectorAll(".release-card, .release-card-compact")
+    .forEach(hydrateReleaseToggle);
+}
+
 async function fetchUpdates(source) {
   const response = await fetch(source, {
     headers: {
@@ -233,6 +258,11 @@ window.addEventListener("DOMContentLoaded", async () => {
   const historyContainer = document.getElementById("releaseHistory");
 
   if (!latestContainer || !historyContainer) return;
+
+  if (document.body.dataset.staticUpdates === "true") {
+    hydrateStaticReleaseCards();
+    return;
+  }
 
   try {
     const updates = await fetchUpdates(source);
