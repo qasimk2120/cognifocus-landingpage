@@ -44,12 +44,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.55rem;
+  gap: 0.65rem;
+  text-align: left;
+}
+
+.download-store-cta__icon-wrap {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(6, 10, 19, 0.2);
+  border: 1px solid rgba(6, 10, 19, 0.14);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 2px 8px rgba(6, 10, 19, 0.16);
 }
 
 .download-store-cta__icon {
-  width: 1.05rem;
-  height: 1.05rem;
+  width: 1.3rem;
+  height: 1.3rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -62,8 +77,47 @@
   display: block;
 }
 
+.download-store-cta__content {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.download-store-cta__eyebrow {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(6, 10, 19, 0.78);
+}
+
 .download-store-cta__label {
   white-space: nowrap;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #04121f;
+}
+
+@media (max-width: 575.98px) {
+  .download-store-cta {
+    gap: 0.55rem;
+  }
+
+  .download-store-cta__icon-wrap {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+
+  .download-store-cta__icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .download-store-cta__label {
+    font-size: 0.84rem;
+  }
 }
 
 .btn-ghost {
