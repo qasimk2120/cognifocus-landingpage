@@ -74,10 +74,37 @@ function initSharedNavMenu() {
   });
 }
 
+function upgradeDownloadCtas() {
+  const downloadCtas = document.querySelectorAll(
+    'a.primary-cta[href*="download.html"]',
+  );
+
+  downloadCtas.forEach((cta) => {
+    if (cta.closest(".app-navbar")) return;
+    if (cta.dataset.playStoreEnhanced === "true") return;
+
+    cta.dataset.playStoreEnhanced = "true";
+    cta.classList.add("download-store-cta");
+    cta.setAttribute("aria-label", "Download on Google Play Store");
+    cta.innerHTML = `
+      <span class="download-store-cta__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false" role="img">
+          <path fill="#34A853" d="M3.6 3.2c-.3.3-.5.7-.5 1.2v15.2c0 .5.2.9.5 1.2l9.2-9.3z"/>
+          <path fill="#EA4335" d="M15.9 12 19 8.9c.9.5 1.4 1 1.4 1.9 0 .9-.5 1.4-1.4 1.9z"/>
+          <path fill="#FBBC05" d="M4.1 20.8c.4.4 1 .6 1.6.2l11-6.3-3.6-2.7z"/>
+          <path fill="#4285F4" d="M4.1 3.2 13.1 12l3.6-2.7-11-6.3c-.6-.3-1.2-.2-1.6.2z"/>
+        </svg>
+      </span>
+      <span class="download-store-cta__label">Download on Google Play Store</span>
+    `;
+  });
+}
+
 // expose globally
 window.animateFaces = animateFaces;
 window.initSharedNavMenu = initSharedNavMenu;
 
 document.addEventListener("DOMContentLoaded", () => {
   initSharedNavMenu();
+  upgradeDownloadCtas();
 });

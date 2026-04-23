@@ -40,6 +40,32 @@
   padding: 12px 32px !important;
 }
 
+.download-store-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+}
+
+.download-store-cta__icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.download-store-cta__icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.download-store-cta__label {
+  white-space: nowrap;
+}
+
 .btn-ghost {
   border-radius: 999px;
   border: 1px solid rgba(77, 208, 255, 0.3);
