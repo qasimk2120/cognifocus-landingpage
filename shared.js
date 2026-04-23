@@ -97,10 +97,7 @@ function upgradeDownloadCtas() {
           </svg>
         </span>
       </span>
-      <span class="download-store-cta__content">
-        <span class="download-store-cta__eyebrow">Download on</span>
-        <span class="download-store-cta__label">Google Play Store</span>
-      </span>
+      <span class="download-store-cta__label">Download on Google Play Store</span>
     `;
   });
 }

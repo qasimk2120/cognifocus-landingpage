@@ -592,11 +592,19 @@ footer {
   gap: 0.9rem;
 }
 
+.footer-actions--social-only {
+  justify-items: center;
+}
+
 .footer-socials {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 0.65rem;
+}
+
+.footer-actions--social-only .footer-socials {
+  justify-content: center;
 }
 
 .footer-actions .btn {
