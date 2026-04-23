@@ -3,112 +3,112 @@
     "version": "4.3.0",
     "category": "Focus Polish",
     "date": "2026-04-24",
-    "title": "Focus Polish (v4.3.0)",
-    "summary": "Daily planning and Focus Intention flows are cleaner, setup and Shield controls feel more consistent, progression feedback is smoother, support details auto-fill better, and core cleanup improves overall stability.",
+    "title": "Daily Planning & Focus Polish (v4.3.0)",
+    "summary": "Daily planning now feels easier to run, focus controls are clearer, and support flows give you faster help with less typing.",
     "notes": "## What's New\n- Daily planning and Focus Intention flows are now cleaner and easier to manage\n- Session setup, Shield, and focus controls feel more consistent across the app\n- Header and progression visuals are clearer, with smoother XP feedback and polish\n- Support form now better auto-fills your info (including linked email and saved name)\n- Support requests now send clearer contact context so replies are easier\n- Large internal cleanup improved stability and maintainability across core features"
   },
   {
     "version": "4.2.0",
     "category": "Shield & Progress Update",
     "date": "2026-04-22",
-    "title": "What's New (v4.2.0)",
-    "summary": "Shield readiness is clearer, planned-session reminders are stronger, XP and Focus Score foundations are in place, account sync protects more state, and purchase, setup, and session notifications are more reliable.",
-    "notes": "## What's New\n- Shield now clearly tells you when apps or permissions are missing before a focus session\n- Planned Sessions now send stronger reminders and keep missed sessions visible instead of making them disappear\n- New XP, levels, and Focus Score foundations reward real focus quality, not random tapping\n- Cleaner Goblin reactions for streak risk, comebacks, XP moments, and missed planned sessions\n- Account sync now protects more progress, settings, and planned-session state across reinstalls\n- Purchase and account setup flows are more stable\n- Session notifications are more reliable during active focus sessions"
+    "title": "Control, Progress & Reliability (v4.2.0)",
+    "summary": "Focus sessions feel more predictable: Shield readiness is clearer, reminders are stronger, and progress tracking gives better feedback.",
+    "notes": "## What's New\n- Shield now clearly tells you when apps or permissions are missing before a focus session\n- Planned Sessions now send stronger reminders and keep missed sessions visible\n- New XP, levels, and Focus Score begin shaping progress around real focus quality\n- Goblin reactions now better reflect streak risk, comebacks, XP moments, and missed planned sessions\n- Account sync now protects more progress, settings, and planned-session state across reinstalls\n- Purchase and account setup flows are more stable\n- Session notifications are more reliable during active focus sessions"
   },
   {
     "version": "4.1.2",
     "category": "Onboarding Polish",
     "date": "2026-04-21",
-    "title": "What's New (v4.1.2)",
-    "summary": "Onboarding, app selection, smaller-screen layouts, device consistency, Shield setup, visual polish, stability, and performance all feel cleaner and more reliable.",
-    "notes": "## What's New\n- Onboarding is smoother and easier to follow\n- Choosing apps for your Shield is now faster and more intuitive\n- Better layout and spacing on smaller screens\n- Improved consistency across different devices\n- Cleaner visuals with more refined spacing and typography\n- Shield setup is now faster and more reliable\n- General polish and stability improvements\n- Better Performance across the app"
+    "title": "Setup & Onboarding Smoother (v4.1.2)",
+    "summary": "Getting started is easier, Shield setup feels clearer, and smaller-screen layouts are more comfortable during onboarding.",
+    "notes": "## What's New\n- Onboarding is smoother and easier to follow\n- Choosing apps for your Shield is now faster and more intuitive\n- Better layout and spacing on smaller screens\n- Improved consistency across different devices\n- Cleaner visuals with more refined spacing and typography\n- Shield setup is now faster and more reliable\n- General polish and stability improvements\n- Better performance across the app"
   },
   {
     "version": "4.1.1",
     "category": "App Selection & Purchase Polish",
     "date": "2026-04-20",
-    "title": "What's New (v4.1.1)",
-    "summary": "Selected apps stay pinned while editing, Shield actions are more consistent, yearly pricing is clearer, legal dialogs are easier to close, and launch flows received polish.",
+    "title": "Launch Setup & Purchase Flow Updates (v4.1.1)",
+    "summary": "App selection and paywall clarity improved, so setup feels more guided and launch decisions are easier.",
     "notes": "## What's New\n- Selected apps now stay pinned while you build or edit your block list\n- Shield editing actions now match the rest of the app controls\n- Yearly Pro pricing is clearer with the monthly equivalent up front\n- Terms and Privacy dialogs are shorter, scrollable, and easier to close\n- Small launch polish across paywall, Shield, and onboarding flows"
   },
   {
     "version": "4.0.0",
     "category": "Focus Expansion",
     "date": "2026-04-17",
-    "title": "Sharper focus, stronger control",
-    "summary": "Manual Block outside sessions, session objectives used in reactions, mid-session adjustments, smarter guidance, Planned Sessions for Pro, improved personalities, UI & performance refinements.",
-    "notes": "## What's New\n- Manual Block — stronger control outside sessions\n- Session objectives visible and used in reactions\n- Adjust session mid-focus without restarting\n- Smarter focus guidance (drift + burnout nudges)\n- Planned Sessions added to Pro\n- Improved personality responses\n\n## Improvements\n- UI consistency, notification reliability, performance, and stability\n\n## Result\nMore control. Less excuses."
+    "title": "Focus Expansion: Sharper Control (v4.0.0)",
+    "summary": "CogniFocus expanded beyond a basic timer with Manual Block, smarter guidance, and stronger in-session control.",
+    "notes": "## What's New\n- Manual Block adds stronger control outside sessions\n- Session objectives are visible and used in reactions\n- You can adjust a session mid-focus without restarting\n- Smarter focus guidance adds drift and burnout nudges\n- Planned Sessions were added to Pro\n- Personality responses were improved\n\n## Improvements\n- UI consistency, notification reliability, performance, and stability"
   },
   {
     "version": "3.3.0",
     "category": "Localization Foundation",
     "date": "2026-04-12",
-    "title": "Text system got smarter",
-    "summary": "CogniFocus now has a stronger text foundation for future language support and character-based app voice improvements. This update also includes clearer legal and update messaging, plus polish across key screens.",
-    "notes": "## Text system improved\nThis update prepares CogniFocus for future language support and more personality-aware text across the app.\n\n## What's improved\n- Improved the text system to support future localization\n- Prepared the app for character-based voice and UI copy in later updates\n- Made legal and update-related text clearer\n- Continued polish across Settings, onboarding, and content screens\n\n## Overall result\nThis release mostly improves the foundation, making future updates cleaner and more flexible."
+    "title": "Text & Localization Foundation (v3.3.0)",
+    "summary": "Text systems were reworked to make app copy clearer now and ready for stronger language support later.",
+    "notes": "## What's Improved\n- Improved the text system to support future localization\n- Prepared the app for character-based voice and UI copy in later updates\n- Made legal and update-related text clearer\n- Continued polish across Settings, onboarding, and content screens"
   },
   {
     "version": "3.2.2",
     "category": "Accessibility & Update Clarity",
     "date": "2026-04-12",
-    "title": "More accessible, easier to follow",
-    "summary": "This update adds support for reduced motion, stronger contrast, and color-vision options. It also improves how new updates are shown inside the app.",
-    "notes": "## Accessibility expanded\nCogniFocus is now easier to use for more people, while update messages inside the app are clearer.\n\n## What's improved\n- Added reduced motion support\n- Improved contrast for readability\n- Added color-vision support options\n- Added an in-app What's New dialog\n- Made update messaging clearer\n\n## Overall result\nThe app feels more inclusive and makes it easier to notice meaningful updates."
+    "title": "Accessibility & Update Clarity (v3.2.2)",
+    "summary": "Accessibility options expanded and update messaging became clearer, so the app is easier to use and easier to trust.",
+    "notes": "## What's Improved\n- Added reduced motion support\n- Improved contrast for readability\n- Added color-vision support options\n- Added an in-app What's New dialog\n- Made update messaging clearer"
   },
   {
     "version": "3.2.1",
     "category": "Shield Reliability Update",
     "date": "2026-04-12",
-    "title": "Shield got more reliable",
-    "summary": "Focus Shield now holds up better during active sessions, especially in tougher distraction cases. This update also includes UI consistency and accessibility improvements.",
-    "notes": "## Shield got stronger\nThis release improves how reliably Shield responds when distractions happen.\n\n## What's improved\n- Improved Shield reliability during focus sessions\n- Strengthened distraction monitoring in tougher cases\n- Added accessibility improvements across multiple screens\n- Improved UI consistency in different parts of the app\n\n## Overall result\nShield feels more dependable when it matters most."
+    "title": "Shield Predictability Upgrade (v3.2.1)",
+    "summary": "Shield behavior became more dependable during active sessions, especially in harder distraction moments.",
+    "notes": "## What's Improved\n- Improved Shield reliability during focus sessions\n- Strengthened distraction monitoring in tougher cases\n- Added accessibility improvements across multiple screens\n- Improved UI consistency in different parts of the app"
   },
   {
     "version": "3.2.0",
     "category": "Focus Expansion",
     "date": "2026-04-11",
-    "title": "Daily objectives, feedback, and better session flow",
-    "summary": "This update adds Daily Objective, lightweight post-session feedback, app sharing, and better polish around active sessions. It also improves visuals, notifications, and Shield behavior.",
-    "notes": "## Focus experience expanded\nThis release adds a few lightweight features and improves how sessions feel before, during, and after focus time.\n\n## What's improved\n- Added Daily Objective to Focus\n- Added lightweight post-session feedback\n- Added native app sharing\n- Added a teaser for future companions on intro screens\n- Improved theme consistency\n- Improved end-of-session urgency visuals\n- Improved notifications and Shield reliability\n\n## Overall result\nFocus sessions feel more guided, more alive, and better supported."
+    "title": "Session Experience Expansion (v3.2.0)",
+    "summary": "Sessions gained better day-to-day structure with Daily Objective, post-session feedback, and smoother active-session flow.",
+    "notes": "## What's Improved\n- Added Daily Objective to Focus\n- Added lightweight post-session feedback\n- Added native app sharing\n- Added a teaser for future companions on intro screens\n- Improved theme consistency\n- Improved end-of-session urgency visuals\n- Improved notifications and Shield reliability"
   },
   {
     "version": "3.1.3",
     "category": "Update Prompt Release",
     "date": "2026-04-08",
-    "title": "Updates are easier to notice",
-    "summary": "CogniFocus now makes it clearer when a new update is available and helps users understand the next step more easily.",
-    "notes": "## Update flow improved\nThis release makes app updates easier to notice from inside the app.\n\n## What's improved\n- Added an in-app update prompt\n- Made update availability clearer\n- Reduced guesswork around what to do next\n- Added groundwork for better release status handling\n\n## Overall result\nUpdating the app now feels more direct and less confusing."
+    "title": "Update Prompt Experience (v3.1.3)",
+    "summary": "New update prompts make it clearer when a release is available and what to do next.",
+    "notes": "## What's Improved\n- Added an in-app update prompt\n- Made update availability clearer\n- Reduced guesswork around what to do next\n- Added groundwork for better release status handling"
   },
   {
     "version": "3.1.2",
     "category": "UI Consistency Pass",
     "date": "2026-04-08",
-    "title": "Cleaner and more consistent",
-    "summary": "This update improves spacing, styling, and theme consistency across the app to make everything feel more polished.",
-    "notes": "## UI consistency improved\nThis is a polish-focused update that smooths out the app's look and feel.\n\n## What's improved\n- Cleaned up component styling\n- Improved spacing and layout consistency\n- Improved theme consistency across screens\n- Reduced visual rough edges\n\n## Overall result\nCogniFocus feels more cohesive and refined."
+    "title": "UI Refinement Pass (v3.1.2)",
+    "summary": "Spacing, styling, and theme behavior were refined so everyday navigation feels more cohesive.",
+    "notes": "## What's Improved\n- Cleaned up component styling\n- Improved spacing and layout consistency\n- Improved theme consistency across screens\n- Reduced visual rough edges"
   },
   {
     "version": "3.1.1",
     "category": "Refinement Release",
     "date": "2026-04-08",
-    "title": "Sharper first impression",
-    "summary": "This update improves onboarding, Shield setup clarity, theme support, and the in-app update flow. It makes the app feel more polished right from the start.",
-    "notes": "## First impression improved\nThis release focuses on the parts of the app users notice first.\n\n## What's improved\n- Improved onboarding flow with cleaner copy and smoother motion\n- Removed weaker onboarding steps\n- Improved Shield setup and Shield status screens\n- Added clearer Shield states like Setup Required, Ready, Waiting for session, and Monitoring distractions\n- Improved Shield overlay visuals in light and dark mode\n- Improved the in-app update experience\n- Polished home and onboarding labels\n\n## Overall result\nThe app now feels clearer, stronger, and more polished from the first screen onward."
+    "title": "First Impression Refresh (v3.1.1)",
+    "summary": "Early experience updates made onboarding, Shield setup, and first-session flow easier to understand from day one.",
+    "notes": "## What's Improved\n- Improved onboarding flow with cleaner copy and smoother motion\n- Removed weaker onboarding steps\n- Improved Shield setup and Shield status screens\n- Added clearer Shield states like Setup Required, Ready, Waiting for session, and Monitoring distractions\n- Improved Shield overlay visuals in light and dark mode\n- Improved the in-app update experience\n- Polished home and onboarding labels"
   },
   {
     "version": "3.0.0",
     "category": "Product Baseline",
     "date": "2026-04-07",
-    "title": "A major step forward",
-    "summary": "This release redesigned the core app flow with a new Focus tab, refreshed onboarding, improved Focus Shield, dark mode, and new timer clock styles.",
-    "notes": "## Big product update\nThis release marks a major improvement in the CogniFocus experience.\n\n## What's included\n- Redesigned app flow around the new Focus tab\n- Refreshed onboarding\n- Improved Focus Shield flow\n- Added appearance settings including dark mode\n- Added new timer clock styles\n\n## Overall result\nCogniFocus feels cleaner, smoother, and more intentional across the whole journey."
+    "title": "Product Baseline: New Focus Flow (v3.0.0)",
+    "summary": "This release established the modern CogniFocus baseline with a rebuilt flow, refreshed onboarding, and upgraded Shield experience.",
+    "notes": "## What's Included\n- Redesigned app flow around the new Focus tab\n- Refreshed onboarding\n- Improved Focus Shield flow\n- Added appearance settings including dark mode\n- Added new timer clock styles"
   },
   {
     "version": "Website",
     "category": "Site Update",
     "date": "2026-04-07",
-    "title": "Website refreshed",
-    "summary": "The website now works better on smaller screens and includes dedicated Terms and What's New pages.",
-    "notes": "## Website improvements\nThis update improves the website experience and makes release notes easier to find.\n\n## What's improved\n- Improved navigation and button layout on smaller screens\n- Made Privacy Policy and Terms pages more consistent\n- Added a dedicated What's New page\n\n## Overall result\nThe website feels more polished, responsive, and easier to navigate."
+    "title": "Website Refresh",
+    "summary": "The website became easier to navigate on smaller screens, with clearer legal pages and a dedicated What's New timeline.",
+    "notes": "## What's Improved\n- Improved navigation and button layout on smaller screens\n- Made Privacy Policy and Terms pages more consistent\n- Added a dedicated What's New page"
   }
 ]
