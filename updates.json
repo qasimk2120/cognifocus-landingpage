@@ -1,5 +1,13 @@
 [
   {
+    "version": "4.3.0",
+    "category": "Focus Polish",
+    "date": "2026-04-24",
+    "title": "Focus Polish (v4.3.0)",
+    "summary": "Daily planning and Focus Intention flows are cleaner, setup and Shield controls feel more consistent, progression feedback is smoother, support details auto-fill better, and core cleanup improves overall stability.",
+    "notes": "## What's New\n- Daily planning and Focus Intention flows are now cleaner and easier to manage\n- Session setup, Shield, and focus controls feel more consistent across the app\n- Header and progression visuals are clearer, with smoother XP feedback and polish\n- Support form now better auto-fills your info (including linked email and saved name)\n- Support requests now send clearer contact context so replies are easier\n- Large internal cleanup improved stability and maintainability across core features"
+  },
+  {
     "version": "4.2.0",
     "category": "Shield & Progress Update",
     "date": "2026-04-22",
