@@ -1,4 +1,29 @@
 [
+  {},
+  {
+    "version": "4.3.3",
+    "category": "Support & UI Polish",
+    "date": "2026-04-28",
+    "title": "What's New (v4.3.3)",
+    "summary": "Support flow got polished with clearer feedback, account handling improved, and UI consistency across dialogs.",
+    "notes": "## What's New\n- Support flow got a full polish with clearer in-app feedback states\n- Google account connection handling is cleaner when sign-in is cancelled\n- Support confirmation emails are now branded with updated legal and social links\n- UI polish improvements across dialogs and footer content alignment\n- General fixes for consistency and release stability"
+  },
+  {
+    "version": "4.3.2",
+    "category": "Prompt & Settings Polish",
+    "date": "2026-04-28",
+    "title": "What's New (v4.3.2)",
+    "summary": "Mini fixes and improved prompt reliability, with new quick Settings actions for feedback and sharing.",
+    "notes": "## What's New\n- Mini fixes and polish update\n- Update prompt now appears more reliably outside Home (including Settings)\n- Fixed Google account sync flow from Settings\n- Added quick Settings actions for feedback, rating, and sharing CogniFocus\n- Improved prompt timing so feedback and review prompts do not overlap"
+  },
+  {
+    "version": "4.3.1",
+    "category": "Quick Fixes & Improvements",
+    "date": "2026-04-28",
+    "title": "What's New (v4.3.1)",
+    "summary": "Quick fixes and improvements for account sync, feedback, and prompt timing.",
+    "notes": "## What's New\n- Quick fixes & improvements\n- Fixed Google account sync from Settings\n- Added easier ways to send feedback, rate, and share CogniFocus\n- Improved timing so prompts don't overlap during sessions"
+  },
   {
     "version": "4.3.0",
     "category": "Focus Polish",
