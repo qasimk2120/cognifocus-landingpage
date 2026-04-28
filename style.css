@@ -100,8 +100,42 @@
   color: #04121f;
 }
 
+/* Unified download / play CTA styles — apply to existing play/waitlist CTAs */
+.download-store-cta,
+.play-store-btn,
+.waitlist-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.download-store-cta__label {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
 @media (max-width: 575.98px) {
   .download-store-cta {
+    gap: 0.55rem;
+  }
+
+  .download-store-cta__icon-wrap {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+
+  .download-store-cta__icon {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .download-store-cta,
+  .play-store-btn,
+  .waitlist-btn {
     gap: 0.55rem;
   }
 
@@ -2230,7 +2264,54 @@ small {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-  align-items: stretch;
+  align-items: center;
+}
+
+/* Smaller, centered CTA on narrow screens to avoid layout breakage */
+@media (max-width: 767.98px) {
+  .final-cta-box .play-store-btn,
+  .play-store-card .play-store-btn,
+  .final-cta-box .download-store-cta {
+    width: auto !important;
+    max-width: 320px !important;
+    padding: 10px 18px !important;
+    font-size: 0.88rem !important;
+    line-height: 1 !important;
+    margin: 0 auto !important;
+  }
+
+  .play-store-card {
+    justify-content: center;
+  }
+}
+
+/* Extra-small screens: make final CTA more compact */
+@media (max-width: 480px) {
+  .final-cta-box .download-store-cta,
+  .final-cta-box .play-store-btn,
+  .play-store-card .download-store-cta {
+    max-width: 260px !important;
+    padding: 8px 14px !important;
+    font-size: 0.8rem !important;
+    border-radius: 40px !important;
+  }
+
+  .final-cta-box .download-store-cta .download-store-cta__icon-wrap,
+  .play-store-card .download-store-cta .download-store-cta__icon-wrap {
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+  }
+
+  .final-cta-box .download-store-cta .download-store-cta__icon,
+  .play-store-card .download-store-cta .download-store-cta__icon {
+    width: 1rem !important;
+    height: 1rem !important;
+  }
+
+  .final-cta-box {
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
+  }
 }
 
 .play-store-btn {
@@ -2241,6 +2322,23 @@ small {
   font-size: 1.05rem;
   line-height: 1.2;
   text-align: center;
+}
+
+/* On landing page hero and final CTA, make Play CTAs match the download-store style exactly */
+.hero-cta .primary-cta,
+.final-cta-box .play-store-btn,
+.download-store-cta,
+.hero-cta .play-store-btn {
+  width: auto !important;
+  padding: 12px 28px !important;
+  font-size: 0.9rem !important;
+  line-height: 1 !important;
+  font-weight: 800 !important;
+  text-transform: none !important;
+  border-radius: 999px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
 }
 
 .waitlist-form {
@@ -2306,6 +2404,9 @@ small {
   white-space: nowrap;
   border-radius: 999px !important;
   box-shadow: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
 }
 
 .hero-cta .btn:hover {
