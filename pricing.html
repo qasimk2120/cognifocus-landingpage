@@ -122,10 +122,10 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="privacy.css" />
+
     <script src="shared.js?v=20260423-1" defer></script>
   </head>
-  <body class="policy-page pricing-page">
+  <body class="pricing-page">
     <nav
       class="navbar navbar-dark app-navbar fixed-top px-4 d-flex justify-content-between align-items-center"
     >
@@ -162,23 +162,22 @@
       </div>
     </nav>
 
-    <header class="policy-hero">
-      <div class="policy-badge">
-        Pricing <span aria-hidden="true">&#128142;</span>
+    <header class="container text-center py-5 pricing-page-hero">
+      <div class="pricing-heading mx-auto">
+        <span class="feature-kicker">
+          Pricing <span aria-hidden="true">&#128142;</span>
+        </span>
+
+        <h1 class="mb-3">CogniFocus Pricing</h1>
+
+        <p class="hero-muted-override mb-0">
+          Start free, then unlock stronger planning, reminders, Shield
+          capacity, recovery support, and Pro restore tools.
+        </p>
       </div>
-      <h1>CogniFocus Pricing</h1>
-      <p class="policy-keyword-variation">
-        Compare the free focus companion with Pro plans for stronger Shield
-        protection, planned sessions, reminders, recovery nudges, and paid-tier
-        restore support.
-      </p>
-      <p class="policy-subtitle">
-        Monthly Pro is $3.99 after a 7-day trial. Yearly Pro is $31.99 with no
-        trial and works out to about $2.67 per month.
-      </p>
     </header>
 
-    <main class="policy-main whats-new-main">
+    <main class="container py-5">
       <section class="pricing-panel mx-auto">
         <div class="row g-4 align-items-stretch">
           <div class="col-lg-4">
@@ -187,7 +186,9 @@
                 <span class="pricing-label">Basic</span>
                 <h2>Free</h2>
                 <p class="pricing-price">$0</p>
-                <p class="pricing-note">For starting focus with the companion.</p>
+                <p class="pricing-note">
+                  For starting focus with the companion.
+                </p>
               </div>
               <ul class="pricing-list">
                 <li>Core focus sessions and countdown controls</li>
@@ -220,12 +221,13 @@
           </div>
 
           <div class="col-lg-4">
-            <article class="pricing-card h-100">
+            <article class="pricing-card pricing-card-yearly h-100">
               <div class="pricing-card-top">
                 <span class="pricing-label">Pro Yearly</span>
                 <h2>Best Value</h2>
-                <p class="pricing-price">$31.99 <span>/ year</span></p>
-                <p class="pricing-note">No trial. About $2.67/month.</p>
+                <p class="pricing-price">$2.67 <span>/ month</span></p>
+                <p class="pricing-micro">Best value for long-term focus</p>
+                <p class="pricing-note">Billed yearly at $31.99. About $2.67/month</p>
               </div>
               <ul class="pricing-list">
                 <li>More blocked apps for Focus Shield</li>
@@ -233,64 +235,157 @@
                 <li>Planned Sessions and reminders</li>
                 <li>Same Pro tools, lower yearly price</li>
               </ul>
-              <a href="download.html" class="pricing-link">Choose yearly</a>
+              <a
+                href="download.html"
+                class="btn btn-glow pricing-cta pricing-cta-yearly"
+                >Lock in yearly — Save 33%</a
+              >
             </article>
           </div>
         </div>
       </section>
 
-      <section class="policy-card policy-card-highlight mt-4">
-        <div class="policy-card-header">
-          <div class="policy-icon">&#128737;</div>
-          <div>
-            <h2>What Pro is for</h2>
-            <p>
-              Pro is built for users who want CogniFocus to do more than time a
-              session. It adds stronger protection, planned accountability, and
-              recovery tools around the companion loop.
+      <section class="container py-5">
+        <div class="faq-panel mx-auto">
+          <div class="text-center faq-heading mx-auto">
+            <span class="feature-kicker">
+              Pro Details <span aria-hidden="true">&#128737;</span>
+            </span>
+            <h2 class="mb-3">What Pro is for.</h2>
+            <p class="hero-muted-override mb-0">
+              Pro is for users who want CogniFocus to protect the habit, not
+              just time a session.
             </p>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3>Stronger protection</h3>
+              <p class="mb-0">
+                More Shield capacity, Manual Block, and stronger distraction
+                control.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Planned accountability</h3>
+              <p class="mb-0">
+                Planned Sessions and reminders help you show up before focus
+                slips.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Recovery support</h3>
+              <p class="mb-0">
+                Recovery nudges help bring users back after missed sessions or
+                drift.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="policy-card">
-        <div class="policy-card-header">
-          <div class="policy-icon">&#10067;</div>
-          <div>
-            <h2>Pricing questions</h2>
-            <p>
-              Subscriptions are handled through Google Play and RevenueCat. The
-              exact billing confirmation is always shown inside the Google Play
-              purchase flow before you subscribe.
-            </p>
+      <section class="container py-5">
+        <div class="faq-panel mx-auto">
+          <div class="text-center faq-heading mx-auto">
+            <span class="feature-kicker">
+              FAQ <span aria-hidden="true">&#10067;</span>
+            </span>
+            <h2 class="mb-3">Pricing questions.</h2>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3>How much is Pro Monthly?</h3>
+              <p class="mb-0">$3.99/month after a 7-day trial.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3>How much is Pro Yearly?</h3>
+              <p class="mb-0">$31.99/year. About $2.67/month.</p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Where do I manage billing?</h3>
+              <p class="mb-0">Subscriptions are managed through Google Play.</p>
+            </div>
           </div>
         </div>
-        <ul class="policy-list">
-          <li>Monthly Pro: $3.99 after a 7-day trial.</li>
-          <li>Yearly Pro: $31.99 with no trial.</li>
-          <li>You can manage subscriptions through Google Play.</li>
-        </ul>
       </section>
     </main>
 
-    <footer class="text-center py-4">
-      <p class="small mb-2">
-        CogniFocus &mdash; Focus, but alive. <span title="Alive">&#10024;</span>
-      </p>
-      <p class="small text-muted hero-muted-override">
-        Built by
-        <a
-          href="https://qasimk2120.github.io/cognielevate/"
-          target="_blank"
-          rel="noopener"
-          >CogniElevate</a
-        >
-        &#128640;
-      </p>
-      <p class="small mb-0 footer-links">
-        <a href="privacy.html">Privacy Policy</a>
-        <a href="terms.html">Terms of Use</a>
-      </p>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/logo/app-logo.png" class="footer-logo" alt="" />
+          <img
+            src="assets/logo/text-logo-tight.png"
+            class="footer-text-logo"
+            alt="CogniFocus"
+          />
+          <p>Focus, but alive. Built by CogniElevate.</p>
+        </div>
+
+        <nav class="footer-links" aria-label="Footer links">
+          <a href="/#focus-loop">Product</a>
+          <a href="/#why">Why It Works</a>
+          <a href="/#faq">FAQ</a>
+          <a href="pricing.html">Pricing</a>
+          <a href="whats-new.html">What's New</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </nav>
+
+        <div class="footer-actions footer-actions--social-only">
+          <div class="footer-socials" aria-label="Social links">
+            <a
+              href="https://www.tiktok.com/@cognielevate"
+              target="_blank"
+              rel="noopener"
+              aria-label="TikTok"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
+                alt=""
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/cognifocus.app/"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+                alt=""
+              />
+            </a>
+            <a
+              href="https://x.com/cognielevate"
+              target="_blank"
+              rel="noopener"
+              aria-label="X"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg"
+                alt=""
+              />
+            </a>
+            <a
+              href="https://wa.me/923262878356"
+              target="_blank"
+              rel="noopener"
+              aria-label="WhatsApp"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
