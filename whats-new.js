@@ -259,6 +259,11 @@ window.addEventListener("DOMContentLoaded", async () => {
 
   if (!latestContainer || !historyContainer) return;
 
+  if (window.location.protocol === "file:") {
+    hydrateStaticReleaseCards();
+    return;
+  }
+
   if (document.body.dataset.staticUpdates === "true") {
     hydrateStaticReleaseCards();
     return;

@@ -1,12 +1,19 @@
 [
-  {},
+  {
+    "version": "4.4.0",
+    "category": "Progression & Rewards Upgrade",
+    "date": "2026-04-30",
+    "title": "Progression Feels Better Every Session (v4.4.0)",
+    "summary": "CogniFocus now gives a clearer focus progression system with smoother XP, live Diamonds rewards, and better cloud sync clarity across daily sessions.",
+    "notes": "## What's New\n- Clearer XP progression and level feedback so your focus progress is easier to understand at a glance\n- Diamonds are now live, including milestone rewards and tier bonuses for Pro and Limitless users\n- Rewards now feel more connected across streaks, XP, and Diamonds after each session\n- Cloud sync messaging is clearer, including delayed-sync status when you're offline\n- Settings received a cleaner footer and social layout, plus better mobile polish\n- Local Dev Tools behavior is more stable when cloud sync is temporarily unavailable\n- Character and perk unlocks tied to Diamonds are planned for upcoming updates"
+  },
   {
     "version": "4.3.3",
     "category": "Support & UI Polish",
     "date": "2026-04-28",
     "title": "What's New (v4.3.3)",
-    "summary": "Support flow got polished with clearer feedback, account handling improved, and UI consistency across dialogs.",
-    "notes": "## What's New\n- Support flow got a full polish with clearer in-app feedback states\n- Google account connection handling is cleaner when sign-in is cancelled\n- Support confirmation emails are now branded with updated legal and social links\n- UI polish improvements across dialogs and footer content alignment\n- General fixes for consistency and release stability"
+    "summary": "Getting help is now faster and clearer, with a better support form experience, stronger feedback handling, and cleaner in-app messaging.",
+    "notes": "## What's New\n- Added a new support request modal and cleaner feedback form flow\n- Settings support actions are now easier to use with stronger validation and submission handling\n- Support and feedback submissions now show clearer error and success messaging\n- App notices and alerts are now more consistent across Settings and support actions\n- Global modal and alert styling received a polish pass for a cleaner mobile experience"
   },
   {
     "version": "4.3.2",
