@@ -122,3 +122,69 @@ body.privacy-page {
     grid-template-columns: 1fr;
   }
 }
+@media (prefers-color-scheme: light) {
+  body.privacy-page {
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(39, 180, 134, 0.12),
+        transparent 36%
+      ),
+      radial-gradient(
+        circle at 82% 4%,
+        rgba(44, 142, 204, 0.14),
+        transparent 38%
+      ),
+      #f5f8fc;
+    color: #102033;
+  }
+
+  .privacy-page .privacy-hero h1 {
+    color: #102033 !important;
+  }
+
+  .privacy-page .privacy-keyword-variation {
+    color: #0e6ea8 !important;
+  }
+
+  .privacy-page .privacy-subtitle {
+    color: #44566f !important;
+    text-shadow: none !important;
+  }
+
+  .privacy-page .privacy-card {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(240, 247, 255, 0.94)
+    );
+    border-color: rgba(54, 125, 171, 0.2);
+    box-shadow:
+      0 20px 48px rgba(21, 48, 84, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  }
+
+  .privacy-page .privacy-card-highlight,
+  .privacy-page .privacy-summary-card {
+    border-color: rgba(31, 151, 111, 0.3);
+    box-shadow:
+      0 24px 54px rgba(21, 48, 84, 0.14),
+      0 0 0 1px rgba(31, 151, 111, 0.08);
+  }
+
+  .privacy-page .privacy-card h2 {
+    color: #102033 !important;
+  }
+
+  .privacy-page .privacy-card p,
+  .privacy-page .privacy-card li,
+  .privacy-page .privacy-list {
+    color: #44566f !important;
+  }
+
+  .privacy-page .privacy-icon {
+    background: rgba(16, 112, 164, 0.08);
+    border-color: rgba(16, 112, 164, 0.22);
+    color: #0e6ea8;
+  }
+}

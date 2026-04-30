@@ -188,3 +188,63 @@ body.terms-page {
     font-size: 0.98rem;
   }
 }
+@media (prefers-color-scheme: light) {
+  body.terms-page {
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(39, 180, 134, 0.12),
+        transparent 36%
+      ),
+      radial-gradient(
+        circle at 82% 4%,
+        rgba(44, 142, 204, 0.14),
+        transparent 38%
+      ),
+      #f5f8fc;
+    color: #102033;
+  }
+
+  .terms-page .legal-hero h1 {
+    color: #102033 !important;
+  }
+
+  .terms-page .legal-subtitle {
+    color: #44566f !important;
+    text-shadow: none !important;
+  }
+
+  .terms-page .legal-card {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(240, 247, 255, 0.94)
+    );
+    border-color: rgba(54, 125, 171, 0.2);
+    box-shadow:
+      0 20px 48px rgba(21, 48, 84, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  }
+
+  .terms-page .legal-card-highlight {
+    border-color: rgba(31, 151, 111, 0.3);
+    box-shadow:
+      0 24px 54px rgba(21, 48, 84, 0.14),
+      0 0 0 1px rgba(31, 151, 111, 0.08);
+  }
+
+  .terms-page .legal-card h2,
+  .terms-page .legal-card strong {
+    color: #102033 !important;
+  }
+
+  .terms-page .legal-card p,
+  .terms-page .legal-list,
+  .terms-page .legal-list li {
+    color: #44566f !important;
+  }
+
+  .terms-page .legal-icon {
+    box-shadow: 0 14px 28px rgba(21, 48, 84, 0.16);
+  }
+}

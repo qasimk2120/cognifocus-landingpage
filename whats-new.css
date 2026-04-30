@@ -419,3 +419,129 @@ body.whats-new-page {
     font-size: 0.98rem;
   }
 }
+@media (prefers-color-scheme: light) {
+  body.whats-new-page {
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(39, 180, 134, 0.12),
+        transparent 36%
+      ),
+      radial-gradient(
+        circle at 82% 4%,
+        rgba(44, 142, 204, 0.14),
+        transparent 38%
+      ),
+      #f5f8fc;
+    color: #102033;
+  }
+
+  /* HERO */
+  .whats-new-page .whats-new-hero h1 {
+    color: #102033 !important;
+  }
+
+  .whats-new-page .whats-new-keyword {
+    color: #0e6ea8 !important;
+  }
+
+  .whats-new-page .whats-new-subtitle {
+    color: #44566f !important;
+    text-shadow: none !important;
+  }
+
+  /* SECTION HEADINGS */
+  .whats-new-page .section-heading h2 {
+    color: #102033 !important;
+  }
+
+  /* MAIN CARDS */
+  .whats-new-page .whats-new-card,
+  .whats-new-page .loading-card,
+  .whats-new-page .empty-state-card,
+  .whats-new-page .error-state-card,
+  .whats-new-page .release-card,
+  .whats-new-page .release-card-compact {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(240, 247, 255, 0.94)
+    );
+    border-color: rgba(54, 125, 171, 0.2);
+    box-shadow:
+      0 20px 48px rgba(21, 48, 84, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  }
+
+  .whats-new-page .whats-new-card-highlight {
+    border-color: rgba(31, 151, 111, 0.3);
+  }
+
+  /* TEXT */
+  .whats-new-page .whats-new-card h2,
+  .whats-new-page .release-card h3,
+  .whats-new-page .release-card-compact h3 {
+    color: #102033 !important;
+  }
+
+  .whats-new-page .whats-new-card p,
+  .whats-new-page .whats-new-list,
+  .whats-new-page .whats-new-list li,
+  .whats-new-page .release-summary,
+  .whats-new-page .release-notes,
+  .whats-new-page .empty-state-card,
+  .whats-new-page .error-state-card,
+  .whats-new-page .loading-card {
+    color: #44566f !important;
+  }
+
+  /* ICON */
+  .whats-new-page .whats-new-icon {
+    background: rgba(16, 112, 164, 0.08);
+    border: 1px solid rgba(16, 112, 164, 0.22);
+    color: #0e6ea8;
+  }
+
+  /* TAGS / BADGES */
+  .whats-new-page .release-tag,
+  .whats-new-page .release-status {
+    background: rgba(16, 112, 164, 0.08);
+    border-color: rgba(16, 112, 164, 0.22);
+    color: #0e6ea8;
+  }
+
+  .whats-new-page .release-badge {
+    color: #ffffff;
+    background: linear-gradient(135deg, #0e6ea8, #4dd0ff);
+  }
+
+  /* BUTTONS */
+  .whats-new-page .release-link-btn,
+  .whats-new-page .release-toggle-btn {
+    background: rgba(16, 112, 164, 0.05);
+    border-color: rgba(16, 112, 164, 0.22);
+    color: #0e6ea8;
+  }
+
+  .whats-new-page .release-link-btn:hover,
+  .whats-new-page .release-toggle-btn:hover {
+    background: rgba(16, 112, 164, 0.12);
+    color: #102033;
+  }
+
+  /* CODE + BLOCKS */
+  .whats-new-page .release-notes code {
+    background: rgba(16, 112, 164, 0.08);
+    color: #0e6ea8;
+  }
+
+  .whats-new-page .release-notes pre {
+    background: rgba(240, 247, 255, 0.9);
+    border-color: rgba(16, 112, 164, 0.2);
+  }
+
+  .whats-new-page .release-notes blockquote {
+    border-left-color: rgba(16, 112, 164, 0.4);
+    color: #44566f;
+  }
+}
