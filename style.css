@@ -793,6 +793,7 @@ footer {
   line-height: 1.02;
   letter-spacing: -0.045em;
   text-wrap: balance;
+  color: #0b1220 !important;
 }
 
 .hero-heading-line {
@@ -2843,8 +2844,3 @@ small {
   line-height: 1.65;
 }
 
-@media (prefers-color-scheme: light) {
-  .hero-heading {
-    color: #0b1220;
-  }
-}
