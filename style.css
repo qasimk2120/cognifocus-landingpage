@@ -2842,3 +2842,9 @@ small {
   color: #b8d0f6;
   line-height: 1.65;
 }
+
+@media (prefers-color-scheme: light) {
+  .hero-heading {
+    color: #0b1220;
+  }
+}
