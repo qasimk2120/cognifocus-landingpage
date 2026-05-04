@@ -1,4 +1,36 @@
-[
+﻿[
+  {
+    "version": "4.5.0",
+    "category": "Onboarding & Progression Upgrade",
+    "date": "2026-05-04",
+    "title": "What's New (v4.5.0)",
+    "summary": "Onboarding now guides your biggest distraction choice earlier, intro progression is smoother, Google recovery is clearer, and level progression interactions are more reliable.",
+    "notes": "## What's New\n- Onboarding now helps you choose your biggest distraction up front\n- Intro flow is smoother with clearer slide progression and fewer dead ends\n- Google recovery during intro is easier to understand\n- Level and progression interactions are now more reliable\n- General polish, stability, and performance improvements"
+  },
+  {
+    "version": "4.4.3",
+    "category": "Cloud Sync Reliability",
+    "date": "2026-05-03",
+    "title": "What's New (v4.4.3)",
+    "summary": "Daily stats cloud sync is more reliable, sync states are clearer, manual sync is available in Settings, and backup diagnostics are stronger.",
+    "notes": "## What's New\n- Daily stats sync is more reliable, including sessions ended manually\n- Sync status is now clearer with visible success, pending, and failure states\n- You can now trigger a manual sync from Settings when needed\n- Improved stability and diagnostics for cloud backup and restore"
+  },
+  {
+    "version": "4.4.2",
+    "category": "Backup & Restore Clarity",
+    "date": "2026-05-02",
+    "title": "What's New (v4.4.2)",
+    "summary": "Google sign-in backup behavior is more reliable after reinstall or reset, backup continuity is stronger, and onboarding restore messaging is clearer.",
+    "notes": "## What's New\n- Google sign-in backup now behaves more reliably after reinstall or app data reset\n- Improved backup continuity so your account is less likely to show a false no-backup-found message\n- Backup and restore messaging is clearer during onboarding\n- General stability and polish improvements"
+  },
+  {
+    "version": "4.4.1",
+    "category": "Progression & Settings Polish",
+    "date": "2026-05-01",
+    "title": "What's New (v4.4.1)",
+    "summary": "XP and level progression are clearer, Diamonds rewards are live, session rewards feel better, backup status messaging is improved, and Settings is more polished on mobile.",
+    "notes": "## What's New\n- XP and level progress now feel clearer and smoother\n- Diamonds are now live with milestone and tier rewards\n- Session reward moments are cleaner and more satisfying\n- Google sign-in and backup status are now easier to understand\n- You now get clearer offline backup status messages\n- Settings got a cleaner, more polished mobile layout"
+  },
   {
     "version": "4.4.0",
     "category": "Progression & Rewards Upgrade",
