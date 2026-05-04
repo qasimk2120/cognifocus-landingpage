@@ -1,0 +1,97 @@
+﻿.blog-page .seo-guide-main {
+  padding-top: 6.5rem !important;
+  max-width: min(1200px, calc(100vw - 28px));
+}
+
+.blog-page .blog-panel {
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.blog-breadcrumb {
+  margin-bottom: 1rem;
+  font-size: 0.92rem;
+  color: rgba(184, 231, 255, 0.85);
+}
+
+.blog-breadcrumb a {
+  color: #8ed9ff;
+  text-decoration: none;
+}
+
+.blog-breadcrumb a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.blog-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.blog-card {
+  padding: 1rem 1.05rem;
+  border-radius: 16px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(77, 208, 255, 0.05)
+  );
+  border: 1px solid rgba(77, 208, 255, 0.14);
+}
+
+.blog-card h2 {
+  margin-bottom: 0.45rem;
+}
+
+.blog-meta {
+  font-size: 0.9rem;
+  color: rgba(184, 231, 255, 0.78);
+}
+
+.blog-content h2 {
+  color: #ffffff;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  margin-top: 1rem;
+}
+
+.blog-content p,
+.blog-content li {
+  line-height: 1.75;
+}
+
+.blog-content ul,
+.blog-content ol {
+  padding-left: 1.2rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .blog-breadcrumb {
+    color: rgba(16, 32, 51, 0.75);
+  }
+
+  .blog-breadcrumb a {
+    color: #0e4f77;
+  }
+
+  .blog-breadcrumb a:hover {
+    color: #0b1220;
+  }
+
+  .blog-card {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(240, 247, 255, 0.94)
+    );
+    border-color: rgba(54, 125, 171, 0.2);
+  }
+
+  .blog-meta {
+    color: rgba(30, 70, 100, 0.85);
+  }
+
+  .blog-content h2 {
+    color: #102033;
+  }
+}
