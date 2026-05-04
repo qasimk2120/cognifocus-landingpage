@@ -563,12 +563,12 @@ footer {
 
 .footer-inner {
   display: grid;
-  grid-template-columns: minmax(220px, 300px) minmax(520px, 1fr);
+  grid-template-columns: minmax(280px, 360px) minmax(520px, 1fr);
   grid-template-areas:
     "brand links"
     "badge links"
     "actions links";
-  column-gap: 1rem;
+  column-gap: clamp(2rem, 4vw, 4.5rem);
   row-gap: 0.72rem;
   align-items: start;
   width: min(calc(100vw - 48px), 1840px);
@@ -580,7 +580,7 @@ footer {
   grid-area: badge;
   align-self: start;
   justify-self: start;
-  margin-left: 0.45rem;
+  margin-left: 2rem;
 }
 
 .producthunt-badge {
@@ -602,7 +602,7 @@ footer {
   gap: 0.65rem;
   align-items: center;
   text-align: left;
-  margin-left: 0.45rem;
+  margin-left: 2rem;
 }
 
 .footer-logo {
@@ -633,11 +633,12 @@ footer {
   grid-area: links;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, max-content));
-  column-gap: 1rem;
+  column-gap: clamp(1.75rem, 3vw, 3.2rem);
   row-gap: 0.9rem;
   align-items: start;
   justify-items: end;
   justify-content: end;
+  padding-right: 2rem;
 }
 
 .site-footer .footer-links-group {
@@ -672,7 +673,7 @@ footer {
   display: grid;
   justify-items: start;
   gap: 0.72rem;
-  margin-left: 0.45rem;
+  margin-left: 2rem;
 }
 
 .footer-actions--social-only {
@@ -697,13 +698,14 @@ footer {
 
 @media (max-width: 1199.98px) {
   .footer-inner {
-    grid-template-columns: minmax(220px, 300px) minmax(360px, 1fr);
+    grid-template-columns: minmax(250px, 320px) minmax(360px, 1fr);
     grid-template-areas:
       "brand links"
       "badge links"
       "actions links";
     justify-content: center;
-    gap: 1.15rem;
+    column-gap: 2rem;
+    row-gap: 1.15rem;
   }
 
   .footer-producthunt {
@@ -716,7 +718,7 @@ footer {
 
   .footer-brand,
   .footer-actions {
-    margin-left: 0.45rem;
+    margin-left: 2rem;
   }
 
   .footer-links,
@@ -726,6 +728,7 @@ footer {
 
   .site-footer .footer-links {
     grid-template-columns: repeat(3, minmax(0, max-content));
+    column-gap: 1.9rem;
     justify-items: end;
     justify-content: end;
     width: 100%;
