@@ -1015,7 +1015,8 @@ footer {
 
 .launch-strip-arrow {
   margin-left: 0.35rem;
-  font-weight: 800;
+  font-weight: 900;
+  color: currentColor;
 }
 
 .launch-strip-close {
@@ -1041,6 +1042,12 @@ footer {
 
 .launch-strip-close i {
   font-weight: 800;
+}
+
+.launch-strip-close span {
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1;
 }
 
 .launch-strip-subtitle:hover,
@@ -2986,6 +2993,24 @@ small {
 
   .launch-strip-subtitle {
     color: #224c6d;
+  }
+
+  .launch-strip-arrow {
+    color: #123a59;
+  }
+
+  .launch-strip-subtitle:hover,
+  .launch-strip-subtitle:focus-visible {
+    color: #123a59;
+  }
+
+  .launch-strip-close {
+    color: #224c6d;
+  }
+
+  .launch-strip-close:hover,
+  .launch-strip-close:focus-visible {
+    color: #123a59;
   }
 
   .timer-compare-table th,
