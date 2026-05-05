@@ -973,10 +973,9 @@ footer {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(77, 208, 255, 0.14);
-  padding: 0.22rem 0.36rem;
+  background: transparent;
+  border: none;
+  padding: 0;
 }
 
 .featured-strip-badge img {
@@ -2874,8 +2873,8 @@ small {
   }
 
   .featured-strip-badge {
-    background: rgba(255, 255, 255, 0.85);
-    border-color: rgba(54, 125, 171, 0.2);
+    background: transparent;
+    border: none;
   }
   .app-navbar {
     background: rgba(255, 255, 255, 0.78);
