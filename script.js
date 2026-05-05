@@ -116,11 +116,6 @@ function initProofGoblinFaceCycle() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  // background animation
-  if (typeof window.animateFaces === "function") {
-    window.animateFaces();
-  }
-
   initLoopTimerDemo();
   initProofGoblinFaceCycle();
 

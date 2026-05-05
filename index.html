@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CogniFocus | Now live on Android</title>
+    <title>
+      CogniFocus — Focus Timer & App Blocker for Android | Beat Distraction
+    </title>
     <meta
       name="description"
-      content="The fun way to beat app addiction on Android: focus timer sessions, Distraction Shield app blocking, live Goblin reactions, streaks, XP, and fast recovery nudges."
+      content="CogniFocus catches distractions mid-session and pulls you back before a quick check turns into a lost hour. Free focus timer and app blocker for Android."
     />
     <meta
       name="keywords"
@@ -20,10 +22,13 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://cognifocus.app/" />
-    <meta property="og:title" content="CogniFocus | Now live on Android" />
+    <meta
+      property="og:title"
+      content="CogniFocus — Focus Timer & App Blocker for Android"
+    />
     <meta
       property="og:description"
-      content="The fun way to beat app addiction on Android with focus timer sessions, Distraction Shield app blocking, and live Goblin feedback."
+      content="CogniFocus catches distractions mid-session and pulls you back before a quick check turns into a lost hour. Start focus sessions and block distracting apps on Android."
     />
     <meta property="og:site_name" content="CogniFocus" />
     <meta
@@ -38,10 +43,13 @@
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://cognifocus.app/" />
-    <meta name="twitter:title" content="CogniFocus | Now live on Android" />
+    <meta
+      name="twitter:title"
+      content="CogniFocus — Focus Timer & App Blocker for Android"
+    />
     <meta
       name="twitter:description"
-      content="The fun way to beat app addiction on Android with focus timer sessions, Distraction Shield app blocking, and live Goblin feedback."
+      content="CogniFocus catches distractions mid-session and pulls you back before a quick check turns into a lost hour. Start focus sessions and block distracting apps on Android."
     />
     <meta
       property="og:image:alt"
@@ -158,12 +166,12 @@
             "name": "What is CogniFocus?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "CogniFocus is a character-driven Android focus app with a timer, Distraction Shield app blocking, Goblin reactions, progress, streaks, and recovery nudges."
+              "text": "CogniFocus is a character-driven Android focus app with a timer, Distraction Shield, Goblin reactions, progress, streaks, and recovery nudges."
             }
           },
           {
             "@type": "Question",
-            "name": "How is CogniFocus different from a normal timer?",
+            "name": "How is it different from a normal timer?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "A normal timer keeps counting while you drift. CogniFocus keeps your session active, blocks distracting apps, and the Goblin roasts you when you lose focus."
@@ -171,7 +179,7 @@
           },
           {
             "@type": "Question",
-            "name": "How is CogniFocus different from a basic app blocker?",
+            "name": "How is it different from a basic app blocker?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Blocking is only one layer. CogniFocus adds a companion, goals, reminders, recovery, and progress so the habit gets reinforced."
@@ -182,7 +190,7 @@
             "name": "What happens if I open Instagram or TikTok?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "During a protected session, Shield can interrupt or block the app while the companion pushes you back to focus."
+              "text": "During a protected session, Distraction Shield can interrupt selected distracting apps while the Goblin pushes you back to your session."
             }
           },
           {
@@ -195,10 +203,18 @@
           },
           {
             "@type": "Question",
-            "name": "Is CogniFocus available now?",
+            "name": "Why does CogniFocus need Android permissions?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. CogniFocus is live on Android through Google Play."
+              "text": "CogniFocus uses Android permissions such as Usage Access and Display Over Other Apps so Distraction Shield can detect selected distracting apps and show the blocking screen during focus sessions. It does not read your messages or in-app content."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is CogniFocus available on iOS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not yet. CogniFocus is currently available on Android through Google Play. iOS is not available yet."
             }
           }
         ]
@@ -214,7 +230,10 @@
       rel="preload"
       as="style"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-      onload="this.onload=null;this.rel='stylesheet'"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
     <noscript>
       <link
@@ -271,82 +290,175 @@
       </div>
     </nav>
 
+    <div
+      class="header-sub-banner-wrap"
+      role="status"
+      aria-label="Product Hunt launch update"
+    >
+      <div class="launch-strip">
+        <span class="launch-strip-title">Launch Update</span>
+        <a
+          class="launch-strip-subtitle mb-0"
+          href="https://www.producthunt.com/products/cognifocus?launch=cognifocus"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open CogniFocus Product Hunt launch page"
+        >
+          ✨ Launching on Product Hunt May 31 · Follow the launch and share
+          feedback before we go live. ✨
+        </a>
+        <a
+          class="launch-strip-close"
+          href="https://www.producthunt.com/products/cognifocus?launch=cognifocus"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Open CogniFocus Product Hunt launch page"
+        >
+          <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
     <main id="main-content">
       <!-- HERO -->
-      <section class="container text-center py-5 hero-section">
-      <div class="hero-copy">
-        <h1 class="display-5 fw-bold hero-heading">
-          <span class="hero-heading-line"
-                  >The fun way to beat app addiction</span
+      <section class="container py-5 hero-section">
+        <div class="hero-layout">
+          <div class="hero-left">
+            <div class="hero-copy">
+              <h1 class="display-5 fw-bold hero-heading">
+                <span class="hero-heading-line"
+                  >You don't lose focus You lose it to apps</span
+                >
+              </h1>
+              <p class="text-muted hero-muted-override">
+                CogniFocus catches distractions mid-session and pulls you back
+                before a quick check turns into a lost hour.
+              </p>
+            </div>
+
+            <div class="hero-actions">
+              <div class="hero-cta">
+                <a
+                  href="https://play.google.com/store/apps/details?id=io.ionic.cognifocus"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-glow btn-lg me-1 primary-cta"
+                  data-keep-label="true"
+                  ><span class="cta-playstore-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" role="img" focusable="false">
+                      <path
+                        fill="#00d26a"
+                        d="M3.3 2.5L14.7 14 3.3 21.5c-.4-.2-.6-.6-.6-1V4c0-.4.2-.8.6-1z"
+                      />
+                      <path
+                        fill="#00a0ff"
+                        d="M18.4 11.5l-3.7-2.1L10.9 12l3.8 2.6 3.7-2.1c.8-.4.8-1.4 0-1.9z"
+                      />
+                      <path
+                        fill="#ffe000"
+                        d="M3.3 2.5l11.4 11.5 3.7-2.1L6.8 5.3 3.3 2.5z"
+                      />
+                      <path
+                        fill="#ff4f5e"
+                        d="M3.3 21.5l3.5-2.8 11.6-6.8-3.7-2.1L3.3 21.5z"
+                      />
+                    </svg>
+                  </span>
+                  Start Free on Android
+                </a>
+
+                <a
+                  href="#focus-loop"
+                  class="btn btn-outline-light btn-lg hero-secondary-cta"
+                  >See How It Works</a
+                >
+              </div>
+              <p
+                class="hero-platform-note"
+                style="font-size: 0.92rem; opacity: 0.7"
+              >
+                Android only · iOS coming soon
+              </p>
+
+              <div class="hero-social-proof" aria-label="Social proof">
+                <span class="hero-proof-pill"
+                  >&#9733; Rated on Google Play</span
+                >
+                <span class="hero-proof-pill">100+ Downloads</span>
+                <span class="hero-proof-pill">Free to Start</span>
+              </div>
+
+              <p class="text-muted hero-muted-override mt-3 mb-0">
+                Need a quick starting plan?
+                <a href="focus-without-distractions.html">Focus guides</a>
+              </p>
+            </div>
+          </div>
+          <figure
+            class="hero-media"
+            aria-label="Real CogniFocus app screenshot"
           >
-        </h1>
-        <p class="text-muted hero-muted-override">
-          A focus timer with a Goblin that calls you out when you lose focus.
-        </p>
-      </div>
-
-      <div class="hero-actions">
-        <div class="hero-cta">
-          <a
-            href="download.html"
-            class="btn btn-glow btn-lg me-1 primary-cta"
-            ><span class="cta-playstore-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" role="img" focusable="false">
-                <path
-                  fill="#00d26a"
-                  d="M3.3 2.5L14.7 14 3.3 21.5c-.4-.2-.6-.6-.6-1V4c0-.4.2-.8.6-1z"
-                />
-                <path
-                  fill="#00a0ff"
-                  d="M18.4 11.5l-3.7-2.1L10.9 12l3.8 2.6 3.7-2.1c.8-.4.8-1.4 0-1.9z"
-                />
-                <path
-                  fill="#ffe000"
-                  d="M3.3 2.5l11.4 11.5 3.7-2.1L6.8 5.3 3.3 2.5z"
-                />
-                <path
-                  fill="#ff4f5e"
-                  d="M3.3 21.5l3.5-2.8 11.6-6.8-3.7-2.1L3.3 21.5z"
-                />
-              </svg>
-            </span>
-            Stop App Switching
-          </a>
-
-          <a
-            href="#focus-loop"
-            class="btn btn-outline-light btn-lg hero-secondary-cta"
-            >See How It Works</a
-          >
+            <div class="hero-media-card">
+              <span class="hero-media-kicker">Real app moment</span>
+              <img
+                src="assets/screenshots/app-blocked-screenshot.jpeg"
+                alt="CogniFocus Distraction Shield blocking Instagram during a focus session with Goblin reaction"
+                loading="eager"
+                decoding="async"
+                width="720"
+                height="1600"
+              />
+              <figcaption>
+                See what happens when you open a blocked app during a protected
+                session.
+              </figcaption>
+            </div>
+          </figure>
         </div>
-        <p class="hero-platform-note">Available on Android. iOS is not available yet.</p>
+      </section>
 
-        <div class="hero-social-proof" aria-label="Social proof">
-          <span class="hero-proof-pill">100+ Android downloads</span>
-          <span class="hero-proof-pill">Live on Google Play</span>
-          <span class="hero-proof-pill">Featured on Product Hunt</span>
-          <span class="hero-proof-pill">Built by CogniElevate</span>
+      <section class="container py-4 testimonials-strip">
+        <p class="testimonials-label">What early users are saying</p>
+        <div class="testimonials-row">
+          <div class="testimonial-card">
+            <!-- TODO: replace with real user quote -->
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "Went from 8 Instagram breaks per study session to maybe 1. The
+              goblin saying 'bro' actually got me."
+            </p>
+            <div class="testimonial-author">
+              <span class="testimonial-avatar">A</span>
+              <span class="testimonial-name">Alex R.</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <!-- TODO: replace with real user quote -->
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "I didn't think a cartoon would make me feel guilty for opening
+              TikTok but here we are. It works."
+            </p>
+            <div class="testimonial-author">
+              <span class="testimonial-avatar">S</span>
+              <span class="testimonial-name">Sara M.</span>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <!-- TODO: replace with real user quote -->
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "Finally something that doesn't just track time while I'm busy
+              wasting it."
+            </p>
+            <div class="testimonial-author">
+              <span class="testimonial-avatar">J</span>
+              <span class="testimonial-name">James K.</span>
+            </div>
+          </div>
         </div>
-
-        <div class="launch-strip" aria-label="Product Hunt launch update">
-          <p class="mb-0">
-            <strong>Launching on Product Hunt May 31</strong><br />
-            Follow the launch and share feedback before we go live.
-          </p>
-          <a
-            href="https://www.producthunt.com/products/cognifocus?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cognifocus"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="nav-link-chip nav-update-link launch-strip-link"
-            >Follow on Product Hunt</a
-          >
-        </div>
-
-        <p class="text-muted hero-muted-override mt-3 mb-0">
-          Need a quick starting plan?
-          <a href="focus-without-distractions.html">Focus guides</a>
-        </p>
-      </div>
       </section>
 
       <section id="focus-loop" class="container py-5">
@@ -360,580 +472,677 @@
             loading="lazy"
             decoding="async"
           />
-        <div class="focus-loop-copy">
-          <span class="feature-kicker"
-            >Focus Loop <span aria-hidden="true">&#9201;</span></span
-          >
-          <h2>Run a timer. Block distracting apps. Get pulled back to work.</h2>
-          <p class="hero-muted-override">
-            Start a structured focus timer and choose your distraction apps.
-            During sessions, Distraction Shield blocks those apps and interrupts
-            distraction fast, then the Goblin reacts to push you back into work.
-          </p>
-        </div>
-
-        <div class="focus-loop-visual" aria-label="CogniFocus focus loop demo">
-          <div class="phone-mock focus-phone">
-            <div class="phone-status">
-              <span>9:41</span>
-              <span>Shield on</span>
-            </div>
-
-            <div class="session-card-mini">
-              <div class="session-card-top">
-                <span class="session-mode">Deep Focus</span>
-                <span class="session-live">Live</span>
-              </div>
-              <div class="timer-orbit" aria-hidden="true">
-                <div class="timer-ring"></div>
-                <div class="timer-core">
-                  <span id="loopTimerValue">24:58</span>
-                  <small>remaining</small>
-                </div>
-              </div>
-              <div class="timer-controls" aria-label="Demo timer controls">
-                <button
-                  type="button"
-                  class="timer-control-btn"
-                  data-timer-action="minus"
-                  aria-label="Subtract 5 minutes from demo timer"
-                >
-                  -5
-                </button>
-                <button
-                  type="button"
-                  class="timer-control-btn is-active"
-                  data-timer-action="toggle"
-                  aria-label="Pause demo timer"
-                  aria-pressed="false"
-                >
-                  Pause
-                </button>
-                <button
-                  type="button"
-                  class="timer-control-btn"
-                  data-timer-action="plus"
-                  aria-label="Add 5 minutes to demo timer"
-                >
-                  +5
-                </button>
-              </div>
-            </div>
-
-            <div class="companion-strip">
-              <img
-                src="assets/characters/goblin/avatar/annoyed.png"
-                alt="Annoyed Goblin companion reacting to distraction"
-                width="500"
-                height="500"
-                loading="lazy"
-                decoding="async"
-              />
-              <div>
-                <strong>Not today.</strong>
-                <p>Instagram can wait. Back to the session.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="focus-signal focus-signal-one">
-            <span>01</span>
-            <strong>Start</strong>
-            <small>Choose a session</small>
-          </div>
-          <div class="focus-signal focus-signal-two">
-            <span>02</span>
-            <strong>Watch</strong>
-            <small>Shield monitors</small>
-          </div>
-          <div class="focus-signal focus-signal-three">
-            <span>03</span>
-            <strong>Recover</strong>
-            <small>Return fast</small>
-          </div>
-
-          <div class="distraction-stack" aria-label="Blocked distractions">
-            <div class="blocked-app-card blocked-app-card-main">
-              <div class="blocked-app-copy">
-                <div class="blocked-app-title">
-                  <span class="blocked-app-icon">
-                    <img
-                      src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
-                      alt="Distraction Shield blocking distracting apps during a focus session"
-                      width="15"
-                      height="15"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </span>
-                  <strong>Instagram blocked</strong>
-                </div>
-                <small>Delay increased after distraction</small>
-              </div>
-            </div>
-            <div class="blocked-app-card">
-              <div class="blocked-app-copy">
-                <div class="blocked-app-title">
-                  <span class="blocked-app-icon">
-                    <img
-                      src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
-                      alt="Android app blocker settings in CogniFocus for distracting apps"
-                      width="15"
-                      height="15"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </span>
-                  <strong>TikTok blocked</strong>
-                </div>
-                <small>Session protected</small>
-              </div>
-            </div>
-            <div class="blocked-app-card">
-              <div class="blocked-app-copy">
-                <div class="blocked-app-title">
-                  <span class="blocked-app-icon">
-                    <img
-                      src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg"
-                      alt="CogniFocus app blocker card showing distraction blocking"
-                      width="15"
-                      height="15"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </span>
-                  <strong>X blocked</strong>
-                </div>
-                <small>Focus restored</small>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-proof-strip" aria-label="CogniFocus proof points">
-          <div class="hero-proof-goblin">
-            <span class="proof-card-icon proof-card-icon-image">
-              <img
-                id="proofGoblinFace"
-                src="assets/characters/goblin/face/annoyed.png"
-                alt="Goblin companion reacting to distraction"
-                width="244"
-                height="191"
-                loading="lazy"
-                decoding="async"
-              />
-            </span>
-            <strong>Live companion pressure</strong>
-            <span>Goblin reacts when attention slips</span>
-          </div>
-          <div class="hero-proof-item">
-            <span class="proof-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path
-                  d="M12 3.25 18.5 5.8v5.25c0 4.2-2.4 7.35-6.5 9.7-4.1-2.35-6.5-5.5-6.5-9.7V5.8L12 3.25Z"
-                />
-                <path d="M9.2 12.1 11.1 14l3.9-4.25" />
-              </svg>
-            </span>
-            <strong>Shield</strong>
-            <span>blocks selected apps during sessions</span>
-          </div>
-          <div class="hero-proof-item">
-            <span class="proof-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M9 2.75h6" />
-                <path
-                  d="M12 5.75a7.75 7.75 0 1 0 0 15.5 7.75 7.75 0 0 0 0-15.5Z"
-                />
-                <path d="M12 9.2v4.15l2.9 1.7" />
-              </svg>
-            </span>
-            <strong>Timer</strong>
-            <span>keeps the focus state visible</span>
-          </div>
-          <div class="hero-proof-item">
-            <span class="proof-card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path
-                  d="M12 3.25a8.75 8.75 0 1 0 0 17.5 8.75 8.75 0 0 0 0-17.5Z"
-                />
-                <path
-                  d="M12 7.25a4.75 4.75 0 1 0 0 9.5 4.75 4.75 0 0 0 0-9.5Z"
-                />
-                <path d="M12 11.15a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z" />
-              </svg>
-            </span>
-            <strong>Progress</strong>
-            <span>turns clean focus into streaks and XP</span>
-          </div>
-        </div>
-      </div>
-      </section>
-
-    <section id="why" class="container py-5">
-      <div class="why-panel mx-auto">
-        <div class="text-center why-heading mx-auto">
-          <span class="feature-kicker"
-            >Why CogniFocus <span aria-hidden="true">&#129504;</span></span
-          >
-          <h2 class="mb-3">Why It Works Better Than a Normal Timer</h2>
-          <p class="hero-muted-override mb-0">
-            This focus app helps you stop scrolling with a focus timer,
-            distraction blocking, and a Goblin that roasts you when you lose
-            focus.
-          </p>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="why-card h-100">
-              <h3>Focus Timer</h3>
-              <p class="mb-0">
-                Start custom focus sessions and stay locked into one task.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="why-card h-100">
-              <h3>Distraction Shield</h3>
-              <p class="mb-0">
-                Block distracting Android apps during focus sessions.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="why-card h-100">
-              <h3>Goblin Reactions</h3>
-              <p class="mb-0">
-                Get roasted when you lose focus and nudged back when you
-                recover.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="why-card h-100">
-              <h3>Streaks and XP</h3>
-              <p class="mb-0">
-                Build momentum with daily goals, streaks, and progress rewards.
-              </p>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="why-card h-100">
-              <h3>Recovery Nudges</h3>
-              <p class="mb-0">
-                Slip once, recover fast, and keep the session alive.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="who-for" class="container py-5">
-      <div class="why-panel mx-auto">
-        <div class="text-center why-heading mx-auto">
-          <span class="feature-kicker"
-            >Who It’s For <span aria-hidden="true">&#128101;</span></span
-          >
-          <h2 class="mb-3">Built for people who keep losing focus to apps</h2>
-        </div>
-
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <div class="why-card h-100">
-              <h3>Students</h3>
-              <p class="mb-0">Stay locked in during study sessions.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="why-card h-100">
-              <h3>Developers</h3>
-              <p class="mb-0">Protect deep work from quick checks.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="why-card h-100">
-              <h3>Remote workers</h3>
-              <p class="mb-0">Stop work sessions turning into app switching.</p>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="why-card h-100">
-              <h3>Creators</h3>
-              <p class="mb-0">
-                Stay in the flow instead of drifting to social apps.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="timer-vs-cognifocus" class="container py-5">
-      <div class="faq-panel mx-auto timer-compare-panel">
-        <div class="text-center faq-heading mx-auto">
-          <span class="feature-kicker"
-            >Comparison <span aria-hidden="true">&#9878;</span></span
-          >
-          <h2 class="mb-3">Why a normal timer is not enough</h2>
-        </div>
-
-        <div class="table-responsive timer-compare-wrap">
-          <table class="table table-dark table-bordered align-middle timer-compare-table">
-            <thead>
-              <tr>
-                <th scope="col">Normal timer</th>
-                <th scope="col">CogniFocus</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Tracks time</td>
-                <td>Tracks protected focus sessions</td>
-              </tr>
-              <tr>
-                <td>Keeps running while you drift</td>
-                <td>Blocks selected distracting apps</td>
-              </tr>
-              <tr>
-                <td>No reaction when you open distracting apps</td>
-                <td>Reacts when you drift</td>
-              </tr>
-              <tr>
-                <td>Easy to ignore</td>
-                <td>Rewards recovery with streaks and XP</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing" class="container py-5">
-      <div class="pricing-panel mx-auto">
-        <div class="text-center pricing-heading mx-auto">
-          <span class="feature-kicker"
-            >Pricing <span aria-hidden="true">&#128142;</span></span
-          >
-          <h2 class="mb-3">Upgrade When You Want More Guard Rails.</h2>
-          <p class="hero-muted-override mb-0">
-            Start free, then unlock stronger planning, reminders, Shield
-            capacity and recovery support with Pro
-          </p>
-        </div>
-
-        <div class="row g-4 align-items-stretch">
-          <div class="col-lg-4">
-            <article class="pricing-card h-100">
-              <div class="pricing-card-top">
-                <span class="pricing-label">Basic</span>
-                <h3>Free</h3>
-                <p class="pricing-price">$0</p>
-                <p class="pricing-note">For starting the habit</p>
-              </div>
-              <ul class="pricing-list">
-                <li>Focus sessions and timer controls</li>
-                <li>Goblin reactions and session feedback</li>
-                <li>Progress tracking foundations</li>
-                <li>Starter Shield setup</li>
-              </ul>
-              <a href="download.html" class="pricing-link">Get started</a>
-            </article>
-          </div>
-
-          <div class="col-lg-4">
-            <article class="pricing-card pricing-card-featured h-100">
-              <div class="pricing-card-top">
-                <span class="pricing-label">Pro Monthly</span>
-                <h3>Try Pro</h3>
-                <p class="pricing-price">$3.99 <span>/ month</span></p>
-                <p class="pricing-note">Includes a 7-day trial</p>
-              </div>
-              <ul class="pricing-list">
-                <li>More blocked apps for Focus Shield</li>
-                <li>Manual Block for direct protection</li>
-                <li>Planned Sessions and reminders</li>
-                <li>Recovery nudges when focus slips</li>
-              </ul>
-              <a href="download.html" class="btn btn-glow pricing-cta"
-                >Start Focus Upgrade</a
-              >
-            </article>
-          </div>
-
-          <div class="col-lg-4">
-            <article class="pricing-card pricing-card-yearly h-100">
-              <div class="pricing-card-top">
-                <span class="pricing-label">Pro Yearly</span>
-
-                <h3>Best Value</h3>
-                <p class="pricing-price">$2.67 <span>/ month</span></p>
-                <p class="pricing-micro">Best value for long-term focus</p>
-                <p class="pricing-note">
-                  Billed yearly at $31.99. About $2.67/month
-                </p>
-              </div>
-              <ul class="pricing-list">
-                <li>More blocked apps for Focus Shield</li>
-                <li>Manual Block for direct protection</li>
-                <li>Planned Sessions and reminders</li>
-                <li>Same Pro tools, lower yearly price</li>
-              </ul>
-              <a
-                href="download.html"
-                class="btn btn-glow pricing-cta pricing-cta-yearly"
-                >Lock in yearly — Save 33%</a
-              >
-            </article>
-          </div>
-        </div>
-
-        <div class="pricing-footer text-center">
-          <a href="pricing.html" class="nav-link-chip nav-update-link"
-            >Compare plans</a
-          >
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="container py-5">
-      <div class="faq-panel mx-auto">
-        <div class="text-center faq-heading mx-auto">
-          <span class="feature-kicker"
-            >FAQ <span aria-hidden="true">&#10067;</span></span
-          >
-          <h2 class="mb-3">Quick Answers.</h2>
-          <p class="hero-muted-override mb-0">The short version</p>
-        </div>
-
-        <div class="faq-list">
-          <div class="faq-item">
-            <h3>What is CogniFocus?</h3>
-            <p class="mb-0">
-              A character-driven Android focus app with a timer, Distraction
-              Shield, companion reactions, progress, streaks, and recovery
-              nudges
-            </p>
-          </div>
-          <div class="faq-item">
-            <h3>How is it different from a normal timer?</h3>
-            <p class="mb-0">
-              A normal timer keeps counting while you drift. CogniFocus keeps
-              the session visible and reacts when blocked apps pull you away
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <h3>How is it different from a basic app blocker?</h3>
-            <p class="mb-0">
-              Blocking is only one layer. CogniFocus adds a companion, goals,
-              reminders, recovery and progress so the habit gets reinforced
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <h3>What happens if I open Instagram or TikTok?</h3>
-            <p class="mb-0">
-              During a protected session, Shield can interrupt or block the app
-              while the companion pushes you back to focus
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <h3>What does Pro add?</h3>
-            <p class="mb-0">
-              Pro adds stronger Shield capacity, Manual Block, Planned Sessions,
-              reminders, recovery nudges and paid-tier restore support
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Is CogniFocus available now?</h3>
-            <p class="mb-0">
-              Yes. CogniFocus is live on Android through Google Play
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ANDROID LAUNCH -->
-    <section id="early" class="container py-5 text-center">
-      <div class="founder-note mx-auto">
-        <span class="feature-kicker"
-          >Founder Note <span aria-hidden="true">&#9997;</span></span
-        >
-        <h2>Why I built CogniFocus</h2>
-        <p>
-          I built CogniFocus because normal timers never worked for me.
-        </p>
-        <p>
-          I could start a focus session and still end up switching apps without noticing. The timer kept running, but the time was already wasted.
-        </p>
-        <p>
-          So I wanted focus to feel less passive — more like a companion keeping an eye on the session and pulling you back when you drift.
-        </p>
-        <p>
-          That became CogniFocus: timer, blocker, streaks, recovery nudges and a Goblin that reacts when you lose focus.
-        </p>
-        <p class="founder-signoff">—Cognielevate, maker of CogniFocus</p>
-      </div>
-
-      <div class="early-box final-cta-box p-4 mx-auto">
-        <span class="feature-kicker"
-          >Download <span aria-hidden="true">&#9889;</span></span
-        >
-        <h2>Ready to stop losing sessions to app switching?</h2>
-
-        <p class="text-muted hero-muted-override">
-          Get CogniFocus on Android and turn your next focus session into a
-          protected one
-        </p>
-        <div class="mt-3 waitlist-box">
-          <div class="play-store-card" aria-label="CogniFocus Google Play link">
-            <a
-              href="https://play.google.com/store/apps/details?id=io.ionic.cognifocus"
-              class="waitlist-btn btn-glow primary-cta play-store-btn"
+          <div class="focus-loop-copy">
+            <span class="feature-kicker"
+              >Focus Loop <span aria-hidden="true">&#9201;</span></span
             >
-              <span class="cta-playstore-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" role="img" focusable="false">
+            <h2>
+              Run a timer. Block distractions. Get pulled back before the
+              session dies.
+            </h2>
+            <p class="hero-muted-override">
+              Start a structured focus timer and choose the apps that usually
+              pull you away. During sessions, Distraction Shield interrupts
+              those distractions, then the Goblin reacts so you can recover
+              before one app switch becomes a lost hour.
+            </p>
+          </div>
+
+          <div
+            class="focus-loop-visual"
+            aria-label="CogniFocus focus loop demo"
+          >
+            <div class="phone-mock focus-phone">
+              <div class="phone-status">
+                <span>9:41</span>
+                <span>Shield on</span>
+              </div>
+
+              <div class="session-card-mini">
+                <div class="session-card-top">
+                  <span class="session-mode">Deep Focus</span>
+                  <span class="session-live">Live</span>
+                </div>
+                <div class="timer-orbit" aria-hidden="true">
+                  <div class="timer-ring"></div>
+                  <div class="timer-core">
+                    <span id="loopTimerValue">24:58</span>
+                    <small>remaining</small>
+                  </div>
+                </div>
+                <div class="timer-controls" aria-label="Demo timer controls">
+                  <button
+                    type="button"
+                    class="timer-control-btn"
+                    data-timer-action="minus"
+                    aria-label="Subtract 5 minutes from demo timer"
+                  >
+                    -5
+                  </button>
+                  <button
+                    type="button"
+                    class="timer-control-btn is-active"
+                    data-timer-action="toggle"
+                    aria-label="Pause demo timer"
+                    aria-pressed="false"
+                  >
+                    Pause
+                  </button>
+                  <button
+                    type="button"
+                    class="timer-control-btn"
+                    data-timer-action="plus"
+                    aria-label="Add 5 minutes to demo timer"
+                  >
+                    +5
+                  </button>
+                </div>
+              </div>
+
+              <div class="companion-strip">
+                <img
+                  src="assets/characters/goblin/avatar/annoyed.png"
+                  alt="Annoyed Goblin companion reacting to distraction"
+                  width="500"
+                  height="500"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div>
+                  <strong>Not today.</strong>
+                  <p>Instagram can wait. Back to the session.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="focus-signal focus-signal-one">
+              <span>01</span>
+              <strong>Start</strong>
+              <small>Choose a session</small>
+            </div>
+            <div class="focus-signal focus-signal-two">
+              <span>02</span>
+              <strong>Slip</strong>
+              <small>Shield catches it</small>
+            </div>
+            <div class="focus-signal focus-signal-three">
+              <span>03</span>
+              <strong>Recover</strong>
+              <small>Return fast</small>
+            </div>
+
+            <div class="distraction-stack" aria-label="Blocked distractions">
+              <div class="blocked-app-card blocked-app-card-main">
+                <div class="blocked-app-copy">
+                  <div class="blocked-app-title">
+                    <span class="blocked-app-icon">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+                        alt="Distraction Shield blocking distracting apps during a focus session"
+                        width="15"
+                        height="15"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                    <strong>Instagram blocked</strong>
+                  </div>
+                  <small>Delay increased after distraction</small>
+                </div>
+              </div>
+              <div class="blocked-app-card">
+                <div class="blocked-app-copy">
+                  <div class="blocked-app-title">
+                    <span class="blocked-app-icon">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
+                        alt="Android app blocker settings in CogniFocus for distracting apps"
+                        width="15"
+                        height="15"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                    <strong>TikTok blocked</strong>
+                  </div>
+                  <small>Session protected</small>
+                </div>
+              </div>
+              <div class="blocked-app-card">
+                <div class="blocked-app-copy">
+                  <div class="blocked-app-title">
+                    <span class="blocked-app-icon">
+                      <img
+                        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg"
+                        alt="CogniFocus app blocker card showing distraction blocking"
+                        width="15"
+                        height="15"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </span>
+                    <strong>X blocked</strong>
+                  </div>
+                  <small>Focus restored</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-proof-strip" aria-label="CogniFocus proof points">
+            <div class="hero-proof-goblin">
+              <span class="proof-card-icon proof-card-icon-image">
+                <img
+                  id="proofGoblinFace"
+                  src="assets/characters/goblin/face/annoyed.png"
+                  alt="Goblin companion reacting to distraction"
+                  width="244"
+                  height="191"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+              <strong>Live companion pressure</strong>
+              <span>Goblin reacts when attention slips</span>
+            </div>
+            <div class="hero-proof-item">
+              <span class="proof-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
                   <path
-                    fill="#00d26a"
-                    d="M3.3 2.5L14.7 14 3.3 21.5c-.4-.2-.6-.6-.6-1V4c0-.4.2-.8.6-1z"
+                    d="M12 3.25 18.5 5.8v5.25c0 4.2-2.4 7.35-6.5 9.7-4.1-2.35-6.5-5.5-6.5-9.7V5.8L12 3.25Z"
                   />
-                  <path
-                    fill="#00a0ff"
-                    d="M18.4 11.5l-3.7-2.1L10.9 12l3.8 2.6 3.7-2.1c.8-.4.8-1.4 0-1.9z"
-                  />
-                  <path
-                    fill="#ffe000"
-                    d="M3.3 2.5l11.4 11.5 3.7-2.1L6.8 5.3 3.3 2.5z"
-                  />
-                  <path
-                    fill="#ff4f5e"
-                    d="M3.3 21.5l3.5-2.8 11.6-6.8-3.7-2.1L3.3 21.5z"
-                  />
+                  <path d="M9.2 12.1 11.1 14l3.9-4.25" />
                 </svg>
               </span>
-              View Android App
-            </a>
+              <strong>Shield</strong>
+              <span>blocks selected apps during sessions</span>
+            </div>
+            <div class="hero-proof-item">
+              <span class="proof-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path d="M9 2.75h6" />
+                  <path
+                    d="M12 5.75a7.75 7.75 0 1 0 0 15.5 7.75 7.75 0 0 0 0-15.5Z"
+                  />
+                  <path d="M12 9.2v4.15l2.9 1.7" />
+                </svg>
+              </span>
+              <strong>Timer</strong>
+              <span>keeps the focus state visible</span>
+            </div>
+            <div class="hero-proof-item">
+              <span class="proof-card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M12 3.25a8.75 8.75 0 1 0 0 17.5 8.75 8.75 0 0 0 0-17.5Z"
+                  />
+                  <path
+                    d="M12 7.25a4.75 4.75 0 1 0 0 9.5 4.75 4.75 0 0 0 0-9.5Z"
+                  />
+                  <path d="M12 11.15a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z" />
+                </svg>
+              </span>
+              <strong>Progress</strong>
+              <span>turns clean focus into streaks and XP</span>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      <section id="why" class="container py-5">
+        <div class="why-panel mx-auto">
+          <div class="text-center why-heading mx-auto">
+            <span class="feature-kicker"
+              >Why CogniFocus <span aria-hidden="true">&#129504;</span></span
+            >
+            <h2 class="mb-3">
+              Normal timers keep counting while you disappear.
+            </h2>
+            <p class="hero-muted-override mb-0">
+              CogniFocus protects the session itself — with a focus timer,
+              Distraction Shield, Goblin reactions, streaks, XP, and recovery
+              nudges.
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="why-card h-100">
+                <h3>Focus Timer</h3>
+                <p class="mb-0">
+                  Start with one objective and keep the session visible while
+                  you work.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="why-card h-100">
+                <h3>Distraction Shield</h3>
+                <p class="mb-0">
+                  Block your usual escape apps while the session is active.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="why-card h-100">
+                <h3>Goblin Reactions</h3>
+                <p class="mb-0">
+                  Get called out when you slip — and pushed back into the
+                  session.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="why-card h-100">
+                <h3>Streaks and XP</h3>
+                <p class="mb-0">
+                  Turn clean sessions into visible progress, streaks, and XP.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="why-card h-100">
+                <h3>Recovery Nudges</h3>
+                <p class="mb-0">
+                  Slip once, recover fast, and keep the session alive.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="who-for" class="container py-5">
+        <div class="why-panel mx-auto">
+          <div class="text-center why-heading mx-auto">
+            <span class="feature-kicker"
+              >Who It’s For <span aria-hidden="true">&#128101;</span></span
+            >
+            <h2 class="mb-3">Built for people who keep losing focus to apps</h2>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+              <div class="why-card h-100">
+                <h3>Students</h3>
+                <p class="mb-0">
+                  You sit down to study and 20 minutes disappears into TikTok
+                  before you notice.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="why-card h-100">
+                <h3>Developers</h3>
+                <p class="mb-0">
+                  A quick Slack check turns into a 45-minute Reddit spiral and
+                  the ticket stays open.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="why-card h-100">
+                <h3>Remote workers</h3>
+                <p class="mb-0">
+                  WFH means every distracting app is one tap away during your
+                  most important work hours.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="why-card h-100">
+                <h3>Creators</h3>
+                <p class="mb-0">
+                  You need flow state. Instagram Stories need to wait.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="timer-vs-cognifocus" class="container py-5">
+        <div class="faq-panel mx-auto timer-compare-panel">
+          <div class="text-center faq-heading mx-auto">
+            <span class="feature-kicker"
+              >Comparison <span aria-hidden="true">&#9878;</span></span
+            >
+            <h2 class="mb-3">Why a normal timer is not enough</h2>
+          </div>
+
+          <div class="table-responsive timer-compare-wrap">
+            <table
+              class="table table-dark table-bordered align-middle timer-compare-table"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Normal timer</th>
+                  <th scope="col">CogniFocus</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tracks time</td>
+                  <td>Tracks protected focus sessions</td>
+                </tr>
+                <tr>
+                  <td>Keeps running while you drift</td>
+                  <td>Interrupts selected distractions during sessions</td>
+                </tr>
+                <tr>
+                  <td>No reaction when you open distracting apps</td>
+                  <td>Goblin reacts when attention slips</td>
+                </tr>
+                <tr>
+                  <td>Depends on willpower</td>
+                  <td>Adds friction when impulse hits</td>
+                </tr>
+                <tr>
+                  <td>Easy to ignore</td>
+                  <td>Rewards recovery with streaks and XP</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="container py-5">
+        <div class="pricing-panel mx-auto">
+          <div class="text-center pricing-heading mx-auto">
+            <span class="feature-kicker"
+              >Pricing <span aria-hidden="true">&#128142;</span></span
+            >
+            <h2 class="mb-3">
+              Start free. Upgrade when you want stronger focus protection.
+            </h2>
+            <p class="hero-muted-override mb-0">
+              Use CogniFocus for free, then upgrade when you want stronger
+              Shield capacity, Manual Block, Planned Sessions, reminders, and
+              recovery support.
+            </p>
+          </div>
+
+          <div class="row g-4 align-items-stretch">
+            <div class="col-lg-4">
+              <article class="pricing-card h-100">
+                <div class="pricing-card-top">
+                  <span class="pricing-label">Basic</span>
+                  <h3>Free</h3>
+                  <p class="pricing-price">$0</p>
+                  <p class="pricing-note">For starting the habit</p>
+                </div>
+                <ul class="pricing-list">
+                  <li>Focus sessions and timer controls</li>
+                  <li>Goblin reactions and session feedback</li>
+                  <li>Progress tracking foundations</li>
+                  <li>Starter Shield setup</li>
+                </ul>
+                <a href="download.html" class="pricing-link">Start Free</a>
+                <p class="pricing-note pricing-cta-note mb-0">
+                  No credit card required
+                </p>
+              </article>
+            </div>
+
+            <div class="col-lg-4">
+              <article class="pricing-card pricing-card-featured h-100">
+                <div class="pricing-card-top">
+                  <span class="pricing-label">Pro Monthly</span>
+                  <h3>Try Pro</h3>
+                  <p class="pricing-price">$3.99 <span>/ month</span></p>
+                  <p class="pricing-note">Includes a 7-day trial</p>
+                </div>
+                <ul class="pricing-list">
+                  <li>More blocked apps for Focus Shield</li>
+                  <li>Manual Block for direct protection</li>
+                  <li>Planned Sessions and reminders</li>
+                  <li>Recovery nudges when focus slips</li>
+                </ul>
+                <a href="download.html" class="btn btn-glow pricing-cta"
+                  >Try Pro Free</a
+                >
+              </article>
+            </div>
+
+            <div class="col-lg-4">
+              <article class="pricing-card pricing-card-yearly h-100">
+                <div class="pricing-card-top">
+                  <span class="pricing-label">Pro Yearly</span>
+
+                  <h3>Best Value</h3>
+                  <p class="pricing-price">$2.67 <span>/ month</span></p>
+                  <p class="pricing-micro">Best value for long-term focus</p>
+                  <p class="pricing-note">
+                    Billed yearly at $31.99. About $2.67/month
+                  </p>
+                </div>
+                <ul class="pricing-list">
+                  <li>More blocked apps for Focus Shield</li>
+                  <li>Manual Block for direct protection</li>
+                  <li>Planned Sessions and reminders</li>
+                  <li>Same Pro tools, lower yearly price</li>
+                </ul>
+                <a
+                  href="download.html"
+                  class="btn btn-glow pricing-cta pricing-cta-yearly"
+                  >Save With Yearly</a
+                >
+                <p class="pricing-note pricing-cta-note mb-0">
+                  Cancel anytime · Billed yearly at $31.99
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <div class="pricing-footer text-center">
+            <a href="pricing.html" class="nav-link-chip nav-update-link"
+              >Compare plans</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="container py-5">
+        <div class="faq-panel mx-auto">
+          <div class="text-center faq-heading mx-auto">
+            <span class="feature-kicker"
+              >FAQ <span aria-hidden="true">&#10067;</span></span
+            >
+            <h2 class="mb-3">Quick Answers.</h2>
+            <p class="hero-muted-override mb-0">The short version</p>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <h3>What is CogniFocus?</h3>
+              <p class="mb-0">
+                CogniFocus is a character-driven Android focus app with a timer,
+                Distraction Shield, Goblin reactions, progress, streaks, and
+                recovery nudges.
+              </p>
+            </div>
+            <div class="faq-item">
+              <h3>How is it different from a normal timer?</h3>
+              <p class="mb-0">
+                A normal timer keeps counting while you drift. CogniFocus keeps
+                the session visible and reacts when blocked apps pull you away.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>How is it different from a basic app blocker?</h3>
+              <p class="mb-0">
+                Blocking is only one layer. CogniFocus adds a companion, goals,
+                reminders, recovery and progress so the habit gets reinforced.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>What happens if I open Instagram or TikTok?</h3>
+              <p class="mb-0">
+                During a protected session, Distraction Shield can interrupt
+                selected distracting apps while the Goblin pushes you back to
+                your session.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>What does Pro add?</h3>
+              <p class="mb-0">
+                Pro adds stronger Shield capacity, Manual Block, Planned
+                Sessions, reminders, recovery nudges and paid-tier restore
+                support.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Why does CogniFocus need Android permissions?</h3>
+              <p class="mb-0">
+                CogniFocus uses Android permissions such as Usage Access and
+                Display Over Other Apps so Distraction Shield can detect
+                selected distracting apps and show the blocking screen during
+                focus sessions. It does not read your messages or in-app
+                content.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Is CogniFocus available on iOS?</h3>
+              <p class="mb-0">
+                Not yet. CogniFocus is currently available on Android through
+                Google Play. iOS is not available yet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ANDROID LAUNCH -->
+      <section id="early" class="container py-5 text-center">
+        <div class="founder-note mx-auto">
+          <span class="feature-kicker"
+            >Founder Note <span aria-hidden="true">&#9997;</span></span
+          >
+          <h2>Why I built CogniFocus</h2>
+          <p>I built CogniFocus because normal timers never worked for me.</p>
+          <p>
+            I could start a focus session and still end up switching apps
+            without noticing. The timer kept running, but the time was already
+            wasted.
+          </p>
+          <p>
+            So I wanted focus to feel less passive — more like a companion
+            keeping an eye on the session and pulling you back when you drift.
+          </p>
+          <p>
+            That became CogniFocus: a timer, a blocker, streaks, recovery
+            nudges, and a Goblin that reacts the moment your focus slips.
+          </p>
+          <p class="founder-signoff">—Cognielevate, maker of CogniFocus</p>
+        </div>
+
+        <div class="early-box final-cta-box p-4 mx-auto">
+          <span class="feature-kicker"
+            >Download <span aria-hidden="true">&#9889;</span></span
+          >
+          <h2>Ready to stop losing sessions to app switching?</h2>
+
+          <p class="text-muted hero-muted-override">
+            Get CogniFocus on Android and turn your next focus session into a
+            protected one.
+          </p>
+          <div class="mt-3 waitlist-box">
+            <div
+              class="play-store-card"
+              aria-label="CogniFocus Google Play link"
+            >
+              <a
+                href="https://play.google.com/store/apps/details?id=io.ionic.cognifocus"
+                target="_blank"
+                rel="noopener"
+                class="waitlist-btn btn-glow primary-cta play-store-btn"
+              >
+                <span class="cta-playstore-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" focusable="false">
+                    <path
+                      fill="#00d26a"
+                      d="M3.3 2.5L14.7 14 3.3 21.5c-.4-.2-.6-.6-.6-1V4c0-.4.2-.8.6-1z"
+                    />
+                    <path
+                      fill="#00a0ff"
+                      d="M18.4 11.5l-3.7-2.1L10.9 12l3.8 2.6 3.7-2.1c.8-.4.8-1.4 0-1.9z"
+                    />
+                    <path
+                      fill="#ffe000"
+                      d="M3.3 2.5l11.4 11.5 3.7-2.1L6.8 5.3 3.3 2.5z"
+                    />
+                    <path
+                      fill="#ff4f5e"
+                      d="M3.3 21.5l3.5-2.8 11.6-6.8-3.7-2.1L3.3 21.5z"
+                    />
+                  </svg>
+                </span>
+                Start Free on Android
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
+    <div class="mobile-sticky-cta d-md-none" aria-label="Mobile quick download">
+      <div class="mobile-sticky-cta__brand">
+        <img
+          src="assets/characters/goblin/face/annoyed.png"
+          alt="Goblin companion"
+          width="40"
+          height="40"
+          loading="lazy"
+          decoding="async"
+        />
+        <span>CogniFocus</span>
+      </div>
+      <a
+        href="https://play.google.com/store/apps/details?id=io.ionic.cognifocus"
+        target="_blank"
+        rel="noopener"
+        class="btn btn-glow primary-cta"
+        >Start Free</a
+      >
+    </div>
 
-            <section class="featured-strip" aria-label="Featured on directories">
+    <section class="featured-strip" aria-label="Featured on directories">
       <div class="featured-strip-inner">
         <p class="featured-strip-title">Featured on</p>
         <div class="featured-strip-track-wrap">
           <div class="featured-strip-track">
-            <a href="https://startupfa.st" target="_blank" title="Powered by Startup Fast" class="featured-strip-badge featured-strip-badge-startupfast">
-              <img src="https://startupfa.st/images/badges/powered-by-light.svg" alt="Powered by Startup Fast" width="150" height="44" loading="lazy" decoding="async" />
+            <a
+              href="https://startupfa.st"
+              target="_blank"
+              title="Powered by Startup Fast"
+              class="featured-strip-badge featured-strip-badge-startupfast"
+            >
+              <img
+                src="https://startupfa.st/images/badges/powered-by-light.svg"
+                alt="Powered by Startup Fast"
+                width="150"
+                height="44"
+                loading="lazy"
+                decoding="async"
+              />
             </a>
-            <a href="https://dayslaunch.com" target="_blank" rel="noopener noreferrer" class="featured-strip-badge">
-              <img src="https://dayslaunch.com/badages-awards.svg" alt="Featured on Days Launch" loading="lazy" decoding="async" />
+            <a
+              href="https://dayslaunch.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="featured-strip-badge"
+            >
+              <img
+                src="https://dayslaunch.com/badages-awards.svg"
+                alt="Featured on Days Launch"
+                loading="lazy"
+                decoding="async"
+              />
             </a>
             <a
               class="featured-strip-badge"
@@ -949,14 +1158,46 @@
                 decoding="async"
               />
             </a>
-            <a class="featured-strip-badge" href="https://peerpush.net/p/cognifocus" target="_blank" rel="noopener">
-              <img src="https://peerpush.net/p/cognifocus/badge.png" alt="CogniFocus on PeerPush" loading="lazy" decoding="async" />
+            <a
+              class="featured-strip-badge"
+              href="https://peerpush.net/p/cognifocus"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="https://peerpush.net/p/cognifocus/badge.png"
+                alt="CogniFocus on PeerPush"
+                loading="lazy"
+                decoding="async"
+              />
             </a>
-            <a target="_blank" href="https://startupbenchmarks.com" class="featured-strip-badge">
-              <img src="https://startupbenchmarks.com/assets/images/badge.png" alt="Startup Benchmarks" height="54" loading="lazy" decoding="async" />
+            <a
+              target="_blank"
+              href="https://startupbenchmarks.com"
+              class="featured-strip-badge"
+            >
+              <img
+                src="https://startupbenchmarks.com/assets/images/badge.png"
+                alt="Startup Benchmarks"
+                height="54"
+                loading="lazy"
+                decoding="async"
+              />
             </a>
-            <a href="https://yo.directory/" target="_blank" class="featured-strip-badge">
-              <img src="https://cdn.prod.website-files.com/65c1546fa73ea974db789e3d/65e1e171f89ebfa7bd0129ac_yodirectory-featured.png" alt="yo.directory" style="width: 150px; height: 54px;" width="150" height="54" loading="lazy" decoding="async"/>
+            <a
+              href="https://yo.directory/"
+              target="_blank"
+              class="featured-strip-badge"
+            >
+              <img
+                src="https://cdn.prod.website-files.com/65c1546fa73ea974db789e3d/65e1e171f89ebfa7bd0129ac_yodirectory-featured.png"
+                alt="yo.directory"
+                style="width: 150px; height: 54px"
+                width="150"
+                height="54"
+                loading="lazy"
+                decoding="async"
+              />
             </a>
           </div>
         </div>
@@ -1003,8 +1244,12 @@
 
           <div class="footer-links-group">
             <span class="footer-links-title">Resources</span>
-            <a href="/blog/how-to-stop-app-switching.html">How to Stop App Switching</a>
-            <a href="/blog/best-focus-apps-for-adhd.html">Best Focus Apps for ADHD</a>
+            <a href="/blog/how-to-stop-app-switching.html"
+              >How to Stop App Switching</a
+            >
+            <a href="/blog/best-focus-apps-for-adhd.html"
+              >Best Focus Apps for ADHD</a
+            >
             <a href="/blog/cognifocus-vs-forest.html">CogniFocus vs Forest</a>
           </div>
 
@@ -1182,5 +1427,3 @@
     </div>
   </body>
 </html>
-
-

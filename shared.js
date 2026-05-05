@@ -81,11 +81,12 @@ function upgradeDownloadCtas() {
 
   downloadCtas.forEach((cta) => {
     if (cta.closest(".app-navbar")) return;
+    if (cta.dataset.keepLabel === "true") return;
     if (cta.dataset.playStoreEnhanced === "true") return;
 
     cta.dataset.playStoreEnhanced = "true";
     cta.classList.add("download-store-cta");
-    cta.setAttribute("aria-label", "Download on Google Play Store");
+    cta.setAttribute("aria-label", "Start CogniFocus free on Android");
     cta.innerHTML = `
       <span class="download-store-cta__icon-wrap" aria-hidden="true">
         <span class="download-store-cta__icon">
@@ -97,7 +98,7 @@ function upgradeDownloadCtas() {
           </svg>
         </span>
       </span>
-      <span class="download-store-cta__label">Download on Google Play Store</span>
+      <span class="download-store-cta__label">Start Free on Android</span>
     `;
   });
 }
