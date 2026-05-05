@@ -566,7 +566,6 @@ footer {
   grid-template-columns: minmax(280px, 360px) minmax(520px, 1fr);
   grid-template-areas:
     "brand links"
-    "badge links"
     "actions links";
   column-gap: clamp(2rem, 4vw, 4.5rem);
   row-gap: 0.72rem;
@@ -574,25 +573,6 @@ footer {
   width: min(calc(100vw - 48px), 1840px);
   max-width: none;
   margin-inline: auto;
-}
-
-.footer-producthunt {
-  grid-area: badge;
-  align-self: start;
-  justify-self: start;
-  margin-left: 2rem;
-}
-
-.producthunt-badge {
-  display: block;
-  line-height: 0;
-}
-
-.producthunt-badge img {
-  display: block;
-  width: 210px;
-  max-width: 100%;
-  height: auto;
 }
 
 .footer-brand {
@@ -701,19 +681,10 @@ footer {
     grid-template-columns: minmax(250px, 320px) minmax(360px, 1fr);
     grid-template-areas:
       "brand links"
-      "badge links"
       "actions links";
     justify-content: center;
     column-gap: 2rem;
     row-gap: 1.15rem;
-  }
-
-  .footer-producthunt {
-    justify-self: start;
-  }
-
-  .producthunt-badge img {
-    width: 210px;
   }
 
   .footer-brand,
@@ -749,17 +720,11 @@ footer {
     grid-template-columns: 1fr;
     grid-template-areas:
       "brand"
-      "badge"
       "actions"
       "links";
     width: calc(100vw - 24px);
     gap: 1rem;
     justify-items: center;
-  }
-
-  .footer-producthunt {
-    justify-self: center;
-    margin-left: 0;
   }
 
   .footer-brand {
@@ -916,6 +881,116 @@ footer {
   flex-direction: column;
   gap: 0;
   margin-top: 1.7rem;
+}
+
+.hero-platform-note {
+  margin: 0.8rem 0 0;
+  color: #9ec4f4;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.hero-social-proof {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+}
+
+.hero-proof-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.38rem 0.72rem;
+  border-radius: 999px;
+  border: 1px solid rgba(77, 208, 255, 0.22);
+  background: rgba(255, 255, 255, 0.03);
+  color: #cde8ff;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.launch-strip {
+  margin: 0.9rem auto 0;
+  padding: 0.9rem 1rem;
+  max-width: 860px;
+  border-radius: 18px;
+  border: 1px solid rgba(77, 208, 255, 0.16);
+  background: linear-gradient(
+    145deg,
+    rgba(20, 30, 60, 0.5),
+    rgba(11, 17, 32, 0.65)
+  );
+  display: grid;
+  gap: 0.65rem;
+  justify-items: center;
+  color: #b8d0f6;
+}
+
+.launch-strip-link {
+  padding: 0.55rem 1rem;
+}
+
+.featured-strip {
+  padding: 0.5rem 0 0.65rem;
+  border-top: 1px solid rgba(77, 208, 255, 0.12);
+  border-bottom: 1px solid rgba(77, 208, 255, 0.12);
+  background: rgba(4, 8, 16, 0.78);
+}
+
+.featured-strip-inner {
+  width: min(calc(100vw - 24px), 1880px);
+  margin-inline: auto;
+}
+
+.featured-strip-title {
+  margin: 0 0 0.45rem;
+  text-align: center;
+  color: #9ec4f4;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.featured-strip-track-wrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  mask-image: none;
+}
+
+.featured-strip-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.featured-strip-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(77, 208, 255, 0.14);
+  padding: 0.22rem 0.36rem;
+}
+
+.featured-strip-badge img {
+  display: block;
+  width: auto;
+  height: 30px;
+  max-width: 240px;
+  object-fit: contain;
+}
+
+.site-footer-no-badge .footer-inner {
+  grid-template-areas:
+    "brand links"
+    "actions links";
 }
 
 .hero-proof-strip {
@@ -1261,6 +1336,62 @@ small {
 .why-card p {
   color: #b8d0f6;
   line-height: 1.65;
+}
+
+
+.timer-compare-panel {
+  max-width: 1120px;
+}
+
+.timer-compare-wrap {
+  margin-top: 1rem;
+}
+
+.timer-compare-table {
+  margin-bottom: 0;
+  border-color: rgba(77, 208, 255, 0.18);
+}
+
+.timer-compare-table th,
+.timer-compare-table td {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border-color: rgba(77, 208, 255, 0.14) !important;
+  color: #d6eeff;
+  font-size: 0.94rem;
+}
+
+.founder-note {
+  max-width: 980px;
+  text-align: left;
+  margin-bottom: 1.15rem;
+  padding: 1.35rem;
+  border-radius: 20px;
+  background: linear-gradient(
+    145deg,
+    rgba(20, 30, 60, 0.62),
+    rgba(11, 17, 32, 0.78)
+  );
+  border: 1px solid rgba(77, 208, 255, 0.13);
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.founder-note h2 {
+  margin: 0.7rem 0 0.95rem;
+  color: #ffffff;
+}
+
+.founder-note p {
+  color: #b8d0f6;
+  margin: 0 0 0.72rem;
+  line-height: 1.65;
+}
+
+.founder-signoff {
+  margin-top: 1rem;
+  font-weight: 800;
+  color: #e8f7ff !important;
 }
 
 .faq-list {
@@ -2197,6 +2328,18 @@ small {
     min-height: 0;
   }
 
+  .featured-strip-badge img {
+    height: 26px;
+    max-width: 210px;
+  }
+
+  .featured-strip-track {
+    justify-content: flex-start;
+    width: max-content;
+    flex-wrap: nowrap;
+    padding-bottom: 0.2rem;
+  }
+
   .nav-link-chip {
     padding: 0.42rem 0.75rem;
     font-size: 0.82rem;
@@ -2663,6 +2806,69 @@ small {
     color: #000000 !important;
     border-color: rgba(16, 32, 51, 0.35) !important;
   }
+
+  .hero-platform-note {
+    color: #44566f;
+  }
+
+  .hero-proof-pill {
+    background: rgba(16, 112, 164, 0.08);
+    border-color: rgba(16, 112, 164, 0.22);
+    color: #0e2f49;
+  }
+
+  .launch-strip {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(240, 247, 255, 0.94)
+    );
+    border-color: rgba(54, 125, 171, 0.2);
+    color: #44566f;
+  }
+
+  .timer-compare-table th,
+  .timer-compare-table td {
+    background: rgba(255, 255, 255, 0.85) !important;
+    border-color: rgba(54, 125, 171, 0.2) !important;
+    color: #123a59;
+  }
+
+  .founder-note {
+    background: linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(240, 247, 255, 0.94)
+    );
+    border-color: rgba(54, 125, 171, 0.2);
+    box-shadow:
+      0 20px 48px rgba(21, 48, 84, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  }
+
+  .founder-note h2,
+  .founder-signoff {
+    color: #102033 !important;
+  }
+
+  .founder-note p {
+    color: #44566f;
+  }
+
+  .featured-strip {
+    background: rgba(245, 248, 252, 0.95);
+    border-top-color: rgba(54, 125, 171, 0.2);
+    border-bottom-color: rgba(54, 125, 171, 0.2);
+  }
+
+  .featured-strip-title {
+    color: #44566f;
+  }
+
+  .featured-strip-badge {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(54, 125, 171, 0.2);
+  }
   .app-navbar {
     background: rgba(255, 255, 255, 0.78);
     border-bottom-color: rgba(21, 48, 84, 0.12);
@@ -2895,6 +3101,7 @@ small {
   .focus-signal-three {
     animation: none;
   }
+
 }
 /* Navbar CTA: prevent clipped corners on hover */
 .app-navbar .nav-actions > a.btn.btn-glow.primary-cta,
@@ -2902,6 +3109,24 @@ small {
 .app-navbar .nav-actions > a.btn.btn-glow.primary-cta:focus,
 .app-navbar .nav-actions > a.btn.btn-glow.primary-cta:focus-visible {
   transform: none !important;
+}
+
+/* Homepage footer variant without Product Hunt row */
+@media (max-width: 1199.98px) {
+  .site-footer-no-badge .footer-inner {
+    grid-template-areas:
+      "brand links"
+      "actions links";
+  }
+}
+
+@media (max-width: 767.98px) {
+  .site-footer-no-badge .footer-inner {
+    grid-template-areas:
+      "brand"
+      "actions"
+      "links";
+  }
 }
 
 .back-to-top-arrow {

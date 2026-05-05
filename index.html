@@ -288,7 +288,7 @@
       <div class="hero-actions">
         <div class="hero-cta">
           <a
-            href="https://play.google.com/store/apps/details?id=io.ionic.cognifocus"
+            href="download.html"
             class="btn btn-glow btn-lg me-1 primary-cta"
             ><span class="cta-playstore-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" role="img" focusable="false">
@@ -310,15 +310,38 @@
                 />
               </svg>
             </span>
-            Start Focusing
+            Stop App Switching
           </a>
 
           <a
             href="#focus-loop"
             class="btn btn-outline-light btn-lg hero-secondary-cta"
-            >How It Works</a
+            >See How It Works</a
           >
         </div>
+        <p class="hero-platform-note">Available on Android. iOS is not available yet.</p>
+
+        <div class="hero-social-proof" aria-label="Social proof">
+          <span class="hero-proof-pill">100+ Android downloads</span>
+          <span class="hero-proof-pill">Live on Google Play</span>
+          <span class="hero-proof-pill">Featured on Product Hunt</span>
+          <span class="hero-proof-pill">Built by CogniElevate</span>
+        </div>
+
+        <div class="launch-strip" aria-label="Product Hunt launch update">
+          <p class="mb-0">
+            <strong>Launching on Product Hunt May 31</strong><br />
+            Follow the launch and share feedback before we go live.
+          </p>
+          <a
+            href="https://www.producthunt.com/products/cognifocus?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cognifocus"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="nav-link-chip nav-update-link launch-strip-link"
+            >Follow on Product Hunt</a
+          >
+        </div>
+
         <p class="text-muted hero-muted-override mt-3 mb-0">
           Need a quick starting plan?
           <a href="focus-without-distractions.html">Focus guides</a>
@@ -607,6 +630,86 @@
       </div>
     </section>
 
+    <section id="who-for" class="container py-5">
+      <div class="why-panel mx-auto">
+        <div class="text-center why-heading mx-auto">
+          <span class="feature-kicker"
+            >Who It’s For <span aria-hidden="true">&#128101;</span></span
+          >
+          <h2 class="mb-3">Built for people who keep losing focus to apps</h2>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="why-card h-100">
+              <h3>Students</h3>
+              <p class="mb-0">Stay locked in during study sessions.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="why-card h-100">
+              <h3>Developers</h3>
+              <p class="mb-0">Protect deep work from quick checks.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="why-card h-100">
+              <h3>Remote workers</h3>
+              <p class="mb-0">Stop work sessions turning into app switching.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="why-card h-100">
+              <h3>Creators</h3>
+              <p class="mb-0">
+                Stay in the flow instead of drifting to social apps.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timer-vs-cognifocus" class="container py-5">
+      <div class="faq-panel mx-auto timer-compare-panel">
+        <div class="text-center faq-heading mx-auto">
+          <span class="feature-kicker"
+            >Comparison <span aria-hidden="true">&#9878;</span></span
+          >
+          <h2 class="mb-3">Why a normal timer is not enough</h2>
+        </div>
+
+        <div class="table-responsive timer-compare-wrap">
+          <table class="table table-dark table-bordered align-middle timer-compare-table">
+            <thead>
+              <tr>
+                <th scope="col">Normal timer</th>
+                <th scope="col">CogniFocus</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Tracks time</td>
+                <td>Tracks protected focus sessions</td>
+              </tr>
+              <tr>
+                <td>Keeps running while you drift</td>
+                <td>Blocks selected distracting apps</td>
+              </tr>
+              <tr>
+                <td>No reaction when you open distracting apps</td>
+                <td>Reacts when you drift</td>
+              </tr>
+              <tr>
+                <td>Easy to ignore</td>
+                <td>Rewards recovery with streaks and XP</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
     <section id="pricing" class="container py-5">
       <div class="pricing-panel mx-auto">
         <div class="text-center pricing-heading mx-auto">
@@ -756,7 +859,27 @@
     </section>
 
     <!-- ANDROID LAUNCH -->
-      <section id="early" class="container py-5 text-center">
+    <section id="early" class="container py-5 text-center">
+      <div class="founder-note mx-auto">
+        <span class="feature-kicker"
+          >Founder Note <span aria-hidden="true">&#9997;</span></span
+        >
+        <h2>Why I built CogniFocus</h2>
+        <p>
+          I built CogniFocus because normal timers never worked for me.
+        </p>
+        <p>
+          I could start a focus session and still end up switching apps without noticing. The timer kept running, but the time was already wasted.
+        </p>
+        <p>
+          So I wanted focus to feel less passive — more like a companion keeping an eye on the session and pulling you back when you drift.
+        </p>
+        <p>
+          That became CogniFocus: timer, blocker, streaks, recovery nudges and a Goblin that reacts when you lose focus.
+        </p>
+        <p class="founder-signoff">—Cognielevate, maker of CogniFocus</p>
+      </div>
+
       <div class="early-box final-cta-box p-4 mx-auto">
         <span class="feature-kicker"
           >Download <span aria-hidden="true">&#9889;</span></span
@@ -801,28 +924,54 @@
       </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <div class="footer-producthunt">
-          <a
-            class="producthunt-badge"
-            href="https://www.producthunt.com/products/cognifocus?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cognifocus"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="CogniFocus on Product Hunt"
-          >
-            <img
-              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1136007&theme=light&t=1777557337082"
-              alt="CogniFocus - Focus better with a timer, blocker and Goblin | Product Hunt"
-              width="250"
-              height="54"
-              loading="lazy"
-              decoding="async"
-            />
-          </a>
+    <section class="featured-strip" aria-label="Featured on directories">
+      <div class="featured-strip-inner">
+        <p class="featured-strip-title">Featured on</p>
+        <div class="featured-strip-track-wrap">
+          <div class="featured-strip-track">
+            <a
+              class="featured-strip-badge"
+              href="https://www.producthunt.com/products/cognifocus?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cognifocus"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="CogniFocus on Product Hunt"
+            >
+              <img
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1136007&theme=light&t=1777557337082"
+                alt="CogniFocus featured on Product Hunt"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <a class="featured-strip-badge" href="https://www.startupinspire.com" target="_blank" rel="noopener">
+              <img
+                src="https://www.startupinspire.com/images/badge_1.svg"
+                alt="Startup Inspire badge showing CogniFocus featured in startup directory listings"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+            <a
+              class="featured-strip-badge"
+              href="https://peerpush.net/p/cognifocus"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                src="https://peerpush.net/p/cognifocus/badge.png"
+                alt="CogniFocus on PeerPush"
+                loading="lazy"
+                decoding="async"
+              />
+            </a>
+          </div>
         </div>
+      </div>
+    </section>
 
+    <!-- FOOTER -->
+    <footer class="site-footer site-footer-no-badge">
+      <div class="footer-inner">
         <div class="footer-brand">
           <img
             src="assets/logo/app-logo.png"
