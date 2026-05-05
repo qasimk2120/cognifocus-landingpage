@@ -2979,6 +2979,15 @@ small {
     color: #44566f;
   }
 
+  .launch-strip-title {
+    color: #0f3550;
+    background: rgba(77, 208, 255, 0.18);
+  }
+
+  .launch-strip-subtitle {
+    color: #224c6d;
+  }
+
   .timer-compare-table th,
   .timer-compare-table td {
     background: rgba(255, 255, 255, 0.85) !important;
@@ -3517,6 +3526,11 @@ small {
   .testimonial-card {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(240, 247, 255, 0.94));
     border-color: rgba(54, 125, 171, 0.2);
+  }
+
+  .testimonials-label {
+    color: #285578;
+    opacity: 0.95;
   }
 
   .testimonial-quote {
