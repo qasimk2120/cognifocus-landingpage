@@ -987,6 +987,14 @@ footer {
   object-fit: contain;
 }
 
+.featured-strip-badge-startupfast img {
+  width: 150px;
+  height: 44px;
+  min-width: 150px;
+  min-height: 44px;
+  max-width: none;
+}
+
 .site-footer-no-badge .footer-inner {
   grid-template-areas:
     "brand links"
