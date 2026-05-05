@@ -1002,6 +1002,12 @@ footer {
   white-space: nowrap;
 }
 
+.launch-strip-title-right {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 .launch-strip-subtitle {
   font-size: 0.9rem;
   line-height: 1.2;
