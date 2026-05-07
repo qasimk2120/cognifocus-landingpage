@@ -1,5 +1,13 @@
 ﻿[
   {
+    "version": "4.5.1",
+    "category": "Shield & Session Reliability",
+    "date": "2026-05-07",
+    "title": "What's New (v4.5.1)",
+    "summary": "Shield app blocking is more reliable after quick app switching, focus drift tracking updates more consistently, and reminder scheduling is stronger during startup and resume.",
+    "notes": "## What's New\n- Shield app blocking is more reliable after quick app switching\n- Focus drifts/distractions now update more consistently everywhere in the app\n- Session and Shield behaviors were polished for smoother real-time tracking\n- Daily plan reminder scheduling is more reliable during startup and resume\n- Stability fixes and small UX improvements across focus flows"
+  },
+  {
     "version": "4.5.0",
     "category": "Onboarding & Progression Upgrade",
     "date": "2026-05-04",
