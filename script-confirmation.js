@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
-  // background animation
+  // Background animation.
   if (typeof window.animateFaces === "function") {
     window.animateFaces();
   }
@@ -9,17 +9,17 @@ window.addEventListener("DOMContentLoaded", () => {
 
   if (!characterImg || !messageBox) return;
 
-  // 🔥 goblin personality (ON BRAND)
+  // Goblin personality.
   const messages = [
-    "You made it in. Don't waste this chance 😏",
-    "Early access?? Damn… you might actually be serious.",
-    "Most people don’t even get this far. Don’t ruin it.",
-    "You signed up… now let’s see if you actually show up.",
+    "You made it in. Don't waste this chance.",
+    "Early access? Damn... you might actually be serious.",
+    "Most people don't even get this far. Don't ruin it.",
+    "You signed up... now let's see if you actually show up.",
   ];
 
   const randomMessage = messages[Math.floor(Math.random() * messages.length)];
 
-  // 🎭 goblin appears
+  // Goblin appears.
   characterImg.src = "assets/characters/goblin/avatar/cheerful.png";
 
   setTimeout(() => {
@@ -27,7 +27,7 @@ window.addEventListener("DOMContentLoaded", () => {
     characterImg.classList.add("character-enter");
   }, 200);
 
-  // ✍️ typing effect (THIS is what makes it feel alive)
+  // Typing effect.
   let i = 0;
   function typeText() {
     if (i < randomMessage.length) {
