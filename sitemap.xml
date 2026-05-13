@@ -51,6 +51,27 @@
   </url>
 
   <url>
+    <loc>https://cognifocus.app/best-app-blocker-android.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://cognifocus.app/focus-without-distractions.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://cognifocus.app/stop-app-switching.html</loc>
+    <lastmod>2026-05-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://cognifocus.app/pricing.html</loc>
     <lastmod>2026-05-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -81,6 +102,13 @@
   <url>
     <loc>https://cognifocus.app/terms.html</loc>
     <lastmod>2026-04-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://cognifocus.app/delete-account.html</loc>
+    <lastmod>2026-05-13</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
