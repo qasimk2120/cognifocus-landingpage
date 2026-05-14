@@ -73,49 +73,73 @@
 </script>
   </head>
 
-  <body class="download-page">
-    <nav
-      class="navbar navbar-dark app-navbar fixed-top px-4 d-flex justify-content-between align-items-center"
-    >
-      <a class="nav-brand" href="/" aria-label="CogniFocus home">
-        <img
-          src="assets/logo/text-logo-tight.png"
-          class="text-logo"
-          alt="CogniFocus logo"
-        />
-      </a>
+  <body class="download-page cf-shell">
 
-      <button
-        class="nav-toggle"
-        type="button"
-        aria-expanded="false"
-        aria-label="Toggle navigation menu"
-      >
-        <span class="nav-toggle-line"></span>
-        <span class="nav-toggle-line"></span>
-        <span class="nav-toggle-line"></span>
-      </button>
-
-      <div class="nav-actions d-flex align-items-center gap-2">
-        <a href="/" class="nav-link-chip">Home</a>
-        <a href="/#focus-loop" class="nav-link-chip">Product</a>
-        <a href="/#why" class="nav-link-chip">Why It Works</a>
-        <a href="pricing.html" class="nav-link-chip">Pricing</a>
-        <a href="whats-new.html" class="nav-link-chip">What's New</a>
-        <a href="/blog/" class="nav-link-chip">Blog</a>
-        <a href="/#faq" class="nav-link-chip">FAQ</a>
-
+    <div class="cf-launch-banner" id="cf-launch-banner" role="banner">
+      <div class="container cf-launch-banner__inner">
+        <span class="cf-launch-banner__dot"></span>
+        <span class="cf-launch-banner__text">
+          Product Hunt launch
+          <strong class="cf-launch-banner__countdown" id="cf-countdown"></strong>
+        </span>
         <a
-          href="download.html"
-          class="btn btn-glow primary-cta active"
-          aria-current="page"
+          href="https://www.producthunt.com/products/cognifocus?launch=cognifocus"
+          target="_blank"
+          rel="noopener"
+          class="cf-launch-banner__link"
         >
-          Get CogniFocus <i class="bi bi-download"></i>
+          Follow <span class="cf-launch-banner__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a href="#ios-waitlist" class="cf-launch-banner__ios">
+          Get iOS notification
         </a>
       </div>
-    </nav>
+    </div>
+    <header class="cf-nav" id="cf-nav">
+      <div class="container cf-nav__inner">
+        <a href="/" class="cf-nav__logo" aria-label="CogniFocus home">
+          <img src="assets/logo/text-logo-tight.png" alt="CogniFocus" height="28">
+        </a>
 
-    <main>
+        <nav class="cf-nav__links" aria-label="Main navigation">
+          <a href="/#why" class="cf-nav__link">Why it works</a>
+          <a href="/#focus-loop" class="cf-nav__link">Product</a>
+          <a href="/pricing.html" class="cf-nav__link">Pricing</a>
+          <a href="/whats-new.html" class="cf-nav__link">What's new</a>
+          <a href="/blog/" class="cf-nav__link">Blog</a>
+        </nav>
+
+        <div class="cf-nav__actions">
+          <a href="/download.html" class="btn btn-primary btn-sm cf-nav__cta">
+            Download free
+          </a>
+          <button class="cf-nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="cf-mobile-menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="cf-mobile-menu" id="cf-mobile-menu" aria-hidden="true">
+        <nav class="cf-mobile-menu__links">
+          <a href="/#why" class="cf-mobile-menu__link">Why it works</a>
+          <a href="/#focus-loop" class="cf-mobile-menu__link">Product</a>
+          <a href="/pricing.html" class="cf-mobile-menu__link">Pricing</a>
+          <a href="/whats-new.html" class="cf-mobile-menu__link">What's new</a>
+          <a href="/blog/" class="cf-mobile-menu__link">Blog</a>
+          <a href="/#faq" class="cf-mobile-menu__link">FAQ</a>
+        </nav>
+        <div class="cf-mobile-menu__footer">
+          <a href="/download.html" class="btn btn-primary btn-full">Download free on Android</a>
+          <p class="cf-mobile-menu__ios">
+            iOS coming soon &mdash;
+            <a href="#ios-waitlist" class="cf-mobile-menu__ios-link">get notified</a>
+          </p>
+        </div>
+      </div>
+    </header>
+
+<main>
       <header class="container text-center download-hero">
         <span class="feature-kicker">
           Quick Download <span aria-hidden="true">&#9889;</span>
