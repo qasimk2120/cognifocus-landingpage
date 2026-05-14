@@ -1,5 +1,21 @@
 ﻿[
   {
+    "version": "4.5.3",
+    "category": "First-Time Walkthrough",
+    "date": "2026-05-14",
+    "title": "Introducing 1st time Walkthrough (v4.5.3)",
+    "summary": "A new first-time walkthrough helps you start your first focus loop, understand setup steps, follow progress and tabs, and use guidance that fits more phone sizes.",
+    "notes": "## What's New\n- New first-time walkthrough helps you start your first focus loop\n- Focus setup now introduces duration, goals, app blocking, and starting a session\n- Header and footer walkthroughs explain progress, streaks, goals and main tabs\n- Guidance pointers are easier to follow across different phone sizes\n- Daily plan editing and onboarding prompts are more reliable"
+  },
+  {
+    "version": "4.5.2",
+    "category": "Shield & Progress Polish",
+    "date": "2026-05-13",
+    "title": "What's New (v4.5.2)",
+    "summary": "Blocked-app returns are cleaner, Progress shows more behavior-aware insights, focus nudges are safer, and intro screens fit tall phones and camera cutouts better.",
+    "notes": "## What's New\n- Returning from a blocked app should no longer stack duplicate Shield overlays\n- Progress now shows more behavior-aware Goblin insights and focus patterns\n- Behavioral focus nudges and notification timing got safer\n- Intro screens now respect camera cutouts and tall phone safe areas better"
+  },
+  {
     "version": "4.5.1",
     "category": "Shield & Session Reliability",
     "date": "2026-05-07",
