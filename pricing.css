@@ -18,6 +18,8 @@
 .pricing-page .pricing-card {
   position: relative;
   padding-top: 4.4rem;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
 }
 
 .pricing-page .pricing-label {
