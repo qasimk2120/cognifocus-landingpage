@@ -15,7 +15,7 @@ body.delete-account-page {
 
 .delete-hero h1 {
   margin: 0 0 1rem;
-  color: #ffffff;
+  color: var(--cf-text);
   font-size: clamp(2.25rem, 5vw, 4rem);
   font-weight: 700;
   line-height: 1.04;
@@ -25,7 +25,7 @@ body.delete-account-page {
 .delete-subtitle {
   max-width: 760px;
   margin: 0 auto;
-  color: #b8d0f6 !important;
+  color: var(--cf-muted) !important;
   font-size: 1.04rem;
   line-height: 1.65;
 }
@@ -44,24 +44,24 @@ body.delete-account-page {
   padding: 1.35rem;
   background: linear-gradient(
     145deg,
-    rgba(20, 30, 60, 0.66),
-    rgba(11, 17, 32, 0.8)
+    rgba(var(--cf-surface2-rgb), 0.66),
+    rgba(var(--cf-navy-rgb), 0.8)
   );
-  border: 1px solid rgba(77, 208, 255, 0.12);
+  border: 1px solid rgba(var(--cf-cyan-rgb), 0.12);
   border-radius: 20px;
   box-shadow:
     0 18px 42px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.03);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
 
 /* highlight card */
 .delete-card-highlight {
-  border-color: rgba(142, 255, 193, 0.34);
+  border-color: rgba(var(--cf-mint-rgb), 0.34);
   box-shadow:
     0 22px 52px rgba(0, 0, 0, 0.28),
-    0 0 0 1px rgba(142, 255, 193, 0.08);
+    0 0 0 1px rgba(var(--cf-mint-rgb), 0.08);
 }
 
 /* HEADER */
@@ -80,23 +80,23 @@ body.delete-account-page {
   align-items: center;
   justify-content: center;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(255, 184, 77, 0.9), #4dd0ff);
-  color: #07131d;
+  background: linear-gradient(135deg, rgba(var(--cf-goblin-rgb), 0.9), var(--cf-cyan));
+  color: var(--cf-black);
   font-size: 1.3rem;
-  box-shadow: 0 14px 28px rgba(3, 8, 18, 0.26);
+  box-shadow: 0 14px 28px rgba(var(--cf-black-rgb), 0.26);
 }
 
 /* TEXT */
 .delete-card h2 {
   margin: 0 0 0.55rem;
-  color: #ffffff;
+  color: var(--cf-text);
   font-size: 1.18rem;
   font-weight: 700;
 }
 
 .delete-card p {
   margin: 0;
-  color: #b8d0f6;
+  color: var(--cf-muted);
   line-height: 1.65;
 }
 
@@ -116,7 +116,7 @@ body.delete-account-page {
 .delete-list li {
   position: relative;
   padding-left: 1.45rem;
-  color: #b8d0f6;
+  color: var(--cf-muted);
   line-height: 1.6;
 }
 
@@ -128,8 +128,8 @@ body.delete-account-page {
   width: 0.55rem;
   height: 0.55rem;
   border-radius: 50%;
-  background: linear-gradient(135deg, #4dd0ff, #8effc1);
-  box-shadow: 0 0 12px rgba(77, 208, 255, 0.35);
+  background: linear-gradient(135deg, var(--cf-cyan), var(--cf-mint));
+  box-shadow: 0 0 12px rgba(var(--cf-cyan-rgb), 0.35);
 }
 
 /* NUMBERED STEPS */
@@ -150,7 +150,7 @@ body.delete-account-page {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #07131d;
+  color: var(--cf-black);
   font-size: 0.72rem;
   font-weight: 900;
 }
@@ -159,13 +159,13 @@ body.delete-account-page {
 .delete-contact-card a {
   display: inline-flex;
   margin-top: 1rem;
-  color: #86e4ff;
+  color: var(--cf-cyan);
   font-weight: 800;
   text-decoration: none;
 }
 
 .delete-contact-card a:hover {
-  color: #ffffff;
+  color: var(--cf-text);
 }
 
 /* FOOTER FIX */
@@ -231,65 +231,65 @@ body.delete-account-page {
     background:
       radial-gradient(
         circle at 20% 20%,
-        rgba(39, 180, 134, 0.12),
+        rgba(var(--cf-mint-rgb), 0.12),
         transparent 36%
       ),
       radial-gradient(
         circle at 82% 4%,
-        rgba(44, 142, 204, 0.14),
+        rgba(var(--cf-cobalt-rgb), 0.14),
         transparent 38%
       ),
-      #f5f8fc;
-    color: #102033;
+      var(--cf-light-bg);
+    color: var(--cf-light-text);
   }
 
   .delete-account-page .delete-hero h1 {
-    color: #102033 !important;
+    color: var(--cf-light-text) !important;
   }
 
   .delete-account-page .delete-subtitle {
-    color: #44566f !important;
+    color: var(--cf-light-muted) !important;
     text-shadow: none !important;
   }
 
   .delete-account-page .delete-card {
     background: linear-gradient(
       145deg,
-      rgba(255, 255, 255, 0.96),
-      rgba(240, 247, 255, 0.94)
+      rgba(var(--cf-light-card-rgb), 0.96),
+      rgba(var(--cf-light-surface-rgb), 0.94)
     );
-    border-color: rgba(54, 125, 171, 0.2);
+    border-color: rgba(var(--cf-cyan-rgb), 0.2);
     box-shadow:
-      0 20px 48px rgba(21, 48, 84, 0.12),
-      inset 0 1px 0 rgba(255, 255, 255, 0.65);
+      0 20px 48px rgba(var(--cf-light-shadow-rgb), 0.12),
+      inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.65);
   }
 
   .delete-account-page .delete-card-highlight {
-    border-color: rgba(31, 151, 111, 0.3);
+    border-color: rgba(var(--cf-mint-rgb), 0.3);
     box-shadow:
-      0 24px 54px rgba(21, 48, 84, 0.14),
-      0 0 0 1px rgba(31, 151, 111, 0.08);
+      0 24px 54px rgba(var(--cf-light-shadow-rgb), 0.14),
+      0 0 0 1px rgba(var(--cf-mint-rgb), 0.08);
   }
 
   .delete-account-page .delete-card h2 {
-    color: #102033 !important;
+    color: var(--cf-light-text) !important;
   }
 
   .delete-account-page .delete-card p,
   .delete-account-page .delete-list,
   .delete-account-page .delete-list li {
-    color: #44566f !important;
+    color: var(--cf-light-muted) !important;
   }
 
   .delete-account-page .delete-icon {
-    box-shadow: 0 14px 28px rgba(21, 48, 84, 0.16);
+    box-shadow: 0 14px 28px rgba(var(--cf-light-shadow-rgb), 0.16);
   }
 
   .delete-account-page .delete-contact-card a {
-    color: #0e6ea8 !important;
+    color: var(--cf-light-accent) !important;
   }
 
   .delete-account-page .delete-contact-card a:hover {
-    color: #102033 !important;
+    color: var(--cf-light-text) !important;
   }
 }
