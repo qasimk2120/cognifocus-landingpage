@@ -1,7 +1,15 @@
 body.ios-waitlist-page {
   background:
-    radial-gradient(circle at 12% 18%, rgba(var(--cf-cyan-rgb), 0.12), transparent 30rem),
-    radial-gradient(circle at 88% 8%, rgba(var(--cf-goblin-rgb), 0.1), transparent 26rem),
+    radial-gradient(
+      circle at 12% 18%,
+      rgba(var(--cf-cyan-rgb), 0.12),
+      transparent 30rem
+    ),
+    radial-gradient(
+      circle at 88% 8%,
+      rgba(var(--cf-goblin-rgb), 0.1),
+      transparent 26rem
+    ),
     var(--cf-black);
 }
 
@@ -487,8 +495,16 @@ body.ios-waitlist-page {
 @media (prefers-color-scheme: light) {
   body.ios-waitlist-page {
     background:
-      radial-gradient(circle at 12% 18%, rgba(var(--cf-cyan-rgb), 0.1), transparent 28rem),
-      radial-gradient(circle at 88% 8%, rgba(var(--cf-goblin-rgb), 0.08), transparent 24rem),
+      radial-gradient(
+        circle at 12% 18%,
+        rgba(var(--cf-cyan-rgb), 0.1),
+        transparent 28rem
+      ),
+      radial-gradient(
+        circle at 88% 8%,
+        rgba(var(--cf-goblin-rgb), 0.08),
+        transparent 24rem
+      ),
       var(--cf-light-bg);
   }
 
@@ -520,9 +536,21 @@ body.ios-waitlist-page {
 
   .ios-waitlist-conversion-card {
     background:
-      radial-gradient(circle at top left, rgba(var(--cf-cyan-rgb), 0.08), transparent 34%),
-      radial-gradient(circle at 85% 20%, rgba(var(--cf-goblin-rgb), 0.06), transparent 32%),
-      linear-gradient(145deg, rgba(var(--cf-light-card-rgb), 0.96), rgba(var(--cf-light-surface-rgb), 0.94));
+      radial-gradient(
+        circle at top left,
+        rgba(var(--cf-cyan-rgb), 0.08),
+        transparent 34%
+      ),
+      radial-gradient(
+        circle at 85% 20%,
+        rgba(var(--cf-goblin-rgb), 0.06),
+        transparent 32%
+      ),
+      linear-gradient(
+        145deg,
+        rgba(var(--cf-light-card-rgb), 0.96),
+        rgba(var(--cf-light-surface-rgb), 0.94)
+      );
     border-color: rgba(var(--cf-cyan-rgb), 0.18);
     box-shadow:
       0 20px 48px rgba(var(--cf-light-shadow-rgb), 0.12),
@@ -530,7 +558,11 @@ body.ios-waitlist-page {
   }
 
   .ios-waitlist-conversion-card .hero-media-card {
-    background: linear-gradient(145deg, rgba(var(--cf-light-card-rgb), 0.96), rgba(var(--cf-light-surface-rgb), 0.94));
+    background: linear-gradient(
+      145deg,
+      rgba(var(--cf-light-card-rgb), 0.96),
+      rgba(var(--cf-light-surface-rgb), 0.94)
+    );
   }
 
   .ios-waitlist-conversion-card .vacuum-core {
@@ -547,7 +579,11 @@ body.ios-waitlist-page {
   }
 
   .ios-waitlist-conversion-card .vacuum-cross {
-    background: linear-gradient(180deg, rgba(255, 99, 116, 0.98), rgba(255, 67, 102, 0.92));
+    background: linear-gradient(
+      180deg,
+      rgba(255, 99, 116, 0.98),
+      rgba(255, 67, 102, 0.92)
+    );
   }
 
   .ios-waitlist-conversion-card .vacuum-goblin-success {
