@@ -460,6 +460,9 @@
       <section class="container py-5 testimonials-strip">
         <div class="reaction-carousel" data-reaction-carousel>
           <div class="reaction-carousel-heading">
+            <span class="testimonial-pill" role="note"
+              >What people are saying</span
+            >
             <h2>The Goblin reactions got weirdly effective</h2>
           </div>
 
@@ -574,62 +577,111 @@
       <section id="why" class="container py-5">
         <div class="why-panel mx-auto">
           <div class="text-center why-heading mx-auto">
-            <span class="feature-kicker"
-              >Why CogniFocus <span aria-hidden="true">&#129504;</span></span
-            >
-            <h2 class="mb-3">
-              Normal timers keep counting while you disappear.
-            </h2>
+            <span class="feature-kicker">BEHAVIOR REACTIONS</span>
+            <h2 class="mb-3">Every distraction gets a reaction.</h2>
             <p class="hero-muted-override mb-0">
-              CogniFocus protects the session itself - with a focus timer,
-              Distraction Shield, Goblin reactions, streaks, XP, and recovery
-              nudges.
+              Tap a Goblin moment to see what system kicks in.
             </p>
           </div>
 
-          <div class="row g-4">
-            <div class="col-md-4">
-              <div class="why-card h-100">
-                <h3>Focus Timer</h3>
-                <p class="mb-0">
-                  Start with one objective and keep the session visible while
-                  you work.
-                </p>
+          <div class="goblin-cards-grid mt-5">
+            <!-- Card 1: Angry -->
+            <button class="goblin-card" type="button" aria-expanded="false">
+              <div class="goblin-card-inner">
+                <div class="goblin-card-front">
+                  <img
+                    src="assets/characters/goblin/avatar/angry.png"
+                    alt="Angry Goblin"
+                    class="goblin-avatar"
+                    loading="lazy"
+                  />
+                  <p class="goblin-moment">opened TikTok again?</p>
+                  <span class="tap-hint">tap to reveal</span>
+                </div>
+                <div class="goblin-card-back">
+                  <h3>Shield interrupts distractions</h3>
+                  <p>
+                    CogniFocus blocks selected apps during focus sessions before
+                    one quick check becomes a lost hour.
+                  </p>
+                  <span class="goblin-tag">Live interruption</span>
+                </div>
               </div>
-            </div>
-            <div class="col-md-4">
-              <div class="why-card h-100">
-                <h3>Distraction Shield</h3>
-                <p class="mb-0">
-                  Block your usual escape apps while the session is active.
-                </p>
+            </button>
+
+            <!-- Card 2: Annoyed -->
+            <button class="goblin-card" type="button" aria-expanded="false">
+              <div class="goblin-card-inner">
+                <div class="goblin-card-front">
+                  <img
+                    src="assets/characters/goblin/avatar/annoyed.png"
+                    alt="Annoyed Goblin"
+                    class="goblin-avatar"
+                    loading="lazy"
+                  />
+                  <p class="goblin-moment">bro left the session</p>
+                  <span class="tap-hint">tap to reveal</span>
+                </div>
+                <div class="goblin-card-back">
+                  <h3>Recovery nudges pull you back</h3>
+                  <p>
+                    Slip once, recover fast, and keep the session alive instead
+                    of treating one distraction like failure.
+                  </p>
+                  <span class="goblin-tag">Recovery system</span>
+                </div>
               </div>
-            </div>
-            <div class="col-md-4">
-              <div class="why-card h-100">
-                <h3>Goblin Reactions</h3>
-                <p class="mb-0">
-                  Get called out when you slip - and pushed back into the
-                  session.
-                </p>
+            </button>
+
+            <!-- Card 3: Cheerful -->
+            <button class="goblin-card" type="button" aria-expanded="false">
+              <div class="goblin-card-inner">
+                <div class="goblin-card-front">
+                  <img
+                    src="assets/characters/goblin/avatar/cheerful.png"
+                    alt="Cheerful Goblin"
+                    class="goblin-avatar"
+                    loading="lazy"
+                  />
+                  <p class="goblin-moment">
+                    wait… you actually stayed focused?
+                  </p>
+                  <span class="tap-hint">tap to reveal</span>
+                </div>
+                <div class="goblin-card-back">
+                  <h3>Clean focus turns into progress</h3>
+                  <p>
+                    Focus sessions build streaks, XP, diamonds, and companion
+                    affinity over time.
+                  </p>
+                  <span class="goblin-tag">Progression loop</span>
+                </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="why-card h-100">
-                <h3>Streaks and XP</h3>
-                <p class="mb-0">
-                  Turn clean sessions into visible progress, streaks, and XP.
-                </p>
+            </button>
+
+            <!-- Card 4: Neutral -->
+            <button class="goblin-card" type="button" aria-expanded="false">
+              <div class="goblin-card-inner">
+                <div class="goblin-card-front">
+                  <img
+                    src="assets/characters/goblin/avatar/neutral.png"
+                    alt="Neutral Goblin"
+                    class="goblin-avatar"
+                    loading="lazy"
+                  />
+                  <p class="goblin-moment">trying to escape later?</p>
+                  <span class="tap-hint">tap to reveal</span>
+                </div>
+                <div class="goblin-card-back">
+                  <h3>Stronger protection is coming</h3>
+                  <p>
+                    Upcoming Shield upgrades include uninstall protection, Ghost
+                    Mode, DND support, and stricter focus modes.
+                  </p>
+                  <span class="goblin-tag">Shield roadmap</span>
+                </div>
               </div>
-            </div>
-            <div class="col-md-6">
-              <div class="why-card h-100">
-                <h3>Recovery Nudges</h3>
-                <p class="mb-0">
-                  Slip once, recover fast, and keep the session alive.
-                </p>
-              </div>
-            </div>
+            </button>
           </div>
         </div>
       </section>

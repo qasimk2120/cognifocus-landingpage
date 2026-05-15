@@ -252,3 +252,40 @@ window.addEventListener("DOMContentLoaded", () => {
     lastScrollY = window.scrollY;
   });
 });
+
+function initGoblinBehaviorCards() {
+  const cards = document.querySelectorAll(".goblin-card");
+  if (cards.length === 0) return;
+
+  cards.forEach((card) => {
+    // Toggle on click
+    card.addEventListener("click", (e) => {
+      e.preventDefault();
+      const isExpanded = card.getAttribute("aria-expanded") === "true";
+      card.setAttribute("aria-expanded", String(!isExpanded));
+    });
+
+    // Toggle on Enter/Space key
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const isExpanded = card.getAttribute("aria-expanded") === "true";
+        card.setAttribute("aria-expanded", String(!isExpanded));
+      }
+    });
+
+    // Hover support for desktop (optional auto-flip)
+    // Users can hover to preview, but click is primary interaction
+    card.addEventListener("mouseenter", () => {
+      // Desktop users can see the back on hover if they want
+      // but we keep click as the primary interaction for consistency
+    });
+  });
+}
+
+// Initialize on DOM ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initGoblinBehaviorCards);
+} else {
+  initGoblinBehaviorCards();
+}
