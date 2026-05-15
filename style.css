@@ -428,29 +428,10 @@ button {
   color: var(--cf-text-primary);
 }
 
-.cf-mobile-menu__ios-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  padding: 10px 0;
-  margin-top: 0;
-  color: var(--cf-text-secondary);
-}
-
-.cf-mobile-menu__ios-link:hover {
-  color: var(--cf-text-primary);
-}
-
 .cf-mobile-menu__footer {
   display: flex;
   flex-direction: column;
   gap: var(--cf-space-md);
-}
-
-.cf-mobile-menu__mobile-link {
-  justify-content: flex-start;
-  width: 100%;
 }
 
 .cf-mobile-menu__ios {
@@ -5108,15 +5089,6 @@ small {
   .cf-mobile-menu__link {
     color: rgba(var(--cf-light-text-rgb), 0.72);
     border-bottom-color: rgba(var(--cf-light-shadow-rgb), 0.12);
-  }
-
-  .cf-mobile-menu__link:hover,
-  .cf-mobile-menu__ios-link {
-    color: var(--cf-light-accent);
-  }
-
-  .cf-mobile-menu__ios-link {
-    color: rgba(var(--cf-light-text-rgb), 0.72);
   }
 
   .cf-mobile-menu__ios {
