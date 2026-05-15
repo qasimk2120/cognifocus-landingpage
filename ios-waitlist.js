@@ -1,6 +1,6 @@
 (function () {
   const ENDPOINT =
-    "https://us-central1-cognifocuslandingpage.cloudfunctions.net/joinIosWaitlist";
+    "https://europe-west1-cognifocuslandingpage.cloudfunctions.net/joinIosWaitlist";
   const STORAGE_KEY = "cognifocus_ios_waitlist_joined";
   const SUCCESS_MESSAGE =
     "You\u2019re on the list. The Goblin has your email now. Dangerous.";
@@ -17,7 +17,14 @@
   const message = document.getElementById("iosWaitlistMessage");
   const intro = document.getElementById("iosWaitlistIntro");
 
-  if (!form || !emailInput || !nameInput || !websiteInput || !submitButton || !message) {
+  if (
+    !form ||
+    !emailInput ||
+    !nameInput ||
+    !websiteInput ||
+    !submitButton ||
+    !message
+  ) {
     return;
   }
 
@@ -36,7 +43,9 @@
   function setLoading(isLoading) {
     submitButton.disabled = isLoading;
     submitButton.setAttribute("aria-busy", String(isLoading));
-    submitButton.textContent = isLoading ? "Joining..." : "Join the iOS waitlist";
+    submitButton.textContent = isLoading
+      ? "Joining..."
+      : "Join the iOS waitlist";
   }
 
   function showJoinedState(text) {
@@ -73,7 +82,10 @@
     const website = websiteInput.value.trim();
 
     if (!isValidEmail(email)) {
-      setMessage("Use a real email so the Goblin knows where to yell politely.", "error");
+      setMessage(
+        "Use a real email so the Goblin knows where to yell politely.",
+        "error",
+      );
       emailInput.focus();
       return;
     }
@@ -108,7 +120,9 @@
         throw new Error("Waitlist request failed");
       }
 
-      showJoinedState(data.alreadyJoined ? ALREADY_JOINED_MESSAGE : SUCCESS_MESSAGE);
+      showJoinedState(
+        data.alreadyJoined ? ALREADY_JOINED_MESSAGE : SUCCESS_MESSAGE,
+      );
     } catch (_error) {
       setMessage(ERROR_MESSAGE, "error");
     } finally {
