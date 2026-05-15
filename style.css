@@ -356,6 +356,20 @@ button {
   .cf-faq-accordion .cf-faq-item {
     border: 1px solid rgba(var(--cf-cobalt-rgb, 0, 160, 255), 0.14);
   }
+
+  .cf-faq-accordion .cf-faq-item summary,
+  .cf-faq-accordion .cf-faq-content {
+    color: #152033;
+  }
+
+  .cf-faq-accordion .cf-faq-toggle {
+    background: rgba(var(--cf-cobalt-rgb, 0, 160, 255), 0.1);
+    color: #0f4f9f;
+  }
+
+  .cf-faq-accordion .cf-faq-toggle::before {
+    color: #0f4f9f;
+  }
 }
 
 @media (max-width: 767px) {

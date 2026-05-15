@@ -157,12 +157,16 @@ body.faq-page {
 @media (prefers-color-scheme: light) {
   .faq-hero h1,
   .faq-page .cf-faq-accordion .cf-faq-item h3 {
-    color: var(--cf-light-text);
+    color: #152033;
   }
 
   .faq-subtitle,
   .faq-page .cf-faq-accordion .cf-faq-content p {
-    color: var(--cf-light-muted);
+    color: rgba(21, 32, 51, 0.78);
+  }
+
+  .faq-page .cf-faq-accordion .cf-faq-item {
+    color: #152033;
   }
 
   .faq-page .cf-faq-accordion .cf-faq-item {
