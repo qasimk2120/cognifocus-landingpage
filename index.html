@@ -255,9 +255,6 @@
           Follow
           <span class="cf-launch-banner__arrow" aria-hidden="true">&rarr;</span>
         </a>
-        <a href="#ios-waitlist" class="cf-launch-banner__ios">
-          Get iOS notification
-        </a>
       </div>
     </div>
 
@@ -274,15 +271,23 @@
         <nav class="cf-nav__links" aria-label="Main navigation">
           <a href="/" class="cf-nav__link">Home</a>
           <a href="#why" class="cf-nav__link">Why it works</a>
-          <a href="#focus-loop" class="cf-nav__link">Product</a>
           <a href="/pricing.html" class="cf-nav__link">Pricing</a>
           <a href="/whats-new.html" class="cf-nav__link">What's new</a>
           <a href="/blog/" class="cf-nav__link">Blog</a>
+          <button
+            type="button"
+            class="cf-nav__link cf-nav__mobile-link"
+            aria-label="iOS coming soon"
+          >
+            <i class="bi bi-apple" aria-hidden="true"></i>
+            <span>iOS</span>
+            <span class="cf-nav__soon-badge">SOON</span>
+          </button>
         </nav>
 
         <div class="cf-nav__actions">
           <a href="/download.html" class="btn btn-primary btn-sm cf-nav__cta">
-            Download free
+            Start Free
           </a>
           <button
             class="cf-nav__hamburger"
@@ -300,21 +305,26 @@
         <nav class="cf-mobile-menu__links">
           <a href="/" class="cf-mobile-menu__link">Home</a>
           <a href="#why" class="cf-mobile-menu__link">Why it works</a>
-          <a href="#focus-loop" class="cf-mobile-menu__link">Product</a>
           <a href="/pricing.html" class="cf-mobile-menu__link">Pricing</a>
           <a href="/whats-new.html" class="cf-mobile-menu__link">What's new</a>
           <a href="/blog/" class="cf-mobile-menu__link">Blog</a>
+          <button
+            type="button"
+            class="cf-mobile-menu__link cf-mobile-menu__mobile-link"
+            aria-label="iOS coming soon"
+          >
+            <i class="bi bi-apple" aria-hidden="true"></i>
+            <span>iOS</span>
+            <span class="cf-nav__soon-badge">SOON</span>
+          </button>
           <a href="#faq" class="cf-mobile-menu__link">FAQ</a>
         </nav>
         <div class="cf-mobile-menu__footer">
           <a href="/download.html" class="btn btn-primary btn-full"
-            >Download free on Android</a
+            >Start Free on Android</a
           >
           <p class="cf-mobile-menu__ios">
-            iOS coming soon &mdash;
-            <a href="#ios-waitlist" class="cf-mobile-menu__ios-link"
-              >get notified</a
-            >
+            iOS coming soon. Notification signup will open here soon.
           </p>
         </div>
       </div>
@@ -328,7 +338,9 @@
             <div class="hero-copy">
               <h1 class="display-5 fw-bold hero-heading">
                 <span class="hero-heading-line">"Just one scroll"</span>
-                <span class="hero-heading-line">Becomes an hour fast</span>
+                <span class="hero-heading-line hero-heading-accent"
+                  >Becomes an hour fast</span
+                >
               </h1>
               <p class="text-muted hero-muted-override">
                 CogniFocus reacts when Android users leave focus sessions for
@@ -366,12 +378,14 @@
                   </span>
                   <span class="cta-label">Start Free on Android</span>
                 </a>
-              </div>
-
-              <div class="hero-social-proof" aria-label="Social proof">
-                <span class="hero-proof-pill">Reacts to distractions</span>
-                <span class="hero-proof-pill">Goblin included</span>
-                <span class="hero-proof-pill">Android Shield</span>
+                <button
+                  type="button"
+                  class="btn hero-ios-waitlist"
+                  data-ios-waitlist-trigger
+                >
+                  <i class="bi bi-apple" aria-hidden="true"></i>
+                  <span>iOS Waitlist</span>
+                </button>
               </div>
             </div>
           </div>
@@ -431,268 +445,116 @@
         </div>
       </section>
 
-      <section class="container py-4 testimonials-strip">
-        <p class="testimonials-label">Early Access Reactions</p>
-        <div class="testimonials-row">
-          <div class="testimonial-card">
-            <p class="testimonial-quote">
-              "Went from 8 Instagram breaks per study session to maybe 1. The
-              goblin saying 'bro' actually got me."
-            </p>
-            <div class="testimonial-author">
-              <span class="testimonial-avatar">EA</span>
-              <span class="testimonial-name">Early Access User</span>
-            </div>
+      <section class="container py-5 testimonials-strip">
+        <div class="reaction-carousel" data-reaction-carousel>
+          <div class="reaction-carousel-heading">
+            <h2>The Goblin reactions got weirdly effective</h2>
           </div>
 
-          <div class="testimonial-card">
-            <p class="testimonial-quote">
-              "I didn't think a cartoon would make me feel guilty for opening
-              TikTok but here we are. It works."
-            </p>
-            <div class="testimonial-author">
-              <span class="testimonial-avatar">BT</span>
-              <span class="testimonial-name">Beta Tester</span>
-            </div>
+          <div class="reaction-carousel-card" aria-live="polite">
+            <article class="reaction-slide is-active" data-reaction-slide>
+              <div class="reaction-slide-copy">
+                <p class="testimonial-quote">
+                  "Went from 8 Instagram breaks per study session to maybe 1.
+                  The Goblin celebrating the clean session made me want to keep
+                  the streak alive."
+                </p>
+                <span class="testimonial-name">Early Access User</span>
+              </div>
+              <img
+                class="reaction-goblin-face"
+                src="assets/characters/goblin/face/cheerful.png"
+                alt="Cheerful Goblin reacting to a clean focus session"
+                width="244"
+                height="191"
+                loading="lazy"
+                decoding="async"
+              />
+            </article>
+
+            <article class="reaction-slide" data-reaction-slide>
+              <div class="reaction-slide-copy">
+                <p class="testimonial-quote">
+                  "The neutral look is almost worse than a notification. It
+                  feels like the app noticed I was about to drift before I did."
+                </p>
+                <span class="testimonial-name">Beta Tester</span>
+              </div>
+              <img
+                class="reaction-goblin-face"
+                src="assets/characters/goblin/face/neutral.png"
+                alt="Neutral Goblin watching a focus session"
+                width="244"
+                height="191"
+                loading="lazy"
+                decoding="async"
+              />
+            </article>
+
+            <article class="reaction-slide" data-reaction-slide>
+              <div class="reaction-slide-copy">
+                <p class="testimonial-quote">
+                  "I opened TikTok out of habit and the annoyed Goblin snapped
+                  me out of autopilot faster than any timer I have used."
+                </p>
+                <span class="testimonial-name">Study Session User</span>
+              </div>
+              <img
+                class="reaction-goblin-face"
+                src="assets/characters/goblin/face/annoyed.png"
+                alt="Annoyed Goblin reacting to a distraction attempt"
+                width="244"
+                height="191"
+                loading="lazy"
+                decoding="async"
+              />
+            </article>
+
+            <article class="reaction-slide" data-reaction-slide>
+              <div class="reaction-slide-copy">
+                <p class="testimonial-quote">
+                  "The angry reaction is ridiculous in the best way. It turns
+                  one more scroll into a tiny moment of accountability."
+                </p>
+                <span class="testimonial-name">Focus Sprint User</span>
+              </div>
+              <img
+                class="reaction-goblin-face"
+                src="assets/characters/goblin/face/angry.png"
+                alt="Angry Goblin warning about a distraction"
+                width="244"
+                height="191"
+                loading="lazy"
+                decoding="async"
+              />
+            </article>
           </div>
 
-          <div class="testimonial-card">
-            <p class="testimonial-quote">
-              "Finally something that doesn't just track time while I'm busy
-              wasting it."
-            </p>
-            <div class="testimonial-author">
-              <span class="testimonial-avatar">SS</span>
-              <span class="testimonial-name">Study Session User</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="focus-loop" class="container py-5">
-        <div class="focus-loop-panel mx-auto">
-          <img
-            src="assets/logo/app-logo.png"
-            class="focus-loop-app-icon"
-            alt="CogniFocus app icon"
-            width="569"
-            height="438"
-            loading="lazy"
-            decoding="async"
-          />
-          <div class="focus-loop-copy">
-            <span class="feature-kicker"
-              >Focus Loop <span aria-hidden="true">&#9201;</span></span
-            >
-            <h2>
-              Run a timer. Block distractions. Get pulled back before the
-              session dies.
-            </h2>
-            <p class="hero-muted-override">
-              Start a structured focus timer and choose the apps that usually
-              pull you away. During sessions, Distraction Shield interrupts
-              those distractions, then the Goblin reacts so you can recover
-              before one app switch becomes a lost hour.
-            </p>
-          </div>
-
-          <div
-            class="focus-loop-visual"
-            aria-label="CogniFocus focus loop demo"
-          >
-            <div class="phone-mock focus-phone">
-              <div class="phone-status">
-                <span>9:41</span>
-                <span>Shield on</span>
-              </div>
-
-              <div class="session-card-mini">
-                <div class="session-card-top">
-                  <span class="session-mode">Deep Focus</span>
-                  <span class="session-live">Live</span>
-                </div>
-                <div class="timer-orbit" aria-hidden="true">
-                  <div class="timer-ring"></div>
-                  <div class="timer-core">
-                    <span id="loopTimerValue">24:58</span>
-                    <small>remaining</small>
-                  </div>
-                </div>
-                <div class="timer-controls" aria-label="Demo timer controls">
-                  <button
-                    type="button"
-                    class="timer-control-btn"
-                    data-timer-action="minus"
-                    aria-label="Subtract 5 minutes from demo timer"
-                  >
-                    -5
-                  </button>
-                  <button
-                    type="button"
-                    class="timer-control-btn is-active"
-                    data-timer-action="toggle"
-                    aria-label="Pause demo timer"
-                    aria-pressed="false"
-                  >
-                    Pause
-                  </button>
-                  <button
-                    type="button"
-                    class="timer-control-btn"
-                    data-timer-action="plus"
-                    aria-label="Add 5 minutes to demo timer"
-                  >
-                    +5
-                  </button>
-                </div>
-              </div>
-
-              <div class="companion-strip">
-                <img
-                  src="assets/characters/goblin/avatar/annoyed.png"
-                  alt="CogniFocus Goblin reacting to a distraction during a focus session"
-                  width="500"
-                  height="500"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div>
-                  <strong>Not today.</strong>
-                  <p>Instagram can wait. Back to the session.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="focus-signal focus-signal-one">
-              <span>01</span>
-              <strong>Start</strong>
-              <small>Choose a session</small>
-            </div>
-            <div class="focus-signal focus-signal-two">
-              <span>02</span>
-              <strong>Slip</strong>
-              <small>Shield catches it</small>
-            </div>
-            <div class="focus-signal focus-signal-three">
-              <span>03</span>
-              <strong>Recover</strong>
-              <small>Return fast</small>
-            </div>
-
-            <div class="distraction-stack" aria-label="Blocked distractions">
-              <div class="blocked-app-card blocked-app-card-main">
-                <div class="blocked-app-copy">
-                  <div class="blocked-app-title">
-                    <span class="blocked-app-icon">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
-                        alt="Distraction Shield blocking distracting apps during a focus session"
-                        width="15"
-                        height="15"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </span>
-                    <strong>Instagram blocked</strong>
-                  </div>
-                  <small>Delay increased after distraction</small>
-                </div>
-              </div>
-              <div class="blocked-app-card">
-                <div class="blocked-app-copy">
-                  <div class="blocked-app-title">
-                    <span class="blocked-app-icon">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
-                        alt="Android app blocker settings in CogniFocus for distracting apps"
-                        width="15"
-                        height="15"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </span>
-                    <strong>TikTok blocked</strong>
-                  </div>
-                  <small>Session protected</small>
-                </div>
-              </div>
-              <div class="blocked-app-card">
-                <div class="blocked-app-copy">
-                  <div class="blocked-app-title">
-                    <span class="blocked-app-icon">
-                      <img
-                        src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg"
-                        alt="CogniFocus app blocker card showing distraction blocking"
-                        width="15"
-                        height="15"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    </span>
-                    <strong>X blocked</strong>
-                  </div>
-                  <small>Focus restored</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-proof-strip" aria-label="CogniFocus proof points">
-            <div class="hero-proof-goblin">
-              <span class="proof-card-icon proof-card-icon-image">
-                <img
-                  id="proofGoblinFace"
-                  src="assets/characters/goblin/face/annoyed.png"
-                  alt="CogniFocus Goblin accountability companion for Android focus sessions"
-                  width="244"
-                  height="191"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
-              <strong>Live companion pressure</strong>
-              <span>Goblin reacts when attention slips</span>
-            </div>
-            <div class="hero-proof-item">
-              <span class="proof-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path
-                    d="M12 3.25 18.5 5.8v5.25c0 4.2-2.4 7.35-6.5 9.7-4.1-2.35-6.5-5.5-6.5-9.7V5.8L12 3.25Z"
-                  />
-                  <path d="M9.2 12.1 11.1 14l3.9-4.25" />
-                </svg>
-              </span>
-              <strong>Shield</strong>
-              <span>blocks selected apps during sessions</span>
-            </div>
-            <div class="hero-proof-item">
-              <span class="proof-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path d="M9 2.75h6" />
-                  <path
-                    d="M12 5.75a7.75 7.75 0 1 0 0 15.5 7.75 7.75 0 0 0 0-15.5Z"
-                  />
-                  <path d="M12 9.2v4.15l2.9 1.7" />
-                </svg>
-              </span>
-              <strong>Timer</strong>
-              <span>keeps the focus state visible</span>
-            </div>
-            <div class="hero-proof-item">
-              <span class="proof-card-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path
-                    d="M12 3.25a8.75 8.75 0 1 0 0 17.5 8.75 8.75 0 0 0 0-17.5Z"
-                  />
-                  <path
-                    d="M12 7.25a4.75 4.75 0 1 0 0 9.5 4.75 4.75 0 0 0 0-9.5Z"
-                  />
-                  <path d="M12 11.15a.85.85 0 1 0 0 1.7.85.85 0 0 0 0-1.7Z" />
-                </svg>
-              </span>
-              <strong>Progress</strong>
-              <span>turns clean focus into streaks and XP</span>
-            </div>
+          <div class="reaction-carousel-progress" aria-label="Reaction slides">
+            <button
+              type="button"
+              class="reaction-progress-dot is-active"
+              aria-label="Show reaction 1"
+              data-reaction-dot="0"
+            ></button>
+            <button
+              type="button"
+              class="reaction-progress-dot"
+              aria-label="Show reaction 2"
+              data-reaction-dot="1"
+            ></button>
+            <button
+              type="button"
+              class="reaction-progress-dot"
+              aria-label="Show reaction 3"
+              data-reaction-dot="2"
+            ></button>
+            <button
+              type="button"
+              class="reaction-progress-dot"
+              aria-label="Show reaction 4"
+              data-reaction-dot="3"
+            ></button>
           </div>
         </div>
       </section>
@@ -1263,7 +1125,6 @@
           <div class="footer-links-group">
             <span class="footer-links-title">Explore</span>
             <a href="/">Home</a>
-            <a href="/#focus-loop">Product</a>
             <a href="/#why">Why It Works</a>
             <a href="/#faq">FAQ</a>
             <a href="/pricing.html">Pricing</a>
