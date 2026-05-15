@@ -589,6 +589,25 @@
             <button class="goblin-card" type="button" aria-expanded="false">
               <div class="goblin-card-inner">
                 <div class="goblin-card-front">
+                  <div class="goblin-card-app-icons" aria-hidden="true">
+                    <span class="goblin-card-app-icon app-icon-instagram">
+                      <i class="bi bi-instagram"></i>
+                    </span>
+                    <span class="goblin-card-app-icon app-icon-tiktok">
+                      <i class="bi bi-tiktok"></i>
+                    </span>
+                    <span class="goblin-card-app-icon app-icon-youtube">
+                      <i class="bi bi-youtube"></i>
+                    </span>
+                    <span class="goblin-card-app-icon app-icon-x">
+                      <i class="bi bi-twitter-x"></i>
+                    </span>
+                  </div>
+                  <div class="goblin-alert-system" aria-hidden="true">
+                    <span class="goblin-alert-pulse"></span>
+                    <span class="goblin-app-trail trail-one"></span>
+                    <span class="goblin-app-trail trail-two"></span>
+                  </div>
                   <img
                     src="assets/characters/goblin/avatar/angry.png"
                     alt="Angry Goblin"
@@ -613,6 +632,21 @@
             <button class="goblin-card" type="button" aria-expanded="false">
               <div class="goblin-card-inner">
                 <div class="goblin-card-front">
+                  <div class="goblin-notification-icons" aria-hidden="true">
+                    <span class="goblin-notification-icon notification-bell">
+                      <i class="bi bi-bell-fill"></i>
+                    </span>
+                    <span class="goblin-notification-icon notification-chat">
+                      <i class="bi bi-chat-dots-fill"></i>
+                    </span>
+                    <span class="goblin-notification-icon notification-return">
+                      <i class="bi bi-arrow-return-left"></i>
+                    </span>
+                  </div>
+                  <div class="goblin-recovery-system" aria-hidden="true">
+                    <span class="recovery-timer-ring"></span>
+                    <span class="recovery-session-chip">paused</span>
+                  </div>
                   <img
                     src="assets/characters/goblin/avatar/annoyed.png"
                     alt="Annoyed Goblin"
@@ -637,6 +671,21 @@
             <button class="goblin-card" type="button" aria-expanded="false">
               <div class="goblin-card-inner">
                 <div class="goblin-card-front">
+                  <div class="goblin-progress-icons" aria-hidden="true">
+                    <span class="progress-graph-line">
+                      <i class="bi bi-graph-up-arrow"></i>
+                    </span>
+                    <span class="progress-xp-chip">+XP</span>
+                    <span class="progress-diamond-chip">
+                      <i class="bi bi-gem"></i>
+                      <span>+1</span>
+                    </span>
+                  </div>
+                  <div class="goblin-success-system" aria-hidden="true">
+                    <span class="success-spark spark-one"></span>
+                    <span class="success-spark spark-two"></span>
+                    <span class="success-spark spark-three"></span>
+                  </div>
                   <img
                     src="assets/characters/goblin/avatar/cheerful.png"
                     alt="Cheerful Goblin"
@@ -663,12 +712,17 @@
             <button class="goblin-card" type="button" aria-expanded="false">
               <div class="goblin-card-inner">
                 <div class="goblin-card-front">
-                  <img
-                    src="assets/characters/goblin/avatar/neutral.png"
-                    alt="Neutral Goblin"
-                    class="goblin-avatar"
-                    loading="lazy"
-                  />
+                  <div class="goblin-front-screenshot">
+                    <span class="shield-scan-line" aria-hidden="true"></span>
+                    <span class="shield-lock-pulse" aria-hidden="true">
+                      <i class="bi bi-shield-lock-fill"></i>
+                    </span>
+                    <img
+                      src="assets/screenshots/appblocked-screenshot.png"
+                      alt="CogniFocus Shield blocking a distracting app"
+                      loading="lazy"
+                    />
+                  </div>
                   <p class="goblin-moment">trying to escape later?</p>
                   <span class="tap-hint">tap to reveal</span>
                 </div>
@@ -682,101 +736,6 @@
                 </div>
               </div>
             </button>
-          </div>
-        </div>
-      </section>
-
-      <section id="who-for" class="container py-5">
-        <div class="why-panel mx-auto">
-          <div class="text-center why-heading mx-auto">
-            <span class="feature-kicker"
-              >Who It's For <span aria-hidden="true">&#128101;</span></span
-            >
-            <h2 class="mb-3">Built for people who keep losing focus to apps</h2>
-          </div>
-
-          <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-              <div class="why-card h-100">
-                <h3>Students</h3>
-                <p class="mb-0">
-                  You sit down to study and 20 minutes disappears into TikTok
-                  before you notice.
-                </p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="why-card h-100">
-                <h3>Developers</h3>
-                <p class="mb-0">
-                  A quick Slack check turns into a 45-minute Reddit spiral and
-                  the ticket stays open.
-                </p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="why-card h-100">
-                <h3>Remote workers</h3>
-                <p class="mb-0">
-                  WFH means every distracting app is one tap away during your
-                  most important work hours.
-                </p>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="why-card h-100">
-                <h3>Creators</h3>
-                <p class="mb-0">
-                  You need flow state. Instagram Stories need to wait.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="timer-vs-cognifocus" class="container py-5">
-        <div class="faq-panel mx-auto timer-compare-panel">
-          <div class="text-center faq-heading mx-auto">
-            <span class="feature-kicker"
-              >Comparison <span aria-hidden="true">&#9878;</span></span
-            >
-            <h2 class="mb-3">Why a normal timer is not enough</h2>
-          </div>
-
-          <div class="table-responsive timer-compare-wrap">
-            <table
-              class="table table-dark table-bordered align-middle timer-compare-table"
-            >
-              <thead>
-                <tr>
-                  <th scope="col">Normal timer</th>
-                  <th scope="col">CogniFocus</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Tracks time</td>
-                  <td>Tracks protected focus sessions</td>
-                </tr>
-                <tr>
-                  <td>Keeps running while you drift</td>
-                  <td>Interrupts selected distractions during sessions</td>
-                </tr>
-                <tr>
-                  <td>No reaction when you open distracting apps</td>
-                  <td>Goblin reacts when attention slips</td>
-                </tr>
-                <tr>
-                  <td>Depends on willpower</td>
-                  <td>Adds friction when impulse hits</td>
-                </tr>
-                <tr>
-                  <td>Easy to ignore</td>
-                  <td>Rewards recovery with streaks and XP</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
       </section>
