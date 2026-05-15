@@ -259,6 +259,116 @@ button {
   transition: all var(--cf-transition);
 }
 
+/* FAQ accordion styles */
+.cf-faq-accordion {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+#faq.cf-faq-fullbleed {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#faq.cf-faq-fullbleed .cf-faq-accordion {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0 24px;
+}
+.cf-faq-accordion .cf-faq-item {
+  background: var(--cf-surface, #0b1220);
+  border: 1px solid rgba(var(--cf-cobalt-rgb, 0, 160, 255), 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.cf-faq-accordion .cf-faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--cf-text-primary);
+}
+.cf-faq-accordion .cf-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.cf-faq-accordion .cf-faq-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: rgba(var(--cf-cobalt-rgb, 0, 160, 255), 0.12);
+  color: var(--cf-cobalt);
+  font-weight: 800;
+}
+
+/* show plus/minus via pseudo-element so we can swap on open without JS */
+.cf-faq-accordion .cf-faq-toggle {
+  font-size: 0;
+}
+.cf-faq-accordion .cf-faq-toggle::before {
+  content: "+";
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--cf-cobalt);
+}
+.cf-faq-accordion .cf-faq-item[open] .cf-faq-toggle::before {
+  content: "\2212"; /* minus */
+}
+.cf-faq-accordion .cf-faq-content {
+  padding: 0 18px 14px 18px;
+  color: var(--cf-text-secondary);
+  line-height: 1.4;
+}
+
+/* animation: use height transition via JS toggling open class */
+.cf-faq-accordion .cf-faq-item .cf-faq-body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 320ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+.cf-faq-accordion .cf-faq-item.open .cf-faq-body {
+  max-height: 400px; /* generous; body will determine scroll */
+}
+
+/* details open fallback: allow CSS-only expansion when details are opened */
+.cf-faq-accordion .cf-faq-item[open] .cf-faq-body {
+  max-height: 400px;
+}
+
+/* light mode adjustments */
+@media (prefers-color-scheme: light) {
+  .cf-faq-accordion .cf-faq-item {
+    background: #fff;
+  }
+  .cf-faq-accordion .cf-faq-item {
+    border: 1px solid rgba(var(--cf-cobalt-rgb, 0, 160, 255), 0.14);
+  }
+}
+
+@media (max-width: 767px) {
+  .cf-faq-accordion .cf-faq-item summary {
+    padding: 12px 14px;
+  }
+  .cf-faq-accordion {
+    padding: 0 12px;
+  }
+  #faq.cf-faq-fullbleed .cf-faq-accordion {
+    padding: 0 12px;
+  }
+}
+
 .cf-nav__hamburger.open span:nth-child(1) {
   transform: translateY(6.5px) rotate(45deg);
 }
@@ -491,7 +601,6 @@ button {
   .cf-launch-banner__ios {
     display: none;
   }
-
 }
 
 /* -- Layout container -- */
@@ -4800,7 +4909,6 @@ small {
     border-color: rgba(var(--cf-light-accent), 0.48) !important;
     color: var(--cf-light-text) !important;
   }
-
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -5422,8 +5530,7 @@ small {
   width: min(100%, 220px);
   height: auto;
   object-fit: contain;
-  filter:
-    drop-shadow(0 22px 34px rgba(0, 0, 0, 0.36))
+  filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.36))
     drop-shadow(0 0 32px rgba(var(--cf-cyan-rgb), 0.22));
   animation: reactionGoblinFloat 3.8s ease-in-out infinite;
 }

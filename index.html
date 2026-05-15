@@ -272,7 +272,7 @@
           <a href="/" class="cf-nav__link">Home</a>
           <a href="/pricing.html" class="cf-nav__link">Pricing</a>
           <a href="/blog/" class="cf-nav__link">Blog</a>
-          <a href="#faq" class="cf-nav__link">FAQ</a>
+          <a href="/faq.html" class="cf-nav__link">FAQ</a>
           <a href="/whats-new.html" class="cf-nav__link">What's new</a>
           <button
             type="button"
@@ -306,7 +306,7 @@
           <a href="/" class="cf-mobile-menu__link">Home</a>
           <a href="/pricing.html" class="cf-mobile-menu__link">Pricing</a>
           <a href="/blog/" class="cf-mobile-menu__link">Blog</a>
-          <a href="#faq" class="cf-mobile-menu__link">FAQ</a>
+          <a href="/faq.html" class="cf-mobile-menu__link">FAQ</a>
           <a href="/whats-new.html" class="cf-mobile-menu__link">What's new</a>
         </nav>
         <div class="cf-mobile-menu__footer">
@@ -431,6 +431,32 @@
           </figure>
         </div>
       </section>
+      <script>
+        (function () {
+          const items = document.querySelectorAll(".cf-faq-item");
+          items.forEach((item) => {
+            const body = item.querySelector(".cf-faq-body");
+            const toggle = item.querySelector(".cf-faq-toggle");
+            if (body) body.style.maxHeight = "0";
+            item.addEventListener("toggle", () => {
+              if (item.open) {
+                item.classList.add("open");
+                // expand smoothly
+                body.style.maxHeight = body.scrollHeight + "px";
+                if (toggle) toggle.textContent = "−";
+              } else {
+                // animate close
+                body.style.maxHeight = body.scrollHeight + "px";
+                requestAnimationFrame(() => {
+                  body.style.maxHeight = "0";
+                });
+                item.classList.remove("open");
+                if (toggle) toggle.textContent = "+";
+              }
+            });
+          });
+        })();
+      </script>
 
       <section class="container py-5 testimonials-strip">
         <div class="reaction-carousel" data-reaction-carousel>
@@ -704,87 +730,6 @@
         </div>
       </section>
 
-      <section id="faq" class="container py-5">
-        <div class="faq-panel mx-auto">
-          <div class="text-center faq-heading mx-auto">
-            <span class="feature-kicker"
-              >FAQ <span aria-hidden="true">&#10067;</span></span
-            >
-            <h2 class="mb-3">Quick Answers.</h2>
-            <p class="hero-muted-override mb-0">The short version</p>
-          </div>
-
-          <div class="faq-list">
-            <div class="faq-item">
-              <h3>What is CogniFocus?</h3>
-              <p class="mb-0">
-                CogniFocus is a character-driven Android focus app with a timer,
-                Distraction Shield, Goblin reactions, progress, streaks, and
-                recovery nudges.
-              </p>
-            </div>
-            <div class="faq-item">
-              <h3>How is it different from a normal timer?</h3>
-              <p class="mb-0">
-                A normal timer keeps counting while you drift. CogniFocus keeps
-                the session visible and reacts when blocked apps pull you away.
-              </p>
-            </div>
-
-            <div class="faq-item">
-              <h3>How is it different from a basic app blocker?</h3>
-              <p class="mb-0">
-                Blocking is only one layer. CogniFocus adds a companion, goals,
-                reminders, recovery and progress so the habit gets reinforced.
-              </p>
-            </div>
-
-            <div class="faq-item">
-              <h3>What happens if I open Instagram or TikTok?</h3>
-              <p class="mb-0">
-                During a protected session, Distraction Shield can interrupt
-                selected distracting apps while the Goblin pushes you back to
-                your session.
-              </p>
-            </div>
-
-            <div class="faq-item">
-              <h3>What does Pro add?</h3>
-              <p class="mb-0">
-                Pro adds stronger Shield capacity, Manual Block, Planned
-                Sessions, reminders, recovery nudges and paid-tier restore
-                support.
-              </p>
-            </div>
-
-            <div class="faq-item">
-              <h3>Why does CogniFocus need Android permissions?</h3>
-              <p class="mb-0">
-                CogniFocus uses Android permissions such as Usage Access and
-                Display Over Other Apps so Distraction Shield can detect
-                selected distracting apps and show the blocking screen during
-                focus sessions. It does not read your messages or in-app
-                content.
-              </p>
-            </div>
-
-            <div class="faq-item">
-              <h3>Is CogniFocus available on iOS?</h3>
-              <p class="mb-0">
-                Not yet. CogniFocus is currently available on Android through
-                Google Play. iOS is not available yet.
-              </p>
-            </div>
-            <p class="hero-muted-override mb-0 faq-resource-link">
-              Looking for an ADHD-specific breakdown? Read
-              <a href="/blog/best-focus-apps-for-adhd.html"
-                >Best Focus Apps for ADHD</a
-              >.
-            </p>
-          </div>
-        </div>
-      </section>
-
       <!-- ANDROID LAUNCH -->
       <section id="early" class="container py-5 text-center">
         <div class="founder-note mx-auto">
@@ -878,6 +823,91 @@
       >
     </div>
 
+    <!-- Compact homepage FAQ accordion (full-width) -->
+    <section id="faq" class="py-5 cf-faq-fullbleed">
+      <div class="cf-faq-accordion">
+        <div class="cf-faq-list">
+          <details class="cf-faq-item" data-id="q1">
+            <summary>
+              What is CogniFocus?
+              <span class="cf-faq-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="cf-faq-body">
+              <div class="cf-faq-content">
+                A compact Android app that combines a focus timer with a
+                Distraction Shield, progress tracking, and gentle recovery
+                nudges.
+              </div>
+            </div>
+          </details>
+
+          <details class="cf-faq-item" data-id="q2">
+            <summary>
+              How is it different from a normal timer?
+              <span class="cf-faq-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="cf-faq-body">
+              <div class="cf-faq-content">
+                Unlike a plain timer, CogniFocus detects distraction and
+                actively helps return you to your session.
+              </div>
+            </div>
+          </details>
+
+          <details class="cf-faq-item" data-id="q3">
+            <summary>
+              What happens if I open TikTok or Instagram?
+              <span class="cf-faq-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="cf-faq-body">
+              <div class="cf-faq-content">
+                During protected sessions the Distraction Shield can interrupt
+                selected apps and encourage returning to focus.
+              </div>
+            </div>
+          </details>
+
+          <details class="cf-faq-item" data-id="q4">
+            <summary>
+              Why does it need Android permissions?
+              <span class="cf-faq-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="cf-faq-body">
+              <div class="cf-faq-content">
+                Permissions let the app detect foreground apps and show the
+                Shield when needed; it does not read private messages.
+              </div>
+            </div>
+          </details>
+
+          <details class="cf-faq-item" data-id="q5">
+            <summary>
+              Is CogniFocus available on iOS?
+              <span class="cf-faq-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="cf-faq-body">
+              <div class="cf-faq-content">
+                Not yet — Android is supported now. Sign up for iOS
+                notifications via the iOS waitlist.
+              </div>
+            </div>
+          </details>
+
+          <details class="cf-faq-item" data-id="q6">
+            <summary>
+              What does Pro add?
+              <span class="cf-faq-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="cf-faq-body">
+              <div class="cf-faq-content">
+                Pro unlocks stronger Shield capacity, Manual Block, planned
+                sessions, reminders and restore support.
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
     <section class="featured-strip" aria-label="Featured on directories">
       <div class="featured-strip-inner">
         <p class="featured-strip-title">Featured on</p>
