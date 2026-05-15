@@ -4335,6 +4335,45 @@ small {
     gap: 0;
     margin-top: 1.5rem;
   }
+
+  .hero-media {
+    margin-top: 0.35rem;
+  }
+
+  .hero-media::before {
+    width: min(86vw, 340px);
+  }
+
+  .hero-media::after {
+    width: min(76vw, 280px);
+  }
+
+  .hero-media-card {
+    width: min(100%, 300px);
+    padding: 8px;
+  }
+
+  .attention-vacuum-demo {
+    width: min(100%, 320px);
+  }
+
+  .vacuum-orbit {
+    min-height: clamp(270px, 82vw, 320px);
+  }
+
+  .vacuum-core {
+    width: clamp(88px, 27vw, 104px);
+  }
+
+  .vacuum-app-icon {
+    width: clamp(48px, 15vw, 56px);
+    height: clamp(48px, 15vw, 56px);
+    border-radius: 17px;
+  }
+
+  .vacuum-app-icon i {
+    font-size: clamp(1.45rem, 5vw, 1.72rem);
+  }
 }
 .locked-card {
   opacity: 0.7;
