@@ -539,6 +539,30 @@ body.ios-waitlist-page {
   }
 }
 
+/* Very small screens (up to 420px): tighten spacing to prevent overflow */
+@media (max-width: 420px) {
+  .ios-waitlist-conversion-card {
+    padding: 0.6rem 0.7rem;
+    gap: 0.5rem;
+  }
+
+  .ios-waitlist-form {
+    gap: 0.5rem;
+  }
+
+  .ios-waitlist-field input {
+    min-height: 44px;
+    padding: 0.7rem 0.8rem;
+    font-size: 14px;
+  }
+
+  .ios-waitlist-submit {
+    min-height: 48px;
+    padding: 0.6rem 0.8rem;
+    font-size: 13px;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   body.ios-waitlist-page {
     background:
