@@ -1,16 +1,6 @@
 body.ios-waitlist-page {
-  background:
-    radial-gradient(
-      circle at 12% 18%,
-      rgba(var(--cf-cyan-rgb), 0.12),
-      transparent 30rem
-    ),
-    radial-gradient(
-      circle at 88% 8%,
-      rgba(var(--cf-goblin-rgb), 0.1),
-      transparent 26rem
-    ),
-    var(--cf-black);
+  /* Match other pages' background color exactly */
+  background: #052b31;
 }
 
 .ios-waitlist-page main {
@@ -399,6 +389,9 @@ body.ios-waitlist-page {
     margin-top: 0.3rem;
   }
 
+  /* Extra small screen fixes to prevent horizontal overflow and collapsing form */
+  /* small-screen rules moved to top-level @media block for validity */
+
   .ios-waitlist-card-footer {
     padding-top: 0.25rem;
   }
@@ -489,6 +482,60 @@ body.ios-waitlist-page {
 
   .ios-waitlist-subtitle {
     font-size: 0.98rem;
+  }
+
+  /* Prevent inputs / buttons overflowing and ensure the card doesn't hide content */
+  .ios-waitlist-conversion-card {
+    padding: 0.75rem 0.9rem;
+    gap: 0.65rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+    grid-template-columns: 1fr;
+  }
+
+  .ios-waitlist-form {
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+  }
+
+  .ios-waitlist-form-brand img {
+    width: min(100%, 160px);
+  }
+
+  .ios-waitlist-vortex {
+    max-width: 100%;
+    transform: scale(0.96);
+    margin: 0 auto;
+  }
+
+  .ios-waitlist-form-col,
+  .ios-waitlist-animation-col {
+    padding: 0;
+  }
+
+  .ios-waitlist-field input {
+    box-sizing: border-box;
+    display: block;
+    max-width: 320px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .ios-waitlist-submit {
+    min-width: 0;
+    width: min(100%, 320px);
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  .ios-android-link {
+    max-width: 100%;
+    box-sizing: border-box;
   }
 }
 
