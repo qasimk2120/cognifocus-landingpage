@@ -2033,14 +2033,14 @@ footer {
 
 .vacuum-app-ig {
   --vacuum-x: -116px;
-  --vacuum-y: -145px;
+  --vacuum-y: -129px;
   background: linear-gradient(145deg, #8e2de2, #ff6a3d 58%, #ffd166);
   animation: vacuumCatchOne 15s ease-in-out infinite;
 }
 
 .vacuum-app-tiktok {
   --vacuum-x: 72px;
-  --vacuum-y: -149px;
+  --vacuum-y: -133px;
   background: linear-gradient(145deg, #111827, #172033 56%, #00d4ff);
   animation: vacuumCatchTwo 15s ease-in-out infinite;
 }
@@ -5877,12 +5877,12 @@ small {
 
   .vacuum-app-ig {
     --vacuum-x: -95px;
-    --vacuum-y: -118px;
+    --vacuum-y: -102px;
   }
 
   .vacuum-app-tiktok {
     --vacuum-x: 60px;
-    --vacuum-y: -118px;
+    --vacuum-y: -102px;
   }
 
   .vacuum-app-x {
@@ -6058,12 +6058,12 @@ small {
 
   .vacuum-app-ig {
     --vacuum-x: -95px;
-    --vacuum-y: -118px;
+    --vacuum-y: -102px;
   }
 
   .vacuum-app-tiktok {
     --vacuum-x: 60px;
-    --vacuum-y: -118px;
+    --vacuum-y: -102px;
   }
 
   .vacuum-app-x {
