@@ -4985,7 +4985,29 @@ small {
   }
 
   .hero-media {
-    width: 100%;
+    width: min(100%, 260px);
+    margin-inline: auto;
+  }
+
+  .hero-media::before {
+    width: min(80vw, 240px);
+  }
+
+  .hero-media::after {
+    width: min(68vw, 200px);
+  }
+
+  .hero-media-card {
+    width: min(100%, 260px);
+    padding: 6px;
+  }
+
+  .attention-vacuum-demo {
+    width: min(100%, 260px);
+  }
+
+  .vacuum-orbit {
+    min-height: 286px;
   }
 
   .hero-left {
