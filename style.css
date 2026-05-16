@@ -8510,3 +8510,131 @@ label {
     animation: none;
   }
 }
+/* === HOTFIX: mobile hero/vacuum overflow === */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.cf-home,
+.cf-home #main-content,
+.hero-section,
+.hero-section .container,
+.hero-layout,
+.hero-left,
+.hero-copy,
+.hero-media,
+.hero-media-card,
+.attention-vacuum-demo,
+.vacuum-orbit {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.hero-section,
+.hero-layout,
+.hero-media,
+.hero-media-card,
+.attention-vacuum-demo {
+  overflow: hidden;
+}
+
+@media (max-width: 767.98px) {
+  .hero-section .container {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    gap: 1.4rem !important;
+  }
+
+  .hero-left,
+  .hero-copy {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .hero-heading {
+    width: 100%;
+    max-width: 100% !important;
+    font-size: clamp(2rem, 9vw, 2.65rem) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.04em;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  .hero-heading-line {
+    white-space: normal !important;
+  }
+
+  .hero-section .hero-muted-override {
+    max-width: 100% !important;
+    font-size: 1rem !important;
+  }
+
+  .hero-cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-cta .primary-cta,
+  .hero-ios-waitlist {
+    width: min(100%, 310px) !important;
+    max-width: 310px !important;
+  }
+
+  .hero-media {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: center;
+    justify-self: center;
+    margin-inline: auto;
+  }
+
+  .hero-media-card,
+  .attention-vacuum-demo {
+    width: min(100%, 312px) !important;
+    max-width: 312px !important;
+    margin-inline: auto !important;
+  }
+
+  .vacuum-orbit {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-height: 312px !important;
+    overflow: hidden !important;
+    contain: layout paint;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-section .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .hero-heading {
+    font-size: clamp(1.85rem, 8.6vw, 2.35rem) !important;
+  }
+
+  .hero-media-card,
+  .attention-vacuum-demo {
+    width: min(100%, 300px) !important;
+    max-width: 300px !important;
+  }
+
+  .vacuum-orbit {
+    min-height: 300px !important;
+  }
+}
