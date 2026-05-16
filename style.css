@@ -4985,7 +4985,7 @@ small {
   }
 
   .hero-media {
-    display: none;
+    width: 100%;
   }
 
   .hero-left {
