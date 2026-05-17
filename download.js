@@ -137,12 +137,21 @@
           }),
         });
 
+        let data = {};
+        try {
+          data = await response.json();
+        } catch (_error) {
+          data = {};
+        }
+
         if (!response.ok) {
           throw new Error("Waitlist request failed");
         }
 
         showIosJoinedState(
-          "You are on the iOS waitlist. We will email you when it is ready.",
+          data.alreadyJoined
+            ? "You are already on the iOS waitlist."
+            : "You are on the iOS waitlist. We will email you when it is ready.",
         );
       } catch (_error) {
         setIosWaitlistMessage(
