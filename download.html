@@ -205,18 +205,13 @@
     <main>
       <header class="container text-center download-hero">
         <span class="feature-kicker">
-          Quick Download <span aria-hidden="true">&#9889;</span>
+          Android Download <span aria-hidden="true">&#9889;</span>
         </span>
 
         <h1>Download CogniFocus for Android</h1>
 
-        <p class="download-keyword">
-          Fast Google Play handoff for Android focus sessions
-        </p>
-
         <p class="hero-muted-override download-subtitle">
-          CogniFocus is live on Android. If your browser blocks the redirect,
-          use the fallback button below.
+          The Goblin is waiting.
         </p>
       </header>
 
@@ -232,12 +227,11 @@
             />
           </div>
 
-          <h2 id="platformTitle">Ready on Google Play</h2>
+          <h2 id="platformTitle">Open on Google Play</h2>
 
           <p id="redirectStatus" class="download-status" aria-live="polite">
-            Choose the button below to open the Android listing.
+            Android focus app with distraction blocking + Goblin reactions.
           </p>
-
           <div class="download-cta-group">
             <a
               id="playStoreCta"
@@ -280,9 +274,19 @@
             id="downloadIosWaitlistForm"
             novalidate
           >
+            <input
+              id="downloadIosWaitlistName"
+              name="name"
+              type="text"
+              autocomplete="name"
+              maxlength="40"
+              placeholder="Name (optional)"
+            />
+
             <label class="visually-hidden" for="downloadIosWaitlistEmail">
               Email
             </label>
+
             <input
               id="downloadIosWaitlistEmail"
               name="email"
@@ -292,6 +296,7 @@
               required
               placeholder="you@example.com"
             />
+
             <input
               id="downloadIosWaitlistWebsite"
               name="website"
@@ -300,6 +305,7 @@
               autocomplete="off"
               aria-hidden="true"
             />
+
             <button
               type="submit"
               class="btn btn-secondary download-ios-submit"
@@ -308,6 +314,7 @@
               <i class="bi bi-apple" aria-hidden="true"></i>
               <span>Join iOS waitlist</span>
             </button>
+
             <p
               class="download-ios-message"
               id="downloadIosWaitlistMessage"
@@ -317,34 +324,16 @@
             ></p>
           </form>
         </section>
-
-        <article class="download-card download-info-card">
-          <div class="download-card-header">
-            <div class="download-icon" aria-hidden="true">&#128241;</div>
-            <div>
-              <h2>Android only for now</h2>
-              <p>
-                CogniFocus is available through Google Play. iOS is not
-                available yet
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="download-card download-info-card">
-          <div class="download-card-header">
-            <div class="download-icon" aria-hidden="true">&#128737;</div>
-            <div>
-              <h2>Why this page exists</h2>
-              <p>
-                Some social apps and in-app browsers block direct store
-                redirects. This page gives users a fallback button if the
-                automatic redirect does not open Google Play
-              </p>
-            </div>
-          </div>
-        </article>
       </section>
+      <article class="download-card download-info-card download-compact-note">
+        <div class="download-card-header">
+          <div class="download-icon" aria-hidden="true">&#128241;</div>
+          <div>
+            <h2>Android only for now</h2>
+            <p>iOS waitlist is open.</p>
+          </div>
+        </div>
+      </article>
     </main>
     <section class="featured-strip" aria-label="Featured on directories">
       <div class="featured-strip-inner">

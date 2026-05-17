@@ -24,7 +24,7 @@
   if (!platformTitle || !redirectStatus || !playStoreCta || !retryHint) {
     return;
   }
-
+  const iosWaitlistName = document.getElementById("downloadIosWaitlistName");
   const ua = navigator.userAgent || "";
   const uaData = navigator.userAgentData;
   const isAndroid =
@@ -130,7 +130,7 @@
           },
           body: JSON.stringify({
             email,
-            name: "",
+            name: iosWaitlistName ? iosWaitlistName.value.trim() : "",
             website,
             source: "download_page_ios_banner",
             page: "/download.html",
@@ -245,10 +245,8 @@
   if (isAndroid) {
     setPlayStoreButton();
     playStoreCta.dataset.ctaMode = "redirect";
-    platformTitle.textContent = "Android detected";
-    setStatus(
-      "Trying to save you from wasting time... redirecting in a moment.",
-    );
+    platformTitle.textContent = "Opening Google Play";
+    setStatus("The Goblin is sending you to the app.");
     playStoreCta.hidden = false;
     retryHint.hidden = false;
 
@@ -267,7 +265,7 @@
     retryHint.textContent =
       "CogniFocus is live on Android now. The iPhone version is still on the way.";
     platformTitle.textContent = "iOS is coming next";
-    setStatus("Join the waitlist and we will email you when it is ready.");
+    setStatus("Join the waitlist. The Goblin will notify you.");
     return;
   }
 

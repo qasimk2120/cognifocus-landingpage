@@ -392,15 +392,28 @@ body.download-page {
   line-height: 1.55;
 }
 .download-ios-form {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.65rem;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+  width: min(100%, 360px);
+  margin-left: auto;
 }
-.download-ios-form input[type="email"] {
-  min-height: 48px;
+
+.download-ios-form input[name="website"] {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.download-ios-form input[type="email"],
+.download-ios-form input[type="text"]:not([name="website"]) {
+  min-height: 50px;
   width: 100%;
-  padding: 0.8rem 0.95rem;
+  padding: 0.85rem 1rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.2);
   border-radius: 999px;
   background: rgba(var(--cf-black-rgb), 0.34);
@@ -408,33 +421,29 @@ body.download-page {
   font: inherit;
   outline: none;
 }
-.download-ios-form input[type="email"]::placeholder {
-  color: rgba(var(--cf-muted-rgb), 0.7);
-}
-.download-ios-form input[type="email"]:focus {
+
+.download-ios-form input[type="email"]:focus,
+.download-ios-form input[type="text"]:not([name="website"]):focus {
   border-color: rgba(var(--cf-mint-rgb), 0.66);
   box-shadow: 0 0 0 4px rgba(var(--cf-mint-rgb), 0.12);
 }
-.download-ios-form input[name="website"] {
-  position: absolute;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
+
 .download-ios-submit {
-  min-height: 48px;
+  width: 100%;
+  justify-content: center;
+  min-height: 50px;
   border-radius: 999px !important;
   gap: 0.45rem;
   color: var(--cf-cyan) !important;
   border-color: rgba(var(--cf-cyan-rgb), 0.32) !important;
 }
+
 .download-ios-message {
-  grid-column: 1 / -1;
   margin: 0;
   color: var(--cf-mint);
   font-size: 0.92rem;
   line-height: 1.45;
+  text-align: center;
 }
 .download-ios-message.is-error {
   color: var(--cf-amber);
@@ -455,7 +464,8 @@ body.download-page {
     text-align: center;
   }
   .download-ios-form {
-    grid-template-columns: 1fr;
+    width: 100%;
+    margin-left: 0;
   }
   .download-ios-submit {
     width: 100%;
@@ -483,12 +493,14 @@ body.download-page {
   .download-ios-banner p {
     color: var(--cf-light-muted);
   }
-  .download-ios-form input[type="email"] {
+  .download-ios-form input[type="email"],
+  .download-ios-form input[type="text"]:not([name="website"]) {
     background: rgba(var(--cf-light-card-rgb), 0.9);
     border-color: rgba(var(--cf-light-shadow-rgb), 0.14);
     color: var(--cf-light-text);
   }
-  .download-ios-form input[type="email"]::placeholder {
+  .download-ios-form input[type="email"]::placeholder,
+  .download-ios-form input[type="text"]:not([name="website"])::placeholder {
     color: rgba(var(--cf-light-text-rgb), 0.48);
   }
 }
