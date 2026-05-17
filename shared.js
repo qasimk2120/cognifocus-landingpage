@@ -78,6 +78,10 @@ function initNav() {
   const nav = document.getElementById("cf-nav");
   const hamburger = document.querySelector(".cf-nav__hamburger");
   const mobileMenu = document.getElementById("cf-mobile-menu");
+  const desktopNav = document.querySelector(".cf-nav__links");
+  const mobileNav = mobileMenu
+    ? mobileMenu.querySelector(".cf-mobile-menu__links")
+    : null;
 
   if (!nav) return;
 
@@ -89,21 +93,30 @@ function initNav() {
   updateScrollClass();
 
   if (hamburger && mobileMenu) {
-    hamburger.addEventListener("click", () => {
-      const isOpen = hamburger.classList.toggle("open");
+    const setMenuState = (isOpen) => {
+      hamburger.classList.toggle("open", isOpen);
       hamburger.setAttribute("aria-expanded", String(isOpen));
       mobileMenu.classList.toggle("open", isOpen);
       mobileMenu.setAttribute("aria-hidden", String(!isOpen));
+      if (desktopNav) {
+        desktopNav.setAttribute("aria-hidden", String(isOpen));
+      }
+      if (mobileNav) {
+        mobileNav.setAttribute("aria-hidden", String(!isOpen));
+      }
+    };
+
+    hamburger.addEventListener("click", () => {
+      setMenuState(!hamburger.classList.contains("open"));
     });
 
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        hamburger.classList.remove("open");
-        mobileMenu.classList.remove("open");
-        hamburger.setAttribute("aria-expanded", "false");
-        mobileMenu.setAttribute("aria-hidden", "true");
+        setMenuState(false);
       });
     });
+
+    setMenuState(false);
   }
 }
 
@@ -200,14 +213,32 @@ function initLaunchCountdown() {
   setInterval(update, 60000);
 }
 
+function initLaunchBannerVisibility() {
+  const banner = document.getElementById("cf-launch-banner");
+  if (!banner) return;
+
+  function updateVisibility() {
+    const shouldHide = window.scrollY > 24;
+    document.documentElement.classList.toggle(
+      "cf-launch-banner-hidden",
+      shouldHide,
+    );
+  }
+
+  window.addEventListener("scroll", updateVisibility, { passive: true });
+  updateVisibility();
+}
+
 // expose globally
 window.animateFaces = animateFaces;
 window.initSharedNavMenu = initSharedNavMenu;
 window.initNav = initNav;
 window.initLaunchCountdown = initLaunchCountdown;
+window.initLaunchBannerVisibility = initLaunchBannerVisibility;
 
 document.addEventListener("DOMContentLoaded", () => {
   initLaunchCountdown();
+  initLaunchBannerVisibility();
   initNav();
   initSharedNavMenu();
   upgradeDownloadCtas();
