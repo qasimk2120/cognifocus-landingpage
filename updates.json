@@ -1,5 +1,21 @@
 ﻿[
   {
+    "version": "4.5.5",
+    "category": "Stability & Shield Fixes",
+    "date": "2026-05-18",
+    "title": "Minor Improvements (v4.5.5)",
+    "summary": "General stability fixes across focus flows, plus a minor fix to prevent distraction counting twice in some cases.",
+    "notes": "## What's New\n- General stability fixes and performance improvements across focus flows\n- Minor fix to prevent distraction counting twice in some cases"
+  },
+  {
+    "version": "4.5.4",
+    "category": "Focus Session Reliability",
+    "date": "2026-05-17",
+    "title": "Focus Session Reliability Improvements (v4.5.4)",
+    "summary": "Focus session notifications are more stable on Android, timer syncing is improved, and session recovery after reopening the app is cleaner.",
+    "notes": "## What's New\n- Focus session notifications are now more stable and reliable on Android\n- Improved timer syncing and foreground session handling during active sessions\n- Session recovery behavior was refined after reopening the app\n- Focus timer controls and session state handling were polished\n- General stability fixes and performance improvements across focus flows"
+  },
+  {
     "version": "4.5.3",
     "category": "First-Time Walkthrough",
     "date": "2026-05-14",
