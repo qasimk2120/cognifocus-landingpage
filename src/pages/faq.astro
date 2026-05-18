@@ -14,23 +14,39 @@ const faqSchema = {
       name: "What is CogniFocus?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "CogniFocus is a compact Android app that combines a focus timer with a Distraction Shield, progress tracking, and gentle recovery nudges.",
+        text: "CogniFocus is an Android focus timer with Shield blocking, Manual Block, Planned Sessions, Goblin reactions, and recovery nudges.",
       },
     },
     {
       "@type": "Question",
-      name: "How is CogniFocus different from a normal timer?",
+      name: "How does Shield work during focus sessions?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Unlike a plain timer, CogniFocus detects distraction and actively helps return you to your session.",
+        text: "During an active session, Shield watches for blocked apps and interrupts them before the scroll takes over.",
       },
     },
     {
       "@type": "Question",
-      name: "What happens if I open TikTok or Instagram during a session?",
+      name: "What is Manual Block?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "During protected sessions the Distraction Shield can interrupt selected apps and encourage returning to focus.",
+        text: "Manual Block lets you block selected apps outside a focus session when you want direct protection for a specific window.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What are Planned Sessions?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Planned Sessions are focus blocks you schedule ahead of time so recurring routines are ready before work starts.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What happens if I pause or slip?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Pausing temporarily stops the session, and recovery nudges help you return if you drift into a blocked app.",
       },
     },
     {
@@ -38,23 +54,31 @@ const faqSchema = {
       name: "Why does CogniFocus need Android permissions?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Permissions let the app detect foreground apps and show the Shield when needed. CogniFocus does not read private messages.",
+        text: "CogniFocus uses Usage Access to see the foreground app and Display over other apps to show Shield. It does not need those permissions to read your content.",
       },
     },
     {
       "@type": "Question",
-      name: "Is CogniFocus available on iOS?",
+      name: "What does CogniFocus not read?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Not yet. Android is supported now. Sign up for iOS notifications via the iOS waitlist at https://cognifocus.app/ios-waitlist.html",
+        text: "CogniFocus does not read your messages, contacts, passwords, or the text inside your apps.",
       },
     },
     {
       "@type": "Question",
-      name: "What does CogniFocus Pro add?",
+      name: "What do Basic, Pro, and Limitless include?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Pro unlocks stronger Shield capacity, Manual Block, planned sessions, reminders, and restore support.",
+        text: "Basic, or Free, covers core sessions, starter Shield protection, Goblin reactions, and progress foundations. Pro adds stronger Shield capacity, Manual Block, Planned Sessions, reminders, recovery nudges, and restore support. If a Limitless tier is offered later, its extras will be listed on pricing before checkout.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What features are planned for later?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Planned features include Ghost Mode, DND-style quieting, uninstall protection, and advanced lock rules. They are planned for later and are not all live yet.",
       },
     },
   ],
@@ -88,7 +112,7 @@ const faqSchema = {
               </div>
             </div>
             <div class="cf-faq-content">
-              <p>CogniFocus is an Android-first focus companion that combines a reliable timer with a Distraction Shield and behavioral nudges. It helps you form resilient focus habits by detecting app switching, protecting sessions, and offering recovery actions and progress tracking.</p>
+              <p>CogniFocus is an Android focus timer with Shield blocking, Manual Block, Planned Sessions, Goblin reactions, and recovery nudges. It is built for people who want a session that pushes back when attention drifts instead of just counting down.</p>
             </div>
           </article>
 
@@ -96,11 +120,11 @@ const faqSchema = {
             <div class="faq-card-header">
               <div class="faq-icon" aria-hidden="true">&#9201;</div>
               <div>
-                <h3>How is it different from a normal timer?</h3>
+                <h3>How does Shield work during focus sessions?</h3>
               </div>
             </div>
             <div class="cf-faq-content">
-              <p>Traditional timers count time but don't help you stay on task when distractions occur. CogniFocus monitors foreground apps and uses a Shield to intervene, combined with reminders, planned sessions, and progress features to reinforce focused behavior.</p>
+              <p>During an active session, Shield watches for blocked apps and interrupts them before the scroll takes over. The Goblin reacts, and the session pulls you back toward the work instead of leaving you in the distraction loop.</p>
             </div>
           </article>
 
@@ -108,11 +132,35 @@ const faqSchema = {
             <div class="faq-card-header">
               <div class="faq-icon" aria-hidden="true">&#128245;</div>
               <div>
-                <h3>What happens if I open TikTok or Instagram?</h3>
+                <h3>What is Manual Block?</h3>
               </div>
             </div>
             <div class="cf-faq-content">
-              <p>When you open a selected distracting app during a protected session, the Distraction Shield can interrupt the app and present a blocking or recovery screen. You can return to the session or continue; the app preserves session state so you don't lose progress unintentionally.</p>
+              <p>Manual Block lets you block selected apps outside a focus session. Use it when you want direct protection for study time, bedtime, or any other window where you do not want distractions open at all.</p>
+            </div>
+          </article>
+
+          <article class="cf-faq-item p-3 mb-3">
+            <div class="faq-card-header">
+              <div class="faq-icon" aria-hidden="true">&#128274;</div>
+              <div>
+                <h3>What are Planned Sessions?</h3>
+              </div>
+            </div>
+            <div class="cf-faq-content">
+              <p>Planned Sessions are focus blocks you schedule ahead of time. They are useful when you want recurring reminders and a session that is already waiting for you instead of starting from scratch each day.</p>
+            </div>
+          </article>
+
+          <article class="cf-faq-item p-3 mb-3">
+            <div class="faq-card-header">
+              <div class="faq-icon" aria-hidden="true">&#127822;</div>
+              <div>
+                <h3>What happens if I pause or slip?</h3>
+              </div>
+            </div>
+            <div class="cf-faq-content">
+              <p>Pausing temporarily stops the session. If you slip into a blocked app, recovery nudges help you come back without losing the whole run. The Goblin keeps it honest, but one bad moment does not have to end the session.</p>
             </div>
           </article>
 
@@ -124,7 +172,7 @@ const faqSchema = {
               </div>
             </div>
             <div class="cf-faq-content">
-              <p>CogniFocus requests Usage Access to detect which app is in the foreground and optionally Display Over Other Apps to present the Shield. These permissions let the app protect sessions without reading private messages or accessing app content.</p>
+              <p>Usage Access lets CogniFocus see which app is in front so Shield can react. Display over other apps lets the Shield screen appear. Those permissions are used for focus protection, not for reading your content.</p>
             </div>
           </article>
 
@@ -132,11 +180,11 @@ const faqSchema = {
             <div class="faq-card-header">
               <div class="faq-icon" aria-hidden="true">&#127822;</div>
               <div>
-                <h3>Is CogniFocus available on iOS?</h3>
+                <h3>What does CogniFocus not read?</h3>
               </div>
             </div>
             <div class="cf-faq-content">
-              <p>Not at this time. The team plans iOS support but the Android app is the current focus. Join the iOS waitlist via the site to receive updates when an iOS release is available.</p>
+              <p>CogniFocus does not read your messages, contacts, passwords, or the text inside your apps. It uses the app-in-front signal and your session state to protect focus, not private content.</p>
             </div>
           </article>
 
@@ -144,11 +192,23 @@ const faqSchema = {
             <div class="faq-card-header">
               <div class="faq-icon" aria-hidden="true">&#128142;</div>
               <div>
-                <h3>What does Pro add?</h3>
+                <h3>What do Basic, Pro, and Limitless include?</h3>
               </div>
             </div>
             <div class="cf-faq-content">
-              <p>Pro expands Shield capacity, enables Manual Block, adds Planned Sessions and persistent reminders, unlocks additional customization, and provides priority restore support for paying users.</p>
+              <p>Basic, or Free, covers core sessions, starter Shield protection, Goblin reactions, and progress foundations. Pro adds stronger Shield capacity, Manual Block, Planned Sessions, reminders, recovery nudges, and restore support. If a Limitless tier is offered later, its extras will be listed on pricing before checkout.</p>
+            </div>
+          </article>
+
+          <article class="cf-faq-item p-3 mb-3">
+            <div class="faq-card-header">
+              <div class="faq-icon" aria-hidden="true">&#10024;</div>
+              <div>
+                <h3>What features are planned for later?</h3>
+              </div>
+            </div>
+            <div class="cf-faq-content">
+              <p>Planned features include Ghost Mode, DND-style quieting, uninstall protection, and advanced lock rules. They are planned for later and are not all live yet.</p>
             </div>
           </article>
         </section>
