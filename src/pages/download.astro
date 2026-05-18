@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Download CogniFocus | Android Redirect";
+const description = "Download CogniFocus on Android. Open the Google Play listing or use this fallback page if your browser blocks the store redirect.";
+const canonical = "https://cognifocus.app/download.html";
+const ogTitle = "Download CogniFocus";
+const ogDescription = "Trying to save you from wasting time... sending you straight to Google Play";
+const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"@graph\": [\n          {\n            \"@type\": \"WebPage\",\n            \"name\": \"Download CogniFocus\",\n            \"url\": \"https://cognifocus.app/download.html\",\n            \"description\": \"Download CogniFocus on Android. Open the Google Play listing or use this fallback page if your browser blocks the store redirect.\"\n          },\n          {\n            \"@type\": \"SoftwareApplication\",\n            \"name\": \"CogniFocus\",\n            \"operatingSystem\": \"Android\",\n            \"applicationCategory\": \"ProductivityApplication\",\n            \"description\": \"CogniFocus is an Android focus timer and app blocker that reacts when you drift into TikTok, Instagram, YouTube, and other distractions.\",\n            \"url\": \"https://cognifocus.app/\",\n            \"downloadUrl\": \"https://play.google.com/store/apps/details?id=io.ionic.cognifocus\",\n            \"image\": \"https://cognifocus.app/assets/og/og-image.png\",\n            \"publisher\": {\n              \"@type\": \"Organization\",\n              \"name\": \"CogniElevate\",\n              \"url\": \"https://cognifocus.app/\"\n            }\n          }\n        ]\n      }";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogImageAlt="CogniFocus"
+  includeOgImageAlt={false}
+  includeTwitterImageAlt={false}
+  bodyClass="download-page cf-shell"
+  baseStylesheet="style.css?v=20260428-1"
+  stylesheetsBeforeBase={["https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"]}
+  stylesheets={["download.css?v=20260428-1"]}
+  sharedScriptSrc="shared.js?v=20260428-1"
+  bootstrapIconsFirst={true}
+  footerProps={{ includePinterest: true }}
+  featuredStripProps={{ yoDirectoryInlineStyle: true }}
+>
+  <link slot="head-after-social" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap" rel="stylesheet" />
+  <script slot="head" type="application/ld+json" set:html={schemaJson} />
+  <script slot="head" src="download.js?v=20260428-1" defer is:inline></script>
+  <script slot="head" type="text/javascript" is:inline>
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "wq6znd4re5");
+  </script>
+
+  <main>
+      <header class="container text-center download-hero">
+        <span class="feature-kicker">
+          Android Download <span aria-hidden="true">&#9889;</span>
+        </span>
+
+        <h1>Download CogniFocus for Android</h1>
+
+        <p class="hero-muted-override download-subtitle">
+          The Goblin is waiting.
+        </p>
+      </header>
+
+      <section class="download-main">
+        <article class="download-card download-card-highlight text-center">
+          <div class="download-logo-wrap" aria-hidden="true">
+            <img
+              src="assets/logo/app-logo.png"
+              class="download-logo"
+              alt=""
+              width="569"
+              height="438"
+            />
+          </div>
+
+          <h2 id="platformTitle">Open on Google Play</h2>
+
+          <p id="redirectStatus" class="download-status" aria-live="polite">
+            Android focus app with distraction blocking + Goblin reactions.
+          </p>
+          <div class="download-cta-group">
+            <a
+              id="playStoreCta"
+              href="https://play.google.com/store/apps/details?id=io.ionic.cognifocus"
+              class="btn btn-glow play-store-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+              hidden
+            >
+              <i class="bi bi-google-play" aria-hidden="true"></i>
+              <span>Open in Google Play</span>
+              <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+            </a>
+
+            <p id="retryHint" class="download-note" hidden>
+              If Instagram or another in-app browser blocks redirects, tap the
+              button above.
+            </p>
+          </div>
+        </article>
+
+        <section
+          class="download-ios-banner"
+          aria-labelledby="downloadIosWaitlistTitle"
+        >
+          <div class="download-ios-banner__copy">
+            <span class="download-ios-banner__eyebrow">
+              <i class="bi bi-apple" aria-hidden="true"></i>
+              iOS coming next
+            </span>
+            <h2 id="downloadIosWaitlistTitle">Want CogniFocus on iPhone?</h2>
+            <p>
+              Join the iOS waitlist and we will email you when the iPhone
+              version is ready.
+            </p>
+          </div>
+
+          <form
+            class="download-ios-form"
+            id="downloadIosWaitlistForm"
+            novalidate
+          >
+            <input
+              id="downloadIosWaitlistName"
+              name="name"
+              type="text"
+              autocomplete="name"
+              maxlength="40"
+              placeholder="Name (optional)"
+            />
+
+            <label class="visually-hidden" for="downloadIosWaitlistEmail">
+              Email
+            </label>
+
+            <input
+              id="downloadIosWaitlistEmail"
+              name="email"
+              type="email"
+              autocomplete="email"
+              inputmode="email"
+              required
+              placeholder="you@example.com"
+            />
+
+            <input
+              id="downloadIosWaitlistWebsite"
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+
+            <button
+              type="submit"
+              class="btn btn-secondary download-ios-submit"
+              id="downloadIosWaitlistSubmit"
+            >
+              <i class="bi bi-apple" aria-hidden="true"></i>
+              <span>Join iOS waitlist</span>
+            </button>
+
+            <p
+              class="download-ios-message"
+              id="downloadIosWaitlistMessage"
+              role="status"
+              aria-live="polite"
+              hidden
+            ></p>
+          </form>
+        </section>
+      </section>
+      <article class="download-card download-info-card download-compact-note">
+        <div class="download-card-header">
+          <div class="download-icon" aria-hidden="true">&#128241;</div>
+          <div>
+            <h2>Android only for now</h2>
+            <p>iOS waitlist is open.</p>
+          </div>
+        </div>
+      </article>
+    </main>
+</BaseLayout>

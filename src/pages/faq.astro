@@ -1,0 +1,159 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Frequently Asked Questions | CogniFocus";
+const description =
+  "Frequently asked questions about CogniFocus: what it is, how it works, permissions, availability, and Pro features.";
+const canonical = "https://cognifocus.app/faq.html";
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is CogniFocus?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "CogniFocus is a compact Android app that combines a focus timer with a Distraction Shield, progress tracking, and gentle recovery nudges.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How is CogniFocus different from a normal timer?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Unlike a plain timer, CogniFocus detects distraction and actively helps return you to your session.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What happens if I open TikTok or Instagram during a session?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "During protected sessions the Distraction Shield can interrupt selected apps and encourage returning to focus.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Why does CogniFocus need Android permissions?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Permissions let the app detect foreground apps and show the Shield when needed. CogniFocus does not read private messages.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is CogniFocus available on iOS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Not yet. Android is supported now. Sign up for iOS notifications via the iOS waitlist at https://cognifocus.app/ios-waitlist.html",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What does CogniFocus Pro add?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Pro unlocks stronger Shield capacity, Manual Block, planned sessions, reminders, and restore support.",
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImageAlt="CogniFocus FAQ page"
+  bodyClass="faq-page cf-shell"
+  stylesheets={["faq.css"]}
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema, null, 2)} />
+
+  <main id="main-content" class="faq-main">
+    <header class="container text-center faq-hero">
+      <span class="feature-kicker">FAQ <span aria-hidden="true">&#10067;</span></span>
+      <h1>Frequently Asked Questions</h1>
+      <p class="faq-subtitle">Detailed answers about CogniFocus, how it works, permissions, availability, and Pro features.</p>
+    </header>
+
+    <section class="faq-content-wrap">
+      <div class="faq-content-inner">
+        <section class="cf-faq-accordion mt-4">
+          <article class="cf-faq-item p-3 mb-3">
+            <div class="faq-card-header">
+              <div class="faq-icon" aria-hidden="true">&#10024;</div>
+              <div>
+                <h3>What is CogniFocus?</h3>
+              </div>
+            </div>
+            <div class="cf-faq-content">
+              <p>CogniFocus is an Android-first focus companion that combines a reliable timer with a Distraction Shield and behavioral nudges. It helps you form resilient focus habits by detecting app switching, protecting sessions, and offering recovery actions and progress tracking.</p>
+            </div>
+          </article>
+
+          <article class="cf-faq-item p-3 mb-3">
+            <div class="faq-card-header">
+              <div class="faq-icon" aria-hidden="true">&#9201;</div>
+              <div>
+                <h3>How is it different from a normal timer?</h3>
+              </div>
+            </div>
+            <div class="cf-faq-content">
+              <p>Traditional timers count time but don't help you stay on task when distractions occur. CogniFocus monitors foreground apps and uses a Shield to intervene, combined with reminders, planned sessions, and progress features to reinforce focused behavior.</p>
+            </div>
+          </article>
+
+          <article class="cf-faq-item p-3 mb-3">
+            <div class="faq-card-header">
+              <div class="faq-icon" aria-hidden="true">&#128245;</div>
+              <div>
+                <h3>What happens if I open TikTok or Instagram?</h3>
+              </div>
+            </div>
+            <div class="cf-faq-content">
+              <p>When you open a selected distracting app during a protected session, the Distraction Shield can interrupt the app and present a blocking or recovery screen. You can return to the session or continue; the app preserves session state so you don't lose progress unintentionally.</p>
+            </div>
+          </article>
+
+          <article class="cf-faq-item p-3 mb-3">
+            <div class="faq-card-header">
+              <div class="faq-icon" aria-hidden="true">&#128274;</div>
+              <div>
+                <h3>Why does it need Android permissions?</h3>
+              </div>
+            </div>
+            <div class="cf-faq-content">
+              <p>CogniFocus requests Usage Access to detect which app is in the foreground and optionally Display Over Other Apps to present the Shield. These permissions let the app protect sessions without reading private messages or accessing app content.</p>
+            </div>
+          </article>
+
+          <article class="cf-faq-item p-3 mb-3">
+            <div class="faq-card-header">
+              <div class="faq-icon" aria-hidden="true">&#127822;</div>
+              <div>
+                <h3>Is CogniFocus available on iOS?</h3>
+              </div>
+            </div>
+            <div class="cf-faq-content">
+              <p>Not at this time. The team plans iOS support but the Android app is the current focus. Join the iOS waitlist via the site to receive updates when an iOS release is available.</p>
+            </div>
+          </article>
+
+          <article class="cf-faq-item p-3 mb-3">
+            <div class="faq-card-header">
+              <div class="faq-icon" aria-hidden="true">&#128142;</div>
+              <div>
+                <h3>What does Pro add?</h3>
+              </div>
+            </div>
+            <div class="cf-faq-content">
+              <p>Pro expands Shield capacity, enables Manual Block, adds Planned Sessions and persistent reminders, unlocks additional customization, and provides priority restore support for paying users.</p>
+            </div>
+          </article>
+        </section>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

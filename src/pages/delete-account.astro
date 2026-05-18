@@ -1,0 +1,162 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Account & Data Deletion | CogniFocus";
+const description =
+  "Instructions for deleting your CogniFocus account and associated data from Settings, plus details about local data, subscriptions, and retained purchase records.";
+const canonical = "https://cognifocus.app/delete-account.html";
+const deleteAccountSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Account & Data Deletion",
+  url: "https://cognifocus.app/delete-account.html",
+  description,
+};
+---
+
+<BaseLayout
+  charset="utf-8"
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImageAlt="CogniFocus account deletion page"
+  bodyClass="delete-account-page cf-shell"
+  baseStylesheet="style.css?v=20260428-1"
+  stylesheets={["delete-account.css?v=20260428-1"]}
+  sharedScriptSrc="shared.js?v=20260428-1"
+  bootstrapIconsFirst={true}
+  footerProps={{ includePinterest: true }}
+>
+  <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify(deleteAccountSchema, null, 2)} />
+  <script slot="head" type="text/javascript" is:inline>
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "wq6znd4re5");
+  </script>
+
+  <main>
+      <header class="container text-center delete-hero">
+        <span class="feature-kicker">
+          Delete Account <span aria-hidden="true">&#128465;</span>
+        </span>
+
+        <h1>Account &amp; Data Deletion</h1>
+
+        <p class="hero-muted-override delete-subtitle">
+          You can delete your CogniFocus account from Settings. This page
+          explains what is deleted, what may remain with subscription providers,
+          and how to get help
+        </p>
+      </header>
+
+      <section class="delete-main">
+        <article class="delete-card delete-card-highlight">
+          <div class="delete-card-header">
+            <div class="delete-icon" aria-hidden="true">&#128465;</div>
+            <div>
+              <h2>Delete From Settings</h2>
+              <p>
+                The recommended way to delete your account is directly inside
+                CogniFocus
+              </p>
+            </div>
+          </div>
+
+          <ol class="delete-list delete-steps">
+            <li>Open CogniFocus.</li>
+            <li>Go to Settings.</li>
+            <li>Tap Delete Account.</li>
+            <li>Confirm the deletion prompt.</li>
+          </ol>
+        </article>
+
+        <article class="delete-card">
+          <div class="delete-card-header">
+            <div class="delete-icon" aria-hidden="true">&#128190;</div>
+            <div>
+              <h2>What Gets Deleted</h2>
+              <p>
+                Account deletion removes synced profile and stats data that can
+                be deleted from the client, clears local app data, and deletes
+                the Firebase account
+              </p>
+            </div>
+          </div>
+
+          <ul class="delete-list">
+            <li>Firebase account information linked to CogniFocus</li>
+            <li>Synced profile settings and onboarding state</li>
+            <li>Daily stats, streak, progress, and planned session data</li>
+            <li>
+              Local app state, preferences, selected blocked apps, and session
+              state
+            </li>
+          </ul>
+        </article>
+
+        <article class="delete-card">
+          <div class="delete-card-header">
+            <div class="delete-icon" aria-hidden="true">&#128179;</div>
+            <div>
+              <h2>Subscriptions Are Separate</h2>
+              <p>
+                Deleting your CogniFocus account does not cancel a Google Play
+                subscription
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Subscriptions must be managed or cancelled through Google Play. Some
+            purchase records may remain with Google Play or RevenueCat as
+            required for subscription management, restoration, compliance, fraud
+            prevention, tax, legal, or platform requirements
+          </p>
+        </article>
+
+        <article class="delete-card">
+          <div class="delete-card-header">
+            <div class="delete-icon" aria-hidden="true">&#128241;</div>
+            <div>
+              <h2>Local Data</h2>
+              <p>
+                Locally stored data may also be removed when you clear app data
+                or uninstall CogniFocus
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Local data may include app state and preferences, theme, motion,
+            accessibility and color settings, selected blocked apps, focus
+            session state, planned sessions, reminder state, and some progress
+            or session-related data
+          </p>
+        </article>
+
+        <article class="delete-card delete-contact-card">
+          <div class="delete-card-header">
+            <div class="delete-icon" aria-hidden="true">&#128231;</div>
+            <div>
+              <h2>Need Help?</h2>
+              <p>
+                For account or privacy requests, use the support option in
+                CogniFocus Settings. You can also contact us by email
+              </p>
+            </div>
+          </div>
+
+          <a href="mailto:getcognifocus@gmail.com">getcognifocus@gmail.com</a>
+        </article>
+      </section>
+    </main>
+</BaseLayout>

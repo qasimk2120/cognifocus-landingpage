@@ -1,0 +1,379 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import updatesData from "../../updates.json";
+
+const title = "What's New | CogniFocus";
+const description = "See the latest CogniFocus updates including v4.5.5 minor improvements, v4.5.2 blocked-app and progress updates, v4.5.1 reliability improvements, and v4.5.0 onboarding and focus expansion.";
+const canonical = "https://cognifocus.app/whats-new.html";
+const ogDescription = "Read the latest CogniFocus release notes, updates, and product improvements.";
+const ogImageAlt = "CogniFocus app logo for a distraction-aware focus timer with character reactions";
+const updates = Array.isArray(updatesData) ? updatesData : [];
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (char) => {
+    const entities = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+
+    return entities[char];
+  });
+}
+
+function inlineMarkdown(text) {
+  return escapeHtml(text)
+    .replace(/`([^`]+)`/g, "<code>$1</code>")
+    .replace(
+      /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener">$1</a>',
+    )
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>");
+}
+
+function markdownToHtml(markdown) {
+  if (!markdown || !markdown.trim()) {
+    return "<p>No detailed notes were provided for this update yet.</p>";
+  }
+
+  const lines = markdown.replace(/\r\n/g, "\n").split("\n");
+  const html = [];
+  let inList = false;
+  let listType = "ul";
+  let inCodeBlock = false;
+  let codeBuffer = [];
+  let paragraphBuffer = [];
+
+  function flushParagraph() {
+    if (paragraphBuffer.length === 0) return;
+    html.push(`<p>${inlineMarkdown(paragraphBuffer.join(" "))}</p>`);
+    paragraphBuffer = [];
+  }
+
+  function flushList() {
+    if (!inList) return;
+    html.push(`</${listType}>`);
+    inList = false;
+  }
+
+  function flushCodeBlock() {
+    if (!inCodeBlock) return;
+    html.push(`<pre><code>${escapeHtml(codeBuffer.join("\n"))}</code></pre>`);
+    inCodeBlock = false;
+    codeBuffer = [];
+  }
+
+  for (const rawLine of lines) {
+    const line = rawLine.trimEnd();
+    const trimmed = line.trim();
+
+    if (trimmed.startsWith("```")) {
+      flushParagraph();
+      flushList();
+
+      if (inCodeBlock) {
+        flushCodeBlock();
+      } else {
+        inCodeBlock = true;
+      }
+      continue;
+    }
+
+    if (inCodeBlock) {
+      codeBuffer.push(line);
+      continue;
+    }
+
+    if (!trimmed) {
+      flushParagraph();
+      flushList();
+      continue;
+    }
+
+    const headingMatch = trimmed.match(/^(#{1,4})\s+(.+)$/);
+    if (headingMatch) {
+      flushParagraph();
+      flushList();
+      const level = headingMatch[1].length;
+      html.push(`<h${level}>${inlineMarkdown(headingMatch[2])}</h${level}>`);
+      continue;
+    }
+
+    const quoteMatch = trimmed.match(/^>\s?(.*)$/);
+    if (quoteMatch) {
+      flushParagraph();
+      flushList();
+      html.push(`<blockquote>${inlineMarkdown(quoteMatch[1])}</blockquote>`);
+      continue;
+    }
+
+    const unorderedMatch = trimmed.match(/^[-*]\s+(.+)$/);
+    const orderedMatch = trimmed.match(/^\d+\.\s+(.+)$/);
+
+    if (unorderedMatch || orderedMatch) {
+      flushParagraph();
+      const nextListType = unorderedMatch ? "ul" : "ol";
+      const itemText = unorderedMatch ? unorderedMatch[1] : orderedMatch[1];
+
+      if (!inList || listType !== nextListType) {
+        flushList();
+        listType = nextListType;
+        html.push(`<${listType}>`);
+        inList = true;
+      }
+
+      html.push(`<li>${inlineMarkdown(itemText)}</li>`);
+      continue;
+    }
+
+    paragraphBuffer.push(trimmed);
+  }
+
+  flushParagraph();
+  flushList();
+  flushCodeBlock();
+
+  return html.join("");
+}
+
+function formatDate(value) {
+  const date = new Date(value);
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(date);
+}
+
+function updateMetaHtml(update, isLatest) {
+  const parts = [];
+
+  if (isLatest) {
+    parts.push('<span class="release-badge">Latest</span>');
+  }
+
+  if (update.version) {
+    parts.push(`<span class="release-tag">${escapeHtml(update.version)}</span>`);
+  }
+
+  if (update.category) {
+    parts.push(
+      `<span class="release-status">${escapeHtml(update.category)}</span>`,
+    );
+  }
+
+  parts.push(
+    `<span class="release-status">${escapeHtml(formatDate(update.date))}</span>`,
+  );
+
+  return parts.join("");
+}
+
+const latestUpdate = updates[0];
+const historyUpdates = updates.slice(1);
+const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") : "";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={ogDescription}
+  ogImageAlt={ogImageAlt}
+  bodyClass="whats-new-page cf-shell"
+  bodyAttributes={{
+    "data-updates-src": "updates.json?v=20260518-1",
+    "data-static-updates": "false",
+  }}
+  assetBase="assets"
+  baseStylesheet="style.css?v=20260504-1"
+  stylesheets={["whats-new.css?v=20260504-1"]}
+  sharedScriptSrc="shared.js?v=20260504-1"
+  bootstrapIconsFirst={true}
+  footerProps={{}}
+>
+  <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "CogniFocus What's New",
+    url: "https://cognifocus.app/whats-new.html",
+    description: "Public CogniFocus release notes, product updates, feature rollouts, and reliability improvements.",
+  })}></script>
+  <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "CogniFocus release timeline",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Minor Improvements (v4.5.5)",
+        description: "General stability fixes across focus flows, plus a minor fix to prevent distraction counting twice in some cases.",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Focus Session Reliability Improvements (v4.5.4)",
+        description: "Improved stability and reliability during focus sessions, especially in tougher distraction cases.",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Introducing 1st time Walkthrough (v4.5.3)",
+        description: "A new first-time walkthrough helps users start their first focus loop, understand focus setup, follow progress and tabs, and use guidance that fits more phone sizes.",
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: "What's New (v4.5.2)",
+        description: "Blocked-app returns are cleaner, Progress shows more behavior-aware insights, focus nudges are safer, and intro screens fit tall phones and camera cutouts better.",
+      },
+    ],
+  })}></script>
+  <link slot="head-after-social" rel="preconnect" href="https://fonts.googleapis.com" />
+  <link slot="head-after-social" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    slot="head-after-social"
+    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
+    rel="stylesheet"
+  />
+  <script slot="head" src="whats-new.js?v=20260518-1" defer></script>
+  <script slot="head" type="text/javascript" is:inline>
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "wq6znd4re5");
+  </script>
+
+  <main>
+    <header class="container text-center whats-new-hero">
+      <span class="feature-kicker">
+        What's New <span aria-hidden="true">&#128640;</span>
+      </span>
+
+      <h1>See What&rsquo;s New in CogniFocus</h1>
+
+      <p class="whats-new-keyword">
+        Follow the latest product improvements, feature rollouts, polish
+        passes, and reliability updates across the app.
+      </p>
+
+      <p class="hero-muted-override whats-new-subtitle">
+        Each release entry highlights what changed, why it matters, and how
+        the CogniFocus experience keeps getting sharper over time.
+      </p>
+    </header>
+
+    <section class="whats-new-main">
+      <section class="whats-new-card whats-new-card-highlight updates-intro-card">
+        <div class="whats-new-card-header">
+          <div class="whats-new-icon" aria-hidden="true">&#128221;</div>
+          <div>
+            <h2>What you&rsquo;ll find here</h2>
+            <p>
+              This page is the public release timeline for CogniFocus, with
+              the newest update featured first and earlier documented releases
+              listed below.
+            </p>
+          </div>
+        </div>
+
+        <ul class="whats-new-list">
+          <li>New features, polish passes, and quality improvements.</li>
+          <li>Short summaries for quick scanning.</li>
+          <li>Detailed notes when you want the full picture.</li>
+          <li>Links back to the main product page when relevant.</li>
+        </ul>
+      </section>
+
+      <section class="whats-new-card changelog-note-card">
+        <div class="whats-new-card-header">
+          <div class="whats-new-icon" aria-hidden="true">&#128161;</div>
+          <div>
+            <h2>Release timeline</h2>
+            <p>
+              This archive starts from the first public release state
+              documented on the website and continues forward from there.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="latest-release-block">
+        <div class="section-heading">
+          <span class="feature-kicker">
+            Latest Update <span aria-hidden="true">&#10024;</span>
+          </span>
+          <h2>Newest documented release</h2>
+        </div>
+
+        <div id="latestRelease" class="release-grid-state">
+          <article class="release-card">
+            <div class="release-meta" set:html={latestUpdate ? updateMetaHtml(latestUpdate, true) : ""}></div>
+
+            <h3>{latestUpdate?.title}</h3>
+
+            <p class="release-summary">{latestUpdate?.summary}</p>
+
+            <div class="release-actions">
+              <button
+                type="button"
+                class="release-toggle-btn"
+                aria-expanded="false"
+              >
+                Read detailed notes
+              </button>
+            </div>
+
+            <div class="release-details" hidden>
+              <div class="release-notes" set:html={latestNotesHtml}></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="release-history-block">
+        <div class="section-heading">
+          <span class="feature-kicker">
+            Update History <span aria-hidden="true">&#128218;</span>
+          </span>
+          <h2>Earlier documented releases</h2>
+        </div>
+
+        <div id="releaseHistory" class="release-history">
+          {historyUpdates.map((update) => (
+            <article class="release-card-compact">
+              <div class="release-meta" set:html={updateMetaHtml(update, false)}></div>
+              <h3>{update.title}</h3>
+              <p class="release-summary">{update.summary}</p>
+              <div class="release-actions">
+                <button
+                  type="button"
+                  class="release-toggle-btn"
+                  aria-expanded="false"
+                >
+                  Read detailed notes
+                </button>
+              </div>
+              <div class="release-details" hidden>
+                <div class="release-notes" set:html={markdownToHtml(update.notes || "")}></div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,28 @@
+---
+const {
+  src,
+  alt,
+  width,
+  height,
+  caption,
+  class: className = "",
+  loading = "lazy",
+  decoding = "async",
+} = Astro.props;
+
+if (!alt && alt !== "") {
+  throw new Error("BlogImage requires an alt prop. Use alt=\"\" only for decorative images.");
+}
+---
+
+<figure class={`blog-image${className ? ` ${className}` : ""}`.trim()}>
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    decoding={decoding}
+  />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>

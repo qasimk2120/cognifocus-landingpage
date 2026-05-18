@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const { post } = Astro.props;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: post.schemaHeadline || post.articleTitle,
+  description: post.schemaDescription || post.description,
+  datePublished: post.publishDate,
+  dateModified: post.updatedDate || post.publishDate,
+  author: {
+    "@type": "Organization",
+    name: "CogniElevate",
+    url: "https://cognifocus.app/",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "CogniFocus",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://cognifocus.app/assets/logo/app-logo.png",
+    },
+  },
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": post.canonical,
+  },
+  image: post.ogImage,
+  url: post.canonical,
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://cognifocus.app/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Blog",
+      item: "https://cognifocus.app/blog/",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: post.breadcrumbTitle || post.articleTitle,
+      item: post.canonical,
+    },
+  ],
+};
+
+const stylesheets = ["../seo-pages.css", "./blog.css"];
+const panelClass =
+  "focus-loop-panel mx-auto p-4 p-md-5 seo-guide-panel blog-panel blog-content";
+---
+
+<BaseLayout
+  title={post.title}
+  description={post.description}
+  canonical={post.canonical}
+  ogTitle={post.ogTitle}
+  ogDescription={post.ogDescription}
+  ogImage={post.ogImage}
+  ogType={post.ogType || "article"}
+  ogImageAlt="CogniFocus"
+  includeOgImageAlt={false}
+  includeTwitterImageAlt={false}
+  bodyClass={post.bodyClass}
+  assetBase="../assets"
+  baseStylesheet="../style.css"
+  stylesheets={stylesheets}
+  sharedScriptSrc="../shared.js?v=20260430-1"
+  bootstrapIconsFirst={true}
+  footerProps={{ includePinterest: post.includePinterest }}
+  featuredStripProps={{ yoDirectoryInlineStyle: true }}
+  rssHref="/feed.xml"
+>
+  <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
+  <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
+  <link slot="head-after-social" rel="preconnect" href="https://fonts.googleapis.com" />
+  <link slot="head-after-social" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    slot="head-after-social"
+    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
+    rel="stylesheet"
+  />
+  <script slot="head" type="text/javascript" is:inline>
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "wq6znd4re5");
+  </script>
+
+  <main class="container py-5 seo-guide-main">
+    <article class={panelClass}>
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> &gt; <a href="/blog/">Blog</a> &gt;
+        <span>{post.breadcrumbLabel || post.articleTitle}</span>
+      </nav>
+
+      <span class="feature-kicker">{post.category}</span>
+      <h1 class="hero-heading mt-3">{post.articleTitle}</h1>
+      {post.displayDate && <p class="blog-meta mb-3">Published {post.displayDate}</p>}
+
+      <Fragment set:html={post.bodyHtml} />
+    </article>
+  </main>
+</BaseLayout>

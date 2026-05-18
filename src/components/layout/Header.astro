@@ -1,0 +1,35 @@
+---
+import MobileMenu from "./MobileMenu.astro";
+
+const { assetBase = "assets" } = Astro.props;
+---
+
+<header class="cf-nav" id="cf-nav">
+  <div class="container cf-nav__inner">
+    <a href="/" class="cf-nav__logo" aria-label="CogniFocus home">
+      <img src={`${assetBase}/logo/text-logo-tight.png`} alt="" height="125" width="415" />
+    </a>
+
+    <nav class="cf-nav__links" aria-label="Main navigation" aria-hidden="false">
+      <a href="/" class="cf-nav__link">Home</a>
+      <a href="/pricing.html" class="cf-nav__link">Pricing</a>
+      <a href="/blog/" class="cf-nav__link">Blog</a>
+      <a href="/faq.html" class="cf-nav__link">FAQ</a>
+      <a href="/whats-new.html" class="cf-nav__link">What's new</a>
+      <a href="/ios-waitlist.html" class="cf-nav__link cf-nav__mobile-link" aria-label="Join the iOS waitlist">
+        <i class="bi bi-apple" aria-hidden="true"></i>
+        <span>iOS</span>
+        <span class="cf-nav__soon-badge">SOON</span>
+      </a>
+    </nav>
+
+    <div class="cf-nav__actions">
+      <a href="/download.html" class="btn btn-primary btn-sm cf-nav__cta">Start Free</a>
+      <button class="cf-nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="cf-mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <MobileMenu />
+</header>

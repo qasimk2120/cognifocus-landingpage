@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HomeAttentionSpirals from "../components/home/HomeAttentionSpirals.astro";
+import HomeFinalCTA from "../components/home/HomeFinalCTA.astro";
+import HomeGoblinCards from "../components/home/HomeGoblinCards.astro";
+import HomeHero from "../components/home/HomeHero.astro";
+import HomeTestimonials from "../components/home/HomeTestimonials.astro";
+
+const title = "CogniFocus - Focus Timer & App Blocker for Android";
+const description = "CogniFocus is a free focus timer and app blocker for TikTok, Instagram, YouTube, and distracting apps, helping you recover fast and build focus streaks.";
+const canonical = "https://cognifocus.app/";
+const ogTitle = "CogniFocus — Focus Timer & App Blocker for Android";
+const ogDescription = description;
+const ogImageAlt = "CogniFocus landing page for a focus app that blocks distracting apps and reacts instantly";
+const schemas = [
+  "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"SoftwareApplication\",\n        \"name\": \"CogniFocus\",\n        \"operatingSystem\": \"Android\",\n        \"applicationCategory\": \"ProductivityApplication\",\n        \"description\": \"CogniFocus is a free focus timer and app blocker for TikTok, Instagram, YouTube, and distracting apps, helping you recover fast and build focus streaks.\",\n        \"url\": \"https://cognifocus.app/\",\n        \"downloadUrl\": \"https://play.google.com/store/apps/details?id=io.ionic.cognifocus\",\n        \"offers\": {\n          \"@type\": \"Offer\",\n          \"price\": \"0\",\n          \"priceCurrency\": \"USD\"\n        },\n        \"author\": {\n          \"@type\": \"Organization\",\n          \"name\": \"CogniElevate\",\n          \"url\": \"https://cognifocus.app/\"\n        }\n      }",
+  "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebSite\",\n        \"name\": \"CogniFocus\",\n        \"url\": \"https://cognifocus.app/\"\n      }",
+  "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebPage\",\n        \"name\": \"CogniFocus - Focus Timer & App Blocker\",\n        \"speakable\": {\n          \"@type\": \"SpeakableSpecification\",\n          \"cssSelector\": [\".seo-eyebrow\", \".hero-muted-override\", \"#faq\"]\n        },\n        \"url\": \"https://cognifocus.app/\"\n      }",
+  "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"Organization\",\n        \"name\": \"CogniElevate\",\n        \"url\": \"https://cognifocus.app/\",\n        \"logo\": \"https://cognifocus.app/assets/logo/app-logo.png\",\n        \"sameAs\": [\n          \"https://www.tiktok.com/@cognifocus.app\",\n          \"https://www.instagram.com/cognifocus.app/\",\n          \"https://www.facebook.com/share/1Am7kCzkjG/\",\n          \"https://x.com/cognielevate\",\n          \"https://www.pinterest.com/getcognifocus/\",\n          \"https://www.producthunt.com/products/cognifocus\"\n        ]\n      }"
+];
+const mainHtml = "    <script>\n      (function () {\n        const items = document.querySelectorAll(\".cf-faq-item\");\n        items.forEach((item) => {\n          const body = item.querySelector(\".cf-faq-body\");\n          const toggle = item.querySelector(\".cf-faq-toggle\");\n          if (body) body.style.maxHeight = \"0\";\n          item.addEventListener(\"toggle\", () => {\n            if (item.open) {\n              item.classList.add(\"open\");\n              // expand smoothly\n              body.style.maxHeight = body.scrollHeight + \"px\";\n              if (toggle) toggle.textContent = \"-\";\n            } else {\n              // animate close\n              body.style.maxHeight = body.scrollHeight + \"px\";\n              requestAnimationFrame(() => {\n                body.style.maxHeight = \"0\";\n              });\n              item.classList.remove(\"open\");\n              if (toggle) toggle.textContent = \"+\";\n            }\n          });\n        });\n      })();\n    </script>";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogImageAlt={ogImageAlt}
+  bodyClass="cf-home"
+  baseStylesheet="style.css"
+  includeDefaultBootstrapIcons={false}
+  sharedScriptSrc="shared.js?v=20260423-1"
+  launchBannerProps={{ includeIosNotification: false }}
+  footerProps={{ includePinterest: true, faqHref: "/#faq", xHref: "https://x.com/cognielevate" }}
+>
+  <meta
+    slot="head-after-robots"
+    name="keywords"
+    content="focus app android, app blocker android, distraction blocker, tiktok blocker, instagram blocker, app blocker for studying, adhd focus app, study focus app, focus timer android, deep focus timer, android productivity app, cognifocus"
+  />
+  <meta slot="head-after-robots" name="author" content="CogniElevate" />
+  <meta slot="head-after-robots" name="application-name" content="CogniFocus" />
+
+  <link slot="head-after-icon" rel="preconnect" href="https://fonts.googleapis.com" />
+  <link slot="head-after-icon" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    slot="head-after-icon"
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
+  />
+  <link
+    slot="head-after-icon"
+    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    slot="head-after-icon"
+    rel="preload"
+    as="image"
+    href="assets/logo/text-logo-tight.png"
+    fetchpriority="high"
+  />
+
+  <meta slot="head-after-social" name="p:domain_verify" content="478f5d8e8349b9766bd792c88fe9ae49" />
+  {schemas.map((schema) => <script slot="head-after-social" type="application/ld+json" set:html={schema}></script>)}
+
+  <link
+    slot="head-before-base-styles"
+    rel="preload"
+    as="style"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    onload="this.onload = null; this.rel = 'stylesheet';"
+  />
+  <noscript slot="head-before-base-styles">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </noscript>
+
+  <script slot="head" src="script.js?v=20260403-1" defer is:inline></script>
+  <script slot="head" type="text/javascript" is:inline>
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "wq6znd4re5");
+  </script>
+
+  <main id="main-content">
+    <HomeHero />
+    <HomeTestimonials />
+    <HomeGoblinCards />
+    <HomeAttentionSpirals />
+    <HomeFinalCTA />
+    <Fragment set:html={mainHtml} />
+  </main>
+</BaseLayout>

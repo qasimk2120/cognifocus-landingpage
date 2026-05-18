@@ -1,0 +1,12 @@
+---
+import BlogPostLayout from "../../components/blog/BlogPostLayout.astro";
+import posts from "../../data/blog/posts.json";
+
+const post = posts.find((entry) => entry.slug === "cognifocus-vs-freedom");
+
+if (!post) {
+  throw new Error("Missing blog post data for cognifocus-vs-freedom");
+}
+---
+
+<BlogPostLayout post={post} />

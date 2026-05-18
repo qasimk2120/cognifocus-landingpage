@@ -1,0 +1,29 @@
+---
+const { includeIosNotification = true } = Astro.props;
+---
+
+<div class="cf-launch-banner" id="cf-launch-banner" role="banner">
+  <div class="container cf-launch-banner__inner">
+    <span class="cf-launch-banner__dot"></span>
+    <span class="cf-launch-banner__text">
+      Product Hunt launch
+      <strong class="cf-launch-banner__countdown" id="cf-countdown"></strong>
+    </span>
+    <a
+      href="https://www.producthunt.com/products/cognifocus?launch=cognifocus"
+      target="_blank"
+      rel="noopener"
+      class="cf-launch-banner__link"
+    >
+      Follow
+      <span class="cf-launch-banner__arrow" aria-hidden="true">&rarr;</span>
+    </a>
+    {
+      includeIosNotification && (
+        <a href="/ios-waitlist.html" class="cf-launch-banner__ios">
+          Get iOS notification
+        </a>
+      )
+    }
+  </div>
+</div>

@@ -1,0 +1,152 @@
+---
+const {
+  includePinterest = false,
+  faqHref = "/faq.html",
+  includeIosWaitlist = false,
+  assetBase = "assets",
+  showSocials = true,
+  xHref = "https://x.com/getcognifocus",
+} = Astro.props;
+---
+
+<footer class="site-footer site-footer-no-badge">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img
+        src={`${assetBase}/logo/app-logo.png`}
+        class="footer-logo"
+        alt=""
+        width="569"
+        height="438"
+      />
+      <img
+        src={`${assetBase}/logo/text-logo-tight.png`}
+        class="footer-text-logo"
+        alt=""
+        width="415"
+        height="125"
+      />
+      <p tabindex="0">Focus, but alive. Built by CogniElevate</p>
+      <div
+        class="footer-company-proof"
+        aria-label="CogniElevate company registration details"
+      >
+        <strong>COGNIELEVATE (SMC-PRIVATE) LIMITED</strong>
+        <span>Company No. 0293921</span>
+        <span>
+          E-Rozgaar Center, Imperial College of Business Studies, Canal Road,
+          Shahkam Flyover, Near Bahria Town, Lahore, Punjab, Pakistan
+        </span>
+      </div>
+      {
+        showSocials && (
+          <div class="footer-actions footer-actions--social-only">
+            <div class="footer-socials" aria-label="Social links">
+              <a
+                href="https://www.tiktok.com/@cognifocus.app"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
+                  alt="TikTok social profile for CogniFocus"
+                  width="15"
+                  height="15"
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/cognifocus.app/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
+                  alt="Instagram social profile for CogniFocus"
+                  width="15"
+                  height="15"
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/share/1Am7kCzkjG/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"
+                  alt="Facebook social profile for CogniFocus"
+                  width="15"
+                  height="15"
+                />
+              </a>
+              <a
+                href={xHref}
+                target="_blank"
+                rel="noopener"
+                aria-label="X"
+              >
+                <img
+                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg"
+                  alt="X social profile for CogniFocus"
+                  width="15"
+                  height="15"
+                />
+              </a>
+              {
+                includePinterest && (
+                  <a
+                    href="https://www.pinterest.com/getcognifocus/"
+                    target="_blank"
+                    rel="noopener"
+                    aria-label="Pinterest"
+                  >
+                    <img
+                      src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/pinterest.svg"
+                      alt="Pinterest profile for CogniFocus"
+                      width="15"
+                      height="15"
+                    />
+                  </a>
+                )
+              }
+            </div>
+          </div>
+        )
+      }
+    </div>
+
+    <nav class="footer-links" aria-label="Footer links">
+      <div class="footer-links-group">
+        <span class="footer-links-title">Explore</span>
+        <a href="/">Home</a>
+        <a href="/#why">Why It Works</a>
+        <a href={faqHref}>FAQ</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/whats-new.html">What's New</a>
+        <a href="/blog/">Blog</a>
+        <a href="/download.html">Download</a>
+        {includeIosWaitlist && <a href="/ios-waitlist.html">iOS Waitlist</a>}
+      </div>
+
+      <div class="footer-links-group">
+        <span class="footer-links-title">Resources</span>
+        <a href="/blog/how-to-stop-app-switching.html">How to Stop App Switching</a>
+        <a href="/blog/best-focus-apps-for-adhd.html">Best Focus Apps for ADHD</a>
+        <a href="/blog/tiktok-blocker-android.html">TikTok Blocker for Android</a>
+        <a href="/blog/app-blocker-for-studying.html">App Blocker for Studying</a>
+        <a href="/blog/cognifocus-vs-forest.html">CogniFocus vs Forest</a>
+        <a href="/blog/cognifocus-vs-appblock.html">CogniFocus vs AppBlock</a>
+        <a href="/blog/cognifocus-vs-stay-focused.html">CogniFocus vs Stay Focused</a>
+      </div>
+
+      <div class="footer-links-group">
+        <span class="footer-links-title">Legal</span>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/delete-account.html">Delete Account</a>
+      </div>
+    </nav>
+  </div>
+</footer>

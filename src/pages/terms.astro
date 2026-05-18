@@ -1,0 +1,338 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "Terms of Service | CogniFocus";
+const description =
+  "Read the CogniFocus Terms of Service for app usage, permissions, accounts, subscriptions, acceptable use, support, availability and account deletion.";
+const canonical = "https://cognifocus.app/terms.html";
+const termsSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Terms of Service",
+  url: "https://cognifocus.app/terms.html",
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImageAlt="CogniFocus terms page"
+  includeTwitterImageAlt={false}
+  bodyClass="terms-page policy-usage cf-shell"
+  stylesheets={["terms.css"]}
+  sharedScriptSrc="shared.js?v=20260423-1"
+  bootstrapIconsFirst={true}
+  footerProps={{ includePinterest: true }}
+  featuredStripProps={{ yoDirectoryInlineStyle: true }}
+>
+  <meta slot="head-after-robots" name="author" content="CogniElevate" />
+  <meta slot="head-after-robots" name="application-name" content="CogniFocus" />
+  <link slot="head-after-social" rel="preconnect" href="https://fonts.googleapis.com" />
+  <link slot="head-after-social" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    slot="head-after-social"
+    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
+    rel="stylesheet"
+  />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(termsSchema, null, 2)} />
+  <script slot="head" type="text/javascript" is:inline>
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "wq6znd4re5");
+  </script>
+
+  <main>
+      <section class="container text-center legal-hero">
+        <span class="feature-kicker">
+          Legal <span aria-hidden="true">&#9878;</span>
+        </span>
+
+        <h1>Terms of Service</h1>
+
+        <p class="hero-muted-override legal-subtitle">
+          Last updated: April 18, 2026. By using CogniFocus, you agree to these
+          Terms.
+        </p>
+      </section>
+
+      <section class="legal-main">
+        <article class="legal-card legal-card-highlight">
+          <div class="legal-card-header">
+            <div class="legal-icon" aria-hidden="true">&#9989;</div>
+            <div>
+              <h2>Using CogniFocus</h2>
+              <p>
+                CogniFocus provides focus timers, session objectives, Planned
+                Sessions, Manual Block, Shield features, character reactions,
+                progress tracking, and subscription features.
+              </p>
+            </div>
+          </div>
+
+          <ul class="legal-list">
+            <li>
+              You are responsible for how you use your device and app settings
+              while using CogniFocus.
+            </li>
+            <li>
+              CogniFocus is provided as is and may change, improve, or be
+              updated over time.
+            </li>
+          </ul>
+        </article>
+
+        <article class="legal-card">
+          <div class="legal-card-header">
+            <div class="legal-icon" aria-hidden="true">&#128737;</div>
+            <div>
+              <h2>Permissions</h2>
+              <p>
+                Some Android permissions may be requested to enable Shield and
+                related app controls.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            <strong>Usage Access</strong> lets Shield detect which apps you open
+            so it can catch distractions. It does not read messages or in-app
+            content.
+          </p>
+
+          <p>
+            <strong>Display Over Other Apps</strong> lets CogniFocus show a
+            blocking screen over distracting apps when Shield or Manual Block
+            needs to interrupt you.
+          </p>
+
+          <p>
+            These permissions are optional, but Shield and Manual Block may not
+            work correctly without them. You can change or revoke permissions at
+            any time in your device settings.
+          </p>
+        </article>
+
+        <article class="legal-card">
+          <div class="legal-card-header">
+            <div class="legal-icon" aria-hidden="true">&#128273;</div>
+            <div>
+              <h2>Accounts, Data, And Updates</h2>
+              <p>
+                CogniFocus creates an anonymous Firebase account by default to
+                support app operation and storing app data securely.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            CogniFocus may later let you link Google to protect progress and
+            premium access. Google linking should connect to your existing
+            anonymous account rather than replacing progress.
+          </p>
+
+          <p>
+            App features, visuals, stored data, pricing, tiers, and connected
+            services may change over time.
+          </p>
+
+          <p>
+            We may update these Terms and the Privacy Policy. Continued use of
+            the app after updates means you accept those updates.
+          </p>
+        </article>
+
+        <article class="legal-card">
+          <div class="legal-card-header">
+            <div class="legal-icon" aria-hidden="true">&#128179;</div>
+            <div>
+              <h2>Subscriptions</h2>
+              <p>
+                Pro purchases are processed through Google Play and RevenueCat.
+              </p>
+            </div>
+          </div>
+
+          <ul class="legal-list">
+            <li>
+              Subscriptions may auto-renew according to your Google Play
+              subscription settings.
+            </li>
+            <li>You can manage or cancel subscriptions through Google Play.</li>
+            <li>
+              Deleting your CogniFocus account does not cancel a Google Play
+              subscription.
+            </li>
+            <li>
+              Anonymous users can purchase Pro, but linking Google later helps
+              protect restore access across reinstalls and devices.
+            </li>
+          </ul>
+        </article>
+
+        <article class="legal-card">
+          <div class="legal-card-header">
+            <div class="legal-icon" aria-hidden="true">&#9878;</div>
+            <div>
+              <h2>Acceptable Use</h2>
+              <p>You agree to use CogniFocus responsibly.</p>
+            </div>
+          </div>
+
+          <ul class="legal-list">
+            <li>Do not abuse support systems.</li>
+            <li>Do not attempt to bypass access controls.</li>
+            <li>Do not interfere with app services.</li>
+            <li>
+              Do not use the app in a way that harms other users, systems, or
+              services.
+            </li>
+            <li>Do not misuse permissions or app functionality.</li>
+          </ul>
+
+          <p>
+            CogniFocus is a productivity tool. It is not a safety, medical,
+            legal, financial, or emergency service.
+          </p>
+        </article>
+
+        <article class="legal-card">
+          <div class="legal-card-header">
+            <div class="legal-icon" aria-hidden="true">&#128172;</div>
+            <div>
+              <h2>Support</h2>
+              <p>
+                CogniFocus may provide support through in-app support tools or
+                listed contact channels.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Support availability is not guaranteed. Support requests may be
+            rate-limited to prevent abuse.
+          </p>
+
+          <p>
+            Information submitted through support may be used to investigate
+            issues, reply to you, and improve app reliability.
+          </p>
+        </article>
+
+        <article class="legal-card">
+          <div class="legal-card-header">
+            <div class="legal-icon" aria-hidden="true">&#128246;</div>
+            <div>
+              <h2>Service Availability</h2>
+              <p>
+                CogniFocus may depend on third-party services such as Firebase,
+                RevenueCat, Google Play, and device operating system features.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            We do not guarantee uninterrupted availability, perfect accuracy, or
+            that the app will always be free from bugs, delays, permission
+            issues, service interruptions, or platform changes.
+          </p>
+
+          <p>
+            Some features may behave differently depending on device model,
+            Android version, permissions, Google Play availability, subscription
+            status, or third-party service behavior.
+          </p>
+        </article>
+
+        <article class="legal-card">
+          <div class="legal-card-header">
+            <div class="legal-icon" aria-hidden="true">&#9888;</div>
+            <div>
+              <h2>Limitations Of Liability</h2>
+              <p>
+                To the maximum extent permitted by law, CogniFocus is not liable
+                for indirect, incidental, special, consequential, or punitive
+                losses resulting from use of the app.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            CogniFocus is not responsible for lost productivity, missed
+            sessions, missed notifications, device settings, subscription
+            platform issues, or third-party service interruptions.
+          </p>
+
+          <p>Your use of CogniFocus is at your own discretion and risk.</p>
+        </article>
+
+        <article class="legal-card">
+          <div class="legal-card-header">
+            <div class="legal-icon" aria-hidden="true">&#128295;</div>
+            <div>
+              <h2>Changes To The App</h2>
+              <p>
+                CogniFocus features, pricing, subscription tiers, character
+                behavior, access limits, data storage, and connected services
+                may change over time.
+              </p>
+            </div>
+          </div>
+
+          <p>
+            Some features may be added, removed, renamed, limited, or moved
+            between tiers.
+          </p>
+        </article>
+
+        <article class="legal-card">
+          <div class="legal-card-header">
+            <div class="legal-icon" aria-hidden="true">&#128465;</div>
+            <div>
+              <h2>Account Deletion</h2>
+              <p>You may delete your CogniFocus account from Settings.</p>
+            </div>
+          </div>
+
+          <p>
+            Account deletion removes synced profile and stats data that can be
+            deleted from the client, clears local app data, and deletes the
+            Firebase account.
+          </p>
+
+          <p>
+            Account deletion does not cancel Google Play subscriptions. Manage
+            subscriptions through Google Play.
+          </p>
+
+          <p>
+            Some purchase records may remain with Google Play or RevenueCat as
+            required for subscription management, restoration, compliance, fraud
+            prevention, or legal purposes.
+          </p>
+        </article>
+
+        <article class="legal-card">
+          <div class="legal-card-header">
+            <div class="legal-icon" aria-hidden="true">&#128231;</div>
+            <div>
+              <h2>Contact</h2>
+              <p>
+                For questions, support, or account/privacy requests, use the
+                support option in CogniFocus Settings.
+              </p>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+</BaseLayout>

@@ -886,7 +886,7 @@ body.cf-shell {
   padding-top: calc(var(--cf-launch-banner-height)+60px);
 }
 body.cf-home #main-content {
-  padding-top: calc(var(--cf-launch-banner-height)+60px);
+  padding-top: calc(var(--cf-launch-banner-height) + 60px);
 }
 .cf-launch-ended body.cf-shell {
   padding-top: 60px;

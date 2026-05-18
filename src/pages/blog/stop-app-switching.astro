@@ -1,0 +1,12 @@
+---
+import BlogPostLayout from "../../components/blog/BlogPostLayout.astro";
+import posts from "../../data/blog/posts.json";
+
+const post = posts.find((entry) => entry.slug === "stop-app-switching");
+
+if (!post) {
+  throw new Error("Missing blog post data for stop-app-switching");
+}
+---
+
+<BlogPostLayout post={post} />
