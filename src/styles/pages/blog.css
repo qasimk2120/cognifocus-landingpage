@@ -190,6 +190,10 @@
   gap: 1rem;
 }
 .blog-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   padding: 1rem 1.05rem;
   border-radius: 16px;
   background: linear-gradient(
@@ -198,6 +202,51 @@
     rgba(var(--cf-cyan-rgb), 0.05)
   );
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.14);
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+  overflow: hidden;
+}
+.blog-card:hover,
+.blog-card:focus-within {
+  transform: translateY(-3px);
+  border-color: rgba(var(--cf-cyan-rgb), 0.34);
+  box-shadow:
+    0 14px 34px rgba(var(--cf-black-rgb), 0.16),
+    0 0 0 1px rgba(var(--cf-cyan-rgb), 0.1),
+    0 0 0 6px rgba(var(--cf-cyan-rgb), 0.04);
+  background: linear-gradient(
+    145deg,
+    rgba(var(--cf-light-card-rgb), 0.08),
+    rgba(var(--cf-cyan-rgb), 0.08)
+  );
+}
+.blog-card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+.blog-card-content,
+.blog-card-footer {
+  position: relative;
+  z-index: 2;
+}
+.blog-card-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+.blog-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.blog-card-cta i {
+  font-size: 0.95em;
+  line-height: 1;
 }
 .blog-card h2 {
   margin-bottom: 0.45rem;
@@ -210,6 +259,8 @@
   color: var(--cf-cyan);
   font-weight: 700;
   text-decoration: none;
+  position: relative;
+  z-index: 3;
 }
 .blog-meta a:hover {
   color: var(--cf-text);
@@ -333,6 +384,14 @@
     );
     border-color: rgba(var(--cf-cyan-rgb), 0.2);
   }
+  .blog-card:hover,
+  .blog-card:focus-within {
+    border-color: rgba(var(--cf-cyan-rgb), 0.36);
+    box-shadow:
+      0 16px 34px rgba(var(--cf-light-shadow-rgb), 0.14),
+      0 0 0 1px rgba(var(--cf-cyan-rgb), 0.12),
+      0 0 0 6px rgba(var(--cf-cyan-rgb), 0.05);
+  }
   .blog-meta {
     color: rgba(var(--cf-dim-rgb), 0.85);
   }
@@ -344,6 +403,9 @@
   }
   .blog-content h2 {
     color: var(--cf-light-text);
+  }
+  .blog-card-cta {
+    color: var(--cf-black);
   }
   .blog-pagination-button {
     border-color: rgba(var(--cf-cyan-rgb), 0.22);

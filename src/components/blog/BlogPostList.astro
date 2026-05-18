@@ -8,21 +8,36 @@ const { posts } = Astro.props;
   {
     posts.map((post) => (
       <article class="blog-card">
-        <p class="blog-meta mb-2">
-          {post.displayDate || formatBlogDate(post.publishDate)}
-          {post.category && (
-            <>
-              {" "}
-              <span aria-hidden="true">|</span>{" "}
-              <a href={`/blog/category/${post.categorySlug}/`}>{post.category}</a>
-            </>
-          )}
-        </p>
-        <h2>{post.articleTitle}</h2>
-        <p class="hero-muted-override mb-3">{post.excerpt}</p>
-        <a href={`/blog/${post.slug}.html`} class="btn btn-glow primary-cta">
-          Read article
+        <a
+          href={`/blog/${post.slug}.html`}
+          class="blog-card-link"
+          aria-labelledby={`blog-post-title-${post.slug}`}
+          aria-describedby={`blog-post-excerpt-${post.slug}`}
+        >
+          <span class="visually-hidden">Read article: {post.articleTitle}</span>
         </a>
+        <div class="blog-card-content">
+          <p class="blog-meta mb-2">
+            {post.displayDate || formatBlogDate(post.publishDate)}
+            {post.category && (
+              <>
+                {" "}
+                <span aria-hidden="true">|</span>{" "}
+                <a href={`/blog/category/${post.categorySlug}/`}>{post.category}</a>
+              </>
+            )}
+          </p>
+          <h2 id={`blog-post-title-${post.slug}`}>{post.articleTitle}</h2>
+          <p id={`blog-post-excerpt-${post.slug}`} class="hero-muted-override mb-3">
+            {post.excerpt}
+          </p>
+        </div>
+        <div class="blog-card-footer">
+          <a href={`/blog/${post.slug}.html`} class="blog-card-cta btn btn-glow primary-cta">
+            <span>Read article</span>
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+          </a>
+        </div>
       </article>
     ))
   }
