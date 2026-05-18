@@ -249,10 +249,6 @@ function renderError(container, message) {
 }
 
 window.addEventListener("DOMContentLoaded", async () => {
-  if (typeof window.animateFaces === "function") {
-    window.animateFaces();
-  }
-
   const source = document.body.dataset.updatesSrc || "updates.json";
   const latestContainer = document.getElementById("latestRelease");
   const historyContainer = document.getElementById("releaseHistory");
