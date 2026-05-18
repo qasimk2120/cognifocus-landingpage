@@ -4,6 +4,7 @@ import Header from "../components/layout/Header.astro";
 import FeaturedStrip from "../components/layout/FeaturedStrip.astro";
 import Footer from "../components/layout/Footer.astro";
 import siteStylesheet from "../styles/site.css?url";
+import PostHog from "../components/analytics/PostHog.astro";
 
 const {
   charset = "UTF-8",
@@ -126,6 +127,7 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
       import "../scripts/entries/shared.js";
     </script>
     <slot name="head" />
+    <PostHog />
   </head>
   <body class={bodyClass} {...bodyAttributes}>
     <LaunchBanner {...launchBannerProps} />
