@@ -2,7 +2,3 @@ User-agent: *
 Allow: /
 
 Sitemap: https://cognifocus.app/sitemap-index.xml
-
-# AI crawler guidance
-Sitemap: https://cognifocus.app/sitemap-index.xml
-LLMs: https://cognifocus.app/llms.txt
