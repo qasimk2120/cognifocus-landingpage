@@ -957,7 +957,7 @@ small {
 }
 @media (max-width: 767.98px) {
 }
-@media (min-width: 768px) and (max-width:1199.98px) {
+@media (min-width: 768px) and (max-width: 1199.98px) {
   .container {
     width: min(calc(100vw - 40px), 960px);
   }
@@ -972,7 +972,7 @@ small {
     padding: 1.6rem;
   }
 }
-@media (min-width: 768px) and (max-width:1199.98px) and (max-height:720px) {
+@media (min-width: 768px) and (max-width: 1199.98px) and (max-height: 720px) {
   body {
     padding-top: 76px;
   }
@@ -1100,9 +1100,9 @@ label {
 }
 @media (min-width: 1200px) {
 }
-@media (min-width: 768px) and (max-width:1199.98px) {
+@media (min-width: 768px) and (max-width: 1199.98px) {
 }
-@media (min-width: 768px) and (max-width:1199.98px) and (max-height:720px) {
+@media (min-width: 768px) and (max-width: 1199.98px) and (max-height: 720px) {
 }
 @media (max-width: 767.98px) {
   .back-to-top-arrow {
@@ -1112,7 +1112,7 @@ label {
 
 @media (prefers-color-scheme: light) {
 }
-@media (min-width: 768px) and (max-width:1199.98px) {
+@media (min-width: 768px) and (max-width: 1199.98px) {
 }
 @media (max-width: 767.98px) {
 }
@@ -1182,7 +1182,9 @@ body {
 }
 @media (max-width: 767.98px) {
   body.cf-home #main-content {
-    padding-top: calc(var(--cf-launch-banner-height) + 60px + 0.25rem) !important;
+    padding-top: calc(
+      var(--cf-launch-banner-height) + 60px + 0.25rem
+    ) !important;
   }
   .seo-eyebrow {
     display: block !important;
@@ -1192,7 +1194,9 @@ body {
 }
 @media (max-width: 599.98px) {
   body.cf-home #main-content {
-    padding-top: calc(var(--cf-launch-banner-height) + 60px + 0.25rem) !important;
+    padding-top: calc(
+      var(--cf-launch-banner-height) + 60px + 0.25rem
+    ) !important;
   }
 }
 @media (prefers-color-scheme: light) {

@@ -10,7 +10,9 @@ export function initNav() {
     ? mobileMenu.querySelectorAll("[data-mobile-menu-close]")
     : [];
   const firstFocusTarget = mobileMenu
-    ? mobileMenu.querySelector("[data-mobile-menu-close], .cf-mobile-menu__link")
+    ? mobileMenu.querySelector(
+        "[data-mobile-menu-close], .cf-mobile-menu__link",
+      )
     : null;
 
   if (!nav) return;

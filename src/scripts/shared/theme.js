@@ -3,24 +3,32 @@ const THEME_STORAGE_KEY = "cognifocus-theme";
 function getStoredTheme() {
   try {
     const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
-    return storedTheme === "light" || storedTheme === "dark" ? storedTheme : null;
+    return storedTheme === "light" || storedTheme === "dark"
+      ? storedTheme
+      : null;
   } catch {
     return null;
   }
 }
 
 function getSystemTheme() {
-  return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+  return window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
     : "light";
 }
 
 function getResolvedTheme() {
-  return getStoredTheme() ?? document.documentElement.dataset.theme ?? getSystemTheme();
+  return (
+    getStoredTheme() ??
+    document.documentElement.dataset.theme ??
+    getSystemTheme()
+  );
 }
 
 function setTheme(theme) {
-  const resolvedTheme = theme === "light" || theme === "dark" ? theme : getSystemTheme();
+  const resolvedTheme =
+    theme === "light" || theme === "dark" ? theme : getSystemTheme();
   const root = document.documentElement;
   root.dataset.theme = resolvedTheme;
   root.style.colorScheme = resolvedTheme;
@@ -36,7 +44,7 @@ function updateToggle(toggleButton, theme) {
   toggleButton.setAttribute("aria-pressed", String(isDark));
 
   if (icon) {
-    icon.className = `bi ${isDark ? "bi-moon-stars-fill" : "bi-sun-fill"}`;
+    icon.className = `bi ${isDark ? "bi-sun-fill" : "bi-moon-stars-fill"}`;
   }
 
   if (label) {
