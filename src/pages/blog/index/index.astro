@@ -4,6 +4,7 @@ import {
   BLOG_PAGE_SIZE,
   getBlogPagePath,
   getPageSlice,
+  getTotalPages,
   getSortedPosts,
 } from "../../../utils/blog";
 
@@ -14,8 +15,14 @@ const ogTitle = "CogniFocus Blog | Focus Guides and Productivity Articles";
 const ogDescription = "CogniFocus pairs a focus timer and app blocker with a Goblin that reacts the moment you drift into TikTok, Instagram, or YouTube.";
 const sortedPosts = getSortedPosts();
 const pagePosts = getPageSlice(sortedPosts, 1, BLOG_PAGE_SIZE);
-const nextHref =
-  sortedPosts.length > BLOG_PAGE_SIZE ? getBlogPagePath(2) : undefined;
+const page = {
+  currentPage: 1,
+  lastPage: getTotalPages(sortedPosts, BLOG_PAGE_SIZE),
+  url: {
+    prev: undefined,
+    next: sortedPosts.length > BLOG_PAGE_SIZE ? getBlogPagePath(2) : undefined,
+  },
+};
 ---
 
 <BlogListLayout
@@ -25,5 +32,6 @@ const nextHref =
   canonical={canonical}
   ogTitle={ogTitle}
   ogDescription={ogDescription}
-  nextHref={nextHref}
+  page={page}
+  basePath="/blog"
 />

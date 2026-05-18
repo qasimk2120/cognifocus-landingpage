@@ -1,20 +1,80 @@
 ---
-const { previousHref, nextHref } = Astro.props;
+const { page, basePath } = Astro.props;
+
+const normalizePageHref = (href) => href?.replace(/\/page\/1(?:\.html)?\/?$/, "/");
+
+const getPageHref = (pageNumber) =>
+  pageNumber <= 1
+    ? `${basePath}/`.replace(/\/+/g, "/")
+    : `${basePath}/page/${pageNumber}.html`.replace(/\/+/g, "/");
+
+const getPageNumbers = () => {
+  const currentPage = page?.currentPage ?? 1;
+  const lastPage = page?.lastPage ?? 1;
+
+  if (lastPage <= 6) {
+    return Array.from({ length: lastPage }, (_, index) => index + 1);
+  }
+
+  const numbers = new Set([1, lastPage, currentPage - 1, currentPage, currentPage + 1]);
+
+  return [...numbers]
+    .filter((value) => value >= 1 && value <= lastPage)
+    .sort((a, b) => a - b)
+    .reduce((accumulator, value, index, array) => {
+      if (index > 0 && value - array[index - 1] > 1) {
+        accumulator.push("ellipsis");
+      }
+
+      accumulator.push(value);
+      return accumulator;
+    }, []);
+};
+
+const previousHref = normalizePageHref(page?.url?.prev);
+const nextHref = normalizePageHref(page?.url?.next);
+const currentPage = page?.currentPage ?? 1;
+const lastPage = page?.lastPage ?? 1;
+const pageNumbers = getPageNumbers();
 ---
 
 {
-  (previousHref || nextHref) && (
+  page && (
     <nav class="blog-pagination" aria-label="Blog pagination">
       {previousHref ? (
-        <a href={previousHref} class="btn btn-outline-light hero-secondary-cta">
-          Previous
+        <a href={previousHref} class="blog-pagination-button" aria-label="Previous page">
+          <i class="bi bi-chevron-left" aria-hidden="true"></i>
+          <span>Prev</span>
         </a>
       ) : (
         <span class="blog-pagination-spacer" aria-hidden="true"></span>
       )}
+      <div class="blog-pagination-pages" aria-label="Page links">
+        {
+          pageNumbers.map((value, index) =>
+            value === "ellipsis" ? (
+              <span class="blog-pagination-ellipsis" aria-hidden="true">
+                …
+              </span>
+            ) : (
+              <a
+                href={getPageHref(value)}
+                class:list={[
+                  "blog-pagination-page-link",
+                  { "is-active": value === currentPage },
+                ]}
+                aria-current={value === currentPage ? "page" : undefined}
+              >
+                {value}
+              </a>
+            ),
+          )
+        }
+      </div>
       {nextHref ? (
-        <a href={nextHref} class="btn btn-glow primary-cta">
-          Next
+        <a href={nextHref} class="blog-pagination-button" aria-label="Next page">
+          <span>Next</span>
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
         </a>
       ) : (
         <span class="blog-pagination-spacer" aria-hidden="true"></span>

@@ -18,8 +18,9 @@ const {
   activeCategorySlug = "",
   assetBase = "/assets",
   breadcrumbLabel = "Blog",
-  previousHref,
-  nextHref,
+  pageContext,
+  page,
+  basePath,
 } = Astro.props;
 ---
 
@@ -68,6 +69,7 @@ const {
       <nav class="blog-breadcrumb" aria-label="Breadcrumb">
         <a href="/">Home</a> &gt; <span>{breadcrumbLabel}</span>
       </nav>
+      {pageContext && <p class="blog-page-context">{pageContext}</p>}
       <span class="feature-kicker">{eyebrow}</span>
       <h1 class="hero-heading mt-3">
         {heading} <span class="hero-heading-accent">{headingAccent}</span>
@@ -78,7 +80,7 @@ const {
 
       <BlogCategoryNav activeCategorySlug={activeCategorySlug} />
       <BlogPostList posts={posts} />
-      <BlogPagination previousHref={previousHref} nextHref={nextHref} />
+      <BlogPagination page={page} basePath={basePath} />
     </section>
   </main>
 </BaseLayout>

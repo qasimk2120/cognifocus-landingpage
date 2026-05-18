@@ -19,14 +19,9 @@ export function getStaticPaths({ paginate }) {
 
 const { category, page } = Astro.props;
 const pageNumber = page.currentPage;
-const title = `${category.label} | CogniFocus Blog Page ${pageNumber}`;
+const title = `${category.label} | CogniFocus Blog`;
 const description = `More CogniFocus ${category.label.toLowerCase()} articles about focus sessions, app blocking, distraction recovery, and Android focus habits.`;
 const canonical = `https://cognifocus.app${getCategoryPagePath(category.slug, pageNumber)}`;
-const previousHref = getCategoryPagePath(category.slug, pageNumber - 1);
-const nextHref =
-  pageNumber < page.lastPage
-    ? getCategoryPagePath(category.slug, pageNumber + 1)
-    : undefined;
 ---
 
 <BlogListLayout
@@ -38,10 +33,11 @@ const nextHref =
   ogDescription={description}
   eyebrow="CogniFocus Blog"
   heading={category.label}
-  headingAccent={`Page ${pageNumber}`}
+  headingAccent=""
   intro="More posts from this CogniFocus category, collected for readers who want practical focus and app-blocking guidance."
   activeCategorySlug={category.slug}
-  breadcrumbLabel={`${category.label} Page ${pageNumber}`}
-  previousHref={previousHref}
-  nextHref={nextHref}
+  breadcrumbLabel={category.label}
+  pageContext={`Page ${page.currentPage} of ${page.lastPage}`}
+  page={page}
+  basePath={`/blog/category/${category.slug}`}
 />
