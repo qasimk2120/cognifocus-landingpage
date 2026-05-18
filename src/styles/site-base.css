@@ -95,6 +95,31 @@
 html {
   scroll-behavior: smooth;
 }
+body.cf-menu-open {
+  overflow: hidden;
+}
+button,
+a,
+summary,
+[role="button"],
+[role="link"],
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+[role="button"]:focus-visible,
+[role="link"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--cf-cyan);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(var(--cf-cyan-rgb), 0.14);
+}
 body {
   background: var(--cf-bg-base);
   color: var(--cf-text-primary);
@@ -632,7 +657,6 @@ h5,
 h6 {
   font-family: var(--font-display);
   font-weight: var(--cf-weight-medium);
-  text-wrap: balance;
 }
 p,
 a,

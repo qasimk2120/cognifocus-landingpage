@@ -50,6 +50,29 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
     <slot name="head-after-robots" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href={`${assetBase}/logo/app-logo.png`} />
+    <meta name="color-scheme" content="dark light" />
+    <script is:inline>
+      const THEME_STORAGE_KEY = "cognifocus-theme";
+      const root = document.documentElement;
+
+      const readStoredTheme = () => {
+        try {
+          const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+          return storedTheme === "light" || storedTheme === "dark" ? storedTheme : null;
+        } catch {
+          return null;
+        }
+      };
+
+      const getSystemTheme = () =>
+        window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+
+      const theme = readStoredTheme() ?? getSystemTheme();
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
+    </script>
     <slot name="head-after-icon" />
     {
       includeDefaultBootstrapIcons && bootstrapIconsFirst && (

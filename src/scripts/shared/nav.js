@@ -6,6 +6,12 @@ export function initNav() {
   const mobileNav = mobileMenu
     ? mobileMenu.querySelector(".cf-mobile-menu__links")
     : null;
+  const closeButtons = mobileMenu
+    ? mobileMenu.querySelectorAll("[data-mobile-menu-close]")
+    : [];
+  const firstFocusTarget = mobileMenu
+    ? mobileMenu.querySelector("[data-mobile-menu-close], .cf-mobile-menu__link")
+    : null;
 
   if (!nav) return;
 
@@ -17,11 +23,13 @@ export function initNav() {
   updateScrollClass();
 
   if (hamburger && mobileMenu) {
-    const setMenuState = (isOpen) => {
+    const updateMenuState = (isOpen) => {
       hamburger.classList.toggle("open", isOpen);
       hamburger.setAttribute("aria-expanded", String(isOpen));
+      hamburger.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
       mobileMenu.classList.toggle("open", isOpen);
       mobileMenu.setAttribute("aria-hidden", String(!isOpen));
+      document.body.classList.toggle("cf-menu-open", isOpen);
       if (desktopNav) {
         desktopNav.setAttribute("aria-hidden", String(isOpen));
       }
@@ -30,8 +38,36 @@ export function initNav() {
       }
     };
 
+    const setMenuState = (isOpen) => {
+      updateMenuState(isOpen);
+      if (isOpen && firstFocusTarget instanceof HTMLElement) {
+        window.setTimeout(() => firstFocusTarget.focus(), 0);
+      }
+      if (!isOpen) {
+        hamburger.focus();
+      }
+    };
+
     hamburger.addEventListener("click", () => {
       setMenuState(!hamburger.classList.contains("open"));
+    });
+
+    closeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setMenuState(false);
+      });
+    });
+
+    mobileMenu.addEventListener("click", (event) => {
+      if (event.target === mobileMenu) {
+        setMenuState(false);
+      }
+    });
+
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && hamburger.classList.contains("open")) {
+        setMenuState(false);
+      }
     });
 
     mobileMenu.querySelectorAll("a").forEach((link) => {

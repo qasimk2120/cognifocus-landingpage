@@ -5,10 +5,12 @@ import {
   initLaunchCountdown,
 } from "./launch-banner.js";
 import { initNav } from "./nav.js";
+import { initThemeToggles } from "./theme.js";
 
 export function initSharedSiteChrome() {
   initLaunchCountdown();
   initLaunchBannerVisibility();
+  initThemeToggles();
   initNav();
   upgradeDownloadCtas();
   initBackToTopArrow();

@@ -1,17 +1,40 @@
 <div class="cf-mobile-menu" id="cf-mobile-menu" aria-hidden="true">
-  <nav class="cf-mobile-menu__links" aria-hidden="true">
-    <a href="/" class="cf-mobile-menu__link">Home</a>
-    <a href="/pricing.html" class="cf-mobile-menu__link">Pricing</a>
-    <a href="/blog/" class="cf-mobile-menu__link">Blog</a>
-    <a href="/faq.html" class="cf-mobile-menu__link">FAQ</a>
-    <a href="/whats-new.html" class="cf-mobile-menu__link">What's new</a>
-    <a href="/ios-waitlist.html" class="cf-mobile-menu__link">
-      <i class="bi bi-apple" aria-hidden="true"></i>
-      <span>iOS Waitlist</span>
-      <span class="cf-nav__soon-badge">SOON</span>
-    </a>
-  </nav>
-  <div class="cf-mobile-menu__footer">
-    <a href="/download.html" class="btn btn-primary btn-full">Start Free on Android</a>
+  <button class="cf-mobile-menu__scrim" type="button" data-mobile-menu-close aria-label="Close menu"></button>
+  <div class="cf-mobile-menu__panel" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="cf-mobile-menu__header">
+      <p class="cf-mobile-menu__eyebrow">Menu</p>
+      <button
+        class="cf-mobile-menu__close"
+        type="button"
+        data-mobile-menu-close
+        aria-label="Close menu"
+      >
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
+    </div>
+    <nav class="cf-mobile-menu__links" aria-label="Mobile navigation links" aria-hidden="true">
+      <a href="/" class="cf-mobile-menu__link">Home</a>
+      <a href="/pricing.html" class="cf-mobile-menu__link">Pricing</a>
+      <a href="/blog/" class="cf-mobile-menu__link">Blog</a>
+      <a href="/faq.html" class="cf-mobile-menu__link">FAQ</a>
+      <a href="/whats-new.html" class="cf-mobile-menu__link">What's new</a>
+      <a href="/ios-waitlist.html" class="cf-mobile-menu__link">
+        <i class="bi bi-apple" aria-hidden="true"></i>
+        <span>iOS Waitlist</span>
+        <span class="cf-nav__soon-badge">SOON</span>
+      </a>
+    </nav>
+    <div class="cf-mobile-menu__footer">
+      <button
+        class="cf-theme-toggle cf-theme-toggle--drawer"
+        type="button"
+        data-theme-toggle
+        aria-label="Switch to light theme"
+      >
+        <i class="bi bi-sun-fill" aria-hidden="true" data-theme-toggle-icon></i>
+        <span class="cf-theme-toggle__label" data-theme-toggle-label>Switch to light theme</span>
+      </button>
+      <a href="/download.html" class="btn btn-primary btn-full">Start Free on Android</a>
+    </div>
   </div>
 </div>
