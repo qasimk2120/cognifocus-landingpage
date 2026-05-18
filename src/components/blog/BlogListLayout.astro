@@ -1,0 +1,84 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogCategoryNav from "./BlogCategoryNav.astro";
+import BlogPagination from "./BlogPagination.astro";
+import BlogPostList from "./BlogPostList.astro";
+
+const {
+  posts,
+  title = "CogniFocus Blog | Focus Guides and Productivity Articles",
+  description = "CogniFocus is a focus timer and app blocker where a Goblin reacts the moment you drift into TikTok, Instagram, or YouTube. Actionable guides to protect deep work.",
+  canonical = "https://cognifocus.app/blog/",
+  ogTitle = title,
+  ogDescription = "CogniFocus pairs a focus timer and app blocker with a Goblin that reacts the moment you drift into TikTok, Instagram, or YouTube.",
+  eyebrow = "CogniFocus Blog",
+  heading = "Focus Guides for",
+  headingAccent = "Real-World Distractions",
+  intro = "CogniFocus is a focus timer and app blocker where a Goblin reacts the moment you drift into TikTok, Instagram, or YouTube.",
+  activeCategorySlug = "",
+  assetBase = "/assets",
+  breadcrumbLabel = "Blog",
+  previousHref,
+  nextHref,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogImageAlt="CogniFocus"
+  includeOgImageAlt={false}
+  includeTwitterImageAlt={false}
+  bodyClass="seo-guide-page blog-page cf-shell"
+  assetBase={assetBase}
+  bootstrapIconsFirst={true}
+  footerProps={{ includePinterest: true }}
+  featuredStripProps={{ yoDirectoryInlineStyle: true }}
+  rssHref="/feed.xml"
+>
+  <link slot="head-after-social" rel="preconnect" href="https://fonts.googleapis.com" />
+  <link slot="head-after-social" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    slot="head-after-social"
+    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
+    rel="stylesheet"
+  />
+  <script slot="head" type="text/javascript" is:inline>
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "wq6znd4re5");
+  </script>
+
+  <main class="container py-5 seo-guide-main">
+    <section
+      class="focus-loop-panel mx-auto p-4 p-md-5 seo-guide-panel blog-panel"
+    >
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> &gt; <span>{breadcrumbLabel}</span>
+      </nav>
+      <span class="feature-kicker">{eyebrow}</span>
+      <h1 class="hero-heading mt-3">
+        {heading} <span class="hero-heading-accent">{headingAccent}</span>
+      </h1>
+      <p class="hero-muted-override mt-3 seo-guide-intro">
+        {intro}
+      </p>
+
+      <BlogCategoryNav activeCategorySlug={activeCategorySlug} />
+      <BlogPostList posts={posts} />
+      <BlogPagination previousHref={previousHref} nextHref={nextHref} />
+    </section>
+  </main>
+</BaseLayout>

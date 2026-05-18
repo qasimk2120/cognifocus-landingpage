@@ -1,95 +1,29 @@
 ---
-import BaseLayout from "../../../layouts/BaseLayout.astro";
-import posts from "../../../data/blog/posts.json";
+import BlogListLayout from "../../../components/blog/BlogListLayout.astro";
+import {
+  BLOG_PAGE_SIZE,
+  getBlogPagePath,
+  getPageSlice,
+  getSortedPosts,
+} from "../../../utils/blog";
 
 const title = "CogniFocus Blog | Focus Guides and Productivity Articles";
 const description = "CogniFocus is a focus timer and app blocker where a Goblin reacts the moment you drift into TikTok, Instagram, or YouTube. Actionable guides to protect deep work.";
 const canonical = "https://cognifocus.app/blog/";
 const ogTitle = "CogniFocus Blog | Focus Guides and Productivity Articles";
 const ogDescription = "CogniFocus pairs a focus timer and app blocker with a Goblin that reacts the moment you drift into TikTok, Instagram, or YouTube.";
-
-const formatDate = (value) =>
-  new Intl.DateTimeFormat("en", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-    timeZone: "UTC",
-  }).format(new Date(`${value}T00:00:00Z`));
-
-const sortedPosts = [...posts].sort((a, b) =>
-  (b.publishDate || "").localeCompare(a.publishDate || ""),
-);
+const sortedPosts = getSortedPosts();
+const pagePosts = getPageSlice(sortedPosts, 1, BLOG_PAGE_SIZE);
+const nextHref =
+  sortedPosts.length > BLOG_PAGE_SIZE ? getBlogPagePath(2) : undefined;
 ---
 
-<BaseLayout
+<BlogListLayout
+  posts={pagePosts}
   title={title}
   description={description}
   canonical={canonical}
   ogTitle={ogTitle}
   ogDescription={ogDescription}
-  ogImageAlt="CogniFocus"
-  includeOgImageAlt={false}
-  includeTwitterImageAlt={false}
-  bodyClass="seo-guide-page blog-page cf-shell"
-  assetBase="../assets"
-  bootstrapIconsFirst={true}
-  footerProps={{ includePinterest: true }}
-  featuredStripProps={{ yoDirectoryInlineStyle: true }}
-  rssHref="/feed.xml"
->
-  <link slot="head-after-social" rel="preconnect" href="https://fonts.googleapis.com" />
-  <link slot="head-after-social" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    slot="head-after-social"
-    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
-    rel="stylesheet"
-  />
-  <script slot="head" type="text/javascript" is:inline>
-    (function (c, l, a, r, i, t, y) {
-      c[a] =
-        c[a] ||
-        function () {
-          (c[a].q = c[a].q || []).push(arguments);
-        };
-      t = l.createElement(r);
-      t.async = 1;
-      t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0];
-      y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "wq6znd4re5");
-  </script>
-
-  <main class="container py-5 seo-guide-main">
-    <section
-      class="focus-loop-panel mx-auto p-4 p-md-5 seo-guide-panel blog-panel"
-    >
-      <nav class="blog-breadcrumb" aria-label="Breadcrumb">
-        <a href="/">Home</a> &gt; <span>Blog</span>
-      </nav>
-      <span class="feature-kicker">CogniFocus Blog</span>
-      <h1 class="hero-heading mt-3">
-        Focus Guides for <span class="hero-heading-accent">Real-World Distractions</span>
-      </h1>
-      <p class="hero-muted-override mt-3 seo-guide-intro">
-        CogniFocus is a focus timer and app blocker where a Goblin reacts the
-        moment you drift into TikTok, Instagram, or YouTube.
-      </p>
-
-      <div class="blog-list mt-4">
-        {sortedPosts.map((post) => (
-          <article class="blog-card">
-            <p class="blog-meta mb-2">{post.displayDate || formatDate(post.publishDate)}</p>
-            <h2>{post.articleTitle}</h2>
-            <p class="hero-muted-override mb-3">{post.excerpt}</p>
-            <a
-              href={`/blog/${post.slug}.html`}
-              class="btn btn-glow primary-cta"
-            >
-              Read article
-            </a>
-          </article>
-        ))}
-      </div>
-    </section>
-  </main>
-</BaseLayout>
+  nextHref={nextHref}
+/>

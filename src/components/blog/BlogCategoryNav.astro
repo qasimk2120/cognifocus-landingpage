@@ -1,0 +1,30 @@
+---
+import { getActiveCategories } from "../../utils/blog";
+
+const { activeCategorySlug = "" } = Astro.props;
+const categories = getActiveCategories();
+---
+
+<nav class="blog-category-nav" aria-label="Blog categories">
+  <a
+    href="/blog/"
+    class:list={["blog-category-link", { "is-active": !activeCategorySlug }]}
+    aria-current={!activeCategorySlug ? "page" : undefined}
+  >
+    All
+  </a>
+  {
+    categories.map((category) => (
+      <a
+        href={`/blog/category/${category.slug}/`}
+        class:list={[
+          "blog-category-link",
+          { "is-active": activeCategorySlug === category.slug },
+        ]}
+        aria-current={activeCategorySlug === category.slug ? "page" : undefined}
+      >
+        {category.label}
+      </a>
+    ))
+  }
+</nav>

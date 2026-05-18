@@ -9,8 +9,8 @@ export default defineConfig({
       serialize(item) {
         const url = new URL(item.url);
 
-        if (url.pathname === "/blog/index") {
-          url.pathname = "/blog/";
+        if (url.pathname.endsWith("/index")) {
+          url.pathname = `${url.pathname.slice(0, -"/index".length)}/`;
         } else if (url.pathname !== "/" && !url.pathname.endsWith(".html")) {
           url.pathname = `${url.pathname}.html`;
         }

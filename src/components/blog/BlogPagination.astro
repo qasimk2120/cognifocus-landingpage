@@ -1,0 +1,24 @@
+---
+const { previousHref, nextHref } = Astro.props;
+---
+
+{
+  (previousHref || nextHref) && (
+    <nav class="blog-pagination" aria-label="Blog pagination">
+      {previousHref ? (
+        <a href={previousHref} class="btn btn-outline-light hero-secondary-cta">
+          Previous
+        </a>
+      ) : (
+        <span class="blog-pagination-spacer" aria-hidden="true"></span>
+      )}
+      {nextHref ? (
+        <a href={nextHref} class="btn btn-glow primary-cta">
+          Next
+        </a>
+      ) : (
+        <span class="blog-pagination-spacer" aria-hidden="true"></span>
+      )}
+    </nav>
+  )
+}

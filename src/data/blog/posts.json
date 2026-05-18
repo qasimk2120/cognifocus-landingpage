@@ -12,7 +12,8 @@
     "publishDate": "2026-05-04",
     "updatedDate": "2026-05-04",
     "displayDate": "May 4, 2026",
-    "category": "Study App Blocker Guide",
+    "category": "Study Focus",
+    "categorySlug": "study-focus",
     "tags": [
       "app",
       "blocker",
@@ -47,7 +48,8 @@
     "publishDate": "2026-05-10",
     "updatedDate": "2026-05-10",
     "displayDate": "",
-    "category": "Android Guide",
+    "category": "App Blocking",
+    "categorySlug": "app-blocking",
     "tags": [
       "best",
       "app",
@@ -78,7 +80,8 @@
     "publishDate": "2026-04-29",
     "updatedDate": "2026-04-29",
     "displayDate": "April 29, 2026",
-    "category": "Productivity Guide",
+    "category": "ADHD-Friendly Focus",
+    "categorySlug": "adhd-friendly-focus",
     "tags": [
       "best",
       "focus",
@@ -113,7 +116,8 @@
     "publishDate": "2026-05-03",
     "updatedDate": "2026-05-03",
     "displayDate": "May 3, 2026",
-    "category": "Comparison Guide",
+    "category": "Product Comparisons",
+    "categorySlug": "product-comparisons",
     "tags": [
       "cognifocus",
       "appblock",
@@ -143,7 +147,8 @@
     "publishDate": "2026-04-30",
     "updatedDate": "2026-04-30",
     "displayDate": "April 30, 2026",
-    "category": "Comparison Guide",
+    "category": "Product Comparisons",
+    "categorySlug": "product-comparisons",
     "tags": [
       "cognifocus",
       "forest",
@@ -172,7 +177,8 @@
     "publishDate": "2026-05-01",
     "updatedDate": "2026-05-01",
     "displayDate": "May 1, 2026",
-    "category": "Comparison Guide",
+    "category": "Product Comparisons",
+    "categorySlug": "product-comparisons",
     "tags": [
       "cognifocus",
       "freedom",
@@ -202,7 +208,8 @@
     "publishDate": "2026-05-14",
     "updatedDate": "2026-05-14",
     "displayDate": "May 14, 2026",
-    "category": "Comparison Guide",
+    "category": "Product Comparisons",
+    "categorySlug": "product-comparisons",
     "tags": [
       "cognifocus",
       "stay",
@@ -233,7 +240,8 @@
     "publishDate": "2026-05-10",
     "updatedDate": "2026-05-10",
     "displayDate": "",
-    "category": "Focus Guide",
+    "category": "Focus Guides",
+    "categorySlug": "focus-guides",
     "tags": [
       "focus",
       "without",
@@ -262,7 +270,8 @@
     "publishDate": "2026-05-01",
     "updatedDate": "2026-05-01",
     "displayDate": "May 1, 2026",
-    "category": "Deep Work Guide",
+    "category": "Focus Guides",
+    "categorySlug": "focus-guides",
     "tags": [
       "how",
       "stop",
@@ -294,7 +303,8 @@
     "publishDate": "2026-05-10",
     "updatedDate": "2026-05-10",
     "displayDate": "",
-    "category": "Focus Guide",
+    "category": "Focus Guides",
+    "categorySlug": "focus-guides",
     "tags": [
       "stop",
       "app",
@@ -325,7 +335,8 @@
     "publishDate": "2026-05-02",
     "updatedDate": "2026-05-02",
     "displayDate": "May 2, 2026",
-    "category": "TikTok Blocker Guide",
+    "category": "App Blocking",
+    "categorySlug": "app-blocking",
     "tags": [
       "tiktok",
       "blocker",

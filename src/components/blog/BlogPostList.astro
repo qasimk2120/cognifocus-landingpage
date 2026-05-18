@@ -1,0 +1,29 @@
+---
+import { formatBlogDate } from "../../utils/blog";
+
+const { posts } = Astro.props;
+---
+
+<div class="blog-list mt-4">
+  {
+    posts.map((post) => (
+      <article class="blog-card">
+        <p class="blog-meta mb-2">
+          {post.displayDate || formatBlogDate(post.publishDate)}
+          {post.category && (
+            <>
+              {" "}
+              <span aria-hidden="true">|</span>{" "}
+              <a href={`/blog/category/${post.categorySlug}/`}>{post.category}</a>
+            </>
+          )}
+        </p>
+        <h2>{post.articleTitle}</h2>
+        <p class="hero-muted-override mb-3">{post.excerpt}</p>
+        <a href={`/blog/${post.slug}.html`} class="btn btn-glow primary-cta">
+          Read article
+        </a>
+      </article>
+    ))
+  }
+</div>

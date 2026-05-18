@@ -1,0 +1,42 @@
+---
+import BlogListLayout from "../../../../../components/blog/BlogListLayout.astro";
+import {
+  BLOG_PAGE_SIZE,
+  getActiveCategories,
+  getCategoryPagePath,
+  getPageSlice,
+  getPostsByCategory,
+} from "../../../../../utils/blog";
+
+export function getStaticPaths() {
+  return getActiveCategories().map((category) => ({
+    params: { category: category.slug },
+    props: { category },
+  }));
+}
+
+const { category } = Astro.props;
+const posts = getPostsByCategory(category.slug);
+const pagePosts = getPageSlice(posts, 1, BLOG_PAGE_SIZE);
+const title = `${category.label} | CogniFocus Blog`;
+const description = `CogniFocus ${category.label.toLowerCase()} articles about focus sessions, app blocking, distraction recovery, and better Android focus habits.`;
+const canonical = `https://cognifocus.app${getCategoryPagePath(category.slug)}`;
+const nextHref =
+  posts.length > BLOG_PAGE_SIZE ? getCategoryPagePath(category.slug, 2) : undefined;
+---
+
+<BlogListLayout
+  posts={pagePosts}
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={description}
+  eyebrow="CogniFocus Blog"
+  heading={category.label}
+  headingAccent="Articles"
+  intro="Browse CogniFocus guides in this category, with practical ideas for protecting focus, reducing app switching, and returning to your work faster."
+  activeCategorySlug={category.slug}
+  breadcrumbLabel={category.label}
+  nextHref={nextHref}
+/>

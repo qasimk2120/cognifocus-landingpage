@@ -1,0 +1,47 @@
+---
+import BlogListLayout from "../../../../../components/blog/BlogListLayout.astro";
+import {
+  BLOG_PAGE_SIZE,
+  getActiveCategories,
+  getCategoryPagePath,
+  getPostsByCategory,
+} from "../../../../../utils/blog";
+
+export function getStaticPaths({ paginate }) {
+  return getActiveCategories().flatMap((category) =>
+    paginate(getPostsByCategory(category.slug), {
+      pageSize: BLOG_PAGE_SIZE,
+      params: { category: category.slug },
+      props: { category },
+    }).filter(({ params }) => Number(params.page) > 1),
+  );
+}
+
+const { category, page } = Astro.props;
+const pageNumber = page.currentPage;
+const title = `${category.label} | CogniFocus Blog Page ${pageNumber}`;
+const description = `More CogniFocus ${category.label.toLowerCase()} articles about focus sessions, app blocking, distraction recovery, and Android focus habits.`;
+const canonical = `https://cognifocus.app${getCategoryPagePath(category.slug, pageNumber)}`;
+const previousHref = getCategoryPagePath(category.slug, pageNumber - 1);
+const nextHref =
+  pageNumber < page.lastPage
+    ? getCategoryPagePath(category.slug, pageNumber + 1)
+    : undefined;
+---
+
+<BlogListLayout
+  posts={page.data}
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={description}
+  eyebrow="CogniFocus Blog"
+  heading={category.label}
+  headingAccent={`Page ${pageNumber}`}
+  intro="More posts from this CogniFocus category, collected for readers who want practical focus and app-blocking guidance."
+  activeCategorySlug={category.slug}
+  breadcrumbLabel={`${category.label} Page ${pageNumber}`}
+  previousHref={previousHref}
+  nextHref={nextHref}
+/>
