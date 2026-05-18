@@ -104,6 +104,17 @@ body.ios-waitlist-page.cf-shell{
   height: 100%;
 }
 
+.ios-waitlist-turnstile {
+  display: flex;
+  justify-content: center;
+  min-height: 65px;
+  margin: -0.1rem 0 0;
+}
+
+.ios-waitlist-turnstile iframe {
+  max-width: 100%;
+}
+
 @media(max-width:991.98px){
   .ios-waitlist-form-section{
     min-height:auto;

@@ -428,6 +428,17 @@ body.download-page {
   box-shadow: 0 0 0 4px rgba(var(--cf-mint-rgb), 0.12);
 }
 
+.download-ios-turnstile {
+  display: flex;
+  justify-content: center;
+  min-height: 65px;
+  margin: -0.1rem 0 0;
+}
+
+.download-ios-turnstile iframe {
+  max-width: 100%;
+}
+
 .download-ios-submit {
   width: 100%;
   justify-content: center;

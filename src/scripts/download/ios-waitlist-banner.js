@@ -3,6 +3,9 @@ import {
   IOS_WAITLIST_STORAGE_KEY,
 } from "./constants.js";
 
+const VERIFICATION_ERROR_MESSAGE =
+  "The Goblin thinks you might be a bot. Try again.";
+
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
@@ -70,6 +73,9 @@ export function initIosWaitlistBanner({
 
     const email = iosWaitlistEmail.value.trim();
     const website = iosWaitlistWebsite.value.trim();
+    const turnstileToken =
+      iosWaitlistForm.querySelector('[name="cf-turnstile-response"]')?.value ||
+      "";
 
     if (!isValidEmail(email)) {
       setIosWaitlistMessage(
@@ -95,6 +101,7 @@ export function initIosWaitlistBanner({
           email,
           name: iosWaitlistName ? iosWaitlistName.value.trim() : "",
           website,
+          turnstileToken,
           source: "download_page_ios_banner",
           page: "/download.html",
         }),
@@ -107,6 +114,12 @@ export function initIosWaitlistBanner({
         data = {};
       }
 
+      if (response.status === 403 || data.error === "Verification failed") {
+        setIosWaitlistMessage(VERIFICATION_ERROR_MESSAGE, "error");
+        window.turnstile?.reset();
+        return;
+      }
+
       if (!response.ok) {
         throw new Error("Waitlist request failed");
       }
@@ -116,6 +129,7 @@ export function initIosWaitlistBanner({
           ? "You are already on the iOS waitlist."
           : "You are on the iOS waitlist. We will email you when it is ready.",
       );
+      window.turnstile?.reset();
     } catch (_error) {
       setIosWaitlistMessage(
         "Could not join right now. Try again in a moment.",

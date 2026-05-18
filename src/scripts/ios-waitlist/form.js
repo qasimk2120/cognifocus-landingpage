@@ -4,6 +4,7 @@ import {
   ERROR_MESSAGE,
   STORAGE_KEY,
   SUCCESS_MESSAGE,
+  VERIFICATION_ERROR_MESSAGE,
 } from "./constants.js";
 
 function isValidEmail(value) {
@@ -31,6 +32,7 @@ export function initIosWaitlistForm() {
   }
 
   let isSubmitting = false;
+  const submitButtonContent = submitButton.innerHTML;
 
   function setMessage(text, type) {
     message.textContent = text;
@@ -41,9 +43,10 @@ export function initIosWaitlistForm() {
   function setLoading(isLoading) {
     submitButton.disabled = isLoading;
     submitButton.setAttribute("aria-busy", String(isLoading));
-    submitButton.textContent = isLoading
-      ? "Joining..."
-      : "Join the iOS waitlist";
+    submitButton.textContent = isLoading ? "Joining..." : "";
+    if (!isLoading) {
+      submitButton.innerHTML = submitButtonContent;
+    }
   }
 
   function showJoinedState(text) {
@@ -78,6 +81,8 @@ export function initIosWaitlistForm() {
     const email = emailInput.value.trim();
     const name = nameInput.value.trim();
     const website = websiteInput.value.trim();
+    const turnstileToken =
+      form.querySelector('[name="cf-turnstile-response"]')?.value || "";
 
     if (!isValidEmail(email)) {
       setMessage(
@@ -102,6 +107,7 @@ export function initIosWaitlistForm() {
           email,
           name,
           website,
+          turnstileToken,
           source: "ios_waitlist_page",
           page: "/ios-waitlist.html",
         }),
@@ -114,6 +120,12 @@ export function initIosWaitlistForm() {
         data = {};
       }
 
+      if (response.status === 403 || data.error === "Verification failed") {
+        setMessage(VERIFICATION_ERROR_MESSAGE, "error");
+        window.turnstile?.reset();
+        return;
+      }
+
       if (!response.ok) {
         throw new Error("Waitlist request failed");
       }
@@ -121,6 +133,7 @@ export function initIosWaitlistForm() {
       showJoinedState(
         data.alreadyJoined ? ALREADY_JOINED_MESSAGE : SUCCESS_MESSAGE,
       );
+      window.turnstile?.reset();
     } catch (_error) {
       setMessage(ERROR_MESSAGE, "error");
     } finally {
