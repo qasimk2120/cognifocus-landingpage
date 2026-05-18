@@ -62,7 +62,10 @@ function copyDir(relativePath) {
     force: true,
     filter: (source) => {
       const relativeSource = path.relative(root, source);
-      if (relativeSource.startsWith(`blog${path.sep}`) && relativeSource.endsWith(".html")) {
+      if (
+        relativeSource.startsWith(`blog${path.sep}`) &&
+        relativeSource.endsWith(".html")
+      ) {
         return false;
       }
       return !source.endsWith(`${path.sep}.DS_Store`);
