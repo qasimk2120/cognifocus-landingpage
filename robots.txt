@@ -1,8 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://cognifocus.app/sitemap.xml
-
-# AI crawler guidance
-Sitemap: https://cognifocus.app/sitemap.xml
-LLMs: https://cognifocus.app/llms.txt

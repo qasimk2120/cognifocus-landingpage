@@ -1,3 +1,10 @@
+---
+import { Picture } from "astro:assets";
+import angryGoblinAvatar from "../../assets/characters/goblin/avatar/angry.png";
+import annoyedGoblinAvatar from "../../assets/characters/goblin/avatar/annoyed.png";
+import cheerfulGoblinAvatar from "../../assets/characters/goblin/avatar/cheerful.png";
+---
+
 <section id="why" class="container py-5">
   <div class="why-panel mx-auto">
     <div class="text-center why-heading mx-auto">
@@ -46,11 +53,14 @@
               <span class="goblin-app-trail trail-one"></span>
               <span class="goblin-app-trail trail-two"></span>
             </div>
-            <img
-              src="assets/characters/goblin/avatar/angry.png"
+            <Picture
+              src={angryGoblinAvatar}
+              formats={["avif", "webp"]}
+              fallbackFormat="png"
               alt="CogniFocus Goblin angry reaction to a distraction attempt on Android"
               class="goblin-avatar"
               loading="lazy"
+              decoding="async"
               width="419"
               height="470"
             />
@@ -98,11 +108,14 @@
                 <span><i class="bi bi-check-lg"></i> completed</span>
               </span>
             </div>
-            <img
-              src="assets/characters/goblin/avatar/annoyed.png"
+            <Picture
+              src={annoyedGoblinAvatar}
+              formats={["avif", "webp"]}
+              fallbackFormat="png"
               alt="CogniFocus Goblin annoyed reaction when focus session is abandoned"
               class="goblin-avatar"
               loading="lazy"
+              decoding="async"
               width="500"
               height="500"
             />
@@ -139,11 +152,14 @@
               <span class="success-spark spark-two"></span>
               <span class="success-spark spark-three"></span>
             </div>
-            <img
-              src="assets/characters/goblin/avatar/cheerful.png"
+            <Picture
+              src={cheerfulGoblinAvatar}
+              formats={["avif", "webp"]}
+              fallbackFormat="png"
               alt="CogniFocus Goblin cheerful reaction after a clean focus session"
               class="goblin-avatar"
               loading="lazy"
+              decoding="async"
               width="422"
               height="466"
             />

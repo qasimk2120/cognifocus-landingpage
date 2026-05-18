@@ -1,3 +1,8 @@
+---
+import { Picture } from "astro:assets";
+import heroGoblinCheerful from "../../assets/characters/goblin/face/cheerful.png";
+---
+
 <section class="container py-4 py-md-5 hero-section">
   <div class="hero-layout">
     <div class="hero-left">
@@ -96,11 +101,15 @@
           </span>
 
           <div class="vacuum-goblin-success">
-            <img
-              src="assets/characters/goblin/face/cheerful.png"
+            <Picture
+              src={heroGoblinCheerful}
+              formats={["avif", "webp"]}
+              fallbackFormat="png"
               alt=""
               loading="eager"
               decoding="async"
+              fetchpriority="high"
+              fit="contain"
               width="240"
               height="240"
             />

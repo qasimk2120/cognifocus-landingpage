@@ -2,10 +2,11 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "postbuild": "node scripts/copy-static.cjs && node scripts/generate-sitemap.cjs && node scripts/generate-rss.cjs",
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
     "astro": "^5.18.1"
   }
 }

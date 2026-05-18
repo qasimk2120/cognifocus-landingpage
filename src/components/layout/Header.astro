@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import MobileMenu from "./MobileMenu.astro";
+import textLogoTight from "../../assets/logo/text-logo-tight.png";
 
 const { assetBase = "assets" } = Astro.props;
 ---
@@ -7,7 +9,15 @@ const { assetBase = "assets" } = Astro.props;
 <header class="cf-nav" id="cf-nav">
   <div class="container cf-nav__inner">
     <a href="/" class="cf-nav__logo" aria-label="CogniFocus home">
-      <img src={`${assetBase}/logo/text-logo-tight.png`} alt="" height="125" width="415" />
+      <Image
+        src={textLogoTight}
+        alt=""
+        height="125"
+        width="415"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
     </a>
 
     <nav class="cf-nav__links" aria-label="Main navigation" aria-hidden="false">

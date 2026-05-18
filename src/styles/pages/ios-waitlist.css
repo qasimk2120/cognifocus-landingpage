@@ -35,14 +35,20 @@ body.ios-waitlist-page{background:radial-gradient(circle at 20% 20%,rgba(var(--c
   .ios-waitlist-submit{max-width:none;border-radius:999px!important}
   .ios-waitlist-message{width:100%;max-width:560px;margin-left:auto;margin-right:auto}
 }
-.ios-waitlist-submit{gap:0.55rem;align-items:center}.ios-waitlist-submit i{display:inline-flex;align-items:center;font-size:1.08em;line-height:1}.ios-waitlist-submit span{display:inline-flex;align-items:center;line-height:1;transform:translateY(2px)}
+.ios-waitlist-submit{gap:0.55rem;align-items:center}.ios-waitlist-submit i{display:inline-flex;align-items:center;justify-content:center;font-size:1.02em;line-height:1;color:#ffe45c;filter:drop-shadow(0 1px 2px rgba(0,0,0,0.22));transform:translateY(2px)}.ios-waitlist-submit span{display:inline-flex;align-items:center;line-height:1;transform:translateY(1px)}
 
 /* Single-card iOS waitlist hero */
+body.ios-waitlist-page.cf-shell{
+  padding-top:0;
+}
+.ios-waitlist-page #main-content{
+  padding-top:calc(var(--cf-launch-banner-height) + 60px + 0.5rem);
+}
 .ios-waitlist-form-section{
-  min-height:calc(100vh - var(--cf-launch-banner-height) - 60px);
+  min-height:auto;
   display:flex;
-  align-items:center;
-  padding:clamp(1.25rem,3vw,2.25rem) 0 clamp(1.75rem,4vw,3rem);
+  align-items:flex-start;
+  padding:clamp(0.75rem,2vw,1.25rem) 0 clamp(1.75rem,4vw,3rem);
 }
 .ios-waitlist-conversion-card{
   grid-template-columns:minmax(0,1.08fr) minmax(280px,0.82fr);
@@ -83,6 +89,21 @@ body.ios-waitlist-page{background:radial-gradient(circle at 20% 20%,rgba(var(--c
   font-size:0.78rem;
 }
 
+.ios-android-link .cta-playstore-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+}
+
+.ios-android-link .cta-playstore-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 @media(max-width:991.98px){
   .ios-waitlist-form-section{
     min-height:auto;
@@ -109,10 +130,13 @@ body.ios-waitlist-page{background:radial-gradient(circle at 20% 20%,rgba(var(--c
 
 @media(max-width:767.98px){
   body.ios-waitlist-page.cf-shell{
-    padding-top:calc(var(--cf-launch-banner-height) + 60px + 1rem);
+    padding-top:0;
+  }
+  .ios-waitlist-page #main-content{
+    padding-top:calc(var(--cf-launch-banner-height) + 60px + 0.5rem);
   }
   .ios-waitlist-form-section{
-    padding:0.85rem 0 1.25rem;
+    padding:0.75rem 0 1.25rem;
   }
   .ios-waitlist-conversion-card{
     gap:0.8rem;

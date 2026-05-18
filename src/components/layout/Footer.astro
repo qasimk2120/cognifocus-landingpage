@@ -1,4 +1,8 @@
 ---
+import { Image } from "astro:assets";
+import appLogo from "../../assets/logo/app-logo.png";
+import textLogoTight from "../../assets/logo/text-logo-tight.png";
+
 const {
   includePinterest = false,
   faqHref = "/faq.html",
@@ -12,19 +16,23 @@ const {
 <footer class="site-footer site-footer-no-badge">
   <div class="footer-inner">
     <div class="footer-brand">
-      <img
-        src={`${assetBase}/logo/app-logo.png`}
+      <Image
+        src={appLogo}
         class="footer-logo"
         alt=""
         width="569"
         height="438"
+        loading="lazy"
+        decoding="async"
       />
-      <img
-        src={`${assetBase}/logo/text-logo-tight.png`}
+      <Image
+        src={textLogoTight}
         class="footer-text-logo"
         alt=""
         width="415"
         height="125"
+        loading="lazy"
+        decoding="async"
       />
       <p tabindex="0">Focus, but alive. Built by CogniElevate</p>
       <div

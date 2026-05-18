@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import appLogo from "../assets/logo/app-logo.png";
 
 const title = "Download CogniFocus | Android Redirect";
 const description = "Download CogniFocus on Android. Open the Google Play listing or use this fallback page if your browser blocks the store redirect.";
@@ -20,14 +22,12 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
   includeTwitterImageAlt={false}
   bodyClass="download-page cf-shell"
   stylesheetsBeforeBase={["https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"]}
-  sharedScriptSrc="shared.js?v=20260428-1"
   bootstrapIconsFirst={true}
   footerProps={{ includePinterest: true }}
   featuredStripProps={{ yoDirectoryInlineStyle: true }}
 >
   <link slot="head-after-social" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap" rel="stylesheet" />
   <script slot="head" type="application/ld+json" set:html={schemaJson} />
-  <script slot="head" src="download.js?v=20260428-1" defer is:inline></script>
   <script slot="head" type="text/javascript" is:inline>
     (function (c, l, a, r, i, t, y) {
       c[a] =
@@ -59,12 +59,15 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
       <section class="download-main">
         <article class="download-card download-card-highlight text-center">
           <div class="download-logo-wrap" aria-hidden="true">
-            <img
-              src="assets/logo/app-logo.png"
+            <Image
+              src={appLogo}
               class="download-logo"
               alt=""
               width="569"
               height="438"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
             />
           </div>
 
@@ -176,4 +179,7 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
         </div>
       </article>
     </main>
+  <script>
+    import "../scripts/entries/download.js";
+  </script>
 </BaseLayout>

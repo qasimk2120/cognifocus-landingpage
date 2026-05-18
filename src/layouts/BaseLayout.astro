@@ -25,7 +25,6 @@ const {
   includeDefaultBootstrapIcons = true,
   stylesheetsBeforeBase = [],
   stylesheets = [],
-  sharedScriptSrc = "shared.js?v=20260515-1",
   bootstrapIconsFirst = false,
   footerProps = {},
   featuredStripProps = {},
@@ -100,7 +99,9 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
         />
       )
     }
-    <script src={sharedScriptSrc} defer is:inline></script>
+    <script>
+      import "../scripts/entries/shared.js";
+    </script>
     <slot name="head" />
   </head>
   <body class={bodyClass} {...bodyAttributes}>

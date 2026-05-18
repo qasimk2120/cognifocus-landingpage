@@ -19,7 +19,6 @@ const schemas = [
   "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebPage\",\n        \"name\": \"CogniFocus - Focus Timer & App Blocker\",\n        \"speakable\": {\n          \"@type\": \"SpeakableSpecification\",\n          \"cssSelector\": [\".seo-eyebrow\", \".hero-muted-override\", \"#faq\"]\n        },\n        \"url\": \"https://cognifocus.app/\"\n      }",
   "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"Organization\",\n        \"name\": \"CogniElevate\",\n        \"url\": \"https://cognifocus.app/\",\n        \"logo\": \"https://cognifocus.app/assets/logo/app-logo.png\",\n        \"sameAs\": [\n          \"https://www.tiktok.com/@cognifocus.app\",\n          \"https://www.instagram.com/cognifocus.app/\",\n          \"https://www.facebook.com/share/1Am7kCzkjG/\",\n          \"https://x.com/cognielevate\",\n          \"https://www.pinterest.com/getcognifocus/\",\n          \"https://www.producthunt.com/products/cognifocus\"\n        ]\n      }"
 ];
-const mainHtml = "    <script>\n      (function () {\n        const items = document.querySelectorAll(\".cf-faq-item\");\n        items.forEach((item) => {\n          const body = item.querySelector(\".cf-faq-body\");\n          const toggle = item.querySelector(\".cf-faq-toggle\");\n          if (body) body.style.maxHeight = \"0\";\n          item.addEventListener(\"toggle\", () => {\n            if (item.open) {\n              item.classList.add(\"open\");\n              // expand smoothly\n              body.style.maxHeight = body.scrollHeight + \"px\";\n              if (toggle) toggle.textContent = \"-\";\n            } else {\n              // animate close\n              body.style.maxHeight = body.scrollHeight + \"px\";\n              requestAnimationFrame(() => {\n                body.style.maxHeight = \"0\";\n              });\n              item.classList.remove(\"open\");\n              if (toggle) toggle.textContent = \"+\";\n            }\n          });\n        });\n      })();\n    </script>";
 ---
 
 <BaseLayout
@@ -31,7 +30,6 @@ const mainHtml = "    <script>\n      (function () {\n        const items = docu
   ogImageAlt={ogImageAlt}
   bodyClass="cf-home"
   includeDefaultBootstrapIcons={false}
-  sharedScriptSrc="shared.js?v=20260423-1"
   launchBannerProps={{ includeIosNotification: false }}
   footerProps={{ includePinterest: true, faqHref: "/#faq", xHref: "https://x.com/cognielevate" }}
 >
@@ -81,7 +79,6 @@ const mainHtml = "    <script>\n      (function () {\n        const items = docu
     />
   </noscript>
 
-  <script slot="head" src="script.js?v=20260403-1" defer is:inline></script>
   <script slot="head" type="text/javascript" is:inline>
     (function (c, l, a, r, i, t, y) {
       c[a] =
@@ -105,5 +102,7 @@ const mainHtml = "    <script>\n      (function () {\n        const items = docu
     <HomeFinalCTA />
   </main>
   <HomeFAQ />
-  <Fragment set:html={mainHtml} />
+  <script>
+    import "../scripts/entries/home.js";
+  </script>
 </BaseLayout>

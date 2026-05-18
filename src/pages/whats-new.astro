@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import updatesData from "../../updates.json";
+import updatesData from "../data/updates.json";
 
 const title = "What's New | CogniFocus";
 const description = "See the latest CogniFocus updates including v4.5.5 minor improvements, v4.5.2 blocked-app and progress updates, v4.5.1 reliability improvements, and v4.5.0 onboarding and focus expansion.";
@@ -185,12 +185,7 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
   ogDescription={ogDescription}
   ogImageAlt={ogImageAlt}
   bodyClass="whats-new-page cf-shell"
-  bodyAttributes={{
-    "data-updates-src": "updates.json?v=20260518-1",
-    "data-static-updates": "false",
-  }}
   assetBase="assets"
-  sharedScriptSrc="shared.js?v=20260504-1"
   bootstrapIconsFirst={true}
   footerProps={{}}
 >
@@ -239,7 +234,6 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
     href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
     rel="stylesheet"
   />
-  <script slot="head" src="whats-new.js?v=20260518-2" defer></script>
   <script slot="head" type="text/javascript" is:inline>
     (function (c, l, a, r, i, t, y) {
       c[a] =
@@ -374,4 +368,7 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
       </section>
     </section>
   </main>
+  <script>
+    import "../scripts/entries/whats-new.js";
+  </script>
 </BaseLayout>

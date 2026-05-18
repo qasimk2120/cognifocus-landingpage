@@ -25,6 +25,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: thin;
+  -webkit-mask-image: none;
   mask-image: none;
 }
 
@@ -63,12 +64,11 @@
 }
 
 @media (max-width: 767.98px) {
-
   .featured-strip-badge img {
     height: 26px;
     max-width: 210px;
   }
-.featured-strip-track {
+  .featured-strip-track {
     justify-content: flex-start;
     width: max-content;
     flex-wrap: nowrap;
@@ -77,16 +77,15 @@
 }
 
 @media (prefers-color-scheme: light) {
-
   .featured-strip {
     background: rgba(var(--cf-light-bg-rgb), 0.95);
     border-top-color: rgba(var(--cf-cyan-rgb), 0.2);
     border-bottom-color: rgba(var(--cf-cyan-rgb), 0.2);
   }
-.featured-strip-title {
+  .featured-strip-title {
     color: var(--cf-light-muted);
   }
-.featured-strip-badge {
+  .featured-strip-badge {
     background: transparent;
     border: none;
   }

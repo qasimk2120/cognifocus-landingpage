@@ -20,19 +20,11 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
   twitterAttribute="property"
   includeTwitterImageAlt={false}
   bodyClass="pricing-page cf-shell"
-  sharedScriptSrc="shared.js?v=20260423-1"
   bootstrapIconsFirst={true}
-  footerProps={{ includePinterest: true }}
+  footerProps={{ includePinterest: true, faqHref: "#faq" }}
   featuredStripProps={{ yoDirectoryInlineStyle: true }}
 >
   <script slot="head" type="application/ld+json" set:html={schemaJson} />
-  <style slot="head" is:inline>
-    .pricing-page main.container {
-      padding-top: calc(
-        var(--cf-launch-banner-height) + 60px + clamp(2rem, 5vw, 3.5rem)
-      ) !important;
-    }
-  </style>
   <script slot="head" type="text/javascript" is:inline>
     (function (c, l, a, r, i, t, y) {
       c[a] =
@@ -49,6 +41,17 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
   </script>
 
   <main class="container py-5">
+      <header class="text-center pricing-page-hero">
+        <span class="feature-kicker">
+          Pricing <span aria-hidden="true">&#128176;</span>
+        </span>
+        <h1>CogniFocus pricing</h1>
+        <p class="hero-muted-override mb-0">
+          Start free, then upgrade when you want stronger Shield protection,
+          planned sessions, and recovery support.
+        </p>
+      </header>
+
       <section class="pricing-panel mx-auto">
         <div class="row g-4 align-items-stretch">
           <div class="col-lg-4">
@@ -138,7 +141,7 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
             <span class="feature-kicker">
               Pro Details <span aria-hidden="true">&#128737;</span>
             </span>
-            <h2 class="mb-3">What Pro is for.</h2>
+            <h2 class="mb-3">What Pro is for</h2>
             <p class="hero-muted-override mb-0">
               Pro is for users who want CogniFocus to protect the habit, not
               just time a session
@@ -173,32 +176,47 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
         </div>
       </section>
 
-      <section class="container py-5">
-        <div class="faq-panel mx-auto">
-          <div class="text-center faq-heading mx-auto">
-            <span class="feature-kicker">
-              FAQ <span aria-hidden="true">&#10067;</span>
-            </span>
-            <h2 class="mb-3">Pricing questions</h2>
-          </div>
-
-          <div class="faq-list">
-            <div class="faq-item">
-              <h3>How much is Pro Monthly?</h3>
-              <p class="mb-0">$3.99/month after a 7-day trial</p>
-            </div>
-
-            <div class="faq-item">
-              <h3>How much is Pro Yearly?</h3>
-              <p class="mb-0">$31.99/year. About $2.67/month</p>
-            </div>
-
-            <div class="faq-item">
-              <h3>Where do I manage billing?</h3>
-              <p class="mb-0">Subscriptions are managed through Google Play</p>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
+
+    <section id="faq" class="py-5 cf-faq-fullbleed">
+      <div class="cf-faq-accordion">
+        <div class="cf-faq-list">
+          <details class="cf-faq-item">
+            <summary>
+              How much is Pro Monthly?
+              <span class="cf-faq-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="cf-faq-body">
+              <div class="cf-faq-content">
+                $3.99/month after a 7-day trial
+              </div>
+            </div>
+          </details>
+
+          <details class="cf-faq-item">
+            <summary>
+              How much is Pro Yearly?
+              <span class="cf-faq-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="cf-faq-body">
+              <div class="cf-faq-content">
+                $31.99/year. About $2.67/month
+              </div>
+            </div>
+          </details>
+
+          <details class="cf-faq-item">
+            <summary>
+              Where do I manage billing?
+              <span class="cf-faq-toggle" aria-hidden="true">+</span>
+            </summary>
+            <div class="cf-faq-body">
+              <div class="cf-faq-content">
+                Subscriptions are managed through Google Play
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
 </BaseLayout>
