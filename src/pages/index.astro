@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HomeAttentionSpirals from "../components/home/HomeAttentionSpirals.astro";
+import HomeFAQ from "../components/home/HomeFAQ.astro";
 import HomeFinalCTA from "../components/home/HomeFinalCTA.astro";
 import HomeGoblinCards from "../components/home/HomeGoblinCards.astro";
 import HomeHero from "../components/home/HomeHero.astro";
@@ -102,6 +103,7 @@ const mainHtml = "    <script>\n      (function () {\n        const items = docu
     <HomeGoblinCards />
     <HomeAttentionSpirals />
     <HomeFinalCTA />
-    <Fragment set:html={mainHtml} />
   </main>
+  <HomeFAQ />
+  <Fragment set:html={mainHtml} />
 </BaseLayout>
