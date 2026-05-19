@@ -129,13 +129,14 @@
   min-height: 22px;
   padding: 0 9px;
   border-radius: 999px;
-  background: var(--cf-cobalt);
+  background: #0d56cb;
   color: #ffffff;
   font-size: 11px;
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0.02em;
-  box-shadow: 0 8px 18px rgba(var(--cf-cobalt-rgb), 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 18px rgba(13, 86, 203, 0.35);
 }
 
 .cf-nav__hamburger {
