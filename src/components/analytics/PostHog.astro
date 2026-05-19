@@ -1,11 +1,10 @@
 ---
-// Consent-aware analytics initialization for the static Astro site.
+// Consent-aware PostHog analytics initialization for the static Astro site.
 ---
 
 <script>
   const CONSENT_KEY = "cognifocus_cookie_consent";
   const ACCEPTED_VALUE = "accepted";
-  const CLARITY_PROJECT_ID = "wq6znd4re5";
 
   function readConsent() {
     try {
@@ -31,30 +30,6 @@
     });
   }
 
-  function initClarity() {
-    if (window.__cfClarityInitialized) return;
-    if (readConsent() !== ACCEPTED_VALUE) return;
-
-    window.__cfClarityInitialized = true;
-    window.clarity =
-      window.clarity ||
-      function () {
-        (window.clarity.q = window.clarity.q || []).push(arguments);
-      };
-
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = `https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`;
-
-    const firstScript = document.getElementsByTagName("script")[0];
-    firstScript.parentNode.insertBefore(script, firstScript);
-  }
-
-  function initAnalytics() {
-    initPostHog();
-    initClarity();
-  }
-
-  window.addEventListener("cognifocus:analytics-consent-accepted", initAnalytics);
-  initAnalytics();
+  window.addEventListener("cognifocus:analytics-consent-accepted", initPostHog);
+  initPostHog();
 </script>
