@@ -5,6 +5,7 @@ import {
 import {
   getWaitlistMessageForStatus,
   isHandledWaitlistStatus,
+  isVerificationFailure,
   JSON_FETCH_HEADERS,
   parseJsonResponse,
   resetTurnstileWidget,
@@ -114,6 +115,12 @@ export function initIosWaitlistBanner({
 
       const data = await parseJsonResponse(response);
 
+      if (isVerificationFailure(data)) {
+        setIosWaitlistMessage(getWaitlistMessageForStatus(403), "error");
+        resetTurnstileWidget();
+        return;
+      }
+
       if (isHandledWaitlistStatus(response.status)) {
         setIosWaitlistMessage(
           getWaitlistMessageForStatus(response.status),
@@ -135,6 +142,7 @@ export function initIosWaitlistBanner({
       );
       resetTurnstileWidget();
     } catch (_error) {
+      resetTurnstileWidget();
       setIosWaitlistMessage(GENERIC_ERROR_MESSAGE, "error");
     } finally {
       iosWaitlistSubmitting = false;

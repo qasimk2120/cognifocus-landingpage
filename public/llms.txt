@@ -1,7 +1,7 @@
 # CogniFocus
-> CogniFocus is a free focus timer and app blocker that reacts
-> the moment you drift into TikTok, Instagram, YouTube, or other
-> distracting apps. Built for Android. iOS coming soon.
+> CogniFocus starts free with a focus timer and app blocker that
+> reacts the moment you drift into TikTok, Instagram, YouTube, or
+> other distracting apps. Built for Android. iOS coming soon.
 
 ## Key pages
 - Homepage: https://cognifocus.app/

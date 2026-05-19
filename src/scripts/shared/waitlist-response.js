@@ -18,6 +18,10 @@ export function getWaitlistMessageForStatus(status) {
   return HANDLED_STATUS_MESSAGES[status] ?? null;
 }
 
+export function isVerificationFailure(data) {
+  return data?.error === "Verification failed";
+}
+
 export function resetTurnstileWidget() {
   window.turnstile?.reset?.();
 }

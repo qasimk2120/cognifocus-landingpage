@@ -8,6 +8,7 @@ import {
 import {
   getWaitlistMessageForStatus,
   isHandledWaitlistStatus,
+  isVerificationFailure,
   JSON_FETCH_HEADERS,
   parseJsonResponse,
   resetTurnstileWidget,
@@ -120,6 +121,12 @@ export function initIosWaitlistForm() {
 
       const data = await parseJsonResponse(response);
 
+      if (isVerificationFailure(data)) {
+        setMessage(getWaitlistMessageForStatus(403), "error");
+        resetTurnstileWidget();
+        return;
+      }
+
       if (isHandledWaitlistStatus(response.status)) {
         setMessage(getWaitlistMessageForStatus(response.status), "error");
         resetTurnstileWidget();
@@ -136,6 +143,7 @@ export function initIosWaitlistForm() {
       );
       resetTurnstileWidget();
     } catch (_error) {
+      resetTurnstileWidget();
       setMessage(ERROR_MESSAGE, "error");
     } finally {
       isSubmitting = false;
