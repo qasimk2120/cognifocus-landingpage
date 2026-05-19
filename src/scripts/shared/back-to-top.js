@@ -5,7 +5,7 @@ export function initBackToTopArrow() {
   button.type = "button";
   button.className = "back-to-top-arrow";
   button.setAttribute("aria-label", "Back to top");
-  button.innerHTML = "\u2191";
+  button.textContent = "\u2191";
   document.body.appendChild(button);
 
   function toggleVisibility() {

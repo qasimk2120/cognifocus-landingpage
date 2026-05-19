@@ -2,9 +2,16 @@ import {
   IOS_WAITLIST_ENDPOINT,
   IOS_WAITLIST_STORAGE_KEY,
 } from "./constants.js";
+import {
+  getWaitlistMessageForStatus,
+  isHandledWaitlistStatus,
+  JSON_FETCH_HEADERS,
+  parseJsonResponse,
+  resetTurnstileWidget,
+} from "../shared/waitlist-response.js";
 
-const VERIFICATION_ERROR_MESSAGE =
-  "The Goblin thinks you might be a bot. Try again.";
+const GENERIC_ERROR_MESSAGE =
+  "Could not join right now. Try again in a moment.";
 
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -94,9 +101,7 @@ export function initIosWaitlistBanner({
     try {
       const response = await fetch(IOS_WAITLIST_ENDPOINT, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: JSON_FETCH_HEADERS,
         body: JSON.stringify({
           email,
           name: iosWaitlistName ? iosWaitlistName.value.trim() : "",
@@ -107,20 +112,19 @@ export function initIosWaitlistBanner({
         }),
       });
 
-      let data = {};
-      try {
-        data = await response.json();
-      } catch (_error) {
-        data = {};
-      }
+      const data = await parseJsonResponse(response);
 
-      if (response.status === 403 || data.error === "Verification failed") {
-        setIosWaitlistMessage(VERIFICATION_ERROR_MESSAGE, "error");
-        window.turnstile?.reset();
+      if (isHandledWaitlistStatus(response.status)) {
+        setIosWaitlistMessage(
+          getWaitlistMessageForStatus(response.status),
+          "error",
+        );
+        resetTurnstileWidget();
         return;
       }
 
       if (!response.ok) {
+        resetTurnstileWidget();
         throw new Error("Waitlist request failed");
       }
 
@@ -129,12 +133,9 @@ export function initIosWaitlistBanner({
           ? "You are already on the iOS waitlist."
           : "You are on the iOS waitlist. We will email you when it is ready.",
       );
-      window.turnstile?.reset();
+      resetTurnstileWidget();
     } catch (_error) {
-      setIosWaitlistMessage(
-        "Could not join right now. Try again in a moment.",
-        "error",
-      );
+      setIosWaitlistMessage(GENERIC_ERROR_MESSAGE, "error");
     } finally {
       iosWaitlistSubmitting = false;
       iosWaitlistSubmit.disabled = false;

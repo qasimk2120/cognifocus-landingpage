@@ -1,14 +1,60 @@
 ---
-// PostHog analytics initialization for static Astro site
+// Consent-aware analytics initialization for the static Astro site.
 ---
 
 <script>
-  import posthog from "posthog-js";
+  const CONSENT_KEY = "cognifocus_cookie_consent";
+  const ACCEPTED_VALUE = "accepted";
+  const CLARITY_PROJECT_ID = "wq6znd4re5";
 
-  posthog.init(import.meta.env.PUBLIC_POSTHOG_KEY, {
-    api_host: import.meta.env.PUBLIC_POSTHOG_HOST,
-    person_profiles: "identified_only",
-    capture_pageview: true,
-    capture_pageleave: true,
-  });
+  function readConsent() {
+    try {
+      return localStorage.getItem(CONSENT_KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  async function initPostHog() {
+    if (window.__cfPostHogInitialized) return;
+    if (readConsent() !== ACCEPTED_VALUE) return;
+    if (!import.meta.env.PUBLIC_POSTHOG_KEY) return;
+
+    window.__cfPostHogInitialized = true;
+    const { default: posthog } = await import("posthog-js");
+
+    posthog.init(import.meta.env.PUBLIC_POSTHOG_KEY, {
+      api_host: import.meta.env.PUBLIC_POSTHOG_HOST,
+      person_profiles: "identified_only",
+      capture_pageview: true,
+      capture_pageleave: true,
+    });
+  }
+
+  function initClarity() {
+    if (window.__cfClarityInitialized) return;
+    if (readConsent() !== ACCEPTED_VALUE) return;
+
+    window.__cfClarityInitialized = true;
+    window.clarity =
+      window.clarity ||
+      function () {
+        (window.clarity.q = window.clarity.q || []).push(arguments);
+      };
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`;
+
+    const firstScript = document.getElementsByTagName("script")[0];
+    firstScript.parentNode.insertBefore(script, firstScript);
+  }
+
+  function initAnalytics() {
+    initPostHog();
+    initClarity();
+  }
+
+  window.addEventListener("cognifocus:analytics-consent-accepted", initAnalytics);
+  initAnalytics();
 </script>

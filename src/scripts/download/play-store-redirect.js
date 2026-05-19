@@ -12,24 +12,42 @@ export function initPlayStoreRedirect({
   let redirectInFlight = false;
   let clickLocked = false;
 
-  function setStatus(message) {
+function setStatus(message) {
     redirectStatus.textContent = message;
+  }
+
+  function createIcon(className) {
+    const icon = document.createElement("i");
+    icon.className = className;
+    icon.setAttribute("aria-hidden", "true");
+    return icon;
+  }
+
+  function createLabel(text) {
+    const label = document.createElement("span");
+    label.textContent = text;
+    return label;
   }
 
   function setPlayStoreButton() {
     playStoreCta.href = PLAY_STORE_URL;
     playStoreCta.target = "_blank";
     playStoreCta.rel = "noopener noreferrer";
-    playStoreCta.innerHTML =
-      '<i class="bi bi-google-play" aria-hidden="true"></i><span>Open in Google Play</span><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>';
+    playStoreCta.replaceChildren(
+      createIcon("bi bi-google-play"),
+      createLabel("Open in Google Play"),
+      createIcon("bi bi-box-arrow-up-right"),
+    );
   }
 
   function setIosWaitlistButton() {
     playStoreCta.href = "/ios-waitlist.html";
     playStoreCta.removeAttribute("target");
     playStoreCta.removeAttribute("rel");
-    playStoreCta.innerHTML =
-      '<i class="bi bi-apple" aria-hidden="true"></i><span>Join the iOS waitlist</span>';
+    playStoreCta.replaceChildren(
+      createIcon("bi bi-apple"),
+      createLabel("Join the iOS waitlist"),
+    );
   }
 
   function attemptRedirect(triggerSource) {

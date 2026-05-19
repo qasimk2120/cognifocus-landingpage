@@ -4,8 +4,14 @@ import {
   ERROR_MESSAGE,
   STORAGE_KEY,
   SUCCESS_MESSAGE,
-  VERIFICATION_ERROR_MESSAGE,
 } from "./constants.js";
+import {
+  getWaitlistMessageForStatus,
+  isHandledWaitlistStatus,
+  JSON_FETCH_HEADERS,
+  parseJsonResponse,
+  resetTurnstileWidget,
+} from "../shared/waitlist-response.js";
 
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -32,6 +38,7 @@ export function initIosWaitlistForm() {
   }
 
   let isSubmitting = false;
+  // Trusted local button markup is restored after the loading text state.
   const submitButtonContent = submitButton.innerHTML;
 
   function setMessage(text, type) {
@@ -100,9 +107,7 @@ export function initIosWaitlistForm() {
     try {
       const response = await fetch(ENDPOINT, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: JSON_FETCH_HEADERS,
         body: JSON.stringify({
           email,
           name,
@@ -113,27 +118,23 @@ export function initIosWaitlistForm() {
         }),
       });
 
-      let data = {};
-      try {
-        data = await response.json();
-      } catch (_error) {
-        data = {};
-      }
+      const data = await parseJsonResponse(response);
 
-      if (response.status === 403 || data.error === "Verification failed") {
-        setMessage(VERIFICATION_ERROR_MESSAGE, "error");
-        window.turnstile?.reset();
+      if (isHandledWaitlistStatus(response.status)) {
+        setMessage(getWaitlistMessageForStatus(response.status), "error");
+        resetTurnstileWidget();
         return;
       }
 
       if (!response.ok) {
+        resetTurnstileWidget();
         throw new Error("Waitlist request failed");
       }
 
       showJoinedState(
         data.alreadyJoined ? ALREADY_JOINED_MESSAGE : SUCCESS_MESSAGE,
       );
-      window.turnstile?.reset();
+      resetTurnstileWidget();
     } catch (_error) {
       setMessage(ERROR_MESSAGE, "error");
     } finally {

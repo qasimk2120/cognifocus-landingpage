@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Account & Data Deletion | CogniFocus";
 const description =
-  "Instructions for deleting your CogniFocus account and associated data from Settings, plus details about local data, subscriptions, and retained purchase records.";
+  "Instructions for deleting your CogniFocus account from Settings, including synced data removal, local preferences clearing, notifications, subscriptions, and retained audit records.";
 const canonical = "https://cognifocus.app/delete-account.html";
 const deleteAccountSchema = {
   "@context": "https://schema.org",
@@ -25,21 +25,6 @@ const deleteAccountSchema = {
   footerProps={{ includePinterest: true }}
 >
   <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify(deleteAccountSchema, null, 2)} />
-  <script slot="head" type="text/javascript" is:inline>
-    (function (c, l, a, r, i, t, y) {
-      c[a] =
-        c[a] ||
-        function () {
-          (c[a].q = c[a].q || []).push(arguments);
-        };
-      t = l.createElement(r);
-      t.async = 1;
-      t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0];
-      y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "wq6znd4re5");
-  </script>
-
   <main>
       <header class="container text-center delete-hero">
         <span class="feature-kicker">
@@ -81,21 +66,31 @@ const deleteAccountSchema = {
             <div class="delete-icon" aria-hidden="true">&#128190;</div>
             <div>
               <h2>What Gets Deleted</h2>
-              <p>
-                Account deletion removes synced profile and stats data that can
-                be deleted from the client, clears local app data, and deletes
-                the Firebase account
-              </p>
+          <p>
+            Account deletion removes CogniFocus account data that can be
+            deleted from the app, clears local preferences, records the
+            deletion request for safety, and deletes your sign-in account
+          </p>
             </div>
           </div>
 
           <ul class="delete-list">
-            <li>Firebase account information linked to CogniFocus</li>
-            <li>Synced profile settings and onboarding state</li>
-            <li>Daily stats, streak, progress, and planned session data</li>
+            <li>Pending CogniFocus notifications are cancelled.</li>
+            <li>Active CogniFocus app services are stopped.</li>
+            <li>Your sign-in account is deleted.</li>
+            <li>Your synced profile data is deleted.</li>
+            <li>Your synced daily stats and sync records are deleted.</li>
             <li>
-              Local app state, preferences, selected blocked apps, and session
-              state
+              CogniFocus tries to delete matching support request records tied
+              to your account.
+            </li>
+            <li>
+              A limited deletion audit record is kept for operational and
+              abuse-prevention purposes.
+            </li>
+            <li>
+              Local app preferences are cleared, including local app state and
+              settings stored there.
             </li>
           </ul>
         </article>

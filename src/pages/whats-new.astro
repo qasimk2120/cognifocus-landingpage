@@ -28,7 +28,7 @@ function inlineMarkdown(text) {
     .replace(/`([^`]+)`/g, "<code>$1</code>")
     .replace(
       /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
-      '<a href="$2" target="_blank" rel="noopener">$1</a>',
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>',
     )
     .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
     .replace(/\*([^*]+)\*/g, "<em>$1</em>");
@@ -234,21 +234,6 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
     href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
     rel="stylesheet"
   />
-  <script slot="head" type="text/javascript" is:inline>
-    (function (c, l, a, r, i, t, y) {
-      c[a] =
-        c[a] ||
-        function () {
-          (c[a].q = c[a].q || []).push(arguments);
-        };
-      t = l.createElement(r);
-      t.async = 1;
-      t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0];
-      y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "wq6znd4re5");
-  </script>
-
   <main>
     <header class="container text-center whats-new-hero">
       <span class="feature-kicker">

@@ -176,6 +176,42 @@ html:not([data-theme]) .footer-socials img {
     brightness(90%) contrast(94%);
 }
 
+html[data-theme="light"] .cf-cookie-consent,
+html:not([data-theme]) .cf-cookie-consent {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(var(--cf-light-card-rgb), 0.98),
+      rgba(var(--cf-light-surface-rgb), 0.96)
+    );
+  border-color: rgba(var(--cf-cyan-rgb), 0.2);
+  box-shadow:
+    0 20px 48px rgba(var(--cf-light-shadow-rgb), 0.16),
+    inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.7);
+}
+
+html[data-theme="light"] .cf-cookie-consent h2,
+html:not([data-theme]) .cf-cookie-consent h2 {
+  color: var(--cf-light-text);
+}
+
+html[data-theme="light"] .cf-cookie-consent p,
+html:not([data-theme]) .cf-cookie-consent p {
+  color: rgba(var(--cf-light-text-rgb), 0.68);
+}
+
+html[data-theme="light"] .cf-cookie-consent__link,
+html:not([data-theme]) .cf-cookie-consent__link {
+  color: var(--cf-light-accent);
+}
+
+html[data-theme="light"] .cf-cookie-consent__button--secondary,
+html:not([data-theme]) .cf-cookie-consent__button--secondary {
+  background: rgba(var(--cf-light-card-rgb), 0.72);
+  border-color: rgba(var(--cf-light-shadow-rgb), 0.14);
+  color: var(--cf-light-text);
+}
+
 html[data-theme="dark"] .cf-nav,
 html[data-theme="dark"] .cf-nav.scrolled {
   background: rgba(6, 10, 19, 0.72);

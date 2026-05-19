@@ -1,0 +1,6 @@
+/*
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://eu-assets.i.posthog.com https://eu.i.posthog.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; img-src 'self' data: https://cognifocus.app https://cdn.jsdelivr.net https://www.startupfa.st https://dayslaunch.com https://www.producthunt.com https://api.producthunt.com https://peerpush.net https://startupbenchmarks.com https://cdn.prod.website-files.com https://nicklaunches.com https://c.bing.com https://*.clarity.ms; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net; connect-src 'self' https://europe-west1-cognifocuslandingpage.cloudfunctions.net https://eu.i.posthog.com https://eu-assets.i.posthog.com https://*.clarity.ms; frame-src https://challenges.cloudflare.com; worker-src 'self' blob:; upgrade-insecure-requests
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=(), accelerometer=(), gyroscope=(), magnetometer=(), clipboard-read=(), clipboard-write=(self), fullscreen=(self)
+  X-Frame-Options: DENY

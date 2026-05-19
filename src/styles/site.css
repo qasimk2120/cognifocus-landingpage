@@ -4,6 +4,7 @@
 @import "./core/animations.css";
 @import "./layout/header.css";
 @import "./layout/featured-strip.css";
+@import "./layout/cookie-consent.css";
 @import "./site-base.css";
 @import "./layout/footer.css";
 @import "./pages/home.css";

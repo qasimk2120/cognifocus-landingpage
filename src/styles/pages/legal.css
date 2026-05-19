@@ -32,6 +32,36 @@ body.privacy-page {
   margin: 0 auto;
   padding: 2rem 0 4rem;
 }
+.privacy-toc,
+.legal-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+}
+.privacy-toc a,
+.legal-toc a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0.45rem 0.75rem;
+  border: 1px solid rgba(var(--cf-cyan-rgb), 0.16);
+  border-radius: 999px;
+  background: rgba(var(--cf-light-card-rgb), 0.04);
+  color: var(--cf-text-secondary);
+  font-size: 0.86rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-decoration: none;
+}
+.privacy-toc a:hover,
+.privacy-toc a:focus-visible,
+.legal-toc a:hover,
+.legal-toc a:focus-visible {
+  color: var(--cf-text-primary);
+  border-color: rgba(var(--cf-cyan-rgb), 0.3);
+  background: rgba(var(--cf-cyan-rgb), 0.08);
+}
 .privacy-card {
   margin-bottom: 1rem;
   padding: 1.35rem;
@@ -83,6 +113,10 @@ body.privacy-page {
   margin: 0 0 1rem;
   padding-left: 1.25rem;
 }
+.privacy-list-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1.5rem;
+}
 .privacy-contact-card {
   margin-bottom: 0;
 }
@@ -101,6 +135,19 @@ body.privacy-page {
     padding: 1rem;
   }
   .privacy-card-header {
+    grid-template-columns: 1fr;
+  }
+  .privacy-toc,
+  .legal-toc {
+    gap: 0.45rem;
+  }
+  .privacy-toc a,
+  .legal-toc a {
+    min-height: 34px;
+    padding: 0.42rem 0.65rem;
+    font-size: 0.8rem;
+  }
+  .privacy-list-columns {
     grid-template-columns: 1fr;
   }
 }
@@ -155,6 +202,19 @@ body.privacy-page {
   .privacy-page .privacy-card li,
   .privacy-page .privacy-list {
     color: var(--cf-light-muted) !important;
+  }
+  .privacy-page .privacy-toc a,
+  .terms-page .legal-toc a {
+    background: rgba(var(--cf-light-card-rgb), 0.72);
+    border-color: rgba(var(--cf-cyan-rgb), 0.18);
+    color: rgba(var(--cf-light-text-rgb), 0.7);
+  }
+  .privacy-page .privacy-toc a:hover,
+  .privacy-page .privacy-toc a:focus-visible,
+  .terms-page .legal-toc a:hover,
+  .terms-page .legal-toc a:focus-visible {
+    background: rgba(var(--cf-cobalt-rgb), 0.08);
+    color: var(--cf-light-text);
   }
   .privacy-page .privacy-icon {
     background: rgba(var(--cf-cyan-rgb), 0.08);

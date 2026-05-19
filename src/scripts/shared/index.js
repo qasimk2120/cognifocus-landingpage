@@ -1,4 +1,5 @@
 import { initBackToTopArrow } from "./back-to-top.js";
+import { initCookieConsent } from "./cookie-consent.js";
 import { upgradeDownloadCtas } from "./download-cta.js";
 import {
   initLaunchBannerVisibility,
@@ -12,6 +13,7 @@ export function initSharedSiteChrome() {
   initLaunchBannerVisibility();
   initThemeToggles();
   initNav();
+  initCookieConsent();
   upgradeDownloadCtas();
   initBackToTopArrow();
 }

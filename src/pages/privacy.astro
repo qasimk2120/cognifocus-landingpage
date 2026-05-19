@@ -3,12 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "Privacy Policy | CogniFocus";
 const description =
-  "Read the CogniFocus Privacy Policy for account data, local storage, Firebase services, permissions, support requests, subscriptions, analytics, and deletion controls.";
+  "Read the CogniFocus Privacy Policy for website analytics consent, Turnstile, waitlist forms, app cloud sync, local app data, permissions, support, subscriptions, and deletion.";
 const canonical = "https://cognifocus.app/privacy.html";
 const privacySchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Privacy Policy",
+  url: canonical,
 };
 ---
 
@@ -26,296 +27,293 @@ const privacySchema = {
   featuredStripProps={{ yoDirectoryInlineStyle: true }}
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(privacySchema, null, 2)} />
-  <script slot="head" type="text/javascript" is:inline>
-    (function (c, l, a, r, i, t, y) {
-      c[a] =
-        c[a] ||
-        function () {
-          (c[a].q = c[a].q || []).push(arguments);
-        };
-      t = l.createElement(r);
-      t.async = 1;
-      t.src = "https://www.clarity.ms/tag/" + i;
-      y = l.getElementsByTagName(r)[0];
-      y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "wq6znd4re5");
-  </script>
 
   <header class="privacy-hero">
     <h1>Privacy Policy</h1>
-    <p class="privacy-keyword-variation">Privacy Policy for CogniFocus.</p>
+    <p class="privacy-keyword-variation">Website and app data, without the fog.</p>
     <p class="privacy-subtitle">
-      Last updated: April 18, 2026. CogniFocus helps you manage focus sessions,
-      block distracting apps, track progress, use character-based motivation,
-      and manage premium features.
+      Last updated: May 19, 2026. CogniFocus includes a public website and an
+      Android app. This policy explains what each part may store, sync, and use.
     </p>
   </header>
 
   <main class="privacy-main">
-    <section class="privacy-card privacy-summary-card">
+    <nav class="privacy-toc" aria-label="Privacy policy sections">
+      <a href="#summary">Summary</a>
+      <a href="#website-data">Website Data</a>
+      <a href="#cloud-synced-data">Cloud-Synced Data</a>
+      <a href="#local-only-data">Local-Only Data</a>
+      <a href="#permissions">Permissions</a>
+      <a href="#analytics">Analytics</a>
+      <a href="#third-party-services">Third-Party Services</a>
+      <a href="#data-deletion">Data Deletion</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="privacy-card privacy-summary-card" id="summary">
       <div class="privacy-card-header">
-        <div class="privacy-icon" aria-hidden="true">&#128187;</div>
+        <div class="privacy-icon" aria-hidden="true">&#128274;</div>
         <div>
-          <h2>Data Stored On Your Device</h2>
+          <h2>Short Version</h2>
           <p>
-            CogniFocus stores some data locally on your device so core app
-            features can work.
+            CogniFocus uses data to run the website, protect forms, provide app
+            sync and restore, personalize focus features, track progress, handle
+            support, manage premium access, and improve the product.
           </p>
         </div>
       </div>
       <ul class="privacy-list">
-        <li>App state and preferences</li>
-        <li>Theme, motion, accessibility, and color settings</li>
-        <li>Selected blocked apps</li>
-        <li>Focus session state and planned sessions</li>
-        <li>Nudge cooldowns and reminder state</li>
-        <li>Some progress and session-related data</li>
+        <li>We do not sell your personal data.</li>
+        <li>We do not claim that all data is local-only.</li>
+        <li>We do not claim end-to-end encryption or zero-knowledge storage.</li>
+        <li>Some app data may be cloud-synced through Firebase/Google Cloud.</li>
+        <li>Some runtime state stays local on your device.</li>
       </ul>
-      <p>
-        Locally stored data may be removed when you clear app data, delete your
-        account from Settings, or uninstall the app.
-      </p>
     </section>
 
-    <section class="privacy-card privacy-card-highlight">
+    <section class="privacy-card privacy-card-highlight" id="website-data">
       <div class="privacy-card-header">
-        <div class="privacy-icon" aria-hidden="true">&#128273;</div>
+        <div class="privacy-icon" aria-hidden="true">&#127760;</div>
         <div>
-          <h2>Accounts And Authentication</h2>
+          <h2>Website Data</h2>
           <p>
-            CogniFocus uses Firebase Authentication to create an anonymous user
-            account by default.
-          </p>
-        </div>
-      </div>
-      <p>
-        If Google linking is added or enabled later, Google sign-in will link to
-        your existing anonymous account instead of replacing it. This helps
-        protect your progress and premium access across reinstalls or devices.
-      </p>
-      <p>
-        We may store your Firebase user ID to connect app data to your account.
-      </p>
-    </section>
-
-    <section class="privacy-card">
-      <div class="privacy-card-header">
-        <div class="privacy-icon" aria-hidden="true">&#128450;</div>
-        <div>
-          <h2>Data Collected And Stored</h2>
-          <p>
-            CogniFocus may store user-linked app data in Firebase Firestore.
+            The CogniFocus website uses small amounts of browser storage and
+            form data to keep the site usable and protect public forms.
           </p>
         </div>
       </div>
       <ul class="privacy-list">
-        <li>Firebase user ID, profile settings, and onboarding state</li>
-        <li>
-          Platform, app version, timestamps, and premium/subscription status
-          fields
-        </li>
-        <li>Daily stats, streak and progress data, and planned session data</li>
-        <li>Support request records and account deletion records</li>
+        <li>Your analytics consent choice, stored in localStorage.</li>
+        <li>Your theme preference, stored in localStorage.</li>
+        <li>Waitlist form details, such as email, optional name, source page, and anti-spam fields.</li>
+        <li>Cloudflare Turnstile tokens and checks used to reduce spam and automated abuse.</li>
+        <li>Basic site functionality storage, such as already-joined waitlist state.</li>
       </ul>
       <p>
-        This data is used to operate app features, maintain progress, support
-        syncing where available, process and reflect subscription status,
-        provide support, improve reliability, and prevent abuse.
+        If a public support or contact form is available on the website, we may
+        process the details you submit so we can respond, troubleshoot, and
+        reduce abuse. Website forms should not be used to send sensitive
+        information.
       </p>
     </section>
 
-    <section class="privacy-card">
+    <section class="privacy-card" id="cloud-synced-data">
       <div class="privacy-card-header">
-        <div class="privacy-icon" aria-hidden="true">&#9993;</div>
+        <div class="privacy-icon" aria-hidden="true">&#9729;</div>
         <div>
-          <h2>Support Requests</h2>
+          <h2>Cloud-Synced App Data</h2>
           <p>
-            When you contact support, CogniFocus may store support details.
+            CogniFocus is local-first, but not local-only. To provide sync,
+            restore, personalization, focus tracking, support, and product
+            improvement, the app may cloud-save user-linked data in Firebase.
           </p>
         </div>
       </div>
-      <ul class="privacy-list">
-        <li>The message you submit, optional name, and optional email address</li>
-        <li>
-          Firebase user ID, app version, platform, and session/support context
-        </li>
-        <li>Recent app actions/logs and recent error details</li>
+      <ul class="privacy-list privacy-list-columns">
+        <li>Identity and profile data</li>
+        <li>Name and age</li>
+        <li>Premium, tier, and entitlement status</li>
+        <li>Onboarding state</li>
+        <li>App metadata such as platform, app version, and timestamps</li>
+        <li>Stats, daily stats, and session history</li>
+        <li>Preferences and settings</li>
+        <li>Selected personality</li>
+        <li>Theme, accessibility, motion, and color vision settings</li>
+        <li>Daily goal</li>
+        <li>Focus intention and focus obstacle</li>
+        <li>Shield state</li>
+        <li>Blocked apps</li>
+        <li>Planned sessions and reminders</li>
+        <li>Progression, XP, and in-app progression balances</li>
+        <li>Sync and restore status</li>
+        <li>Support requests and support context</li>
+        <li>Support abuse-prevention signals</li>
+        <li>Support and waitlist email delivery records</li>
       </ul>
       <p>
-        This information is used to reply to you, debug issues, rate-limit
-        abuse, and improve app reliability. Support free-text is not used for
-        analytics.
+        Cloud-synced app data is tied to your Firebase account, which may be an
+        anonymous account unless you link a sign-in method. This helps restore
+        progress and premium state across reinstalls or devices where supported.
       </p>
     </section>
 
-    <section class="privacy-card">
+    <section class="privacy-card" id="local-only-data">
+      <div class="privacy-card-header">
+        <div class="privacy-icon" aria-hidden="true">&#128241;</div>
+        <div>
+          <h2>Local-Only App Data</h2>
+          <p>
+            Some app data is runtime or device-specific and is intended to stay
+            local on your device unless a future feature clearly changes that.
+          </p>
+        </div>
+      </div>
+      <ul class="privacy-list privacy-list-columns">
+        <li>Active session state</li>
+        <li>Manual block state</li>
+        <li>Session feedback</li>
+        <li>Retention metadata</li>
+        <li>Share and review nudges</li>
+        <li>First-focus activation state</li>
+        <li>Header/footer discovery state</li>
+        <li>Character affinity and greeting state</li>
+        <li>Notification IDs</li>
+        <li>Cached blocked apps</li>
+        <li>Last app open</li>
+        <li>Release notes version</li>
+      </ul>
+      <p>
+        Local-only data may be removed when you clear app data, delete the app,
+        or use app controls that clear local state.
+      </p>
+    </section>
+
+    <section class="privacy-card" id="permissions">
       <div class="privacy-card-header">
         <div class="privacy-icon" aria-hidden="true">&#128737;</div>
         <div>
           <h2>Permissions</h2>
           <p>
-            CogniFocus may request Android permissions to enable Shield and
-            app-blocking features.
+            CogniFocus asks for Android permissions only when needed for focus
+            features such as Shield, app blocking, and reminders.
           </p>
         </div>
       </div>
       <p>
-        <strong>Usage Access:</strong> CogniFocus uses Usage Access to detect
-        which apps you open so Shield can catch distractions. It does not read
-        messages or in-app content.
+        <strong>Usage Access:</strong> Used to detect which app is open so
+        Shield can identify distraction attempts during protected sessions. It
+        is not used to read messages, passwords, photos, or the content inside
+        other apps.
       </p>
       <p>
-        <strong>Display Over Other Apps:</strong> CogniFocus uses Overlay
-        permission to show a blocking screen over distracting apps when Shield
-        or Manual Block needs to interrupt you.
+        <strong>Overlay permission:</strong> Used to show a blocking or recovery
+        screen over distracting apps when Shield or Manual Block interrupts
+        them. It is not used to secretly control other apps.
       </p>
       <p>
-        You can revoke these permissions at any time through your device
-        settings. Some features may not work correctly without them.
+        <strong>Notifications and reminders:</strong> Used for planned sessions,
+        focus reminders, and related app prompts. You can turn notifications off
+        in Android settings, but reminders may stop working.
+      </p>
+      <p>
+        You can revoke permissions in device settings. Some CogniFocus features
+        may stop working if the required permission is removed.
       </p>
     </section>
 
-    <section class="privacy-card">
-      <div class="privacy-card-header">
-        <div class="privacy-icon" aria-hidden="true">&#128179;</div>
-        <div>
-          <h2>Subscriptions And Purchases</h2>
-          <p>
-            CogniFocus uses RevenueCat and Google Play to manage subscription
-            products, entitlement status, purchase restoration, and subscription
-            management.
-          </p>
-        </div>
-      </div>
-      <p>
-        CogniFocus may receive subscription-related information such as whether
-        your account has active Pro access. Payment details are handled by
-        Google Play and are not stored by CogniFocus.
-      </p>
-      <p>
-        Anonymous users can purchase Pro. Linking Google later helps protect
-        restore access across reinstalls and devices.
-      </p>
-    </section>
-
-    <section class="privacy-card">
+    <section class="privacy-card" id="analytics">
       <div class="privacy-card-header">
         <div class="privacy-icon" aria-hidden="true">&#128202;</div>
         <div>
-          <h2>Analytics And Diagnostics</h2>
+          <h2>Analytics</h2>
           <p>
-            CogniFocus uses Firebase services to understand app usage and
-            improve reliability.
+            Analytics helps us understand what is working, where people get
+            stuck, and how to improve the site and product experience.
           </p>
         </div>
       </div>
       <p>
-        Firebase Analytics, Crashlytics, and Performance Monitoring may be used
-        to detect crashes, diagnose performance issues, and improve reliability.
+        On the website, PostHog and Microsoft Clarity analytics are only
+        initialized after you allow analytics in the cookie consent banner. If
+        you decline, these analytics tools should not initialize for your
+        browser session.
       </p>
       <p>
-        Analytics and diagnostics may include app events, device/platform
-        information, crash logs, performance traces, and feature usage signals.
+        Website analytics may include page views, page leave events, browser or
+        device details, rough usage patterns, heatmap-style interaction signals,
+        and similar product diagnostics. PostHog session replay is not currently
+        enabled.
+      </p>
+      <p>
+        The mobile app may use app analytics or diagnostics to improve
+        reliability, feature quality, and product decisions. Analytics is not a
+        promise that every event is collected, and it is not used to sell your
+        personal data.
       </p>
     </section>
 
-    <section class="privacy-card">
+    <section class="privacy-card" id="third-party-services">
       <div class="privacy-card-header">
         <div class="privacy-icon" aria-hidden="true">&#128279;</div>
         <div>
           <h2>Third-Party Services</h2>
           <p>
-            CogniFocus uses trusted providers to operate app functionality.
+            CogniFocus uses service providers to run the website, backend, app
+            sync, purchases, anti-spam checks, and analytics.
           </p>
         </div>
       </div>
       <ul class="privacy-list">
-        <li>Firebase Authentication</li>
-        <li>Firebase Cloud Firestore</li>
-        <li>Firebase Analytics</li>
-        <li>Firebase Crashlytics</li>
-        <li>Firebase Performance Monitoring</li>
-        <li>RevenueCat</li>
-        <li>Google Play billing/subscription services</li>
+        <li>Firebase / Google Cloud for sign-in, backend services, cloud sync, support flows, and email delivery.</li>
+        <li>Cloudflare Turnstile for website form anti-spam checks.</li>
+        <li>PostHog for website analytics after consent.</li>
+        <li>Microsoft Clarity for website analytics and interaction diagnostics after consent.</li>
+        <li>RevenueCat for mobile premium entitlement and purchase state.</li>
+        <li>Google Play and, where relevant, Apple App Store services for app distribution, subscriptions, and purchase management.</li>
       </ul>
       <p>
-        These providers process data on our behalf to provide authentication,
-        cloud storage, diagnostics, analytics, purchase handling, and app
-        functionality. CogniFocus does not sell your personal data.
+        These providers process data under their own systems and policies. We
+        use them to provide CogniFocus, not to sell your personal data.
       </p>
     </section>
 
-    <section class="privacy-card">
+    <section class="privacy-card" id="upcoming-data">
       <div class="privacy-card-header">
-        <div class="privacy-icon" aria-hidden="true">&#127760;</div>
+        <div class="privacy-icon" aria-hidden="true">&#127758;</div>
         <div>
-          <h2>Cookies and similar technologies</h2>
+          <h2>Upcoming Data</h2>
+          <p>
+            Future versions may collect country/region and language preference
+            for localization, analytics, and product improvement.
+          </p>
         </div>
       </div>
       <p>
-        CogniFocus uses Microsoft Clarity on this website to understand page
-        visits and improve the site experience. We may also use essential
-        browser storage for basic site functionality or preferences, such as
-        remembering interface choices. CogniFocus does not sell your personal
-        data, and we do not use third-party advertising cookies.
+        If this becomes active, we will use it to make CogniFocus more relevant
+        across regions and languages, not to sell your data.
       </p>
     </section>
 
-    <section class="privacy-card">
+    <section class="privacy-card" id="data-deletion">
       <div class="privacy-card-header">
         <div class="privacy-icon" aria-hidden="true">&#128465;</div>
         <div>
-          <h2>Data Retention And Deletion</h2>
+          <h2>Data Deletion</h2>
           <p>
-            CogniFocus keeps account, progress, support, and subscription status
-            data while needed to operate the app, provide support, comply with
-            platform requirements, or until deleted according to app controls
-            and operational needs.
+            You can request deletion or use in-app deletion controls where
+            available.
           </p>
         </div>
       </div>
       <p>
-        You can delete your CogniFocus account from Settings. This removes
-        synced profile and stats data that can be deleted from the client,
-        clears local app data, and deletes the Firebase account.
+        In the app, Settings > Delete Account cancels pending CogniFocus
+        notifications, stops active app services, deletes your synced profile,
+        daily stats, and sync records, tries to delete support records tied to
+        your account, keeps a limited deletion audit record for operational and
+        abuse-prevention purposes, clears local app preferences, and deletes
+        your sign-in account.
       </p>
       <p>
-        Deleting your CogniFocus account does not cancel a Google Play
-        subscription. Subscriptions must be managed or cancelled through Google
-        Play.
+        Some records may remain where required for security, abuse prevention,
+        subscription restore, tax, legal, platform compliance, or if they are
+        controlled by a third-party provider.
       </p>
       <p>
-        Some purchase records may remain managed by Google Play and RevenueCat
-        for subscription management, restore, fraud-prevention, tax, legal, or
-        platform compliance purposes.
+        Deleting CogniFocus data does not automatically cancel an app-store
+        subscription. Subscriptions must be managed through Google Play or the
+        relevant app store.
       </p>
     </section>
 
-    <section class="privacy-card">
-      <div class="privacy-card-header">
-        <div class="privacy-icon" aria-hidden="true">&#9881;</div>
-        <div>
-          <h2>Your Controls</h2>
-          <p>You can manage your permissions, account, and app data.</p>
-        </div>
-      </div>
-      <ul class="privacy-list">
-        <li>Revoke optional permissions in device settings</li>
-        <li>Stop using the app at any time</li>
-        <li>Uninstall the app to remove local data</li>
-        <li>Delete your account from Settings</li>
-        <li>Contact support for access or deletion help</li>
-      </ul>
-    </section>
-
-    <section class="privacy-card privacy-contact-card">
+    <section class="privacy-card privacy-contact-card" id="contact">
       <div class="privacy-card-header">
         <div class="privacy-icon" aria-hidden="true">&#128231;</div>
         <div>
           <h2>Contact</h2>
           <p>
-            For privacy questions or support, use the support option in
-            CogniFocus Settings.
+            For privacy questions, support, access, or deletion help, use the
+            support option in CogniFocus Settings or the contact channel made
+            available on the website.
           </p>
         </div>
       </div>
