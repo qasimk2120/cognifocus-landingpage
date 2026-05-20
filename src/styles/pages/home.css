@@ -2255,6 +2255,114 @@
   }
 }
 
+/* Keep the shared hero/waitlist vacuum animation readable on phones. */
+@media (max-width: 599.98px) {
+  .hero-media {
+    width: min(100%, 340px) !important;
+  }
+
+  .hero-media-card.attention-vacuum-demo,
+  .attention-vacuum-demo {
+    width: min(100%, 340px) !important;
+    max-width: 340px !important;
+  }
+
+  .vacuum-orbit {
+    min-height: 340px !important;
+  }
+
+  .vacuum-app-icon {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 17px !important;
+    padding: 5px !important;
+  }
+
+  .vacuum-app-icon i {
+    font-size: 1.58rem !important;
+  }
+
+  .vacuum-app-ig {
+    --vacuum-x: -96px !important;
+    --vacuum-y: -106px !important;
+  }
+
+  .vacuum-app-tiktok {
+    --vacuum-x: 72px !important;
+    --vacuum-y: -106px !important;
+  }
+
+  .vacuum-app-x {
+    --vacuum-x: 106px !important;
+    --vacuum-y: -18px !important;
+  }
+
+  .vacuum-app-yt {
+    --vacuum-x: 68px !important;
+    --vacuum-y: 104px !important;
+  }
+
+  .vacuum-app-reddit {
+    --vacuum-x: -106px !important;
+    --vacuum-y: 48px !important;
+  }
+
+  .vacuum-app-facebook {
+    --vacuum-x: -40px !important;
+    --vacuum-y: 112px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-media {
+    width: min(100%, 308px) !important;
+  }
+
+  .hero-media-card.attention-vacuum-demo,
+  .attention-vacuum-demo {
+    max-width: 308px !important;
+  }
+
+  .vacuum-orbit {
+    min-height: 308px !important;
+  }
+
+  .vacuum-app-icon {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .vacuum-app-ig {
+    --vacuum-x: -86px !important;
+    --vacuum-y: -96px !important;
+  }
+
+  .vacuum-app-tiktok {
+    --vacuum-x: 64px !important;
+    --vacuum-y: -96px !important;
+  }
+
+  .vacuum-app-x {
+    --vacuum-x: 94px !important;
+    --vacuum-y: -16px !important;
+  }
+
+  .vacuum-app-yt {
+    --vacuum-x: 60px !important;
+    --vacuum-y: 94px !important;
+  }
+
+  .vacuum-app-reddit {
+    --vacuum-x: -94px !important;
+    --vacuum-y: 44px !important;
+  }
+
+  .vacuum-app-facebook {
+    --vacuum-x: -34px !important;
+    --vacuum-y: 100px !important;
+  }
+}
+
 
 
 .hero-section {
@@ -2373,16 +2481,16 @@
   padding: clamp(1.35rem, 4vw, 2.4rem);
   opacity: 0;
   pointer-events: none;
-  transform: translateY(14px) scale(0.985);
+  transform: translateX(14px);
   transition:
-    opacity 0.48s ease,
-    transform 0.48s ease;
+    opacity 0.32s ease,
+    transform 0.32s ease;
 }
 
 .reaction-slide.is-active {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0) scale(1);
+  transform: translateX(0);
 }
 
 .reaction-slide-copy {
@@ -2419,9 +2527,14 @@
 
 .reaction-carousel-progress {
   display: flex;
+  align-items: center;
   justify-content: center;
   gap: 0.55rem;
   margin-top: 1rem;
+}
+
+.reaction-carousel-arrow {
+  display: none;
 }
 
 .reaction-progress-dot {
@@ -2470,10 +2583,10 @@
 @media (max-width: 767.98px) {
   .testimonials-strip {
     padding-top: 0.75rem !important;
-    padding-bottom: 2.25rem !important;
+    padding-bottom: 1.75rem !important;
   }
   .reaction-carousel-card {
-    min-height: 430px;
+    min-height: 330px;
     border-radius: 22px;
   }
   .reaction-slide {
@@ -2481,14 +2594,17 @@
     align-content: center;
     justify-items: center;
     text-align: center;
-    gap: 1.1rem;
+    gap: 0.8rem;
+    padding: 1.15rem !important;
   }
   .reaction-goblin-face {
     grid-row: 1;
-    width: min(62vw, 170px);
+    width: min(42vw, 112px);
   }
   .reaction-slide-copy {
     justify-items: center;
+    gap: 0.7rem;
+    max-width: 18rem;
   }
 }
 
@@ -2525,6 +2641,12 @@
   }
   .reaction-progress-dot {
     background: rgba(var(--cf-light-shadow-rgb), 0.14);
+  }
+  .reaction-carousel-arrow {
+    background: rgba(var(--cf-cyan-rgb), 0.08);
+    border-color: rgba(var(--cf-cyan-rgb), 0.22);
+    color: var(--cf-light-accent);
+    box-shadow: 0 10px 22px rgba(var(--cf-light-shadow-rgb), 0.1);
   }
 }
 
@@ -2564,22 +2686,44 @@
     align-items: center;
   }
   .reaction-carousel-card {
-    width: 85% !important;
+    width: min(100%, 318px) !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
-  .reaction-slide {
-    padding: 1.275rem !important;
-    min-height: auto !important;
+
+  .reaction-carousel-progress {
+    width: min(100%, 318px);
+    justify-content: space-between;
+    gap: 0.45rem;
+    margin-top: 0.8rem;
   }
-  .reaction-goblin-face {
-    width: 85% !important;
-    height: auto !important;
-    max-width: 104px !important;
+
+  .reaction-carousel-arrow {
+    display: inline-grid;
+    place-items: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    flex: 0 0 2.35rem;
+    border: 1px solid rgba(var(--cf-cyan-rgb), 0.26);
+    border-radius: 999px;
+    background: rgba(var(--cf-cyan-rgb), 0.08);
+    color: var(--cf-cyan);
+    box-shadow: 0 10px 22px rgba(var(--cf-black-rgb), 0.16);
   }
+
+  .reaction-carousel-arrow i {
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .reaction-progress-dot {
+    width: 22px;
+    height: 5px;
+  }
+
   .testimonial-quote {
     font-size: 0.95rem !important;
-    line-height: 1.45 !important;
+    line-height: 1.38 !important;
   }
   .testimonial-name {
     font-size: 0.72rem !important;
@@ -2588,16 +2732,21 @@
 
 @media (max-width: 420px) {
   .reaction-carousel-card {
-    width: 85% !important;
+    width: min(100%, 292px) !important;
+    min-height: 318px;
   }
   .reaction-slide {
-    padding: 1.15rem !important;
+    padding: 1rem !important;
   }
   .reaction-goblin-face {
-    max-width: 98px !important;
+    max-width: 94px !important;
   }
   .testimonial-quote {
     font-size: 0.92rem !important;
+  }
+
+  .reaction-carousel-progress {
+    width: min(100%, 292px);
   }
 }
 
@@ -4989,14 +5138,14 @@
   }
 
   .reaction-slide {
-    transform: translateY(8px);
+    transform: translateX(10px);
     transition:
       opacity 0.24s ease,
       transform 0.24s ease;
   }
 
   .reaction-slide.is-active {
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
   .tap-hint {

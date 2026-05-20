@@ -4,6 +4,7 @@ import cheerfulGoblinFace from "../../assets/characters/goblin/face/cheerful.png
 import annoyedGoblinFace from "../../assets/characters/goblin/face/annoyed.png";
 import angryGoblinFace from "../../assets/characters/goblin/face/angry.png";
 import neutralGoblinAvatar from "../../assets/characters/goblin/avatar/neutral.png";
+import SiteIcon from "../shared/SiteIcon.astro";
 ---
 
 <section class="container py-5 testimonials-strip">
@@ -120,6 +121,14 @@ import neutralGoblinAvatar from "../../assets/characters/goblin/avatar/neutral.p
     <div class="reaction-carousel-progress" aria-label="Reaction slides">
       <button
         type="button"
+        class="reaction-carousel-arrow reaction-carousel-arrow--prev"
+        aria-label="Show previous reaction"
+        data-reaction-prev
+      >
+        <SiteIcon name="mdi:chevron-left" aria-hidden="true" />
+      </button>
+      <button
+        type="button"
         class="reaction-progress-dot is-active"
         aria-label="Show reaction 1"
         data-reaction-dot="0"
@@ -142,6 +151,14 @@ import neutralGoblinAvatar from "../../assets/characters/goblin/avatar/neutral.p
         aria-label="Show reaction 4"
         data-reaction-dot="3"
       ></button>
+      <button
+        type="button"
+        class="reaction-carousel-arrow reaction-carousel-arrow--next"
+        aria-label="Show next reaction"
+        data-reaction-next
+      >
+        <SiteIcon name="mdi:chevron-right" aria-hidden="true" />
+      </button>
     </div>
   </div>
 </section>

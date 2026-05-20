@@ -158,8 +158,8 @@ body.ios-waitlist-page.cf-shell{
     margin-top:0.85rem;
   }
   .ios-waitlist-vortex{
-    max-width:300px;
-    transform:scale(0.9);
+    max-width:340px;
+    transform:none;
     transform-origin:center;
   }
   .ios-android-card{
@@ -172,7 +172,7 @@ body.ios-waitlist-page.cf-shell{
     padding:0.8rem;
   }
   .ios-waitlist-vortex{
-    max-width:260px;
+    max-width:320px;
   }
 }
 

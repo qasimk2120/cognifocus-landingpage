@@ -4,6 +4,8 @@ export function initReactionCarousel() {
 
   const slides = Array.from(carousel.querySelectorAll("[data-reaction-slide]"));
   const dots = Array.from(carousel.querySelectorAll("[data-reaction-dot]"));
+  const previousButton = carousel.querySelector("[data-reaction-prev]");
+  const nextButton = carousel.querySelector("[data-reaction-next]");
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
@@ -53,6 +55,16 @@ export function initReactionCarousel() {
       setActiveSlide(nextIndex);
       restartAutoplay();
     });
+  });
+
+  previousButton?.addEventListener("click", () => {
+    setActiveSlide(activeIndex - 1);
+    restartAutoplay();
+  });
+
+  nextButton?.addEventListener("click", () => {
+    setActiveSlide(activeIndex + 1);
+    restartAutoplay();
   });
 
   setActiveSlide(activeIndex);
