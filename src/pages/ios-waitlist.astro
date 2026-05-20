@@ -3,11 +3,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import { Picture } from "astro:assets";
 import goblinCheerfulFace from "../assets/characters/goblin/face/cheerful.png";
 
-const title = "CogniFocus for iOS Waitlist | iPhone Focus App";
-const description = "Join the CogniFocus iOS waitlist and get an email when the iPhone version is ready. CogniFocus is already live on Android.";
+const title = "CogniFocus for iOS — Join the Waitlist";
+const description = "CogniFocus is coming to iPhone. Join the waitlist and we'll let you know when it drops.";
 const canonical = "https://cognifocus.app/ios-waitlist.html";
 const ogTitle = "CogniFocus for iOS is coming";
-const ogDescription = "Join the waitlist and we will email you when the iPhone version is ready.";
+const ogDescription = "Join the waitlist. No fake dates. No corporate nonsense.";
 const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebPage\",\n        \"name\": \"CogniFocus for iOS Waitlist\",\n        \"url\": \"https://cognifocus.app/ios-waitlist.html\",\n        \"description\": \"Join the CogniFocus iOS waitlist and get an email when the iPhone version is ready.\",\n        \"isPartOf\": {\n          \"@type\": \"WebSite\",\n          \"name\": \"CogniFocus\",\n          \"url\": \"https://cognifocus.app/\"\n        },\n        \"about\": {\n          \"@type\": \"SoftwareApplication\",\n          \"name\": \"CogniFocus\",\n          \"applicationCategory\": \"ProductivityApplication\",\n          \"operatingSystem\": \"Android\",\n          \"url\": \"https://cognifocus.app/\",\n          \"downloadUrl\": \"https://play.google.com/store/apps/details?id=io.ionic.cognifocus\"\n        },\n        \"publisher\": {\n          \"@type\": \"Organization\",\n          \"name\": \"CogniElevate\",\n          \"url\": \"https://cognifocus.app/\"\n        }\n      }";
 ---
 
@@ -43,12 +43,11 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
                 <h1 id="iosWaitlistFormTitle">
                   <span class="hero-heading-line">CogniFocus for</span>
                   <span class="hero-heading-line hero-heading-accent"
-                    >iOS is coming.</span
+                    >iOS is coming</span
                   >
                 </h1>
-                <p id="iosWaitlistIntro">
-                  Join the waitlist. We&rsquo;ll email you when the iPhone
-                  version is ready. No fake date. No corporate nonsense.
+                <p id="iosWaitlistIntro" class="ios-waitlist-subtitle">
+                  We&rsquo;ll let you know when it drops.
                 </p>
               </div>
 
@@ -220,3 +219,4 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
     import "../scripts/entries/ios-waitlist.js";
   </script>
 </BaseLayout>
+

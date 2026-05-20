@@ -284,53 +284,53 @@ body.faq-page {
   font-size: 0.99rem;
 }
 .faq-support-card {
-  margin-top: 1.75rem;
-  padding: 1.1rem 1.2rem;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1.1rem 1.15rem;
   border-radius: 18px;
-  border: 1px solid rgba(var(--cf-cyan-rgb), 0.14);
-  background: linear-gradient(
-    145deg,
-    rgba(var(--cf-surface2-rgb), 0.66),
-    rgba(var(--cf-navy-rgb), 0.8)
+  border: 1px solid var(--app-border, rgba(var(--cf-cyan-rgb), 0.14));
+  background: var(
+    --app-surface,
+    linear-gradient(145deg, rgba(var(--cf-surface2-rgb), 0.66), rgba(var(--cf-navy-rgb), 0.8))
   );
+  color: var(--app-text-primary, var(--cf-text));
   box-shadow:
     0 18px 42px rgba(0, 0, 0, 0.22),
     inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.03);
 }
 .faq-support-card-header {
-  display: grid;
-  grid-template-columns: 54px minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+.faq-support-card-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-width: 0;
+}
+.faq-support-card-copy-text {
+  min-width: 0;
 }
 .faq-support-card-header h2 {
   margin: 0;
-  color: var(--cf-text);
+  color: var(--app-text-primary, var(--cf-text));
   font-size: clamp(1.12rem, 2vw, 1.35rem);
   line-height: 1.25;
 }
 .faq-support-card-header p {
   margin: 0.35rem 0 0;
-  color: var(--cf-muted);
+  color: var(--app-text-secondary, var(--cf-muted));
   line-height: 1.6;
 }
-.faq-support-card-header a {
-  color: var(--cf-cyan);
-  font-weight: 700;
-  text-decoration: none;
-}
-.faq-support-card-header a:hover,
-.faq-support-card-header a:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 0.16em;
-}
 .faq-support-card-icon {
-  width: 54px;
-  height: 54px;
+  width: 60px;
+  height: 60px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
+  border-radius: 18px;
   background: linear-gradient(
     135deg,
     rgba(255, 183, 77, 0.96),
@@ -340,25 +340,27 @@ body.faq-page {
   box-shadow: 0 14px 28px rgba(var(--cf-black-rgb), 0.26);
 }
 .faq-support-card-icon i {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   line-height: 1;
 }
 .faq-support-card-links {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.65rem;
-  margin-top: 1rem;
+  margin-top: 0.55rem;
+  width: 100%;
 }
 .faq-support-chip {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
   min-height: 2.4rem;
   padding: 0.4rem 0.75rem;
   border-radius: 999px;
-  border: 1px solid rgba(var(--cf-cyan-rgb), 0.18);
+  border: 1px solid var(--app-border, rgba(var(--cf-cyan-rgb), 0.18));
   background: rgba(var(--cf-light-card-rgb), 0.05);
-  color: var(--cf-text);
+  color: var(--app-text-primary, var(--cf-text));
   font-weight: 700;
   text-decoration: none;
   transition:
@@ -367,15 +369,58 @@ body.faq-page {
     background 0.2s ease,
     color 0.2s ease;
 }
+.faq-support-chip-primary {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.faq-support-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
+  min-height: 3rem;
+  margin-top: 0.8rem;
+  padding: 0.62rem 0.9rem;
+  border-radius: 16px;
+  border: 1px solid var(--app-border, rgba(var(--cf-cyan-rgb), 0.18));
+  background: var(
+    --app-surface,
+    linear-gradient(145deg, rgba(var(--cf-light-card-rgb), 0.08), rgba(var(--cf-cyan-rgb), 0.08))
+  );
+  box-shadow:
+    0 12px 26px rgba(var(--cf-black-rgb), 0.14),
+    inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.12);
+  color: var(--app-text-primary, var(--cf-cyan));
+  font-size: 1rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+.faq-support-cta:hover,
+.faq-support-cta:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(var(--cf-cyan-rgb), 0.34);
+  background: rgba(var(--cf-cyan-rgb), 0.14);
+  color: var(--app-text-primary, var(--cf-text));
+}
+.faq-support-cta i {
+  color: inherit;
+}
 .faq-support-chip:hover,
 .faq-support-chip:focus-visible {
   transform: translateY(-1px);
   border-color: rgba(var(--cf-cyan-rgb), 0.38);
   background: rgba(var(--cf-cyan-rgb), 0.12);
-  color: var(--cf-text);
+  color: var(--app-text-primary, var(--cf-text));
 }
 .faq-support-chip i {
-  color: var(--cf-cyan);
+  color: var(--app-text-secondary, var(--cf-cyan));
 }
 .faq-page .site-footer {
   margin-top: 0;
@@ -449,13 +494,30 @@ body.faq-page {
     padding: 1rem;
   }
   .faq-support-card-header {
+    gap: 0.95rem;
+  }
+  .faq-support-card-copy {
+    gap: 0.7rem;
+  }
+  .faq-support-card-links {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    margin-top: 0.6rem;
+    gap: 0.65rem;
+  }
+  .faq-support-cta {
+    margin-top: 0.9rem;
   }
   .faq-support-card-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
+    width: 58px;
+    height: 58px;
+    border-radius: 17px;
+  }
+  .faq-support-chip {
+    white-space: normal;
+    min-height: 2.75rem;
+    padding: 0.52rem 0.8rem;
+    text-align: center;
+    line-height: 1.2;
   }
   .faq-page .cf-faq-accordion .cf-faq-item {
     padding: 1rem;
@@ -519,45 +581,70 @@ body.faq-page {
     box-shadow: 0 10px 24px rgba(14, 24, 44, 0.08);
   }
   .faq-support-card {
-    background: linear-gradient(145deg, #ffffff, #f4f8ff);
-    border-color: rgba(var(--cf-cobalt-rgb), 0.14);
+    background: var(
+      --app-surface,
+      linear-gradient(145deg, #ffffff, #f4f8ff)
+    );
+    border-color: var(--app-border, rgba(var(--cf-cobalt-rgb), 0.14));
     box-shadow:
       0 14px 30px rgba(14, 24, 44, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.66);
   }
   .faq-support-card:hover,
   .faq-support-card:focus-within {
-    border-color: rgba(var(--cf-cobalt-rgb), 0.24);
+    border-color: var(--app-border, rgba(var(--cf-cobalt-rgb), 0.24));
     box-shadow:
       0 16px 36px rgba(14, 24, 44, 0.12),
       0 0 0 1px rgba(var(--cf-cobalt-rgb), 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.78);
   }
   .faq-support-card-header h2,
-  .faq-support-card-header p {
-    color: #152033;
+  .faq-support-card-header p,
+  .faq-support-card-copy-text h2,
+  .faq-support-card-copy-text p {
+    color: var(--app-text-primary, #152033);
   }
-  .faq-support-card-header a {
-    color: var(--cf-light-accent);
-  }
-  .faq-support-card-header a:hover,
-  .faq-support-card-header a:focus-visible {
-    color: #0b5a8c;
+  .faq-support-card-header p,
+  .faq-support-card-copy-text p {
+    color: var(--app-text-secondary, rgba(21, 32, 51, 0.78));
   }
   .faq-support-chip {
-    border-color: rgba(var(--cf-cobalt-rgb), 0.16);
+    border-color: var(--app-border, rgba(var(--cf-cobalt-rgb), 0.16));
     background: rgba(255, 255, 255, 0.82);
-    color: rgba(21, 32, 51, 0.86);
+    color: var(--app-text-primary, rgba(21, 32, 51, 0.86));
   }
   .faq-support-chip:hover,
   .faq-support-chip:focus-visible {
     border-color: rgba(var(--cf-cobalt-rgb), 0.32);
     background: rgba(var(--cf-cobalt-rgb), 0.1);
-    color: #152033;
+    color: var(--app-text-primary, #152033);
     box-shadow: 0 10px 24px rgba(14, 24, 44, 0.08);
   }
   .faq-support-chip i {
     color: var(--cf-light-accent);
+  }
+  .faq-support-social-link {
+    border-color: var(--app-border, rgba(var(--cf-cobalt-rgb), 0.16));
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--app-text-secondary, var(--cf-light-accent));
+  }
+  .faq-support-social-link:hover,
+  .faq-support-social-link:focus-visible {
+    border-color: rgba(var(--cf-cobalt-rgb), 0.32);
+    background: rgba(var(--cf-cobalt-rgb), 0.1);
+    color: var(--app-text-primary, #152033);
+    box-shadow: 0 10px 24px rgba(14, 24, 44, 0.08);
+  }
+  .faq-support-cta {
+    color: var(--app-text-primary, var(--cf-light-accent));
+    border-color: var(--app-border, rgba(var(--cf-cobalt-rgb), 0.16));
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(var(--cf-cobalt-rgb), 0.08));
+  }
+  .faq-support-cta:hover,
+  .faq-support-cta:focus-visible {
+    color: var(--app-text-primary, #0b5a8c);
+    border-color: rgba(var(--cf-cobalt-rgb), 0.3);
+    background: rgba(var(--cf-cobalt-rgb), 0.1);
   }
   .faq-jump-divider {
     background: linear-gradient(

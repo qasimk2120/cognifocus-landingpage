@@ -108,7 +108,7 @@ body.ios-waitlist-page.cf-shell{
   display: flex;
   justify-content: center;
   min-height: 65px;
-  margin: -0.1rem 0 0;
+  margin: 0.95rem 0 0;
 }
 
 .ios-waitlist-turnstile iframe {

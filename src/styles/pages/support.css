@@ -26,6 +26,10 @@ body.support-page{
   font-size:clamp(2.3rem, 5vw, 4rem);
   line-height:1.04;
   letter-spacing:-0.04em;
+  white-space:nowrap;
+}
+.support-hero h1 .hero-heading-line{
+  display:inline;
 }
 .support-subtitle{
   max-width:760px;
@@ -78,11 +82,32 @@ body.support-page{
   margin-bottom:0;
 }
 .support-note{
-  padding-left:0.95rem;
-  border-left:2px solid rgba(var(--cf-cyan-rgb), 0.26);
+  display:flex;
+  align-items:flex-start;
+  gap:0.6rem;
+  padding:0.8rem 0.95rem;
+  border:1px solid rgba(255, 196, 61, 0.34);
+  border-radius:16px;
+  background:linear-gradient(145deg, rgba(255, 196, 61, 0.14), rgba(255, 138, 0, 0.06));
   color:var(--cf-text);
   font-size:0.92rem;
   line-height:1.55;
+}
+.support-note-alert{
+  box-shadow:0 0 0 1px rgba(255, 196, 61, 0.06) inset;
+}
+.support-note i{
+  flex:0 0 auto;
+  margin-top:0.12rem;
+  color:#ffcd4d;
+  font-size:1.05rem;
+}
+.support-note span{
+  min-width:0;
+}
+.support-note-strong{
+  color:#ffd95e;
+  font-weight:800;
 }
 .support-links{
   display:flex;
@@ -165,6 +190,20 @@ body.support-page{
 }
 .support-field select{
   cursor:pointer;
+  -webkit-appearance:none;
+  appearance:none;
+  padding-right:2.6rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    calc(100% - 1.1rem) calc(50% - 1px),
+    calc(100% - 0.8rem) calc(50% - 1px);
+  background-size:6px 6px, 6px 6px;
+  background-repeat:no-repeat;
+}
+.support-field select::-ms-expand{
+  display:none;
 }
 .support-honeypot{
   position:absolute;
@@ -330,7 +369,17 @@ body.support-page{
   }
   .support-note{
     color:var(--cf-light-text);
-    border-left-color:rgba(var(--cf-cyan-rgb), 0.3);
+    border-color:rgba(255, 196, 61, 0.38);
+    background:linear-gradient(145deg, rgba(255, 223, 117, 0.18), rgba(255, 176, 59, 0.08));
+  }
+  .support-note-alert{
+    box-shadow:0 0 0 1px rgba(255, 196, 61, 0.08) inset;
+  }
+  .support-note i{
+    color:#ffb93f;
+  }
+  .support-note-strong{
+    color:#ffb93f;
   }
   .support-chip{
     background:rgba(var(--cf-light-card-rgb), 0.78);

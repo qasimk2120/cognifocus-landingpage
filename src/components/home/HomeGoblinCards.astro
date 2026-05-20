@@ -36,7 +36,7 @@ const tapHintLabels = {
       </div>
     </div>
 
-    <div class="goblin-cards-grid mt-5">
+    <div class="goblin-cards-grid">
       <!-- Card 1: Angry -->
       <button class="goblin-card" type="button" aria-expanded="false">
         <div class="goblin-card-inner">
@@ -70,6 +70,7 @@ const tapHintLabels = {
               decoding="async"
               width="419"
               height="470"
+              layout="constrained"
             />
             <p class="goblin-moment">opened TikTok again?</p>
             <span class="tap-hint">{tapHintLabels.shieldInterruption}</span>
@@ -95,9 +96,6 @@ const tapHintLabels = {
               </span>
               <span class="goblin-notification-icon notification-chat">
                 <i class="bi bi-chat-dots-fill"></i>
-              </span>
-              <span class="goblin-notification-icon notification-return">
-                <i class="bi bi-arrow-return-left"></i>
               </span>
             </div>
             <div class="goblin-recovery-system" aria-hidden="true">
@@ -125,6 +123,7 @@ const tapHintLabels = {
               decoding="async"
               width="500"
               height="500"
+              layout="constrained"
             />
             <p class="goblin-moment">bro left the session</p>
             <span class="tap-hint">{tapHintLabels.recoverySystem}</span>
@@ -169,6 +168,7 @@ const tapHintLabels = {
               decoding="async"
               width="422"
               height="466"
+              layout="constrained"
             />
             <p class="goblin-moment">
               wait… you actually stayed focused?

@@ -10,6 +10,10 @@
   font-weight: 700;
   line-height: 1.04;
   letter-spacing: -0.045em;
+  white-space: nowrap;
+}
+.pricing-page .pricing-page-hero h1 .hero-heading-line {
+  display: inline;
 }
 
 .pricing-page main.container {

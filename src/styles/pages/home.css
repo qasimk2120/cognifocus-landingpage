@@ -3352,6 +3352,7 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   max-width: 1200px;
+  margin-top: 2.5rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -3432,6 +3433,7 @@
   );
   overflow: hidden;
   z-index: 2;
+  padding-bottom: 2.1rem;
 }
 
 
@@ -3847,7 +3849,7 @@
 
 .notification-return {
   right: 18%;
-  bottom: 18%;
+  bottom: 11%;
   animation-delay: -3.1s;
   transform: rotate(-5deg);
 }
@@ -3915,7 +3917,7 @@
 
 .progress-diamond-chip {
   right: 17%;
-  bottom: 17%;
+  bottom: 10%;
   gap: 0.35rem;
   min-width: 62px;
   min-height: 36px;
@@ -3964,6 +3966,7 @@
   .goblin-cards-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.25rem;
+    margin-top: 2rem;
   }
 
   .goblin-card {
@@ -4031,6 +4034,7 @@
   .goblin-cards-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+    margin-top: 1.5rem;
   }
 
   .goblin-card {
@@ -4455,7 +4459,7 @@
 
 .shield-feature-notifications {
   right: 18%;
-  bottom: 18%;
+  bottom: 11%;
   color: var(--cf-mint);
   border-color: rgba(var(--cf-mint-rgb), 0.28);
   box-shadow:

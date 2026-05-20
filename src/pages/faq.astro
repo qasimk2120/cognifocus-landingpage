@@ -236,7 +236,9 @@ const faqSections = [
         id: "is-ios-coming",
         question: "Is iOS coming?",
         answer:
-          "iOS is not the current focus. If that changes, it will be announced clearly rather than hinted at early.",
+          "Yes — iOS is in the works. Join the waitlist and we'll let you know when it drops.",
+        answerHtml:
+          'Yes — iOS is in the works. <a href="/ios-waitlist.html">Join the waitlist</a> and we\'ll let you know when it drops.',
       },
     ],
   },
@@ -270,8 +272,11 @@ const faqSchema = {
   <main id="main-content" class="faq-main">
     <header class="container text-center faq-hero">
       <span class="feature-kicker">FAQ <span aria-hidden="true">&#10067;</span></span>
-      <h1>Frequently Asked <span class="faq-hero-highlight">Questions</span></h1>
-      <p class="faq-subtitle">Detailed answers about CogniFocus sessions, blocking, progress, privacy, premium features, and support.</p>
+      <h1>
+        Frequently Asked
+        <span class="hero-heading-line hero-heading-accent">Questions</span>
+      </h1>
+      
     </header>
 
     <section class="faq-content-wrap">
@@ -321,7 +326,7 @@ const faqSchema = {
                     </div>
                   </div>
                   <div class="cf-faq-content">
-                    <p>{item.answer}</p>
+                    <p set:html={item.answerHtml ?? item.answer}></p>
                   </div>
                 </article>
               ))}
@@ -334,25 +339,27 @@ const faqSchema = {
             <span class="faq-support-card-icon" aria-hidden="true">
               <i class="bi bi-envelope-paper-heart"></i>
             </span>
-            <div>
-              <h2 id="support-contact-heading">Need help?</h2>
-              <p>
-                Use the support page for bugs, account help, billing, privacy requests, and feature ideas.
-              </p>
+            <div class="faq-support-card-copy">
+              <div class="faq-support-card-copy-text">
+                <h2 id="support-contact-heading">Stuck? Goblin&apos;s got you.</h2>
+                <p>
+                  Bugs, billing, account stuff — hit us up.
+                </p>
+              </div>
             </div>
           </div>
+          <a href="/support.html" class="faq-support-cta">
+            <i class="bi bi-headset" aria-hidden="true"></i>
+            <span>Contact Goblin</span>
+          </a>
           <div class="faq-support-card-links" aria-label="Support contact options">
-            <a href="/support.html" class="faq-support-chip">
-              <i class="bi bi-life-preserver" aria-hidden="true"></i>
-              <span>Open support page</span>
-            </a>
             <a href="/delete-account.html" class="faq-support-chip">
               <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
               <span>Account help</span>
             </a>
             <a href="mailto:getcognifocus@gmail.com" class="faq-support-chip">
               <i class="bi bi-envelope-fill" aria-hidden="true"></i>
-              <span>Email us</span>
+              <span>getcognifocus@gmail.com</span>
             </a>
           </div>
         </section>

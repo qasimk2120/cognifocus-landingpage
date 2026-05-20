@@ -17,21 +17,13 @@ body.whats-new-page {
   line-height: 1.04;
   letter-spacing: -0.045em;
 }
-.whats-new-keyword {
+.whats-new-subtitle {
   max-width: 920px;
   margin: 0 auto 0.75rem;
-  color: var(--cf-cyan);
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1.6;
-}
-.whats-new-subtitle {
-  max-width: 820px;
-  margin: 0 auto;
   color: var(--cf-muted) !important;
   font-size: 1.04rem;
-  line-height: 1.65;
+  line-height: 1.6;
+  text-wrap: balance;
 }
 .whats-new-main {
   width: min(calc(100vw - 48px), 1320px);
@@ -371,9 +363,6 @@ body.whats-new-page {
   }
   .whats-new-page .whats-new-hero h1 {
     color: var(--cf-light-text) !important;
-  }
-  .whats-new-page .whats-new-keyword {
-    color: var(--cf-light-accent) !important;
   }
   .whats-new-page .whats-new-subtitle {
     color: var(--cf-light-muted) !important;

@@ -132,12 +132,17 @@
   }
 }
 .blog-page .seo-guide-main {
-  padding-top: 6.5rem !important;
+  padding-top: 2rem !important;
   max-width: min(1200px, calc(100vw - 28px));
 }
 .blog-page .blog-panel {
   max-width: 980px;
   margin-inline: auto;
+}
+@media (max-width: 991.98px) {
+  .blog-page .seo-guide-main {
+    padding-top: 1.75rem !important;
+  }
 }
 .blog-breadcrumb {
   margin-bottom: 1rem;

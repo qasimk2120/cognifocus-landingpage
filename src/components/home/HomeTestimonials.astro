@@ -1,3 +1,11 @@
+---
+import { Picture } from "astro:assets";
+import cheerfulGoblinFace from "../../assets/characters/goblin/face/cheerful.png";
+import annoyedGoblinFace from "../../assets/characters/goblin/face/annoyed.png";
+import angryGoblinFace from "../../assets/characters/goblin/face/angry.png";
+import neutralGoblinAvatar from "../../assets/characters/goblin/avatar/neutral.png";
+---
+
 <section class="container py-5 testimonials-strip">
   <div class="reaction-carousel" data-reaction-carousel>
     <div class="reaction-carousel-heading">
@@ -28,12 +36,15 @@
           </p>
           <span class="testimonial-name">Early Access User</span>
         </div>
-        <img
+        <Picture
           class="reaction-goblin-face"
-          src="assets/characters/goblin/face/cheerful.png"
+          src={cheerfulGoblinFace}
+          formats={["avif", "webp"]}
+          fallbackFormat="png"
           alt="CogniFocus Cheerful Goblin reacting to a clean focus session"
           width="244"
           height="191"
+          layout="constrained"
           loading="lazy"
           decoding="async"
         />
@@ -47,12 +58,15 @@
           </p>
           <span class="testimonial-name">Beta Tester</span>
         </div>
-        <img
+        <Picture
           class="reaction-goblin-face"
-          src="assets/characters/goblin/face/neutral.png"
+          src={neutralGoblinAvatar}
+          formats={["avif", "webp"]}
+          fallbackFormat="png"
           alt="CogniFocus Neutral Goblin watching a focus session"
           width="244"
           height="191"
+          layout="constrained"
           loading="lazy"
           decoding="async"
         />
@@ -66,12 +80,15 @@
           </p>
           <span class="testimonial-name">Study Session User</span>
         </div>
-        <img
+        <Picture
           class="reaction-goblin-face"
-          src="assets/characters/goblin/face/annoyed.png"
+          src={annoyedGoblinFace}
+          formats={["avif", "webp"]}
+          fallbackFormat="png"
           alt="CogniFocus Annoyed Goblin reacting to a distraction attempt"
           width="244"
           height="191"
+          layout="constrained"
           loading="lazy"
           decoding="async"
         />
@@ -85,12 +102,15 @@
           </p>
           <span class="testimonial-name">Focus Sprint User</span>
         </div>
-        <img
+        <Picture
           class="reaction-goblin-face"
-          src="assets/characters/goblin/face/angry.png"
+          src={angryGoblinFace}
+          formats={["avif", "webp"]}
+          fallbackFormat="png"
           alt="CogniFocus Angry Goblin warning about a distraction"
           width="244"
           height="191"
+          layout="constrained"
           loading="lazy"
           decoding="async"
         />

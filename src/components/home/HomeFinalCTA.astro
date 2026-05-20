@@ -1,3 +1,8 @@
+---
+import { Image } from "astro:assets";
+import textLogoTight from "../../assets/logo/text-logo-tight.png";
+---
+
 <section id="early" class="container py-5 text-center final-focus-section">
   <div class="final-focus-panel mx-auto">
     <span
@@ -10,8 +15,8 @@
     ></span>
 
     <div class="final-focus-logo-wrap" aria-hidden="true">
-      <img
-        src="assets/logo/text-logo-tight.png"
+      <Image
+        src={textLogoTight}
         alt=""
         width="415"
         height="125"
