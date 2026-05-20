@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import SiteIcon from "../shared/SiteIcon.astro";
 import MobileMenu from "./MobileMenu.astro";
 import textLogoTight from "../../assets/logo/text-logo-tight.png";
 
@@ -28,7 +29,7 @@ const { assetBase = "assets" } = Astro.props;
         <a href="/faq.html" class="cf-nav__link">FAQ</a>
         <a href="/whats-new.html" class="cf-nav__link">What's new</a>
         <a href="/ios-waitlist.html" class="cf-nav__link cf-nav__mobile-link" aria-label="Join the iOS waitlist">
-          <i class="bi bi-apple" aria-hidden="true"></i>
+          <SiteIcon name="simple-icons:apple" aria-hidden="true" />
           <span>iOS</span>
           <span class="cf-nav__soon-badge">SOON</span>
         </a>
@@ -42,7 +43,10 @@ const { assetBase = "assets" } = Astro.props;
           data-theme-toggle
           aria-label="Switch to light theme"
         >
-          <i class="bi bi-sun-fill" aria-hidden="true" data-theme-toggle-icon></i>
+          <span class="cf-theme-toggle__icon" aria-hidden="true" data-theme-toggle-icon>
+            <SiteIcon name="mdi:weather-sunny" aria-hidden="true" data-theme-icon="light" />
+            <SiteIcon name="mdi:weather-night" aria-hidden="true" data-theme-icon="dark" />
+          </span>
           <span class="visually-hidden" data-theme-toggle-label>Switch to light theme</span>
         </button>
         <button class="cf-nav__hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="cf-mobile-menu">

@@ -14,15 +14,13 @@ const csp = [
   "form-action 'self'",
   "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://eu-assets.i.posthog.com https://eu.i.posthog.com",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "img-src 'self' data: https://cognifocus.app https://cdn.jsdelivr.net https://startupfa.st https://www.startupfa.st https://dayslaunch.com https://www.producthunt.com https://api.producthunt.com https://peerpush.net https://startupbenchmarks.com https://cdn.prod.website-files.com https://nicklaunches.com",
+  "img-src 'self' data: https://cognifocus.app https://startupfa.st https://www.startupfa.st https://dayslaunch.com https://www.producthunt.com https://api.producthunt.com https://peerpush.net https://startupbenchmarks.com https://cdn.prod.website-files.com https://nicklaunches.com",
   "font-src 'self' https://fonts.gstatic.com",
   "connect-src 'self' https://europe-west1-cognifocuslandingpage.cloudfunctions.net https://eu.i.posthog.com https://eu-assets.i.posthog.com",
   "frame-src https://challenges.cloudflare.com",
   "worker-src 'self' blob:",
   "upgrade-insecure-requests",
 ].join("; ");
-
-const bootstrapIconsStylesheet = "/vendor/bootstrap-icons/bootstrap-icons.css";
 
 const {
   charset = "UTF-8",
@@ -41,10 +39,8 @@ const {
   bodyClass = "cf-shell",
   bodyAttributes = {},
   baseStylesheet = siteStylesheet,
-  includeDefaultBootstrapIcons = true,
   stylesheetsBeforeBase = [],
   stylesheets = [],
-  bootstrapIconsFirst = false,
   footerProps = {},
   featuredStripProps = {},
   launchBannerProps = {},
@@ -95,14 +91,6 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
       root.style.colorScheme = theme;
     </script>
     <slot name="head-after-icon" />
-    {
-      includeDefaultBootstrapIcons && bootstrapIconsFirst && (
-        <link
-          rel="stylesheet"
-          href={bootstrapIconsStylesheet}
-        />
-      )
-    }
 
     <meta property="og:type" content={ogType} />
     {includeOgSiteName && <meta property="og:site_name" content="CogniFocus" />}
@@ -134,14 +122,6 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
     {stylesheetsBeforeBase.map((href) => <link rel="stylesheet" href={href} />)}
     <link rel="stylesheet" href={baseStylesheet} />
     {stylesheets.map((href) => <link rel="stylesheet" href={href} />)}
-    {
-      includeDefaultBootstrapIcons && !bootstrapIconsFirst && (
-        <link
-          rel="stylesheet"
-          href={bootstrapIconsStylesheet}
-        />
-      )
-    }
     <script>
       import "../scripts/entries/shared.js";
     </script>

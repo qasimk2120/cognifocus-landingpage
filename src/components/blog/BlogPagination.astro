@@ -1,4 +1,6 @@
 ---
+import SiteIcon from "../shared/SiteIcon.astro";
+
 const { page, basePath } = Astro.props;
 
 const normalizePageHref = (href) => href?.replace(/\/page\/1(?:\.html)?\/?$/, "/");
@@ -43,7 +45,7 @@ const pageNumbers = getPageNumbers();
     <nav class="blog-pagination" aria-label="Blog pagination">
       {previousHref ? (
         <a href={previousHref} class="blog-pagination-button" aria-label="Previous page">
-          <i class="bi bi-chevron-left" aria-hidden="true"></i>
+          <SiteIcon name="mdi:chevron-left" aria-hidden="true" />
           <span>Prev</span>
         </a>
       ) : (
@@ -74,7 +76,7 @@ const pageNumbers = getPageNumbers();
       {nextHref ? (
         <a href={nextHref} class="blog-pagination-button" aria-label="Next page">
           <span>Next</span>
-          <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          <SiteIcon name="mdi:chevron-right" aria-hidden="true" />
         </a>
       ) : (
         <span class="blog-pagination-spacer" aria-hidden="true"></span>

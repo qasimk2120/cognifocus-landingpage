@@ -11,43 +11,55 @@ export function initPlayStoreRedirect({
 }) {
   let redirectInFlight = false;
   let clickLocked = false;
+  const playStoreIcon = playStoreCta.querySelector(
+    "[data-download-playstore-icon]",
+  );
+  const appleIcon = playStoreCta.querySelector("[data-download-apple-icon]");
+  const externalIcon = playStoreCta.querySelector(
+    "[data-download-external-icon]",
+  );
+  const label = playStoreCta.querySelector("[data-download-cta-label]");
 
-function setStatus(message) {
+  function setStatus(message) {
     redirectStatus.textContent = message;
   }
 
-  function createIcon(className) {
-    const icon = document.createElement("i");
-    icon.className = className;
-    icon.setAttribute("aria-hidden", "true");
-    return icon;
-  }
+  function setCtaIcons({ showPlayStore, showApple, showExternal }) {
+    if (playStoreIcon) {
+      playStoreIcon.hidden = !showPlayStore;
+    }
 
-  function createLabel(text) {
-    const label = document.createElement("span");
-    label.textContent = text;
-    return label;
+    if (appleIcon) {
+      appleIcon.hidden = !showApple;
+    }
+
+    if (externalIcon) {
+      externalIcon.hidden = !showExternal;
+    }
+
+    if (label) {
+      label.hidden = false;
+    }
   }
 
   function setPlayStoreButton() {
     playStoreCta.href = PLAY_STORE_URL;
     playStoreCta.target = "_blank";
     playStoreCta.rel = "noopener noreferrer";
-    playStoreCta.replaceChildren(
-      createIcon("bi bi-google-play"),
-      createLabel("Open in Google Play"),
-      createIcon("bi bi-box-arrow-up-right"),
-    );
+    if (label) {
+      label.textContent = "Open in Google Play";
+    }
+    setCtaIcons({ showPlayStore: true, showApple: false, showExternal: true });
   }
 
   function setIosWaitlistButton() {
     playStoreCta.href = "/ios-waitlist.html";
     playStoreCta.removeAttribute("target");
     playStoreCta.removeAttribute("rel");
-    playStoreCta.replaceChildren(
-      createIcon("bi bi-apple"),
-      createLabel("Join the iOS waitlist"),
-    );
+    if (label) {
+      label.textContent = "Join the iOS waitlist";
+    }
+    setCtaIcons({ showPlayStore: false, showApple: true, showExternal: false });
   }
 
   function attemptRedirect(triggerSource) {

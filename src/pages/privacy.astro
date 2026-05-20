@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteIcon from "../components/shared/SiteIcon.astro";
 
 const title = "Privacy Policy | CogniFocus";
 const description =
@@ -22,7 +23,6 @@ const privacySchema = {
   includeOgSiteName={false}
   twitterAttribute="property"
   bodyClass="privacy-page policy-page cf-shell"
-  bootstrapIconsFirst={true}
   footerProps={{ includePinterest: true }}
   featuredStripProps={{ yoDirectoryInlineStyle: true }}
 >
@@ -44,39 +44,39 @@ const privacySchema = {
   <main class="privacy-main">
     <nav class="privacy-toc page-jump-nav" aria-label="Privacy policy sections">
       <a href="#summary" class="page-jump-link">
-        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-card-checklist"></i></span>
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><SiteIcon name="mdi:clipboard-check-outline" aria-hidden="true" /></span>
         Summary
       </a>
       <a href="#website-data" class="page-jump-link">
-        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-globe2"></i></span>
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><SiteIcon name="mdi:earth" aria-hidden="true" /></span>
         Website Data
       </a>
       <a href="#cloud-synced-data" class="page-jump-link">
-        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><i class="bi bi-cloud-check"></i></span>
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><SiteIcon name="mdi:cloud-check-outline" aria-hidden="true" /></span>
         Cloud-Synced Data
       </a>
       <a href="#local-only-data" class="page-jump-link">
-        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-goblin-rgb);" aria-hidden="true"><i class="bi bi-phone"></i></span>
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-goblin-rgb);" aria-hidden="true"><SiteIcon name="mdi:cellphone" aria-hidden="true" /></span>
         Local-Only Data
       </a>
       <a href="#permissions" class="page-jump-link">
-        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><i class="bi bi-shield-lock"></i></span>
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><SiteIcon name="mdi:shield-lock-outline" aria-hidden="true" /></span>
         Permissions
       </a>
       <a href="#analytics" class="page-jump-link">
-        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-bar-chart"></i></span>
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><SiteIcon name="mdi:chart-bar" aria-hidden="true" /></span>
         Analytics
       </a>
       <a href="#third-party-services" class="page-jump-link">
-        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><i class="bi bi-link-45deg"></i></span>
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><SiteIcon name="mdi:link-variant" aria-hidden="true" /></span>
         Third-Party Services
       </a>
       <a href="#data-deletion" class="page-jump-link">
-        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><i class="bi bi-trash3"></i></span>
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><SiteIcon name="mdi:trash-can-outline" aria-hidden="true" /></span>
         Data Deletion
       </a>
       <a href="#contact" class="page-jump-link">
-        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><SiteIcon name="mdi:email-outline" aria-hidden="true" /></span>
         Contact
       </a>
     </nav>

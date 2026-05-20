@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteIcon from "../components/shared/SiteIcon.astro";
 
 const title = "Terms of Service | CogniFocus";
 const description =
@@ -20,7 +21,6 @@ const termsSchema = {
   ogImageAlt="CogniFocus terms page"
   includeTwitterImageAlt={false}
   bodyClass="terms-page policy-usage cf-shell"
-  bootstrapIconsFirst={true}
   footerProps={{ includePinterest: true }}
   featuredStripProps={{ yoDirectoryInlineStyle: true }}
 >
@@ -57,35 +57,35 @@ const termsSchema = {
     <section class="legal-main">
       <nav class="legal-toc page-jump-nav" aria-label="Terms sections">
         <a href="#using-cognifocus" class="page-jump-link">
-          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><i class="bi bi-check2-square"></i></span>
+            <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><SiteIcon name="mdi:check-all" aria-hidden="true" /></span>
           Using CogniFocus
         </a>
         <a href="#acceptable-use" class="page-jump-link">
-          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><i class="bi bi-shield-check"></i></span>
+            <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><SiteIcon name="mdi:shield-check-outline" aria-hidden="true" /></span>
           Acceptable Use
         </a>
         <a href="#shield-permissions" class="page-jump-link">
-          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-shield-lock"></i></span>
+            <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><SiteIcon name="mdi:shield-lock-outline" aria-hidden="true" /></span>
           Shield And Permissions
         </a>
         <a href="#premium" class="page-jump-link">
-          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-goblin-rgb);" aria-hidden="true"><i class="bi bi-credit-card"></i></span>
+            <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-goblin-rgb);" aria-hidden="true"><SiteIcon name="mdi:credit-card-outline" aria-hidden="true" /></span>
           Premium
         </a>
         <a href="#availability" class="page-jump-link">
-          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-wifi"></i></span>
+            <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><SiteIcon name="mdi:wifi" aria-hidden="true" /></span>
           Availability
         </a>
         <a href="#support" class="page-jump-link">
-          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><i class="bi bi-chat-dots"></i></span>
+            <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><SiteIcon name="mdi:chat-outline" aria-hidden="true" /></span>
           Support
         </a>
         <a href="#liability" class="page-jump-link">
-          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><i class="bi bi-exclamation-triangle"></i></span>
+            <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><SiteIcon name="mdi:alert-outline" aria-hidden="true" /></span>
           Liability
         </a>
         <a href="#contact" class="page-jump-link">
-          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+            <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><SiteIcon name="mdi:email-outline" aria-hidden="true" /></span>
           Contact
         </a>
       </nav>

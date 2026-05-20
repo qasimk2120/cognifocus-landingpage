@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import SiteIcon from "../shared/SiteIcon.astro";
 import appLogo from "../../assets/logo/app-logo.png";
 import textLogoTight from "../../assets/logo/text-logo-tight.png";
 
@@ -56,12 +57,7 @@ const {
                 rel="noopener noreferrer"
                 aria-label="TikTok"
               >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/tiktok.svg"
-                  alt="TikTok social profile for CogniFocus"
-                  width="15"
-                  height="15"
-                />
+                <SiteIcon name="simple-icons:tiktok" aria-hidden="true" />
               </a>
               <a
                 href="https://www.instagram.com/cognifocus.app/"
@@ -69,12 +65,7 @@ const {
                 rel="noopener noreferrer"
                 aria-label="Instagram"
               >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
-                  alt="Instagram social profile for CogniFocus"
-                  width="15"
-                  height="15"
-                />
+                <SiteIcon name="simple-icons:instagram" aria-hidden="true" />
               </a>
               <a
                 href="https://www.facebook.com/share/1Am7kCzkjG/"
@@ -82,12 +73,7 @@ const {
                 rel="noopener noreferrer"
                 aria-label="Facebook"
               >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"
-                  alt="Facebook social profile for CogniFocus"
-                  width="15"
-                  height="15"
-                />
+                <SiteIcon name="simple-icons:facebook" aria-hidden="true" />
               </a>
               <a
                 href={xHref}
@@ -95,12 +81,7 @@ const {
                 rel="noopener noreferrer"
                 aria-label="X"
               >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg"
-                  alt="X social profile for CogniFocus"
-                  width="15"
-                  height="15"
-                />
+                <SiteIcon name="simple-icons:x" aria-hidden="true" />
               </a>
               {
                 includePinterest && (
@@ -110,12 +91,7 @@ const {
                     rel="noopener noreferrer"
                     aria-label="Pinterest"
                   >
-                    <img
-                      src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/pinterest.svg"
-                      alt="Pinterest profile for CogniFocus"
-                      width="15"
-                      height="15"
-                    />
+                    <SiteIcon name="simple-icons:pinterest" aria-hidden="true" />
                   </a>
                 )
               }

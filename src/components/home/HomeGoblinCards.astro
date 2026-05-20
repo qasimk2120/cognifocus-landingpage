@@ -1,5 +1,6 @@
 ---
 import { Picture } from "astro:assets";
+import SiteIcon from "../shared/SiteIcon.astro";
 import angryGoblinAvatar from "../../assets/characters/goblin/avatar/angry.png";
 import annoyedGoblinAvatar from "../../assets/characters/goblin/avatar/annoyed.png";
 import cheerfulGoblinAvatar from "../../assets/characters/goblin/avatar/cheerful.png";
@@ -43,16 +44,16 @@ const tapHintLabels = {
           <div class="goblin-card-front">
             <div class="goblin-card-app-icons" aria-hidden="true">
               <span class="goblin-card-app-icon app-icon-instagram">
-                <i class="bi bi-instagram"></i>
+                <SiteIcon name="simple-icons:instagram" aria-hidden="true" />
               </span>
               <span class="goblin-card-app-icon app-icon-tiktok">
-                <i class="bi bi-tiktok"></i>
+                <SiteIcon name="simple-icons:tiktok" aria-hidden="true" />
               </span>
               <span class="goblin-card-app-icon app-icon-youtube">
-                <i class="bi bi-youtube"></i>
+                <SiteIcon name="simple-icons:youtube" aria-hidden="true" />
               </span>
               <span class="goblin-card-app-icon app-icon-x">
-                <i class="bi bi-twitter-x"></i>
+                <SiteIcon name="simple-icons:x" aria-hidden="true" />
               </span>
             </div>
             <div class="goblin-alert-system" aria-hidden="true">
@@ -92,10 +93,10 @@ const tapHintLabels = {
           <div class="goblin-card-front">
             <div class="goblin-notification-icons" aria-hidden="true">
               <span class="goblin-notification-icon notification-bell">
-                <i class="bi bi-bell-fill"></i>
+                <SiteIcon name="mdi:bell" aria-hidden="true" />
               </span>
               <span class="goblin-notification-icon notification-chat">
-                <i class="bi bi-chat-dots-fill"></i>
+                <SiteIcon name="mdi:chat" aria-hidden="true" />
               </span>
             </div>
             <div class="goblin-recovery-system" aria-hidden="true">
@@ -108,9 +109,9 @@ const tapHintLabels = {
                 ></span>
               </span>
               <span class="recovery-session-chip">
-                <span><i class="bi bi-play-fill"></i> running</span>
-                <span><i class="bi bi-pause-fill"></i> paused</span>
-                <span><i class="bi bi-check-lg"></i> completed</span>
+                <span><SiteIcon name="mdi:play" aria-hidden="true" /> running</span>
+                <span><SiteIcon name="mdi:pause" aria-hidden="true" /> paused</span>
+                <span><SiteIcon name="mdi:check" aria-hidden="true" /> completed</span>
               </span>
             </div>
             <Picture
@@ -145,11 +146,11 @@ const tapHintLabels = {
           <div class="goblin-card-front">
             <div class="goblin-progress-icons" aria-hidden="true">
               <span class="progress-graph-line">
-                <i class="bi bi-graph-up-arrow"></i>
+                <SiteIcon name="mdi:trending-up" aria-hidden="true" />
               </span>
               <span class="progress-xp-chip">+XP</span>
               <span class="progress-diamond-chip">
-                <i class="bi bi-gem"></i>
+                <SiteIcon name="mdi:diamond-stone" aria-hidden="true" />
                 <span>+1</span>
               </span>
             </div>
@@ -192,19 +193,19 @@ const tapHintLabels = {
           <div class="goblin-card-front">
             <div class="goblin-shield-feature-icons" aria-hidden="true">
               <span class="goblin-shield-feature shield-feature-ghost">
-                <i class="bi bi-incognito"></i>
+                <SiteIcon name="mdi:incognito" aria-hidden="true" />
               </span>
               <span class="goblin-shield-feature shield-feature-dnd">
-                <i class="bi bi-dash-circle-fill"></i>
+                <SiteIcon name="mdi:minus-circle-outline" aria-hidden="true" />
               </span>
               <span
                 class="goblin-shield-feature shield-feature-notifications"
               >
-                <i class="bi bi-bell-slash-fill"></i>
+                <SiteIcon name="mdi:bell-off" aria-hidden="true" />
               </span>
             </div>
             <div class="goblin-shield-avatar" aria-hidden="true">
-              <i class="bi bi-shield-lock-fill"></i>
+              <SiteIcon name="mdi:shield-lock" aria-hidden="true" />
             </div>
             <p class="goblin-moment">trying to escape later?</p>
             <span class="tap-hint">{tapHintLabels.shieldRoadmap}</span>

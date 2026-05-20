@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteIcon from "../components/shared/SiteIcon.astro";
 
 const title = "Frequently Asked Questions | CogniFocus";
 const description =
@@ -9,7 +10,7 @@ const faqSections = [
   {
     id: "focus-sessions",
     title: "Focus & Sessions",
-    icon: "bi-hourglass-split",
+    icon: "mdi:timer-sand",
     accentRgb: "239, 159, 39",
     intro: "How the session flow behaves when you start, pause, or drift.",
     items: [
@@ -48,7 +49,7 @@ const faqSections = [
   {
     id: "shield-blocking",
     title: "Shield & Blocking",
-    icon: "bi-shield-lock-fill",
+    icon: "mdi:shield-lock",
     accentRgb: "0, 200, 224",
     intro: "Blocking behavior, permissions, and what the app can and cannot see.",
     items: [
@@ -105,7 +106,7 @@ const faqSections = [
   {
     id: "progress-companion",
     title: "Progress & Companion",
-    icon: "bi-stars",
+    icon: "mdi:star-four-points",
     accentRgb: "106, 191, 60",
     intro: "How the Goblin, reactions, streaks, and XP fit into the session loop.",
     items: [
@@ -138,7 +139,7 @@ const faqSections = [
   {
     id: "premium",
     title: "Premium",
-    icon: "bi-gem",
+    icon: "mdi:diamond-stone",
     accentRgb: "26, 110, 255",
     intro: "What Pro changes and what may remain limited.",
     items: [
@@ -171,7 +172,7 @@ const faqSections = [
   {
     id: "privacy-trust",
     title: "Privacy & Trust",
-    icon: "bi-shield-check",
+    icon: "mdi:shield-check",
     accentRgb: "0, 229, 192",
     intro: "What the app stores, syncs, and does not look at.",
     items: [
@@ -210,7 +211,7 @@ const faqSections = [
   {
     id: "support",
     title: "Support",
-    icon: "bi-headset",
+    icon: "mdi:headset",
     accentRgb: "255, 183, 77",
     intro: "Where CogniFocus runs today and how to get help.",
     items: [
@@ -285,7 +286,7 @@ const faqSchema = {
           {faqSections.map((section) => (
             <a href={`#${section.id}`} class="faq-jump-link page-jump-link" aria-label={`Jump to ${section.title}`}>
               <span class="faq-jump-icon page-jump-icon" style={`--faq-accent-rgb: ${section.accentRgb}; --page-jump-accent-rgb: ${section.accentRgb};`} aria-hidden="true">
-                <i class={`bi ${section.icon}`}></i>
+                <SiteIcon name={section.icon} aria-hidden="true" />
               </span>
               {section.title}
             </a>
@@ -300,7 +301,7 @@ const faqSchema = {
             <div class="faq-category-header">
               <div class="faq-category-heading">
                 <span class="faq-category-icon" style={`--faq-accent-rgb: ${section.accentRgb};`} aria-hidden="true">
-                  <i class={`bi ${section.icon}`}></i>
+                  <SiteIcon name={section.icon} aria-hidden="true" />
                 </span>
                 <h2 id={`${section.id}-heading`}>{section.title}</h2>
               </div>
@@ -331,7 +332,7 @@ const faqSchema = {
         <section class="faq-support-card" aria-labelledby="support-contact-heading">
           <div class="faq-support-card-header">
             <span class="faq-support-card-icon" aria-hidden="true">
-              <i class="bi bi-envelope-paper-heart"></i>
+              <SiteIcon name="mdi:email-heart-outline" aria-hidden="true" />
             </span>
             <div class="faq-support-card-copy">
               <div class="faq-support-card-copy-text">
@@ -343,16 +344,16 @@ const faqSchema = {
             </div>
           </div>
           <a href="/support.html" class="faq-support-cta">
-            <i class="bi bi-headset" aria-hidden="true"></i>
+            <SiteIcon name="mdi:headset" aria-hidden="true" />
             <span>Contact Goblin</span>
           </a>
           <div class="faq-support-card-links" aria-label="Support contact options">
             <a href="/delete-account.html" class="faq-support-chip">
-              <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+              <SiteIcon name="mdi:shield-lock" aria-hidden="true" />
               <span>Account help</span>
             </a>
             <a href="mailto:getcognifocus@gmail.com" class="faq-support-chip">
-              <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+              <SiteIcon name="mdi:email-outline" aria-hidden="true" />
               <span>getcognifocus@gmail.com</span>
             </a>
           </div>

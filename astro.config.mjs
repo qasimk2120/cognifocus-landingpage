@@ -1,4 +1,5 @@
 import { defineConfig } from "astro/config";
+import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 import { copyFile } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
@@ -10,7 +11,10 @@ function canonicalSitemap() {
     hooks: {
       async "astro:build:done"({ dir }) {
         const outDir = fileURLToPath(dir);
-        await copyFile(join(outDir, "sitemap-0.xml"), join(outDir, "sitemap.xml"));
+        await copyFile(
+          join(outDir, "sitemap-0.xml"),
+          join(outDir, "sitemap.xml"),
+        );
       },
     },
   };
@@ -20,6 +24,7 @@ export default defineConfig({
   site: "https://cognifocus.app",
   output: "static",
   integrations: [
+    icon(),
     sitemap({
       serialize(item) {
         const url = new URL(item.url);

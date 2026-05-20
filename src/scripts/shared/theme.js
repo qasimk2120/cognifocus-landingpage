@@ -36,16 +36,11 @@ function setTheme(theme) {
 
 function updateToggle(toggleButton, theme) {
   const isDark = theme === "dark";
-  const icon = toggleButton.querySelector("[data-theme-toggle-icon]");
   const label = toggleButton.querySelector("[data-theme-toggle-label]");
   const nextTheme = isDark ? "light" : "dark";
 
   toggleButton.setAttribute("aria-label", `Switch to ${nextTheme} theme`);
   toggleButton.setAttribute("aria-pressed", String(isDark));
-
-  if (icon) {
-    icon.className = `bi ${isDark ? "bi-sun-fill" : "bi-moon-stars-fill"}`;
-  }
 
   if (label) {
     label.textContent = `Switch to ${nextTheme} theme`;

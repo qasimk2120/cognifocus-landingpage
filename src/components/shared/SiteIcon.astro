@@ -1,0 +1,7 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { name, class: className = "", ...rest } = Astro.props;
+---
+
+<Icon name={name} class={className} {...rest} />

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteIcon from "../components/shared/SiteIcon.astro";
 import supportStylesheet from "../styles/pages/support.css?url";
 
 const title = "Support | CogniFocus";
@@ -100,7 +101,7 @@ const supportCopy = {
           <p>{supportCopy.card.subtext}</p>
           <p>{supportCopy.card.helper}</p>
           <p class="support-note support-note-alert">
-            <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
+            <SiteIcon name="mdi:alert-outline" aria-hidden="true" />
             <span class="support-note__text">
               {supportCopy.card.warning}
             </span>
@@ -108,15 +109,15 @@ const supportCopy = {
 
           <div class="support-links" aria-label={supportCopy.card.linksLabel}>
             <a href="/faq.html" class="support-chip">
-              <i class="bi bi-chat-square-text" aria-hidden="true"></i>
+              <SiteIcon name="mdi:message-text-outline" aria-hidden="true" />
               <span>{supportCopy.card.faq}</span>
             </a>
             <a href="/delete-account.html" class="support-chip">
-              <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
+              <SiteIcon name="mdi:shield-lock" aria-hidden="true" />
               <span>{supportCopy.card.deleteAccount}</span>
             </a>
             <a href="/privacy.html" class="support-chip">
-              <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
+              <SiteIcon name="mdi:file-document-outline" aria-hidden="true" />
               <span>{supportCopy.card.privacy}</span>
             </a>
           </div>
@@ -200,7 +201,7 @@ const supportCopy = {
             id="supportSubmit"
           >
             <span class="support-submit__icon" aria-hidden="true">
-              <i class="bi bi-send-fill"></i>
+              <SiteIcon name="mdi:send" aria-hidden="true" />
             </span>
             <span class="support-submit__label">{supportCopy.form.submitLabel}</span>
           </button>
@@ -230,7 +231,7 @@ const supportCopy = {
               id="supportTurnstileClose"
               aria-label={supportCopy.turnstile.closeLabel}
             >
-              <i class="bi bi-x-lg" aria-hidden="true"></i>
+              <SiteIcon name="mdi:close" aria-hidden="true" />
             </button>
             <div class="turnstile-modal__copy">
               <h2 id="supportTurnstileTitle">{supportCopy.turnstile.title}</h2>

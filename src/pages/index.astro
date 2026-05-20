@@ -29,7 +29,6 @@ const schemas = [
   ogDescription={ogDescription}
   ogImageAlt={ogImageAlt}
   bodyClass="cf-home"
-  includeDefaultBootstrapIcons={false}
   launchBannerProps={{ includeIosNotification: false }}
   footerProps={{ includePinterest: true, faqHref: "/#faq", xHref: "https://x.com/cognielevate" }}
 >
@@ -56,20 +55,6 @@ const schemas = [
   />
   <meta slot="head-after-social" name="p:domain_verify" content="478f5d8e8349b9766bd792c88fe9ae49" />
   {schemas.map((schema) => <script slot="head-after-social" type="application/ld+json" set:html={schema}></script>)}
-
-  <link
-    slot="head-before-base-styles"
-    rel="preload"
-    as="style"
-    href="/vendor/bootstrap-icons/bootstrap-icons.css"
-    onload="this.onload = null; this.rel = 'stylesheet';"
-  />
-  <noscript slot="head-before-base-styles">
-    <link
-      rel="stylesheet"
-      href="/vendor/bootstrap-icons/bootstrap-icons.css"
-    />
-  </noscript>
 
   <main id="main-content">
     <HomeHero />

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteIcon from "../components/shared/SiteIcon.astro";
 import updatesData from "../data/updates.json";
 
 const title = "What's New | CogniFocus";
@@ -186,7 +187,6 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
   ogImageAlt={ogImageAlt}
   bodyClass="whats-new-page cf-shell"
   assetBase="assets"
-  bootstrapIconsFirst={true}
   footerProps={{}}
 >
   <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify({
@@ -250,15 +250,15 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
     <section class="whats-new-main">
       <nav class="whats-new-toc page-jump-nav" aria-label="What's New sections">
         <a href="#updates-overview" class="page-jump-link">
-          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-card-checklist"></i></span>
+            <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><SiteIcon name="mdi:clipboard-text-outline" aria-hidden="true" /></span>
           Overview
         </a>
         <a href="#latest-release" class="page-jump-link">
-          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><i class="bi bi-stars"></i></span>
+            <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><SiteIcon name="mdi:star-four-points" aria-hidden="true" /></span>
           Latest Update
         </a>
         <a href="#update-history" class="page-jump-link">
-          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><i class="bi bi-clock-history"></i></span>
+            <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><SiteIcon name="mdi:clock-outline" aria-hidden="true" /></span>
           Update History
         </a>
       </nav>
