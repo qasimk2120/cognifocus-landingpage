@@ -18,6 +18,67 @@ const schemas = [
   "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebSite\",\n        \"name\": \"CogniFocus\",\n        \"url\": \"https://cognifocus.app/\"\n      }",
   "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebPage\",\n        \"name\": \"CogniFocus - Focus Timer & App Blocker\",\n        \"speakable\": {\n          \"@type\": \"SpeakableSpecification\",\n          \"cssSelector\": [\".seo-eyebrow\", \".hero-muted-override\", \"#faq\"]\n        },\n        \"url\": \"https://cognifocus.app/\"\n      }",
   "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"Organization\",\n        \"name\": \"CogniElevate\",\n        \"url\": \"https://cognifocus.app/\",\n        \"logo\": \"https://cognifocus.app/assets/logo/app-logo.png\",\n        \"sameAs\": [\n          \"https://www.tiktok.com/@cognifocus.app\",\n          \"https://www.instagram.com/cognifocus.app/\",\n          \"https://www.facebook.com/share/1Am7kCzkjG/\",\n          \"https://x.com/cognielevate\",\n          \"https://www.pinterest.com/getcognifocus/\",\n          \"https://www.producthunt.com/products/cognifocus\"\n        ]\n      }"
+  ,
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What makes CogniFocus different?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "CogniFocus is an Android focus timer that pushes back when your attention drifts. Shield blocking, Goblin reactions, and recovery nudges make it feel active during a session instead of passive.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How does Shield block apps during a session?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "During an active session, Shield watches for blocked apps and steps in before the scroll takes over. The Goblin reacts, and the session nudges you back toward work instead of letting the distraction loop win.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is CogniFocus good for ADHD or study focus?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Yes. CogniFocus is built for study blocks, ADHD-friendly focus loops, and anyone who needs a gentler but firmer way to stay on one task.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What happens when I drift or slip?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "If you slip into a blocked app or lose focus, recovery nudges help you come back without losing the whole run. The Goblin keeps the session honest, but one distraction does not have to end it.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Why does CogniFocus need Android permissions?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Usage Access lets CogniFocus see which app is in front so Shield can react. Display over other apps lets the Shield screen appear. Those permissions are used for focus protection, not for reading your content.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What do Free, Pro, and Limitless include?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text:
+            "Basic, or Free, covers the core focus loop with lighter limits. Pro expands the session tools with stronger Shield capacity, Manual Block, Planned Sessions, reminders, recovery nudges, and restore support. If a Limitless tier is offered later, its exact limits and extras will be listed on pricing before checkout.",
+        },
+      },
+    ],
+  })
 ];
 ---
 
