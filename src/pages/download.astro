@@ -28,7 +28,6 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
 >
   <link slot="head-after-social" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap" rel="stylesheet" />
   <script slot="head" type="application/ld+json" set:html={schemaJson} />
-  <script slot="head" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
   <main>
       <header class="container text-center download-hero">
@@ -98,71 +97,19 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
             </span>
             <h2 id="downloadIosWaitlistTitle">Want CogniFocus on iPhone?</h2>
             <p>
-              Join the iOS waitlist and we will email you when the iPhone
-              version is ready.
+              Join the iOS waitlist and we'll let you know when it drops.
             </p>
           </div>
 
-          <form
-            class="download-ios-form"
-            id="downloadIosWaitlistForm"
-            novalidate
-          >
-            <input
-              id="downloadIosWaitlistName"
-              name="name"
-              type="text"
-              autocomplete="name"
-              maxlength="40"
-              placeholder="Name (optional)"
-            />
-
-            <label class="visually-hidden" for="downloadIosWaitlistEmail">
-              Email
-            </label>
-
-            <input
-              id="downloadIosWaitlistEmail"
-              name="email"
-              type="email"
-              autocomplete="email"
-              inputmode="email"
-              required
-              placeholder="you@example.com"
-            />
-
-            <input
-              id="downloadIosWaitlistWebsite"
-              name="website"
-              type="text"
-              tabindex="-1"
-              autocomplete="off"
-              aria-hidden="true"
-            />
-
-            <div
-              class="cf-turnstile download-ios-turnstile"
-              data-sitekey="0x4AAAAAADR7PaDsKmcbHtqJ"
-              data-theme="auto"
-            ></div>
-
-            <button
-              type="submit"
-              class="btn btn-secondary download-ios-submit"
-              id="downloadIosWaitlistSubmit"
+          <div class="download-ios-banner__cta">
+            <a
+              href="/ios-waitlist.html"
+              class="btn btn-secondary download-ios-cta"
             >
               <i class="bi bi-apple" aria-hidden="true"></i>
-              <span>Join iOS waitlist</span>
-            </button>
-
-            <p
-              class="download-ios-message"
-              id="downloadIosWaitlistMessage"
-              role="status"
-              aria-live="polite"
-              hidden
-            ></p>
-          </form>
+              <span>Join the iOS Waitlist</span>
+            </a>
+          </div>
         </section>
       </section>
       <article class="download-card download-info-card download-compact-note">

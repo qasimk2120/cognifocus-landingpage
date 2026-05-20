@@ -391,6 +391,21 @@ body.download-page {
   color: var(--cf-muted);
   line-height: 1.55;
 }
+.download-ios-banner__cta {
+  display: flex;
+  justify-content: flex-end;
+}
+.download-ios-cta {
+  width: min(100%, 360px);
+  min-height: 50px;
+  justify-content: center;
+  gap: 0.45rem;
+  border-radius: 999px !important;
+  text-transform: none !important;
+}
+.download-ios-cta i {
+  color: inherit;
+}
 .download-ios-form {
   display: flex;
   flex-direction: column;
@@ -474,13 +489,11 @@ body.download-page {
     padding: 1rem;
     text-align: center;
   }
-  .download-ios-form {
-    width: 100%;
-    margin-left: 0;
-  }
-  .download-ios-submit {
-    width: 100%;
+  .download-ios-banner__cta {
     justify-content: center;
+  }
+  .download-ios-cta {
+    width: 100%;
   }
   .download-ios-message {
     text-align: center;
