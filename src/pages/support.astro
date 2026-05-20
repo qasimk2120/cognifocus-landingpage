@@ -9,6 +9,56 @@ const canonical = "https://cognifocus.app/support.html";
 const ogTitle = "CogniFocus support";
 const ogDescription =
   "Tell us what broke, what confused you, or what the Goblin failed to prevent";
+const supportCopy = {
+  meta: {
+    ogImageAlt: "CogniFocus support page",
+  },
+  hero: {
+    kicker: "Support",
+    headlinePrefix: "Need",
+    headlineEmphasis: "help?",
+  },
+  card: {
+    headline: "Goblin's listening",
+    subtext: "Bug, billing issue, or just confused - drop it here.",
+    helper:
+      "Keep it short and specific. If you can, mention the screen you were on, the exact step that failed, and any message you saw.",
+    warning:
+      "Account or deletion requests? Use the email tied to your CogniFocus account.",
+    linksLabel: "Helpful support links",
+    faq: "FAQ",
+    deleteAccount: "Delete account",
+    privacy: "Privacy",
+  },
+  form: {
+    nameLabel: "Name",
+    optionalLabel: "optional",
+    namePlaceholder: "What should we call you?",
+    emailLabel: "Email",
+    emailPlaceholder: "you@example.com",
+    topicLabel: "Topic",
+    topicPlaceholder: "Choose a topic",
+    topicOptions: {
+      bug: "Bug report",
+      account: "Account help",
+      billing: "Billing / premium",
+      privacy: "Privacy request",
+      deleteAccount: "Delete account",
+      featureRequest: "Feature request",
+      other: "Other",
+    },
+    messageLabel: "Message",
+    messagePlaceholder: "What happened? Be as specific as you can.",
+    websiteLabel: "Website",
+    submitLabel: "Send request",
+    statusRole: "status",
+  },
+  turnstile: {
+    title: "One sec - quick check",
+    body: "Just making sure you're not a bot. Goblin's watching.",
+    closeLabel: "Close verification",
+  },
+};
 ---
 
 <BaseLayout
@@ -17,7 +67,7 @@ const ogDescription =
   canonical={canonical}
   ogTitle={ogTitle}
   ogDescription={ogDescription}
-  ogImageAlt="CogniFocus support page"
+  ogImageAlt={supportCopy.meta.ogImageAlt}
   bodyClass="support-page cf-shell"
   showFeaturedStrip={false}
   bootstrapIconsFirst={true}
@@ -32,67 +82,63 @@ const ogDescription =
 
   <main id="main-content" class="support-main">
     <header class="container support-hero">
-      <span class="feature-kicker support-eyebrow">Support</span>
+      <span class="feature-kicker support-eyebrow">
+        {supportCopy.hero.kicker}
+      </span>
       <h1>
-        Need <span class="hero-heading-line hero-heading-accent">help?</span>
+        {supportCopy.hero.headlinePrefix}{" "}
+        <span class="hero-heading-line hero-heading-accent">
+          {supportCopy.hero.headlineEmphasis}
+        </span>
       </h1>
-      <p class="hero-muted-override support-subtitle">
-        Tell us what broke, what confused you, or what the Goblin failed to
-        prevent.
-      </p>
     </header>
 
     <section class="container support-content">
-      <section class="support-card" aria-labelledby="supportCardTitle">
+      <section class="support-card" aria-labelledby="supportHeroTitle">
         <div class="support-card-copy">
-          <span class="feature-kicker support-card-eyebrow">
-            Fast, direct help
-          </span>
-          <h2 id="supportCardTitle">Tell us what happened</h2>
-          <p>
-            Keep it short and specific. Mention the screen, what failed, and
-            any message you saw.
-          </p>
+          <h2 id="supportHeroTitle">{supportCopy.card.headline}</h2>
+          <p>{supportCopy.card.subtext}</p>
+          <p>{supportCopy.card.helper}</p>
           <p class="support-note support-note-alert">
             <i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i>
-            <span>
-              <strong class="support-note-strong">Important:</strong> for
-              account or deletion requests, use the email tied to your
-              CogniFocus account
+            <span class="support-note__text">
+              {supportCopy.card.warning}
             </span>
           </p>
 
-          <div class="support-links" aria-label="Helpful support links">
+          <div class="support-links" aria-label={supportCopy.card.linksLabel}>
             <a href="/faq.html" class="support-chip">
               <i class="bi bi-chat-square-text" aria-hidden="true"></i>
-              <span>FAQ</span>
+              <span>{supportCopy.card.faq}</span>
             </a>
             <a href="/delete-account.html" class="support-chip">
               <i class="bi bi-shield-lock-fill" aria-hidden="true"></i>
-              <span>Delete account</span>
+              <span>{supportCopy.card.deleteAccount}</span>
             </a>
             <a href="/privacy.html" class="support-chip">
               <i class="bi bi-file-earmark-text" aria-hidden="true"></i>
-              <span>Privacy</span>
+              <span>{supportCopy.card.privacy}</span>
             </a>
           </div>
         </div>
 
         <form class="support-form" id="supportForm" novalidate>
           <div class="support-field">
-            <label for="supportName">Name <span>optional</span></label>
+            <label for="supportName">
+              {supportCopy.form.nameLabel} <span>{supportCopy.form.optionalLabel}</span>
+            </label>
             <input
               id="supportName"
               name="name"
               type="text"
               autocomplete="name"
               maxlength="80"
-              placeholder="Your name"
+              placeholder={supportCopy.form.namePlaceholder}
             />
           </div>
 
           <div class="support-field">
-            <label for="supportEmail">Email</label>
+            <label for="supportEmail">{supportCopy.form.emailLabel}</label>
             <input
               id="supportEmail"
               name="email"
@@ -100,37 +146,45 @@ const ogDescription =
               autocomplete="email"
               inputmode="email"
               required
-              placeholder="you@example.com"
+              placeholder={supportCopy.form.emailPlaceholder}
             />
           </div>
 
           <div class="support-field">
-            <label for="supportTopic">Topic</label>
-            <select id="supportTopic" name="topic" required>
-              <option value="" selected disabled>Choose a topic</option>
-              <option value="bug">Bug report</option>
-              <option value="account">Account help</option>
-              <option value="billing">Billing / premium</option>
-              <option value="privacy">Privacy request</option>
-              <option value="delete_account">Delete account</option>
-              <option value="feature_request">Feature request</option>
-              <option value="other">Other</option>
-            </select>
+            <label for="supportTopic">{supportCopy.form.topicLabel}</label>
+            <div class="support-field__select-wrap">
+              <select id="supportTopic" name="topic" required>
+                <option value="" selected disabled>
+                  {supportCopy.form.topicPlaceholder}
+                </option>
+                <option value="bug">{supportCopy.form.topicOptions.bug}</option>
+                <option value="account">{supportCopy.form.topicOptions.account}</option>
+                <option value="billing">{supportCopy.form.topicOptions.billing}</option>
+                <option value="privacy">{supportCopy.form.topicOptions.privacy}</option>
+                <option value="delete_account">
+                  {supportCopy.form.topicOptions.deleteAccount}
+                </option>
+                <option value="feature_request">
+                  {supportCopy.form.topicOptions.featureRequest}
+                </option>
+                <option value="other">{supportCopy.form.topicOptions.other}</option>
+              </select>
+            </div>
           </div>
 
           <div class="support-field">
-            <label for="supportMessage">Message</label>
+            <label for="supportMessage">{supportCopy.form.messageLabel}</label>
             <textarea
               id="supportMessage"
               name="message"
               rows="6"
               required
-              placeholder="Tell us what happened, what you expected, and anything that helps us reproduce it"
+              placeholder={supportCopy.form.messagePlaceholder}
             ></textarea>
           </div>
 
           <div class="support-honeypot" aria-hidden="true">
-            <label for="supportWebsite">Website</label>
+            <label for="supportWebsite">{supportCopy.form.websiteLabel}</label>
             <input
               id="supportWebsite"
               name="website"
@@ -148,13 +202,13 @@ const ogDescription =
             <span class="support-submit__icon" aria-hidden="true">
               <i class="bi bi-send-fill"></i>
             </span>
-            <span class="support-submit__label">Send request</span>
+            <span class="support-submit__label">{supportCopy.form.submitLabel}</span>
           </button>
 
           <div
             class="support-message"
             id="supportMessageStatus"
-            role="status"
+            role={supportCopy.form.statusRole}
             aria-live="polite"
             hidden
           ></div>
@@ -174,16 +228,13 @@ const ogDescription =
               type="button"
               class="turnstile-modal__close"
               id="supportTurnstileClose"
-              aria-label="Close verification"
+              aria-label={supportCopy.turnstile.closeLabel}
             >
               <i class="bi bi-x-lg" aria-hidden="true"></i>
             </button>
             <div class="turnstile-modal__copy">
-              <h2 id="supportTurnstileTitle">One sec - quick check</h2>
-              <p id="supportTurnstileBody">
-                Just making sure you&rsquo;re not a bot. Goblin&rsquo;s
-                watching.
-              </p>
+              <h2 id="supportTurnstileTitle">{supportCopy.turnstile.title}</h2>
+              <p id="supportTurnstileBody">{supportCopy.turnstile.body}</p>
               <p
                 class="turnstile-modal__message"
                 id="supportTurnstileMessage"
