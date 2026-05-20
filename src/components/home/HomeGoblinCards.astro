@@ -3,6 +3,13 @@ import { Picture } from "astro:assets";
 import angryGoblinAvatar from "../../assets/characters/goblin/avatar/angry.png";
 import annoyedGoblinAvatar from "../../assets/characters/goblin/avatar/annoyed.png";
 import cheerfulGoblinAvatar from "../../assets/characters/goblin/avatar/cheerful.png";
+
+const tapHintLabels = {
+  shieldInterruption: "tap → see how Shield blocks it",
+  recoverySystem: "tap → see the recovery system",
+  progressRewards: "tap → see what you earn",
+  shieldRoadmap: "tap → see what's coming",
+};
 ---
 
 <section id="why" class="container py-5">
@@ -65,7 +72,7 @@ import cheerfulGoblinAvatar from "../../assets/characters/goblin/avatar/cheerful
               height="470"
             />
             <p class="goblin-moment">opened TikTok again?</p>
-            <span class="tap-hint">tap to reveal</span>
+            <span class="tap-hint">{tapHintLabels.shieldInterruption}</span>
           </div>
           <div class="goblin-card-back">
             <h3>Shield interrupts distractions</h3>
@@ -120,7 +127,7 @@ import cheerfulGoblinAvatar from "../../assets/characters/goblin/avatar/cheerful
               height="500"
             />
             <p class="goblin-moment">bro left the session</p>
-            <span class="tap-hint">tap to reveal</span>
+            <span class="tap-hint">{tapHintLabels.recoverySystem}</span>
           </div>
           <div class="goblin-card-back">
             <h3>Recovery nudges pull you back</h3>
@@ -166,7 +173,7 @@ import cheerfulGoblinAvatar from "../../assets/characters/goblin/avatar/cheerful
             <p class="goblin-moment">
               wait… you actually stayed focused?
             </p>
-            <span class="tap-hint">tap to reveal</span>
+            <span class="tap-hint">{tapHintLabels.progressRewards}</span>
           </div>
           <div class="goblin-card-back">
             <h3>Clean focus turns into progress</h3>
@@ -200,7 +207,7 @@ import cheerfulGoblinAvatar from "../../assets/characters/goblin/avatar/cheerful
               <i class="bi bi-shield-lock-fill"></i>
             </div>
             <p class="goblin-moment">trying to escape later?</p>
-            <span class="tap-hint">tap to reveal</span>
+            <span class="tap-hint">{tapHintLabels.shieldRoadmap}</span>
           </div>
           <div class="goblin-card-back">
             <h3>Stronger protection is coming</h3>
