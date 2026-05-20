@@ -2,11 +2,13 @@ import { SUPPORT_ENDPOINT } from "./constants.js";
 import {
   JSON_FETCH_HEADERS,
   parseJsonResponse,
+  removeTurnstileWidget,
   resetTurnstileWidget,
 } from "../shared/waitlist-response.js";
 
 const SUCCESS_MESSAGE = "Got it. The Goblin delivered your request.";
 const ERROR_MESSAGE = "Couldn't send it. The Goblin tripped over a cable.";
+const TURNSTILE_SITEKEY = "0x4AAAAAADR7PaDsKmcbHtqJ";
 const STATUS_MESSAGES = {
   429: "Too many attempts. Give the Goblin a minute.",
   403: "Verification failed. Try again.",
@@ -36,6 +38,7 @@ export function initSupportForm() {
   const turnstileModal = document.getElementById("supportTurnstileModal");
   const turnstileModalMessage = document.getElementById("supportTurnstileMessage");
   const turnstileCloseButton = document.getElementById("supportTurnstileClose");
+  const turnstileWidgetMount = document.getElementById("supportTurnstileWidget");
 
   if (
     !form ||
@@ -54,6 +57,7 @@ export function initSupportForm() {
   const defaultLabel = submitLabel.textContent || "Send request";
   let isSubmitting = false;
   let pendingSubmission = null;
+  let turnstileWidgetId = null;
   const submitButtonContent = submitButton.innerHTML;
 
   function setStatus(text, type) {
@@ -79,6 +83,58 @@ export function initSupportForm() {
     supportCard?.classList.toggle("is-turnstile-active", isBlurred);
   }
 
+  function clearTurnstileWidget() {
+    if (turnstileWidgetId === null) {
+      return;
+    }
+
+    removeTurnstileWidget(turnstileWidgetId);
+    turnstileWidgetId = null;
+  }
+
+  function renderTurnstileWidget() {
+    if (!turnstileWidgetMount || !window.turnstile?.render) {
+      return null;
+    }
+
+    if (turnstileWidgetId !== null) {
+      resetTurnstileWidget(turnstileWidgetId);
+      return turnstileWidgetId;
+    }
+
+    turnstileWidgetId = window.turnstile.render(turnstileWidgetMount, {
+      sitekey: TURNSTILE_SITEKEY,
+      theme: "dark",
+      callback(turnstileToken) {
+        hideTurnstileModal();
+        void submitPendingSubmission(turnstileToken);
+      },
+      "error-callback"() {
+        if (turnstileModal) {
+          turnstileModal.hidden = false;
+          turnstileModal.classList.add("is-visible", "is-error");
+        }
+        setBlurState(true);
+        setTurnstileMessage("Verification failed. Try again.", "error");
+        isSubmitting = false;
+        setLoading(false);
+      },
+      "expired-callback"() {
+        if (turnstileModal) {
+          turnstileModal.hidden = false;
+          turnstileModal.classList.add("is-visible", "is-error");
+        }
+        setBlurState(true);
+        setTurnstileMessage("Verification expired. Try again.", "error");
+        isSubmitting = false;
+        setLoading(false);
+        resetTurnstileWidget(turnstileWidgetId);
+      },
+    });
+
+    return turnstileWidgetId;
+  }
+
   function showTurnstileModal() {
     if (!turnstileModal) return;
     turnstileModal.hidden = false;
@@ -87,6 +143,7 @@ export function initSupportForm() {
     setBlurState(true);
     window.requestAnimationFrame(() => {
       turnstileModal.classList.add("is-visible");
+      renderTurnstileWidget();
     });
   }
 
@@ -104,17 +161,9 @@ export function initSupportForm() {
     pendingSubmission = null;
     isSubmitting = false;
     setLoading(false);
-    resetTurnstileWidget();
+    clearTurnstileWidget();
     hideTurnstileModal();
     statusMessage.hidden = true;
-  }
-
-  function getTurnstileToken() {
-    return (
-      document.querySelector(
-        "#supportTurnstileModal [name='cf-turnstile-response']",
-      )?.value || ""
-    );
   }
 
   function getFieldValue(field) {
@@ -151,25 +200,27 @@ export function initSupportForm() {
       if (response.ok) {
         form.reset();
         setStatus(SUCCESS_MESSAGE, "success");
+        clearTurnstileWidget();
         hideTurnstileModal();
-        resetTurnstileWidget();
         pendingSubmission = null;
         return;
       }
 
       const statusText = getStatusMessage(response.status);
-      resetTurnstileWidget();
 
       if (statusText) {
+        showTurnstileModal();
         setTurnstileMessage(statusText, "error");
         setStatus(statusText, "error");
+        resetTurnstileWidget(turnstileWidgetId);
         return;
       }
 
+      clearTurnstileWidget();
       setTurnstileMessage(ERROR_MESSAGE, "error");
       setStatus(ERROR_MESSAGE, "error");
     } catch (_error) {
-      resetTurnstileWidget();
+      clearTurnstileWidget();
       setTurnstileMessage(ERROR_MESSAGE, "error");
       setStatus(ERROR_MESSAGE, "error");
     } finally {
@@ -179,35 +230,7 @@ export function initSupportForm() {
     }
   }
 
-  window.supportTurnstileOnSuccess = (turnstileToken) => {
-    hideTurnstileModal();
-    void submitPendingSubmission(turnstileToken);
-  };
-
-  window.supportTurnstileOnError = () => {
-    if (turnstileModal) {
-      turnstileModal.hidden = false;
-      turnstileModal.classList.add("is-visible", "is-error");
-    }
-    setBlurState(true);
-    setTurnstileMessage("Verification failed. Try again.", "error");
-    isSubmitting = false;
-    setLoading(false);
-  };
-
   turnstileCloseButton?.addEventListener("click", cancelTurnstileVerification);
-
-  window.supportTurnstileOnExpired = () => {
-    if (turnstileModal) {
-      turnstileModal.hidden = false;
-      turnstileModal.classList.add("is-visible", "is-error");
-    }
-    setBlurState(true);
-    setTurnstileMessage("Verification expired. Try again.", "error");
-    isSubmitting = false;
-    setLoading(false);
-    resetTurnstileWidget();
-  };
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -244,11 +267,5 @@ export function initSupportForm() {
     statusMessage.hidden = true;
     setLoading(true);
     showTurnstileModal();
-
-    const turnstileToken = getTurnstileToken();
-    if (turnstileToken) {
-      hideTurnstileModal();
-      void submitPendingSubmission(turnstileToken);
-    }
   });
 }

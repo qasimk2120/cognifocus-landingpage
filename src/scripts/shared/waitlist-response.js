@@ -22,8 +22,19 @@ export function isVerificationFailure(data) {
   return data?.error === "Verification failed";
 }
 
-export function resetTurnstileWidget() {
+export function resetTurnstileWidget(widgetId) {
+  if (typeof widgetId === "number" || typeof widgetId === "string") {
+    window.turnstile?.reset?.(widgetId);
+    return;
+  }
+
   window.turnstile?.reset?.();
+}
+
+export function removeTurnstileWidget(widgetId) {
+  if (typeof widgetId === "number" || typeof widgetId === "string") {
+    window.turnstile?.remove?.(widgetId);
+  }
 }
 
 export async function parseJsonResponse(response) {

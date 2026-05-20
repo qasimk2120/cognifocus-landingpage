@@ -11,12 +11,15 @@ import {
   isVerificationFailure,
   JSON_FETCH_HEADERS,
   parseJsonResponse,
+  removeTurnstileWidget,
   resetTurnstileWidget,
 } from "../shared/waitlist-response.js";
 
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
+
+const TURNSTILE_SITEKEY = "0x4AAAAAADR7PaDsKmcbHtqJ";
 
 export function initIosWaitlistForm() {
   const form = document.getElementById("iosWaitlistForm");
@@ -32,6 +35,7 @@ export function initIosWaitlistForm() {
   const turnstileModalMessage = document.getElementById(
     "iosWaitlistTurnstileMessage",
   );
+  const turnstileWidgetMount = document.getElementById("iosWaitlistTurnstileWidget");
 
   if (
     !form ||
@@ -46,6 +50,7 @@ export function initIosWaitlistForm() {
 
   let isSubmitting = false;
   let pendingSubmission = null;
+  let turnstileWidgetId = null;
   // Trusted local button markup is restored after the loading text state.
   const submitButtonContent = submitButton.innerHTML;
 
@@ -66,6 +71,64 @@ export function initIosWaitlistForm() {
     waitlistCard?.classList.toggle("is-turnstile-active", isBlurred);
   }
 
+  function clearTurnstileWidget() {
+    if (turnstileWidgetId === null) {
+      return;
+    }
+
+    removeTurnstileWidget(turnstileWidgetId);
+    turnstileWidgetId = null;
+  }
+
+  function renderTurnstileWidget() {
+    if (!turnstileWidgetMount || !window.turnstile?.render) {
+      return null;
+    }
+
+    if (turnstileWidgetId !== null) {
+      resetTurnstileWidget(turnstileWidgetId);
+      return turnstileWidgetId;
+    }
+
+    turnstileWidgetId = window.turnstile.render(turnstileWidgetMount, {
+      sitekey: TURNSTILE_SITEKEY,
+      theme: "dark",
+      callback(turnstileToken) {
+        hideTurnstileModal();
+        void submitPendingSubmission(turnstileToken);
+      },
+      "error-callback"() {
+        if (turnstileModal) {
+          turnstileModal.hidden = false;
+          turnstileModal.classList.add("is-visible", "is-error");
+        }
+        setBlurState(true);
+        setTurnstileModalMessage(
+          "Verification failed. Try again.",
+          "error",
+        );
+        isSubmitting = false;
+        setLoading(false);
+      },
+      "expired-callback"() {
+        if (turnstileModal) {
+          turnstileModal.hidden = false;
+          turnstileModal.classList.add("is-visible", "is-error");
+        }
+        setBlurState(true);
+        setTurnstileModalMessage(
+          "Verification expired. Try again.",
+          "error",
+        );
+        isSubmitting = false;
+        setLoading(false);
+        resetTurnstileWidget(turnstileWidgetId);
+      },
+    });
+
+    return turnstileWidgetId;
+  }
+
   function showTurnstileModal() {
     if (!turnstileModal) return;
     turnstileModal.hidden = false;
@@ -74,6 +137,7 @@ export function initIosWaitlistForm() {
     setBlurState(true);
     window.requestAnimationFrame(() => {
       turnstileModal.classList.add("is-visible");
+      renderTurnstileWidget();
     });
   }
 
@@ -91,7 +155,7 @@ export function initIosWaitlistForm() {
     pendingSubmission = null;
     isSubmitting = false;
     setLoading(false);
-    resetTurnstileWidget();
+    clearTurnstileWidget();
     hideTurnstileModal();
     message.hidden = true;
   }
@@ -103,14 +167,6 @@ export function initIosWaitlistForm() {
     if (!isLoading) {
       submitButton.innerHTML = submitButtonContent;
     }
-  }
-
-  function getTurnstileToken() {
-    return (
-      document.querySelector(
-        "#iosWaitlistTurnstileModal [name='cf-turnstile-response']",
-      )?.value || ""
-    );
   }
 
   function showJoinedState(text) {
@@ -153,38 +209,40 @@ export function initIosWaitlistForm() {
       const data = await parseJsonResponse(response);
 
       if (isVerificationFailure(data)) {
+        showTurnstileModal();
         setTurnstileModalMessage(
           getWaitlistMessageForStatus(403) || "Verification failed. Try again.",
           "error",
         );
         setMessage(getWaitlistMessageForStatus(403), "error");
-        resetTurnstileWidget();
+        resetTurnstileWidget(turnstileWidgetId);
         pendingSubmission = null;
         return;
       }
 
       if (isHandledWaitlistStatus(response.status)) {
+        showTurnstileModal();
         const statusMessage = getWaitlistMessageForStatus(response.status);
         setTurnstileModalMessage(statusMessage || ERROR_MESSAGE, "error");
         setMessage(statusMessage || ERROR_MESSAGE, "error");
-        resetTurnstileWidget();
+        resetTurnstileWidget(turnstileWidgetId);
         pendingSubmission = null;
         return;
       }
 
       if (!response.ok) {
-        resetTurnstileWidget();
+        clearTurnstileWidget();
         throw new Error("Waitlist request failed");
       }
 
       showJoinedState(
         data.alreadyJoined ? ALREADY_JOINED_MESSAGE : SUCCESS_MESSAGE,
       );
+      clearTurnstileWidget();
       hideTurnstileModal();
-      resetTurnstileWidget();
       pendingSubmission = null;
     } catch (_error) {
-      resetTurnstileWidget();
+      clearTurnstileWidget();
       setTurnstileModalMessage(
         "Could not verify right now. Try again in a moment.",
         "error",
@@ -196,44 +254,7 @@ export function initIosWaitlistForm() {
       setLoading(false);
     }
   }
-
-  window.iosWaitlistTurnstileOnSuccess = (turnstileToken) => {
-    hideTurnstileModal();
-    void submitPendingSubmission(turnstileToken);
-  };
-
-  window.iosWaitlistTurnstileOnError = () => {
-    if (turnstileModal) {
-      turnstileModal.hidden = false;
-      turnstileModal.classList.add("is-visible", "is-error");
-    }
-    setBlurState(true);
-    setTurnstileModalMessage(
-      "Verification failed. Try again.",
-      "error",
-    );
-    pendingSubmission = null;
-    isSubmitting = false;
-    setLoading(false);
-  };
-
   turnstileCloseButton?.addEventListener("click", cancelTurnstileVerification);
-
-  window.iosWaitlistTurnstileOnExpired = () => {
-    if (turnstileModal) {
-      turnstileModal.hidden = false;
-      turnstileModal.classList.add("is-visible", "is-error");
-    }
-    setBlurState(true);
-    setTurnstileModalMessage(
-      "Verification expired. Try again.",
-      "error",
-    );
-    pendingSubmission = null;
-    isSubmitting = false;
-    setLoading(false);
-    resetTurnstileWidget();
-  };
 
   try {
     if (localStorage.getItem(STORAGE_KEY) === "true") {
@@ -268,11 +289,5 @@ export function initIosWaitlistForm() {
     message.hidden = true;
     setLoading(true, "Verifying...");
     showTurnstileModal();
-
-    const turnstileToken = getTurnstileToken();
-    if (turnstileToken) {
-      hideTurnstileModal();
-      void submitPendingSubmission(turnstileToken);
-    }
   });
 }

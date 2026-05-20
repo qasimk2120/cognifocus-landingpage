@@ -25,7 +25,7 @@ const ogDescription =
 >
   <script
     slot="head"
-    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
     async
     defer
   ></script>
@@ -194,12 +194,8 @@ const ogDescription =
               ></p>
             </div>
             <div
-              class="cf-turnstile turnstile-modal__widget"
-              data-sitekey="0x4AAAAAADR7PaDsKmcbHtqJ"
-              data-theme="dark"
-              data-callback="supportTurnstileOnSuccess"
-              data-error-callback="supportTurnstileOnError"
-              data-expired-callback="supportTurnstileOnExpired"
+              class="turnstile-modal__widget"
+              id="supportTurnstileWidget"
             ></div>
           </div>
         </aside>

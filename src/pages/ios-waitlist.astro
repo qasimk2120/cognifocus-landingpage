@@ -26,7 +26,12 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
 >
   <link slot="head-after-social" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap" rel="stylesheet" />
   <script slot="head" type="application/ld+json" set:html={schemaJson} />
-  <script slot="head" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <script
+    slot="head"
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+    async
+    defer
+  ></script>
 
   <main id="main-content">
       <section class="ios-waitlist-form-section">
@@ -238,12 +243,8 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
                   ></p>
                 </div>
                 <div
-                  class="cf-turnstile turnstile-modal__widget"
-                  data-sitekey="0x4AAAAAADR7PaDsKmcbHtqJ"
-                  data-theme="dark"
-                  data-callback="iosWaitlistTurnstileOnSuccess"
-                  data-error-callback="iosWaitlistTurnstileOnError"
-                  data-expired-callback="iosWaitlistTurnstileOnExpired"
+                  class="turnstile-modal__widget"
+                  id="iosWaitlistTurnstileWidget"
                 ></div>
               </div>
             </aside>
