@@ -245,15 +245,28 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
         <span class="hero-heading-line hero-heading-accent">CogniFocus</span>
       </h1>
 
-      <p class="hero-muted-override whats-new-subtitle">
-        Follow the latest product improvements, feature rollouts, polish
-        passes, and reliability updates across the app.
-      </p>
-
     </header>
 
     <section class="whats-new-main">
-      <section class="whats-new-card whats-new-card-highlight updates-intro-card">
+      <nav class="whats-new-toc page-jump-nav" aria-label="What's New sections">
+        <a href="#updates-overview" class="page-jump-link">
+          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-card-checklist"></i></span>
+          Overview
+        </a>
+        <a href="#latest-release" class="page-jump-link">
+          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><i class="bi bi-stars"></i></span>
+          Latest Update
+        </a>
+        <a href="#update-history" class="page-jump-link">
+          <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><i class="bi bi-clock-history"></i></span>
+          Update History
+        </a>
+      </nav>
+      <div class="whats-new-pill-divider page-jump-divider" aria-hidden="true">
+        <span></span>
+      </div>
+
+      <section class="whats-new-card whats-new-card-highlight updates-intro-card" id="updates-overview">
         <div class="whats-new-card-header">
           <div class="whats-new-icon" aria-hidden="true">&#128221;</div>
           <div>
@@ -287,7 +300,7 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
         </div>
       </section>
 
-      <section class="latest-release-block">
+      <section class="latest-release-block" id="latest-release">
         <div class="section-heading">
           <span class="feature-kicker">
             Latest Update <span aria-hidden="true">&#10024;</span>
@@ -320,7 +333,7 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
         </div>
       </section>
 
-      <section class="release-history-block">
+      <section class="release-history-block" id="update-history">
         <div class="section-heading">
           <span class="feature-kicker">
             Update History <span aria-hidden="true">&#128218;</span>

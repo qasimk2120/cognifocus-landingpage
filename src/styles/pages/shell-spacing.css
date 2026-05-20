@@ -1,0 +1,41 @@
+body.faq-page.cf-shell,
+body.download-page.cf-shell,
+body.whats-new-page.cf-shell,
+body.privacy-page.cf-shell,
+body.terms-page.cf-shell,
+body.delete-account-page.cf-shell,
+body.support-page.cf-shell {
+  padding-top: calc(var(--cf-launch-banner-height) + 60px);
+}
+
+.cf-launch-ended body.faq-page.cf-shell,
+.cf-launch-ended body.download-page.cf-shell,
+.cf-launch-ended body.whats-new-page.cf-shell,
+.cf-launch-ended body.privacy-page.cf-shell,
+.cf-launch-ended body.terms-page.cf-shell,
+.cf-launch-ended body.delete-account-page.cf-shell,
+.cf-launch-ended body.support-page.cf-shell {
+  padding-top: 60px;
+}
+
+.faq-page .faq-hero,
+.download-page .download-hero,
+.whats-new-page .whats-new-hero,
+.privacy-page .privacy-hero,
+.terms-page .legal-hero,
+.delete-account-page .delete-hero,
+.support-page .support-hero {
+  padding-top: 0.5rem !important;
+}
+
+@media (min-width: 992px) {
+  .faq-page .faq-hero,
+  .download-page .download-hero,
+  .whats-new-page .whats-new-hero,
+  .privacy-page .privacy-hero,
+  .terms-page .legal-hero,
+  .delete-account-page .delete-hero,
+  .support-page .support-hero {
+    padding-top: 1rem !important;
+  }
+}

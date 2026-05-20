@@ -4,6 +4,12 @@ body.support-page{
     radial-gradient(circle at 80% 0%, rgba(var(--cf-cyan-rgb), 0.12), transparent 40%),
     var(--cf-black);
 }
+body.support-page.cf-shell{
+  padding-top:calc(var(--cf-launch-banner-height) + 60px);
+}
+.cf-launch-ended body.support-page.cf-shell{
+  padding-top:60px;
+}
 .support-page main{
   position:relative;
   z-index:1;
@@ -14,7 +20,7 @@ body.support-page{
 .support-hero{
   width:min(calc(100vw - 48px), 1100px);
   margin:0 auto;
-  padding:2.6rem 0 1.4rem;
+  padding:0.5rem 0 1.25rem;
   text-align:center;
 }
 .support-eyebrow{
@@ -467,7 +473,7 @@ body.support-page{
 
 @media (max-width: 991.98px){
   .support-hero{
-    padding-top:2.3rem;
+    padding-top:1rem;
   }
   .support-card{
     grid-template-columns:1fr;
@@ -485,7 +491,7 @@ body.support-page{
     width:calc(100vw - 24px);
   }
   .support-hero{
-    padding-top:1.6rem;
+    padding-top:0.5rem;
     padding-bottom:1.05rem;
   }
   .support-card{

@@ -29,28 +29,60 @@ const privacySchema = {
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(privacySchema, null, 2)} />
 
   <header class="privacy-hero">
+    <span class="feature-kicker">
+      Privacy <span aria-hidden="true">&#128274;</span>
+    </span>
+
     <h1>
       Privacy <span class="hero-heading-line hero-heading-accent">Policy</span>
     </h1>
-    <p class="privacy-keyword-variation">Website and app data, without the fog.</p>
     <p class="privacy-subtitle">
-      Last updated: May 19, 2026. CogniFocus includes a public website and an
-      Android app. This policy explains what each part may store, sync, and use.
+      <span class="policy-updated">Last updated: May 19, 2026</span>
     </p>
   </header>
 
   <main class="privacy-main">
-    <nav class="privacy-toc" aria-label="Privacy policy sections">
-      <a href="#summary">Summary</a>
-      <a href="#website-data">Website Data</a>
-      <a href="#cloud-synced-data">Cloud-Synced Data</a>
-      <a href="#local-only-data">Local-Only Data</a>
-      <a href="#permissions">Permissions</a>
-      <a href="#analytics">Analytics</a>
-      <a href="#third-party-services">Third-Party Services</a>
-      <a href="#data-deletion">Data Deletion</a>
-      <a href="#contact">Contact</a>
+    <nav class="privacy-toc page-jump-nav" aria-label="Privacy policy sections">
+      <a href="#summary" class="page-jump-link">
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-card-checklist"></i></span>
+        Summary
+      </a>
+      <a href="#website-data" class="page-jump-link">
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-globe2"></i></span>
+        Website Data
+      </a>
+      <a href="#cloud-synced-data" class="page-jump-link">
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><i class="bi bi-cloud-check"></i></span>
+        Cloud-Synced Data
+      </a>
+      <a href="#local-only-data" class="page-jump-link">
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-goblin-rgb);" aria-hidden="true"><i class="bi bi-phone"></i></span>
+        Local-Only Data
+      </a>
+      <a href="#permissions" class="page-jump-link">
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><i class="bi bi-shield-lock"></i></span>
+        Permissions
+      </a>
+      <a href="#analytics" class="page-jump-link">
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-bar-chart"></i></span>
+        Analytics
+      </a>
+      <a href="#third-party-services" class="page-jump-link">
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-mint-rgb);" aria-hidden="true"><i class="bi bi-link-45deg"></i></span>
+        Third-Party Services
+      </a>
+      <a href="#data-deletion" class="page-jump-link">
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-amber-rgb);" aria-hidden="true"><i class="bi bi-trash3"></i></span>
+        Data Deletion
+      </a>
+      <a href="#contact" class="page-jump-link">
+        <span class="page-jump-icon" style="--page-jump-accent-rgb: var(--cf-cyan-rgb);" aria-hidden="true"><i class="bi bi-envelope"></i></span>
+        Contact
+      </a>
     </nav>
+    <div class="policy-pill-divider page-jump-divider" aria-hidden="true">
+      <span></span>
+    </div>
 
     <section class="privacy-card privacy-summary-card" id="summary">
       <div class="privacy-card-header">
@@ -58,9 +90,11 @@ const privacySchema = {
         <div>
           <h2>Short Version</h2>
           <p>
-            CogniFocus uses data to run the website, protect forms, provide app
-            sync and restore, personalize focus features, track progress, handle
-            support, manage premium access, and improve the product.
+            CogniFocus includes a public website and an Android app. This
+            policy explains what each part may store, sync, and use to protect
+            forms, provide app sync and restore, personalize focus features,
+            track progress, handle support, manage premium access, and improve
+            the product.
           </p>
         </div>
       </div>

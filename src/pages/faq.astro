@@ -281,17 +281,17 @@ const faqSchema = {
 
     <section class="faq-content-wrap">
       <div class="faq-content-inner">
-        <nav class="faq-jump-nav" aria-label="FAQ categories">
+        <nav class="faq-jump-nav page-jump-nav" aria-label="FAQ categories">
           {faqSections.map((section) => (
-            <a href={`#${section.id}`} class="faq-jump-link" aria-label={`Jump to ${section.title}`}>
-              <span class="faq-jump-icon" style={`--faq-accent-rgb: ${section.accentRgb};`} aria-hidden="true">
+            <a href={`#${section.id}`} class="faq-jump-link page-jump-link" aria-label={`Jump to ${section.title}`}>
+              <span class="faq-jump-icon page-jump-icon" style={`--faq-accent-rgb: ${section.accentRgb}; --page-jump-accent-rgb: ${section.accentRgb};`} aria-hidden="true">
                 <i class={`bi ${section.icon}`}></i>
               </span>
               {section.title}
             </a>
           ))}
         </nav>
-        <div class="faq-jump-divider" aria-hidden="true">
+        <div class="faq-jump-divider page-jump-divider" aria-hidden="true">
           <span></span>
         </div>
 
@@ -303,7 +303,6 @@ const faqSchema = {
                   <i class={`bi ${section.icon}`}></i>
                 </span>
                 <h2 id={`${section.id}-heading`}>{section.title}</h2>
-                <p>{section.intro}</p>
               </div>
               <a href={`#${section.id}`} class="faq-category-permalink" aria-label={`Link to ${section.title}`}>
                 #
@@ -314,16 +313,11 @@ const faqSchema = {
               {section.items.map((item) => (
                 <article class="cf-faq-item p-3 mb-3 faq-question-card" id={item.id}>
                   <div class="faq-card-header">
-                    <div class="faq-icon" style={`--faq-accent-rgb: ${section.accentRgb};`} aria-hidden="true">
-                      <i class={`bi ${section.icon}`}></i>
-                    </div>
-                    <div>
-                      <h3>
-                        <a href={`#${item.id}`} class="faq-question-anchor" aria-label={`Link to question: ${item.question}`}>
-                          {item.question}
-                        </a>
-                      </h3>
-                    </div>
+                    <h3>
+                      <a href={`#${item.id}`} class="faq-question-anchor" aria-label={`Link to question: ${item.question}`}>
+                        {item.question}
+                      </a>
+                    </h3>
                   </div>
                   <div class="cf-faq-content">
                     <p set:html={item.answerHtml ?? item.answer}></p>
