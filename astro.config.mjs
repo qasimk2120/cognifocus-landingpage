@@ -74,6 +74,7 @@ export default defineConfig({
       },
     }),
     robotsTxt({
+      sitemap: "https://cognifocus.app/sitemap.xml",
       policy: [
         {
           userAgent: "*",

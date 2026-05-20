@@ -4878,3 +4878,190 @@
     opacity: 0.28;
   }
 }
+
+/* Mobile motion budget: keep CogniFocus alive, but avoid desktop-grade GPU work on small screens. */
+@media (max-width: 767.98px), (hover: none) and (pointer: coarse) {
+  .hero-section,
+  .hero-layout,
+  .hero-media,
+  .hero-media-card,
+  .attention-vacuum-demo,
+  .vacuum-orbit,
+  .reaction-carousel-card,
+  .attention-spiral-card,
+  .goblin-card,
+  .goblin-card-front,
+  .goblin-card-back {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .hero-media::before,
+  .hero-media::after,
+  .attention-spiral-card::after {
+    filter: none !important;
+    opacity: 0.42;
+  }
+
+  .attention-vacuum-demo,
+  .vacuum-orbit,
+  .reaction-carousel-card,
+  .attention-spiral-card,
+  .goblin-card-front,
+  .goblin-card-back {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    box-shadow:
+      0 12px 28px rgba(var(--cf-black-rgb), 0.18),
+      inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.04) !important;
+  }
+
+  .vacuum-core,
+  .vacuum-app-icon,
+  .vacuum-goblin-success,
+  .spiral-icon,
+  .spiral-chip,
+  .goblin-card-app-icon,
+  .goblin-notification-icon,
+  .goblin-shield-feature,
+  .progress-graph-line,
+  .progress-xp-chip,
+  .progress-diamond-chip,
+  .recovery-session-chip {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    filter: none !important;
+    box-shadow: 0 8px 18px rgba(var(--cf-black-rgb), 0.16) !important;
+  }
+
+  .vacuum-particle,
+  .vacuum-core,
+  .vacuum-core-pulse,
+  .spiral-autopilot-ring,
+  .spiral-motion-trail,
+  .goblin-app-trail,
+  .goblin-alert-pulse,
+  .success-spark {
+    animation: none !important;
+  }
+
+  .vacuum-app-icon,
+  .spiral-icon,
+  .spiral-chip,
+  .spiral-icon-orbit,
+  .goblin-card-app-icon,
+  .goblin-notification-icon,
+  .goblin-shield-feature,
+  .progress-graph-line,
+  .progress-xp-chip,
+  .progress-diamond-chip {
+    animation-duration: 8s !important;
+    animation-timing-function: ease-in-out !important;
+  }
+
+  .reaction-goblin-face,
+  .goblin-shield-avatar,
+  .recovery-timer-ring {
+    animation-duration: 7s !important;
+  }
+
+  .reaction-progress-dot.is-active::before,
+  .recovery-clock-hour,
+  .recovery-clock-minute,
+  .recovery-session-chip span {
+    animation-play-state: paused;
+  }
+
+  .attention-spiral-card:hover,
+  .goblin-card:hover,
+  .goblin-card:hover .goblin-card-front,
+  .goblin-card:hover .goblin-card-back {
+    transform: none !important;
+  }
+
+  .goblin-card,
+  .goblin-card-inner,
+  .goblin-card-front,
+  .goblin-card-back {
+    perspective: none !important;
+    transform-style: flat !important;
+    -webkit-transform-style: flat !important;
+  }
+
+  .reaction-slide {
+    transform: translateY(8px);
+    transition:
+      opacity 0.24s ease,
+      transform 0.24s ease;
+  }
+
+  .reaction-slide.is-active {
+    transform: translateY(0);
+  }
+
+  .tap-hint {
+    animation-duration: 4.8s !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .vacuum-app-icon,
+  .spiral-icon,
+  .spiral-icon-orbit,
+  .goblin-card-app-icon,
+  .goblin-notification-icon,
+  .goblin-shield-feature,
+  .progress-graph-line,
+  .progress-xp-chip,
+  .progress-diamond-chip {
+    animation: none !important;
+  }
+
+  .spiral-chip,
+  .reaction-goblin-face,
+  .goblin-shield-avatar,
+  .recovery-timer-ring {
+    animation-duration: 9s !important;
+  }
+
+  .attention-spiral-card,
+  .goblin-card-front,
+  .goblin-card-back {
+    box-shadow:
+      0 8px 18px rgba(var(--cf-black-rgb), 0.14),
+      inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.04) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reaction-progress-dot.is-active::before,
+  .spiral-icon,
+  .spiral-chip,
+  .spiral-progress-ring,
+  .spiral-autopilot-ring,
+  .spiral-motion-trail,
+  .reaction-goblin-face,
+  .goblin-card-app-icon,
+  .goblin-notification-icon,
+  .goblin-alert-pulse,
+  .goblin-app-trail,
+  .recovery-timer-ring,
+  .recovery-clock-hour,
+  .recovery-clock-minute,
+  .recovery-session-chip span,
+  .success-spark,
+  .progress-graph-line,
+  .progress-xp-chip,
+  .progress-diamond-chip,
+  .goblin-shield-avatar,
+  .goblin-shield-feature,
+  .tap-hint {
+    animation: none !important;
+  }
+
+  .reaction-slide,
+  .goblin-card-front,
+  .goblin-card-back {
+    transition: opacity 0.01ms linear !important;
+  }
+}

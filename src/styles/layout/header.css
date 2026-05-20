@@ -480,6 +480,27 @@
   }
 }
 
+@media (max-width: 767.98px), (hover: none) and (pointer: coarse) {
+  .cf-nav,
+  .cf-mobile-menu,
+  .cf-mobile-menu__panel {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .cf-mobile-menu__panel {
+    box-shadow: -12px 0 28px rgba(0, 0, 0, 0.18);
+    transition: transform 0.18s ease;
+  }
+
+  .cf-theme-toggle:hover,
+  .cf-theme-toggle:focus-visible,
+  .cf-mobile-menu__link:hover,
+  .cf-mobile-menu__link:focus-visible {
+    transform: none;
+  }
+}
+
 @media (prefers-color-scheme: light) {
   .cf-launch-banner {
     background: rgba(var(--cf-light-card-rgb), 0.78);

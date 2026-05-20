@@ -1042,6 +1042,9 @@ small {
     height: 40px;
     font-size: 1.1rem;
   }
+  .back-to-top-arrow.is-visible {
+    animation: none;
+  }
 }
 @media (prefers-color-scheme: light) {
   .back-to-top-arrow {

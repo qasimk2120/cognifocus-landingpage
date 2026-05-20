@@ -309,3 +309,31 @@ html[data-theme="dark"] .footer-socials a {
 html[data-theme="dark"] .footer-socials img {
   filter: invert(1) opacity(0.85);
 }
+
+@media (max-width: 767.98px), (hover: none) and (pointer: coarse) {
+  html[data-theme="light"] .cf-nav,
+  html:not([data-theme]) .cf-nav,
+  html[data-theme="dark"] .cf-nav {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  html[data-theme="light"] .cf-mobile-menu,
+  html:not([data-theme]) .cf-mobile-menu,
+  html[data-theme="dark"] .cf-mobile-menu,
+  html[data-theme="light"] .cf-mobile-menu__panel,
+  html:not([data-theme]) .cf-mobile-menu__panel,
+  html[data-theme="dark"] .cf-mobile-menu__panel {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  html[data-theme="light"] .cf-mobile-menu__panel,
+  html:not([data-theme]) .cf-mobile-menu__panel {
+    box-shadow: -10px 0 24px rgba(var(--cf-light-shadow-rgb), 0.08);
+  }
+
+  html[data-theme="dark"] .cf-mobile-menu__panel {
+    box-shadow: -10px 0 24px rgba(0, 0, 0, 0.18);
+  }
+}
