@@ -307,6 +307,7 @@ body.support-page.cf-shell{
 .support-card.is-turnstile-active > :not(.turnstile-modal) {
   filter: blur(4px);
   pointer-events: none;
+  -webkit-user-select: none;
   user-select: none;
 }
 

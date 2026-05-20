@@ -188,6 +188,7 @@ body.ios-waitlist-page.cf-shell{
 .ios-waitlist-conversion-card.is-turnstile-active > :not(.turnstile-modal) {
   filter: blur(4px);
   pointer-events: none;
+  -webkit-user-select: none;
   user-select: none;
 }
 

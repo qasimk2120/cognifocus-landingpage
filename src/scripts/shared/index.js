@@ -9,11 +9,19 @@ import { initNav } from "./nav.js";
 import { initThemeToggles } from "./theme.js";
 
 export function initSharedSiteChrome() {
-  initLaunchCountdown();
-  initLaunchBannerVisibility();
-  initThemeToggles();
-  initNav();
-  initCookieConsent();
-  upgradeDownloadCtas();
-  initBackToTopArrow();
+  [
+    initNav,
+    initLaunchCountdown,
+    initLaunchBannerVisibility,
+    initThemeToggles,
+    initCookieConsent,
+    upgradeDownloadCtas,
+    initBackToTopArrow,
+  ].forEach((init) => {
+    try {
+      init();
+    } catch (error) {
+      console.error("[CogniFocus] Shared site initializer failed", error);
+    }
+  });
 }

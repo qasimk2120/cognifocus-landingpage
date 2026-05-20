@@ -9,12 +9,6 @@ export function initNav() {
   const closeButtons = mobileMenu
     ? mobileMenu.querySelectorAll("[data-mobile-menu-close]")
     : [];
-  const firstFocusTarget = mobileMenu
-    ? mobileMenu.querySelector(
-        "[data-mobile-menu-close], .cf-mobile-menu__link",
-      )
-    : null;
-
   if (!nav) return;
 
   function updateScrollClass() {
@@ -25,6 +19,11 @@ export function initNav() {
   updateScrollClass();
 
   if (hamburger && mobileMenu) {
+    if (hamburger.dataset.mobileMenuBound === "true") {
+      return;
+    }
+    hamburger.dataset.mobileMenuBound = "true";
+
     const updateMenuState = (isOpen) => {
       hamburger.classList.toggle("open", isOpen);
       hamburger.setAttribute("aria-expanded", String(isOpen));
@@ -40,18 +39,21 @@ export function initNav() {
       }
     };
 
-    const setMenuState = (isOpen) => {
+    const isMenuOpen = () => mobileMenu.classList.contains("open");
+
+    const setMenuState = (isOpen, options = {}) => {
+      const { restoreFocus = false } = options;
+
       updateMenuState(isOpen);
-      if (isOpen && firstFocusTarget instanceof HTMLElement) {
-        window.setTimeout(() => firstFocusTarget.focus(), 0);
-      }
-      if (!isOpen) {
+      if (!isOpen && restoreFocus) {
         hamburger.focus();
       }
     };
 
-    hamburger.addEventListener("click", () => {
-      setMenuState(!hamburger.classList.contains("open"));
+    hamburger.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      setMenuState(!isMenuOpen());
     });
 
     closeButtons.forEach((button) => {
@@ -67,8 +69,8 @@ export function initNav() {
     });
 
     window.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && hamburger.classList.contains("open")) {
-        setMenuState(false);
+      if (event.key === "Escape" && isMenuOpen()) {
+        setMenuState(false, { restoreFocus: true });
       }
     });
 
@@ -78,6 +80,6 @@ export function initNav() {
       });
     });
 
-    setMenuState(false);
+    updateMenuState(false);
   }
 }
