@@ -206,6 +206,7 @@ body.ios-waitlist-page.cf-shell{
 }
 
 .turnstile-modal__panel {
+  position: relative;
   display: grid;
   gap: 0.95rem;
   width: min(100%, 440px);
@@ -216,6 +217,39 @@ body.ios-waitlist-page.cf-shell{
   box-shadow:
     0 22px 54px rgba(0, 0, 0, 0.34),
     inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.05);
+}
+
+.turnstile-modal__close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(var(--cf-cyan-rgb), 0.16);
+  border-radius: 999px;
+  background: rgba(var(--cf-light-card-rgb), 0.08);
+  color: var(--cf-text-secondary);
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.turnstile-modal__close:hover,
+.turnstile-modal__close:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(var(--cf-light-card-rgb), 0.14);
+  border-color: rgba(var(--cf-cyan-rgb), 0.28);
+  color: var(--cf-text-primary);
+}
+
+.turnstile-modal__close i {
+  font-size: 0.8rem;
+  line-height: 1;
 }
 
 .turnstile-modal__copy {
@@ -290,6 +324,11 @@ body.ios-waitlist-page.cf-shell{
     box-shadow:
       0 20px 48px rgba(var(--cf-light-shadow-rgb), 0.12),
       inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.66);
+  }
+
+  .turnstile-modal__close {
+    background: rgba(var(--cf-light-card-rgb), 0.8);
+    color: var(--cf-light-text);
   }
 
   .turnstile-modal__panel h2 {

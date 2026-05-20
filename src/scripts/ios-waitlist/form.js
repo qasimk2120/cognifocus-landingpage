@@ -28,6 +28,7 @@ export function initIosWaitlistForm() {
   const intro = document.getElementById("iosWaitlistIntro");
   const waitlistCard = document.querySelector(".ios-waitlist-conversion-card");
   const turnstileModal = document.getElementById("iosWaitlistTurnstileModal");
+  const turnstileCloseButton = document.getElementById("iosWaitlistTurnstileClose");
   const turnstileModalMessage = document.getElementById(
     "iosWaitlistTurnstileMessage",
   );
@@ -84,6 +85,15 @@ export function initIosWaitlistForm() {
       turnstileModal.hidden = true;
       setTurnstileModalMessage("", "info");
     }, 180);
+  }
+
+  function cancelTurnstileVerification() {
+    pendingSubmission = null;
+    isSubmitting = false;
+    setLoading(false);
+    resetTurnstileWidget();
+    hideTurnstileModal();
+    message.hidden = true;
   }
 
   function setLoading(isLoading, label = "Joining...") {
@@ -188,6 +198,7 @@ export function initIosWaitlistForm() {
   }
 
   window.iosWaitlistTurnstileOnSuccess = (turnstileToken) => {
+    hideTurnstileModal();
     void submitPendingSubmission(turnstileToken);
   };
 
@@ -205,6 +216,8 @@ export function initIosWaitlistForm() {
     isSubmitting = false;
     setLoading(false);
   };
+
+  turnstileCloseButton?.addEventListener("click", cancelTurnstileVerification);
 
   window.iosWaitlistTurnstileOnExpired = () => {
     if (turnstileModal) {
@@ -258,6 +271,7 @@ export function initIosWaitlistForm() {
 
     const turnstileToken = getTurnstileToken();
     if (turnstileToken) {
+      hideTurnstileModal();
       void submitPendingSubmission(turnstileToken);
     }
   });

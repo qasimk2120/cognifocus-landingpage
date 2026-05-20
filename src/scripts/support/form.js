@@ -35,6 +35,7 @@ export function initSupportForm() {
   const submitLabel = submitButton?.querySelector(".support-submit__label");
   const turnstileModal = document.getElementById("supportTurnstileModal");
   const turnstileModalMessage = document.getElementById("supportTurnstileMessage");
+  const turnstileCloseButton = document.getElementById("supportTurnstileClose");
 
   if (
     !form ||
@@ -97,6 +98,15 @@ export function initSupportForm() {
       turnstileModal.hidden = true;
       setTurnstileMessage("", "info");
     }, 180);
+  }
+
+  function cancelTurnstileVerification() {
+    pendingSubmission = null;
+    isSubmitting = false;
+    setLoading(false);
+    resetTurnstileWidget();
+    hideTurnstileModal();
+    statusMessage.hidden = true;
   }
 
   function getTurnstileToken() {
@@ -170,6 +180,7 @@ export function initSupportForm() {
   }
 
   window.supportTurnstileOnSuccess = (turnstileToken) => {
+    hideTurnstileModal();
     void submitPendingSubmission(turnstileToken);
   };
 
@@ -183,6 +194,8 @@ export function initSupportForm() {
     isSubmitting = false;
     setLoading(false);
   };
+
+  turnstileCloseButton?.addEventListener("click", cancelTurnstileVerification);
 
   window.supportTurnstileOnExpired = () => {
     if (turnstileModal) {
@@ -234,6 +247,7 @@ export function initSupportForm() {
 
     const turnstileToken = getTurnstileToken();
     if (turnstileToken) {
+      hideTurnstileModal();
       void submitPendingSubmission(turnstileToken);
     }
   });
