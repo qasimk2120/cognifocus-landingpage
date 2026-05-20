@@ -130,7 +130,6 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
     }
     <slot name="head-after-social" />
 
-    <link href="/vendor/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <slot name="head-before-base-styles" />
     {stylesheetsBeforeBase.map((href) => <link rel="stylesheet" href={href} />)}
     <link rel="stylesheet" href={baseStylesheet} />

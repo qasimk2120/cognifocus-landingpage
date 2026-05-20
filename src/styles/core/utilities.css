@@ -1,1 +1,139 @@
-/* Placeholder for future utility extraction. Rules remain in site-base.css for parity. */
+/* Local Bootstrap-like utility replacements used by the Astro site. */
+
+.container {
+  width: 100%;
+  max-width: var(--cf-max-content);
+  margin: 0 auto;
+  padding: 0 var(--cf-space-lg);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--cf-space-md);
+  }
+}
+
+@media (max-width: 420px) {
+  .container {
+    padding: 0 8px;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: calc(var(--cf-space-lg) * -0.5);
+}
+
+.row > * {
+  box-sizing: border-box;
+  padding-inline: calc(var(--cf-space-lg) * 0.5);
+}
+
+.col-lg-4 {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .col-lg-4 {
+    flex: 0 0 auto;
+    width: 33.333333%;
+  }
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.flex-wrap {
+  flex-wrap: wrap !important;
+}
+
+.gap-2 {
+  gap: 0.5rem !important;
+}
+
+.d-none {
+  display: none !important;
+}
+
+@media (min-width: 768px) {
+  .d-md-inline-flex {
+    display: inline-flex !important;
+  }
+}
+
+.align-items-stretch {
+  align-items: stretch !important;
+}
+
+.h-100 {
+  height: 100% !important;
+}
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-muted {
+  color: var(--cf-text-secondary) !important;
+}
+
+.fw-bold {
+  font-weight: 700 !important;
+}
+
+.display-5 {
+  font-size: clamp(2.4rem, 5vw, 4rem) !important;
+  line-height: 1.04 !important;
+  letter-spacing: -0.045em !important;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.mt-4 {
+  margin-top: 1.5rem !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+.py-4 {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+.py-5 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+.p-4 {
+  padding: 1.5rem !important;
+}
+
+@media (min-width: 768px) {
+  .p-md-5 {
+    padding: 3rem !important;
+  }
+}
+
+.me-1 {
+  margin-right: 0.25rem !important;
+}

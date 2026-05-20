@@ -31,6 +31,19 @@
   max-width: none;
 }
 
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+@media (min-width: 992px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .pricing-heading {
   max-width: 760px;
   margin-bottom: 1.6rem;
