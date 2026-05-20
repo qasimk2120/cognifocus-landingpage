@@ -24,6 +24,7 @@ function getStatusMessage(status) {
 
 export function initSupportForm() {
   const form = document.getElementById("supportForm");
+  const supportCard = document.querySelector(".support-card");
   const nameInput = document.getElementById("supportName");
   const emailInput = document.getElementById("supportEmail");
   const topicSelect = document.getElementById("supportTopic");
@@ -32,6 +33,8 @@ export function initSupportForm() {
   const submitButton = document.getElementById("supportSubmit");
   const statusMessage = document.getElementById("supportMessageStatus");
   const submitLabel = submitButton?.querySelector(".support-submit__label");
+  const turnstileModal = document.getElementById("supportTurnstileModal");
+  const turnstileModalMessage = document.getElementById("supportTurnstileMessage");
 
   if (
     !form ||
@@ -49,6 +52,8 @@ export function initSupportForm() {
 
   const defaultLabel = submitLabel.textContent || "Send request";
   let isSubmitting = false;
+  let pendingSubmission = null;
+  const submitButtonContent = submitButton.innerHTML;
 
   function setStatus(text, type) {
     statusMessage.textContent = text;
@@ -62,43 +67,56 @@ export function initSupportForm() {
     submitLabel.textContent = isLoading ? "Sending..." : defaultLabel;
   }
 
+  function setTurnstileMessage(text, type) {
+    if (!turnstileModalMessage) return;
+    turnstileModalMessage.textContent = text;
+    turnstileModalMessage.hidden = !text;
+    turnstileModal?.classList.toggle("is-error", type === "error");
+  }
+
+  function setBlurState(isBlurred) {
+    supportCard?.classList.toggle("is-turnstile-active", isBlurred);
+  }
+
+  function showTurnstileModal() {
+    if (!turnstileModal) return;
+    turnstileModal.hidden = false;
+    turnstileModal.classList.remove("is-error");
+    setTurnstileMessage("", "info");
+    setBlurState(true);
+    window.requestAnimationFrame(() => {
+      turnstileModal.classList.add("is-visible");
+    });
+  }
+
+  function hideTurnstileModal() {
+    if (!turnstileModal) return;
+    turnstileModal.classList.remove("is-visible", "is-error");
+    setBlurState(false);
+    window.setTimeout(() => {
+      turnstileModal.hidden = true;
+      setTurnstileMessage("", "info");
+    }, 180);
+  }
+
+  function getTurnstileToken() {
+    return (
+      document.querySelector(
+        "#supportTurnstileModal [name='cf-turnstile-response']",
+      )?.value || ""
+    );
+  }
+
   function getFieldValue(field) {
     return typeof field.value === "string" ? field.value.trim() : "";
   }
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-
-    if (isSubmitting) {
+  async function submitPendingSubmission(turnstileToken) {
+    if (!pendingSubmission || isSubmitting) {
       return;
     }
 
-    const name = getFieldValue(nameInput);
-    const email = getFieldValue(emailInput);
-    const topic = getFieldValue(topicSelect);
-    const message = getFieldValue(messageInput);
-    const website = getFieldValue(websiteInput);
-    const turnstileToken =
-      form.querySelector('[name="cf-turnstile-response"]')?.value || "";
-
-    if (!isValidEmail(email)) {
-      setStatus("Use a real email so we can reply.", "error");
-      emailInput.focus();
-      return;
-    }
-
-    if (!topic) {
-      setStatus("Choose a topic so the Goblin knows where to aim.", "error");
-      topicSelect.focus();
-      return;
-    }
-
-    if (!message) {
-      setStatus("Add a short message so we know what happened.", "error");
-      messageInput.focus();
-      return;
-    }
-
+    const { name, email, topic, message, website } = pendingSubmission;
     isSubmitting = true;
     setLoading(true);
     statusMessage.hidden = true;
@@ -123,7 +141,9 @@ export function initSupportForm() {
       if (response.ok) {
         form.reset();
         setStatus(SUCCESS_MESSAGE, "success");
+        hideTurnstileModal();
         resetTurnstileWidget();
+        pendingSubmission = null;
         return;
       }
 
@@ -131,17 +151,90 @@ export function initSupportForm() {
       resetTurnstileWidget();
 
       if (statusText) {
+        setTurnstileMessage(statusText, "error");
         setStatus(statusText, "error");
         return;
       }
 
+      setTurnstileMessage(ERROR_MESSAGE, "error");
       setStatus(ERROR_MESSAGE, "error");
     } catch (_error) {
       resetTurnstileWidget();
+      setTurnstileMessage(ERROR_MESSAGE, "error");
       setStatus(ERROR_MESSAGE, "error");
     } finally {
       isSubmitting = false;
       setLoading(false);
+      pendingSubmission = null;
+    }
+  }
+
+  window.supportTurnstileOnSuccess = (turnstileToken) => {
+    void submitPendingSubmission(turnstileToken);
+  };
+
+  window.supportTurnstileOnError = () => {
+    if (turnstileModal) {
+      turnstileModal.hidden = false;
+      turnstileModal.classList.add("is-visible", "is-error");
+    }
+    setBlurState(true);
+    setTurnstileMessage("Verification failed. Try again.", "error");
+    isSubmitting = false;
+    setLoading(false);
+  };
+
+  window.supportTurnstileOnExpired = () => {
+    if (turnstileModal) {
+      turnstileModal.hidden = false;
+      turnstileModal.classList.add("is-visible", "is-error");
+    }
+    setBlurState(true);
+    setTurnstileMessage("Verification expired. Try again.", "error");
+    isSubmitting = false;
+    setLoading(false);
+    resetTurnstileWidget();
+  };
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (isSubmitting || pendingSubmission) {
+      return;
+    }
+
+    const name = getFieldValue(nameInput);
+    const email = getFieldValue(emailInput);
+    const topic = getFieldValue(topicSelect);
+    const message = getFieldValue(messageInput);
+    const website = getFieldValue(websiteInput);
+
+    if (!isValidEmail(email)) {
+      setStatus("Use a real email so we can reply.", "error");
+      emailInput.focus();
+      return;
+    }
+
+    if (!topic) {
+      setStatus("Choose a topic so the Goblin knows where to aim.", "error");
+      topicSelect.focus();
+      return;
+    }
+
+    if (!message) {
+      setStatus("Add a short message so we know what happened.", "error");
+      messageInput.focus();
+      return;
+    }
+
+    pendingSubmission = { name, email, topic, message, website };
+    statusMessage.hidden = true;
+    setLoading(true);
+    showTurnstileModal();
+
+    const turnstileToken = getTurnstileToken();
+    if (turnstileToken) {
+      void submitPendingSubmission(turnstileToken);
     }
   });
 }

@@ -142,12 +142,6 @@ const ogDescription =
             />
           </div>
 
-          <div
-            class="cf-turnstile support-turnstile"
-            data-sitekey="0x4AAAAAADR7PaDsKmcbHtqJ"
-            data-theme="auto"
-          ></div>
-
           <button
             type="submit"
             class="btn btn-glow support-submit"
@@ -167,6 +161,40 @@ const ogDescription =
             hidden
           ></div>
         </form>
+
+        <aside
+          class="turnstile-modal support-turnstile-modal"
+          id="supportTurnstileModal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="supportTurnstileTitle"
+          aria-describedby="supportTurnstileBody"
+          hidden
+        >
+          <div class="turnstile-modal__panel">
+            <div class="turnstile-modal__copy">
+              <h2 id="supportTurnstileTitle">One sec — quick check</h2>
+              <p id="supportTurnstileBody">
+                Just making sure you&rsquo;re not a bot. Goblin&rsquo;s
+                watching.
+              </p>
+              <p
+                class="turnstile-modal__message"
+                id="supportTurnstileMessage"
+                aria-live="polite"
+                hidden
+              ></p>
+            </div>
+            <div
+              class="cf-turnstile turnstile-modal__widget"
+              data-sitekey="0x4AAAAAADR7PaDsKmcbHtqJ"
+              data-theme="dark"
+              data-callback="supportTurnstileOnSuccess"
+              data-error-callback="supportTurnstileOnError"
+              data-expired-callback="supportTurnstileOnExpired"
+            ></div>
+          </div>
+        </aside>
       </section>
     </section>
   </main>
