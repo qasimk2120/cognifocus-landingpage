@@ -1,0 +1,13 @@
+---
+import AdminApp from "../../../components/admin/AdminApp.astro";
+import AdminLayout from "../../../layouts/AdminLayout.astro";
+---
+
+<AdminLayout title="CogniFocus Release Admin">
+  <AdminApp
+    resource="releases"
+    mode="list"
+    heading="Release notes"
+    intro="Create, edit, publish, and archive release notes."
+  />
+</AdminLayout>

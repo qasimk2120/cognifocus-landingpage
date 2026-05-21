@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import AdminApp from "../../../components/admin/AdminApp.astro";
+import AdminLayout from "../../../layouts/AdminLayout.astro";
+
+export async function getStaticPaths() {
+  const releases = await getCollection("releases");
+
+  return releases.map((entry) => ({
+    params: { id: entry.data.slug || entry.id.replace(/\.json$/, "") },
+  }));
+}
+
+const { id = "" } = Astro.params;
+---
+
+<AdminLayout title="Edit CogniFocus Release Note">
+  <AdminApp
+    resource="releases"
+    mode="edit"
+    itemId={id}
+    heading="Edit release note"
+    intro="Update an existing release note through the CMS backend."
+  />
+</AdminLayout>

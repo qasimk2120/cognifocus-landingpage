@@ -80,6 +80,7 @@ export default defineConfig({
     sitemap({
       filter(page) {
         return (
+          !page.startsWith("https://cognifocus.app/admin") &&
           page !== "https://cognifocus.app/blog/stop-app-switching" &&
           page !== "https://cognifocus.app/blog/stop-app-switching.html"
         );
@@ -110,6 +111,7 @@ export default defineConfig({
             "/test/",
             "/tmp/",
             "/private/",
+            "/admin/",
           ],
         },
       ],
@@ -138,6 +140,8 @@ export default defineConfig({
         "../dist/test/**",
         "../dist/tmp/**",
         "../dist/private/**",
+        "../dist/admin/**",
+        "../dist/admin.html",
         "../dist/65d81f7e-5f51-4ef1-a418-793bf1219721.html",
       ],
     }),

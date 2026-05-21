@@ -1,0 +1,25 @@
+---
+import { getCollection } from "astro:content";
+import AdminApp from "../../../components/admin/AdminApp.astro";
+import AdminLayout from "../../../layouts/AdminLayout.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+
+  return posts.map((entry) => ({
+    params: { id: entry.data.slug || entry.id.replace(/\.json$/, "") },
+  }));
+}
+
+const { id = "" } = Astro.params;
+---
+
+<AdminLayout title="Edit CogniFocus Blog Post">
+  <AdminApp
+    resource="blog"
+    mode="edit"
+    itemId={id}
+    heading="Edit blog post"
+    intro="Update an existing blog entry through the CMS backend."
+  />
+</AdminLayout>

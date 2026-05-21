@@ -1,0 +1,62 @@
+---
+import adminStylesheet from "../styles/pages/admin.css?url";
+
+const {
+  title = "CogniFocus Admin",
+  description = "Private CogniFocus CMS admin.",
+  showNav = true,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="icon" type="image/png" href="/assets/logo/app-logo.png" />
+    <link rel="stylesheet" href={adminStylesheet} />
+    <script is:inline>
+      const THEME_STORAGE_KEY = "cognifocus-theme";
+      const root = document.documentElement;
+
+      const readStoredTheme = () => {
+        try {
+          const storedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+          return storedTheme === "light" || storedTheme === "dark" ? storedTheme : null;
+        } catch {
+          return null;
+        }
+      };
+
+      const getSystemTheme = () =>
+        window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+
+      const theme = readStoredTheme() ?? getSystemTheme();
+      root.dataset.theme = theme;
+      root.style.colorScheme = theme;
+    </script>
+  </head>
+  <body class="admin-page">
+    {showNav && (
+      <header class="admin-topbar">
+        <a class="admin-brand" href="/admin">
+          <img src="/assets/logo/app-logo.png" alt="" width="32" height="32" />
+          <span>CogniFocus CMS</span>
+        </a>
+        <nav class="admin-nav" aria-label="Admin navigation">
+          <a href="/admin/blog">Blog</a>
+          <a href="/admin/releases">Releases</a>
+          <button type="button" data-admin-logout>Logout</button>
+        </nav>
+      </header>
+    )}
+    <slot />
+  </body>
+</html>

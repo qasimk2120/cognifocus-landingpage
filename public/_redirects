@@ -1,0 +1,16 @@
+/admin /admin.html 200
+/admin/ /admin.html 200
+/admin/login /admin/login.html 200
+/admin/login/ /admin/login.html 200
+/admin/blog /admin/blog.html 200
+/admin/blog/ /admin/blog.html 200
+/admin/blog/new /admin/blog/new.html 200
+/admin/blog/new/ /admin/blog/new.html 200
+/admin/blog/:id /admin/blog/edit.html 200
+/admin/blog/:id/ /admin/blog/edit.html 200
+/admin/releases /admin/releases.html 200
+/admin/releases/ /admin/releases.html 200
+/admin/releases/new /admin/releases/new.html 200
+/admin/releases/new/ /admin/releases/new.html 200
+/admin/releases/:id /admin/releases/edit.html 200
+/admin/releases/:id/ /admin/releases/edit.html 200

@@ -1,4 +1,7 @@
-import { getCollection } from "astro:content";
+import {
+  getPublishedBlogPostBySlug,
+  getPublishedBlogPosts,
+} from "./cms-content.js";
 
 export const BLOG_PAGE_SIZE = 6;
 
@@ -52,7 +55,7 @@ export const sortPostsByDate = (entries) =>
   );
 
 export async function getSortedPosts() {
-  return sortPostsByDate((await getCollection("blog")).map(normalizeBlogPost));
+  return sortPostsByDate(await getPublishedBlogPosts());
 }
 
 export async function getFeaturedPosts() {
@@ -60,7 +63,7 @@ export async function getFeaturedPosts() {
 }
 
 export async function getPostBySlug(slug) {
-  return (await getSortedPosts()).find((post) => post.slug === slug);
+  return getPublishedBlogPostBySlug(slug);
 }
 
 export const getCategoryBySlug = (slug) =>
@@ -98,4 +101,3 @@ export const getCategoryPagePath = (categorySlug, pageNumber = 1) =>
   pageNumber <= 1
     ? `/blog/category/${categorySlug}/`
     : `/blog/category/${categorySlug}/page/${pageNumber}.html`;
-

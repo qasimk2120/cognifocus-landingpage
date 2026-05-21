@@ -1,0 +1,44 @@
+---
+const {
+  resource = "",
+  mode = "dashboard",
+  itemId = "",
+  heading = "Admin",
+  intro = "",
+} = Astro.props;
+---
+
+<main
+  class="admin-shell"
+  data-admin-root
+  data-resource={resource}
+  data-mode={mode}
+  data-item-id={itemId}
+>
+  <section class="admin-hero">
+    <div>
+      <p class="admin-kicker">Private CMS</p>
+      <h1>{heading}</h1>
+      {intro && <p>{intro}</p>}
+    </div>
+    <div class="admin-session" data-admin-session>
+      Checking session...
+    </div>
+  </section>
+
+  <section class="admin-alert" data-admin-alert hidden></section>
+
+  <section class="admin-denied" data-admin-denied hidden>
+    <h2>Access denied</h2>
+    <p>Your account signed in, but the CMS backend did not allow this request.</p>
+    <button type="button" class="admin-button" data-admin-logout>Logout</button>
+  </section>
+
+  <section class="admin-panel" data-admin-view>
+    <div class="admin-loading">Loading admin...</div>
+  </section>
+</main>
+
+<script>
+  import "../../scripts/admin/app.js";
+</script>

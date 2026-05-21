@@ -1,4 +1,7 @@
-import { getCollection } from "astro:content";
+import {
+  getPublishedReleaseNoteBySlug,
+  getPublishedReleaseNotes,
+} from "./cms-content.js";
 
 export const RELEASE_TYPES = [
   "app",
@@ -16,7 +19,6 @@ const REQUIRED_STRING_FIELDS = [
   "publishedAt",
   "slug",
   "summary",
-  "type",
 ];
 
 function isValidDate(value) {
@@ -38,11 +40,7 @@ function validateRelease(release) {
     throw new Error(`Release "${release.slug}" has an invalid publishedAt date.`);
   }
 
-  if (!RELEASE_TYPES.includes(release.type)) {
-    throw new Error(
-      `Release "${release.slug}" uses unsupported type "${release.type}".`,
-    );
-  }
+  release.type = RELEASE_TYPES.includes(release.type) ? release.type : "app";
 }
 
 export function normalizeRelease(entry) {
@@ -63,13 +61,18 @@ export function normalizeRelease(entry) {
 }
 
 export async function getSortedReleases() {
-  return (await getCollection("releases"))
-    .map(normalizeRelease)
+  return (await getPublishedReleaseNotes())
+    .map((release) => normalizeRelease({ data: release }))
     .sort(
       (a, b) =>
         b.publishedAt.localeCompare(a.publishedAt) ||
         b.version.localeCompare(a.version),
     );
+}
+
+export async function getReleaseBySlug(slug) {
+  const release = await getPublishedReleaseNoteBySlug(slug);
+  return release ? normalizeRelease({ data: release }) : undefined;
 }
 
 export async function getFeaturedReleases() {
@@ -102,4 +105,3 @@ export function getReleaseDetailSections(release) {
     .map(([label, items]) => [label, normalizeArray(items)])
     .filter(([, items]) => items.length > 0);
 }
-

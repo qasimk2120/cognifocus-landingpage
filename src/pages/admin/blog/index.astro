@@ -1,0 +1,13 @@
+---
+import AdminApp from "../../../components/admin/AdminApp.astro";
+import AdminLayout from "../../../layouts/AdminLayout.astro";
+---
+
+<AdminLayout title="CogniFocus Blog Admin">
+  <AdminApp
+    resource="blog"
+    mode="list"
+    heading="Blog posts"
+    intro="Create, edit, publish, and archive blog entries."
+  />
+</AdminLayout>
