@@ -1,14 +1,14 @@
----
+﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Picture } from "astro:assets";
 import SiteIcon from "../components/shared/SiteIcon.astro";
 import goblinCheerfulFace from "../assets/characters/goblin/face/cheerful.png";
 
-const title = "CogniFocus for iOS — Join the Waitlist";
-const description = "CogniFocus is coming to iPhone. Join the waitlist and we'll let you know when it drops.";
+const title = "CogniFocus for iOS â€” Join the Waitlist";
+const description = "The Goblin is coming to iPhone. Join the CogniFocus iOS waitlist and be first to know when it drops.";
 const canonical = "https://cognifocus.app/ios-waitlist.html";
 const ogTitle = "CogniFocus for iOS is coming";
-const ogDescription = "Join the waitlist. No fake dates. No corporate nonsense.";
+const ogDescription = "The Goblin is coming to iPhone. Join the CogniFocus iOS waitlist and be first to know when it drops.";
 const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebPage\",\n        \"name\": \"CogniFocus for iOS Waitlist\",\n        \"url\": \"https://cognifocus.app/ios-waitlist.html\",\n        \"description\": \"Join the CogniFocus iOS waitlist and get an email when the iPhone version is ready.\",\n        \"isPartOf\": {\n          \"@type\": \"WebSite\",\n          \"name\": \"CogniFocus\",\n          \"url\": \"https://cognifocus.app/\"\n        },\n        \"about\": {\n          \"@type\": \"SoftwareApplication\",\n          \"name\": \"CogniFocus\",\n          \"applicationCategory\": \"ProductivityApplication\",\n          \"operatingSystem\": \"Android\",\n          \"url\": \"https://cognifocus.app/\",\n          \"downloadUrl\": \"https://play.google.com/store/apps/details?id=io.ionic.cognifocus\"\n        },\n        \"publisher\": {\n          \"@type\": \"Organization\",\n          \"name\": \"CogniElevate\",\n          \"url\": \"https://cognifocus.app/\"\n        }\n      }";
 ---
 
@@ -229,7 +229,7 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
                   <SiteIcon name="mdi:close" aria-hidden="true" />
                 </button>
                 <div class="turnstile-modal__copy">
-                  <h2 id="iosWaitlistTurnstileTitle">One sec — quick check</h2>
+                  <h2 id="iosWaitlistTurnstileTitle">One sec â€” quick check</h2>
                   <p id="iosWaitlistTurnstileBody">
                     Just making sure you&rsquo;re not a bot. Goblin&rsquo;s
                     watching.
@@ -255,4 +255,5 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
     import "../scripts/entries/ios-waitlist.js";
   </script>
 </BaseLayout>
+
 

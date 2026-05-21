@@ -1,0 +1,12 @@
+---
+import BlogPostLayout from "../../components/blog/BlogPostLayout.astro";
+import posts from "../../data/blog/posts.json";
+
+const post = posts.find((entry) => entry.slug === "focus-friend-app-android");
+
+if (!post) {
+  throw new Error("Missing blog post data for focus-friend-app-android");
+}
+---
+
+<BlogPostLayout post={post} />

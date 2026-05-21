@@ -5,29 +5,19 @@ const { post } = Astro.props;
 
 const articleSchema = {
   "@context": "https://schema.org",
-  "@type": "Article",
-  headline: post.schemaHeadline || post.articleTitle,
-  description: post.schemaDescription || post.description,
+  "@type": "BlogPosting",
+  headline: post.articleTitle,
+  description: post.description,
   datePublished: post.publishDate,
-  dateModified: post.updatedDate || post.publishDate,
   author: {
     "@type": "Organization",
-    name: "CogniElevate",
-    url: "https://cognifocus.app/",
+    name: "CogniFocus",
   },
   publisher: {
     "@type": "Organization",
     name: "CogniFocus",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://cognifocus.app/assets/logo/app-logo.png",
-    },
+    url: "https://cognifocus.app",
   },
-  mainEntityOfPage: {
-    "@type": "WebPage",
-    "@id": post.canonical,
-  },
-  image: post.ogImage,
   url: post.canonical,
 };
 

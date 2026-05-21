@@ -2,10 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const title = "CogniFocus Pricing | Pro Monthly and Yearly Plans";
-const description = "Compare CogniFocus pricing. Start with the free focus companion, try Pro monthly for $3.99 after a 7-day trial or choose yearly Pro for $31.99";
+const description = "Compare CogniFocus plans. Start free, upgrade to Pro for stronger Shield protection, planned sessions, and recovery support.";
 const canonical = "https://cognifocus.app/pricing.html";
 const ogTitle = "CogniFocus Pricing";
-const ogDescription = "Compare Free, Pro Monthly, and Pro Yearly plans for CogniFocus.";
+const ogDescription = "Compare CogniFocus plans. Start free, upgrade to Pro for stronger Shield protection, planned sessions, and recovery support.";
 const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"SoftwareApplication\",\n        \"name\": \"CogniFocus\",\n        \"applicationCategory\": \"ProductivityApplication\",\n        \"operatingSystem\": \"Android\",\n        \"url\": \"https://cognifocus.app/pricing.html\",\n        \"installUrl\": \"https://play.google.com/store/apps/details?id=io.ionic.cognifocus\",\n        \"offers\": [\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Free\",\n            \"price\": \"0\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Free\"\n          },\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Pro Monthly\",\n            \"price\": \"3.99\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Subscription\",\n            \"description\": \"Monthly CogniFocus Pro subscription with a 7-day trial\"\n          },\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Pro Yearly\",\n            \"price\": \"31.99\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Subscription\",\n            \"description\": \"Yearly CogniFocus Pro subscription without a trial\"\n          }\n        ]\n      }";
 const faqSchemaJson = JSON.stringify({
   "@context": "https://schema.org",
@@ -46,7 +46,6 @@ const faqSchemaJson = JSON.stringify({
   ogTitle={ogTitle}
   ogDescription={ogDescription}
   ogImageAlt="CogniFocus pricing for a focus companion and distraction blocker"
-  includeOgSiteName={false}
   twitterAttribute="property"
   includeTwitterImageAlt={false}
   bodyClass="pricing-page cf-shell"

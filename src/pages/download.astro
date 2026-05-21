@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 import SiteIcon from "../components/shared/SiteIcon.astro";
@@ -9,7 +9,21 @@ const description = "Download CogniFocus for Android. Start your first focus ses
 const canonical = "https://cognifocus.app/download.html";
 const ogTitle = "Download CogniFocus";
 const ogDescription = "The Goblin is waiting. Start your first focus session free on Android.";
-const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"@graph\": [\n          {\n            \"@type\": \"WebPage\",\n            \"name\": \"Download CogniFocus\",\n            \"url\": \"https://cognifocus.app/download.html\",\n            \"description\": \"Download CogniFocus on Android. Open the Google Play listing or use this fallback page if your browser blocks the store redirect.\"\n          },\n          {\n            \"@type\": \"SoftwareApplication\",\n            \"name\": \"CogniFocus\",\n            \"operatingSystem\": \"Android\",\n            \"applicationCategory\": \"ProductivityApplication\",\n            \"description\": \"CogniFocus is an Android focus timer and app blocker that reacts when you drift into TikTok, Instagram, YouTube, and other distractions.\",\n            \"url\": \"https://cognifocus.app/\",\n            \"downloadUrl\": \"https://play.google.com/store/apps/details?id=io.ionic.cognifocus\",\n            \"image\": \"https://cognifocus.app/assets/og/og-image.png\",\n            \"publisher\": {\n              \"@type\": \"Organization\",\n              \"name\": \"CogniElevate\",\n              \"url\": \"https://cognifocus.app/\"\n            }\n          }\n        ]\n      }";
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CogniFocus",
+  "operatingSystem": "Android",
+  "applicationCategory": "ProductivityApplication",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "A focus timer and app blocker that sends a Goblin after you the second you drift to TikTok, Instagram, or YouTube.",
+  "url": "https://cognifocus.app",
+  "downloadUrl": "https://play.google.com/store/apps/details?id=io.ionic.cognifocus"
+}, null, 2);
 ---
 
 <BaseLayout
@@ -132,3 +146,5 @@ const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"
     import "../scripts/entries/download.js";
   </script>
 </BaseLayout>
+
+

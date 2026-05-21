@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HomeAttentionSpirals from "../components/home/HomeAttentionSpirals.astro";
 import HomeFAQ from "../components/home/HomeFAQ.astro";
@@ -8,16 +8,30 @@ import HomeHero from "../components/home/HomeHero.astro";
 import HomeTestimonials from "../components/home/HomeTestimonials.astro";
 
 const title = "CogniFocus - Focus Timer & App Blocker for Android";
-const description = "A focus timer and app blocker that sends a Goblin after you the second you drift to any distracting app — TikTok, Instagram, YouTube and more";
+const description = "A focus timer and app blocker that sends a Goblin after you the second you drift to any distracting app â€” TikTok, Instagram, YouTube and more";
 const canonical = "https://cognifocus.app/";
-const ogTitle = "CogniFocus — Focus Timer & App Blocker for Android";
+const ogTitle = "CogniFocus â€” Focus Timer & App Blocker for Android";
 const ogDescription = description;
 const ogImageAlt = "CogniFocus landing page for a focus app that blocks distracting apps and reacts instantly";
 const schemas = [
-  "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"SoftwareApplication\",\n        \"name\": \"CogniFocus\",\n        \"operatingSystem\": \"Android\",\n        \"applicationCategory\": \"ProductivityApplication\",\n        \"description\": \"A focus timer and app blocker that sends a Goblin after you the second you drift to any distracting app — TikTok, Instagram, YouTube, and more.\",\n        \"url\": \"https://cognifocus.app/\",\n        \"downloadUrl\": \"https://play.google.com/store/apps/details?id=io.ionic.cognifocus\",\n        \"offers\": [\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Basic\",\n            \"price\": \"0\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Free tier\"\n          },\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Pro Monthly\",\n            \"price\": \"3.99\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Subscription\"\n          },\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Pro Yearly\",\n            \"price\": \"31.99\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Subscription\"\n          }\n        ],\n        \"author\": {\n          \"@type\": \"Organization\",\n          \"name\": \"CogniElevate\",\n          \"url\": \"https://cognifocus.app/\"\n        }\n      }",
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CogniFocus",
+    "operatingSystem": "Android",
+    "applicationCategory": "ProductivityApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "description": "A focus timer and app blocker that sends a Goblin after you the second you drift to TikTok, Instagram, or YouTube.",
+    "url": "https://cognifocus.app",
+    "downloadUrl": "https://play.google.com/store/apps/details?id=io.ionic.cognifocus"
+  }),
   "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebSite\",\n        \"name\": \"CogniFocus\",\n        \"url\": \"https://cognifocus.app/\"\n      }",
   "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebPage\",\n        \"name\": \"CogniFocus - Focus Timer & App Blocker\",\n        \"speakable\": {\n          \"@type\": \"SpeakableSpecification\",\n          \"cssSelector\": [\".seo-eyebrow\", \".hero-muted-override\", \"#faq\"]\n        },\n        \"url\": \"https://cognifocus.app/\"\n      }",
-  "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"Organization\",\n        \"name\": \"CogniElevate\",\n        \"url\": \"https://cognifocus.app/\",\n        \"logo\": \"https://cognifocus.app/assets/logo/app-logo.png\",\n        \"sameAs\": [\n          \"https://www.tiktok.com/@cognifocus.app\",\n          \"https://www.instagram.com/cognifocus.app/\",\n          \"https://www.facebook.com/share/1Am7kCzkjG/\",\n          \"https://x.com/cognielevate\",\n          \"https://www.pinterest.com/getcognifocus/\",\n          \"https://www.producthunt.com/products/cognifocus\"\n        ]\n      }"
+  "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"Organization\",\n        \"name\": \"CogniElevate\",\n        \"url\": \"https://cognifocus.app/\",\n        \"logo\": \"https://cognifocus.app/assets/logo/app-logo.png\",\n        \"sameAs\": [\n          \"https://www.tiktok.com/@cognifocus.app\",\n          \"https://www.instagram.com/cognifocus.app/\",\n          \"https://www.facebook.com/share/1Am7kCzkjG/\",\n          \"https://x.com/getcognifocus\",\n          \"https://www.pinterest.com/getcognifocus/\",\n          \"https://www.producthunt.com/products/cognifocus\"\n        ]\n      }"
   ,
   JSON.stringify({
     "@context": "https://schema.org",
@@ -91,7 +105,7 @@ const schemas = [
   ogImageAlt={ogImageAlt}
   bodyClass="cf-home"
   launchBannerProps={{ includeIosNotification: false }}
-  footerProps={{ includePinterest: true, faqHref: "/#faq", xHref: "https://x.com/cognielevate" }}
+  footerProps={{ includePinterest: true, faqHref: "/#faq", xHref: "https://x.com/getcognifocus" }}
 >
   <meta
     slot="head-after-robots"
@@ -129,3 +143,4 @@ const schemas = [
     import "../scripts/entries/home.js";
   </script>
 </BaseLayout>
+
