@@ -3,10 +3,10 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteIcon from "../components/shared/SiteIcon.astro";
 import updatesData from "../data/updates.json";
 
-const title = "What's New | CogniFocus";
-const description = "See the latest CogniFocus updates including v4.5.5 minor improvements, v4.5.2 blocked-app and progress updates, v4.5.1 reliability improvements, and v4.5.0 onboarding and focus expansion.";
+const title = "What's New in CogniFocus | Latest Updates";
+const description = "See what's new in CogniFocus — latest features, Shield upgrades, Goblin updates, and what's coming next.";
 const canonical = "https://cognifocus.app/whats-new.html";
-const ogDescription = "Read the latest CogniFocus release notes, updates, and product improvements.";
+const ogDescription = "See what's new in CogniFocus — latest features, Shield upgrades, Goblin updates, and what's coming next.";
 const ogImageAlt = "CogniFocus app logo for a distraction-aware focus timer with character reactions";
 const updates = Array.isArray(updatesData) ? updatesData : [];
 
@@ -362,6 +362,22 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
             </article>
           ))}
         </div>
+      </section>
+
+      <section class="whats-new-card coming-soon-card">
+        <div class="whats-new-card-header">
+          <div class="whats-new-icon" aria-hidden="true">&#9203;</div>
+          <div>
+            <h2>Coming Soon</h2>
+            <p>Still cooking. The Goblin's got more in the bag.</p>
+          </div>
+        </div>
+
+        <ul class="whats-new-list">
+          <li>Behavioral insight cards - daily reflection and weekly patterns.</li>
+          <li>More companions - Monk, Buddy, Wizard, and others are in the works.</li>
+          <li>Ghost Mode and advanced Shield protection - coming later.</li>
+        </ul>
       </section>
     </section>
   </main>
