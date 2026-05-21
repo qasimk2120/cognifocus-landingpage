@@ -1,10 +1,13 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { getAdminAuth } from "./firebase.js";
 
-export const ADMIN_EMAIL = "getcognifocus@gmail.com";
+export const ADMIN_EMAILS = [
+  "getcognifocus@gmail.com",
+  "cognielevate@gmail.com",
+];
 
 export function isAuthorizedAdmin(user) {
-  return user?.email === ADMIN_EMAIL;
+  return ADMIN_EMAILS.includes(user?.email || "");
 }
 
 export function waitForAdminUser(auth) {

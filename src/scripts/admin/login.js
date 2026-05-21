@@ -5,12 +5,13 @@ import {
   signInWithPopup,
   signInWithRedirect,
 } from "firebase/auth";
-import { ADMIN_EMAIL, clearAdminSession, isAuthorizedAdmin } from "./auth.js";
+import { clearAdminSession, isAuthorizedAdmin } from "./auth.js";
 import { getAdminAuth } from "./firebase.js";
 
 const form = document.querySelector("[data-admin-login-form]");
 const message = document.querySelector("[data-admin-login-message]");
 const provider = new GoogleAuthProvider();
+const ACCESS_DENIED_MESSAGE = "Access denied. Sign in with an authorized admin account.";
 
 provider.setCustomParameters({
   prompt: "select_account",
@@ -65,10 +66,7 @@ async function finishLogin(user) {
 
   if (!isAuthorizedAdmin(user)) {
     await clearAdminSession();
-    setMessage(
-      `Access denied. Sign in with ${ADMIN_EMAIL} to use the CMS.`,
-      "error",
-    );
+    setMessage(ACCESS_DENIED_MESSAGE, "error");
     setLoading(false);
     return false;
   }
@@ -93,10 +91,7 @@ async function initLogin() {
   }
 
   if (new URLSearchParams(window.location.search).has("denied")) {
-    setMessage(
-      `Access denied. Sign in with ${ADMIN_EMAIL} to use the CMS.`,
-      "error",
-    );
+    setMessage(ACCESS_DENIED_MESSAGE, "error");
   }
 
   try {
