@@ -16,10 +16,7 @@ function canonicalSitemap() {
         const sourceSitemapPath = join(outDir, "sitemap-0.xml");
         const canonicalSitemapPath = join(outDir, "sitemap.xml");
 
-        await copyFile(
-          sourceSitemapPath,
-          canonicalSitemapPath,
-        );
+        await copyFile(sourceSitemapPath, canonicalSitemapPath);
 
         for (const sitemapPath of [sourceSitemapPath, canonicalSitemapPath]) {
           const sitemapContent = await readFile(sitemapPath, "utf8");
