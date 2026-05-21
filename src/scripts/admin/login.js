@@ -10,8 +10,15 @@ import { getAdminAuth } from "./firebase.js";
 
 const form = document.querySelector("[data-admin-login-form]");
 const message = document.querySelector("[data-admin-login-message]");
+const submitButton = document.querySelector("[data-admin-login-submit]");
+const turnstileMount = document.querySelector("[data-admin-turnstile]");
 const provider = new GoogleAuthProvider();
 const ACCESS_DENIED_MESSAGE = "Access denied. Sign in with an authorized admin account.";
+const TURNSTILE_SITEKEY = "0x4AAAAAADR7PaDsKmcbHtqJ";
+const TURNSTILE_LOAD_TIMEOUT_MS = 8000;
+
+let turnstileToken = "";
+let turnstileWidgetId = null;
 
 provider.setCustomParameters({
   prompt: "select_account",
@@ -36,6 +43,12 @@ function setLoading(isLoading) {
   }
 }
 
+function setSubmitEnabled(isEnabled) {
+  if (submitButton) {
+    submitButton.disabled = !isEnabled;
+  }
+}
+
 function getFriendlyAuthError(error) {
   switch (error?.code) {
     case "auth/account-exists-with-different-credential":
@@ -48,6 +61,80 @@ function getFriendlyAuthError(error) {
       return "Could not reach Firebase Auth. Check your connection and try again.";
     default:
       return error?.message || "Sign in failed. Please try again.";
+  }
+}
+
+function hasHoneypotValue() {
+  if (!form) {
+    return true;
+  }
+
+  return ["website", "company", "url"].some((name) =>
+    Boolean(String(form.elements[name]?.value || "").trim()),
+  );
+}
+
+function resetTurnstile() {
+  turnstileToken = "";
+  setSubmitEnabled(false);
+
+  if (turnstileWidgetId !== null && window.turnstile?.reset) {
+    window.turnstile.reset(turnstileWidgetId);
+  }
+}
+
+function waitForTurnstile() {
+  if (window.turnstile?.render) {
+    return Promise.resolve(window.turnstile);
+  }
+
+  return new Promise((resolve, reject) => {
+    const startedAt = Date.now();
+    const intervalId = window.setInterval(() => {
+      if (window.turnstile?.render) {
+        window.clearInterval(intervalId);
+        resolve(window.turnstile);
+        return;
+      }
+
+      if (Date.now() - startedAt > TURNSTILE_LOAD_TIMEOUT_MS) {
+        window.clearInterval(intervalId);
+        reject(new Error("Security check could not load. Please refresh and try again."));
+      }
+    }, 100);
+  });
+}
+
+async function initTurnstile() {
+  if (!turnstileMount) {
+    setMessage("Security check is not available. Please refresh and try again.", "error");
+    setSubmitEnabled(false);
+    return;
+  }
+
+  try {
+    const turnstile = await waitForTurnstile();
+    turnstileWidgetId = turnstile.render(turnstileMount, {
+      sitekey: TURNSTILE_SITEKEY,
+      callback(token) {
+        turnstileToken = token;
+        setSubmitEnabled(true);
+        setMessage("", "info");
+      },
+      "expired-callback"() {
+        turnstileToken = "";
+        setSubmitEnabled(false);
+        setMessage("Security check expired. Please verify again.", "error");
+      },
+      "error-callback"() {
+        turnstileToken = "";
+        setSubmitEnabled(false);
+        setMessage("Security check failed. Please refresh and try again.", "error");
+      },
+    });
+  } catch (error) {
+    setMessage(error?.message || "Security check could not load. Please refresh and try again.", "error");
+    setSubmitEnabled(false);
   }
 }
 
@@ -111,11 +198,27 @@ async function initLogin() {
     }
   });
 
+  await initTurnstile();
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
+    if (hasHoneypotValue()) {
+      await clearAdminSession();
+      resetTurnstile();
+      setMessage(ACCESS_DENIED_MESSAGE, "error");
+      return;
+    }
+
+    if (!turnstileToken) {
+      setMessage("Complete the security check before signing in.", "error");
+      setSubmitEnabled(false);
+      return;
+    }
+
     setLoading(true);
     setMessage("Opening Google sign-in...", "info");
+    turnstileToken = "";
 
     try {
       const result = await signInWithPopup(auth, provider);
@@ -129,6 +232,7 @@ async function initLogin() {
 
       setMessage(getFriendlyAuthError(error), "error");
       setLoading(false);
+      resetTurnstile();
     }
   });
 }

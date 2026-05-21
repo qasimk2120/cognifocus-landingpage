@@ -7,6 +7,12 @@ import AdminLayout from "../../layouts/AdminLayout.astro";
   description="Private CogniFocus CMS login."
   showNav={false}
 >
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+    async
+    defer
+  ></script>
+
   <main class="admin-login-shell">
     <section class="admin-login-card">
       <div class="admin-login-brand">
@@ -19,8 +25,45 @@ import AdminLayout from "../../layouts/AdminLayout.astro";
         <p>Use the authorized CogniFocus Google account.</p>
       </div>
 
+      <div
+        class="admin-turnstile"
+        data-admin-turnstile
+        aria-label="Security check"
+      ></div>
+
       <form class="admin-form" data-admin-login-form>
-        <button type="submit" class="admin-button admin-button-primary">
+        <div class="admin-honeypot" aria-hidden="true">
+          <label for="adminLoginWebsite">Website</label>
+          <input
+            id="adminLoginWebsite"
+            type="text"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+          />
+          <label for="adminLoginCompany">Company</label>
+          <input
+            id="adminLoginCompany"
+            type="text"
+            name="company"
+            tabindex="-1"
+            autocomplete="off"
+          />
+          <label for="adminLoginUrl">URL</label>
+          <input
+            id="adminLoginUrl"
+            type="text"
+            name="url"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+        <button
+          type="submit"
+          class="admin-button admin-button-primary"
+          data-admin-login-submit
+          disabled
+        >
           Sign in with Google
         </button>
         <p class="admin-form-message" data-admin-login-message role="status"></p>

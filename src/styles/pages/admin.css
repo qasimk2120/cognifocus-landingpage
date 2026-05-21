@@ -369,6 +369,18 @@ body.admin-page {
   color: var(--admin-muted);
 }
 
+.admin-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.admin-turnstile {
+  min-height: 65px;
+}
+
 .admin-helper-text {
   color: var(--admin-soft);
   font-size: 12px;
