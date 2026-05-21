@@ -1,0 +1,24 @@
+{
+  "title": "What's New (v4.4.3)",
+  "version": "4.4.3",
+  "slug": "v4-4-3",
+  "summary": "Daily stats cloud sync is more reliable, sync states are clearer, manual sync is available in Settings, and backup diagnostics are stronger.",
+  "type": "app",
+  "category": "Cloud Sync Reliability",
+  "tags": [
+    "4.4.3",
+    "Cloud Sync Reliability"
+  ],
+  "highlights": [
+    "Daily stats sync is more reliable, including sessions ended manually"
+  ],
+  "fixes": [
+    "Sync status is now clearer with visible success, pending, and failure states",
+    "You can now trigger a manual sync from Settings when needed",
+    "Improved stability and diagnostics for cloud backup and restore"
+  ],
+  "improvements": [],
+  "notes": [],
+  "publishedAt": "2026-05-03",
+  "featured": false
+}

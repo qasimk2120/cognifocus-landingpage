@@ -1,0 +1,24 @@
+{
+  "title": "What's New (v4.4.2)",
+  "version": "4.4.2",
+  "slug": "v4-4-2",
+  "summary": "Google sign-in backup behavior is more reliable after reinstall or reset, backup continuity is stronger, and onboarding restore messaging is clearer.",
+  "type": "app",
+  "category": "Backup & Restore Clarity",
+  "tags": [
+    "4.4.2",
+    "Backup & Restore Clarity"
+  ],
+  "highlights": [
+    "Google sign-in backup now behaves more reliably after reinstall or app data reset",
+    "Improved backup continuity so your account is less likely to show a false no-backup-found message",
+    "Backup and restore messaging is clearer during onboarding"
+  ],
+  "fixes": [],
+  "improvements": [
+    "General stability and polish improvements"
+  ],
+  "notes": [],
+  "publishedAt": "2026-05-02",
+  "featured": false
+}

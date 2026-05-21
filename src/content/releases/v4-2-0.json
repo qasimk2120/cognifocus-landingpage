@@ -1,0 +1,27 @@
+{
+  "title": "Control, Progress & Reliability (v4.2.0)",
+  "version": "4.2.0",
+  "slug": "v4-2-0",
+  "summary": "Focus sessions feel more predictable: Shield readiness is clearer, reminders are stronger, and progress tracking gives better feedback.",
+  "type": "shield",
+  "category": "Shield & Progress Update",
+  "tags": [
+    "4.2.0",
+    "Shield & Progress Update"
+  ],
+  "highlights": [
+    "Shield now clearly tells you when apps or permissions are missing before a focus session"
+  ],
+  "fixes": [
+    "Planned Sessions now send stronger reminders and keep missed sessions visible",
+    "New XP, levels, and Focus Score begin shaping progress around real focus quality",
+    "Goblin reactions now better reflect streak risk, comebacks, XP moments, and missed planned sessions",
+    "Account sync now protects more progress, settings, and planned-session state across reinstalls",
+    "Purchase and account setup flows are more stable",
+    "Session notifications are more reliable during active focus sessions"
+  ],
+  "improvements": [],
+  "notes": [],
+  "publishedAt": "2026-04-22",
+  "featured": false
+}

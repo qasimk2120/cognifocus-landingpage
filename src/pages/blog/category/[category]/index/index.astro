@@ -9,15 +9,15 @@ import {
   getPostsByCategory,
 } from "../../../../../utils/blog";
 
-export function getStaticPaths() {
-  return getActiveCategories().map((category) => ({
+export async function getStaticPaths() {
+  return (await getActiveCategories()).map((category) => ({
     params: { category: category.slug },
     props: { category },
   }));
 }
 
 const { category } = Astro.props;
-const posts = getPostsByCategory(category.slug);
+const posts = await getPostsByCategory(category.slug);
 const pagePosts = getPageSlice(posts, 1, BLOG_PAGE_SIZE);
 const title = `${category.label} | CogniFocus Blog`;
 const description = `CogniFocus ${category.label.toLowerCase()} articles about focus sessions, app blocking, distraction recovery, and better Android focus habits.`;

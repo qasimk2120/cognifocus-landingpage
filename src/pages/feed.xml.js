@@ -1,12 +1,10 @@
 import rss from "@astrojs/rss";
-import posts from "../data/blog/posts.json";
+import { getSortedPosts } from "../utils/blog.js";
 
 const toUtcDate = (value) => new Date(`${value}T00:00:00Z`);
 
-export function GET(context) {
-  const sortedPosts = [...posts].sort((a, b) =>
-    (b.publishDate || "").localeCompare(a.publishDate || ""),
-  );
+export async function GET(context) {
+  const sortedPosts = await getSortedPosts();
 
   return rss({
     title: "CogniFocus Blog",

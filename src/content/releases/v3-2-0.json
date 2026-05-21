@@ -1,0 +1,27 @@
+{
+  "title": "Session Experience Expansion (v3.2.0)",
+  "version": "3.2.0",
+  "slug": "v3-2-0",
+  "summary": "Sessions gained better day-to-day structure with Daily Objective, post-session feedback, and smoother active-session flow.",
+  "type": "app",
+  "category": "Focus Expansion",
+  "tags": [
+    "3.2.0",
+    "Focus Expansion"
+  ],
+  "highlights": [
+    "Added Daily Objective to Focus",
+    "Added lightweight post-session feedback",
+    "Added native app sharing"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Added a teaser for future companions on intro screens",
+    "Improved theme consistency",
+    "Improved end-of-session urgency visuals",
+    "Improved notifications and Shield reliability"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-11",
+  "featured": false
+}

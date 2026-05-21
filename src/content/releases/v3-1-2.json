@@ -1,0 +1,24 @@
+{
+  "title": "UI Refinement Pass (v3.1.2)",
+  "version": "3.1.2",
+  "slug": "v3-1-2",
+  "summary": "Spacing, styling, and theme behavior were refined so everyday navigation feels more cohesive.",
+  "type": "app",
+  "category": "UI Consistency Pass",
+  "tags": [
+    "3.1.2",
+    "UI Consistency Pass"
+  ],
+  "highlights": [
+    "Cleaned up component styling",
+    "Improved spacing and layout consistency",
+    "Improved theme consistency across screens"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Reduced visual rough edges"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-08",
+  "featured": false
+}

@@ -1,0 +1,25 @@
+{
+  "title": "What's New (v4.5.0)",
+  "version": "4.5.0",
+  "slug": "v4-5-0",
+  "summary": "Onboarding now guides your biggest distraction choice earlier, intro progression is smoother, Google recovery is clearer, and level progression interactions are more reliable.",
+  "type": "app",
+  "category": "Onboarding & Progression Upgrade",
+  "tags": [
+    "4.5.0",
+    "Onboarding & Progression Upgrade"
+  ],
+  "highlights": [
+    "Onboarding now helps you choose your biggest distraction up front",
+    "Intro flow is smoother with clearer slide progression and fewer dead ends",
+    "Google recovery during intro is easier to understand"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Level and progression interactions are now more reliable",
+    "General polish, stability, and performance improvements"
+  ],
+  "notes": [],
+  "publishedAt": "2026-05-04",
+  "featured": false
+}

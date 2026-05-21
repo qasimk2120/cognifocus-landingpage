@@ -1,0 +1,25 @@
+{
+  "title": "Launch Setup & Purchase Flow Updates (v4.1.1)",
+  "version": "4.1.1",
+  "slug": "v4-1-1",
+  "summary": "App selection and paywall clarity improved, so setup feels more guided and launch decisions are easier.",
+  "type": "app",
+  "category": "App Selection & Purchase Polish",
+  "tags": [
+    "4.1.1",
+    "App Selection & Purchase Polish"
+  ],
+  "highlights": [
+    "Selected apps now stay pinned while you build or edit your block list",
+    "Shield editing actions now match the rest of the app controls",
+    "Yearly Pro pricing is clearer with the monthly equivalent up front"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Terms and Privacy dialogs are shorter, scrollable, and easier to close",
+    "Small launch polish across paywall, Shield, and onboarding flows"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-20",
+  "featured": false
+}

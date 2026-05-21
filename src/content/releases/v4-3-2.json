@@ -1,0 +1,25 @@
+{
+  "title": "What's New (v4.3.2)",
+  "version": "4.3.2",
+  "slug": "v4-3-2",
+  "summary": "Mini fixes and improved prompt reliability, with new quick Settings actions for feedback and sharing.",
+  "type": "app",
+  "category": "Prompt & Settings Polish",
+  "tags": [
+    "4.3.2",
+    "Prompt & Settings Polish"
+  ],
+  "highlights": [
+    "Mini fixes and polish update",
+    "Update prompt now appears more reliably outside Home (including Settings)",
+    "Fixed Google account sync flow from Settings"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Added quick Settings actions for feedback, rating, and sharing CogniFocus",
+    "Improved prompt timing so feedback and review prompts do not overlap"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-28",
+  "featured": false
+}

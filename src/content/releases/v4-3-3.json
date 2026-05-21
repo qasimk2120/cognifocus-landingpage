@@ -1,0 +1,25 @@
+{
+  "title": "What's New (v4.3.3)",
+  "version": "4.3.3",
+  "slug": "v4-3-3",
+  "summary": "Getting help is now faster and clearer, with a better support form experience, stronger feedback handling, and cleaner in-app messaging.",
+  "type": "app",
+  "category": "Support & UI Polish",
+  "tags": [
+    "4.3.3",
+    "Support & UI Polish"
+  ],
+  "highlights": [
+    "Added a new support request modal and cleaner feedback form flow",
+    "Settings support actions are now easier to use with stronger validation and submission handling",
+    "Support and feedback submissions now show clearer error and success messaging"
+  ],
+  "fixes": [],
+  "improvements": [
+    "App notices and alerts are now more consistent across Settings and support actions",
+    "Global modal and alert styling received a polish pass for a cleaner mobile experience"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-28",
+  "featured": false
+}

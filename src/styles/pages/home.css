@@ -3498,8 +3498,8 @@
 
 .goblin-cards-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
   max-width: 1200px;
   margin-top: 2.5rem;
   margin-left: auto;
@@ -3513,7 +3513,7 @@
   background: transparent;
   padding: 0;
   cursor: pointer;
-  height: 420px;
+  height: 380px;
   perspective: 1000px;
   outline: none;
   transition: transform 0.2s ease;
@@ -3565,7 +3565,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1.25rem;
   border-radius: var(--cf-r-card);
   border: 2px solid var(--cf-cyan-20);
   transition:
@@ -3582,7 +3582,7 @@
   );
   overflow: hidden;
   z-index: 2;
-  padding-bottom: 2.1rem;
+  padding-bottom: 1.75rem;
 }
 
 

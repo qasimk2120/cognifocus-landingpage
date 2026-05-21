@@ -13,7 +13,7 @@ const description = "CogniFocus is a focus timer and app blocker where a Goblin 
 const canonical = "https://cognifocus.app/blog/";
 const ogTitle = "CogniFocus Blog | Focus Guides and Productivity Articles";
 const ogDescription = "CogniFocus pairs a focus timer and app blocker with a Goblin that reacts the moment you drift into TikTok, Instagram, or YouTube.";
-const sortedPosts = getSortedPosts();
+const sortedPosts = await getSortedPosts();
 const pagePosts = getPageSlice(sortedPosts, 1, BLOG_PAGE_SIZE);
 const page = {
   currentPage: 1,

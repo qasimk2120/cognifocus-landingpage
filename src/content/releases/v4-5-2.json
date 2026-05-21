@@ -1,0 +1,24 @@
+{
+  "title": "What's New (v4.5.2)",
+  "version": "4.5.2",
+  "slug": "v4-5-2",
+  "summary": "Blocked-app returns are cleaner, Progress shows more behavior-aware insights, focus nudges are safer, and intro screens fit tall phones and camera cutouts better.",
+  "type": "shield",
+  "category": "Shield & Progress Polish",
+  "tags": [
+    "4.5.2",
+    "Shield & Progress Polish"
+  ],
+  "highlights": [
+    "Returning from a blocked app should no longer stack duplicate Shield overlays",
+    "Progress now shows more behavior-aware Goblin insights and focus patterns",
+    "Behavioral focus nudges and notification timing got safer"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Intro screens now respect camera cutouts and tall phone safe areas better"
+  ],
+  "notes": [],
+  "publishedAt": "2026-05-13",
+  "featured": false
+}

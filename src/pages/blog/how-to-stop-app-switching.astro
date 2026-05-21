@@ -1,11 +1,11 @@
 ---
 import BlogPostLayout from "../../components/blog/BlogPostLayout.astro";
-import posts from "../../data/blog/posts.json";
+import { getPostBySlug } from "../../utils/blog.js";
 
-const post = posts.find((entry) => entry.slug === "how-to-stop-app-switching");
+const post = await getPostBySlug("how-to-stop-app-switching");
 
 if (!post) {
-  throw new Error("Missing blog post data for how-to-stop-app-switching");
+  throw new Error("Missing blog post content for how-to-stop-app-switching");
 }
 ---
 

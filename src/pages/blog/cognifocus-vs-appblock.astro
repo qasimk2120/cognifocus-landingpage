@@ -1,11 +1,11 @@
 ---
 import BlogPostLayout from "../../components/blog/BlogPostLayout.astro";
-import posts from "../../data/blog/posts.json";
+import { getPostBySlug } from "../../utils/blog.js";
 
-const post = posts.find((entry) => entry.slug === "cognifocus-vs-appblock");
+const post = await getPostBySlug("cognifocus-vs-appblock");
 
 if (!post) {
-  throw new Error("Missing blog post data for cognifocus-vs-appblock");
+  throw new Error("Missing blog post content for cognifocus-vs-appblock");
 }
 ---
 

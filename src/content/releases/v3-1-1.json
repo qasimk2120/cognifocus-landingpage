@@ -1,0 +1,27 @@
+{
+  "title": "First Impression Refresh (v3.1.1)",
+  "version": "3.1.1",
+  "slug": "v3-1-1",
+  "summary": "Early experience updates made onboarding, Shield setup, and first-session flow easier to understand from day one.",
+  "type": "shield",
+  "category": "Refinement Release",
+  "tags": [
+    "3.1.1",
+    "Refinement Release"
+  ],
+  "highlights": [
+    "Improved onboarding flow with cleaner copy and smoother motion",
+    "Removed weaker onboarding steps",
+    "Improved Shield setup and Shield status screens"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Added clearer Shield states like Setup Required, Ready, Waiting for session, and Monitoring distractions",
+    "Improved Shield overlay visuals in light and dark mode",
+    "Improved the in-app update experience",
+    "Polished home and onboarding labels"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-08",
+  "featured": false
+}

@@ -1,0 +1,24 @@
+{
+  "title": "Shield Predictability Upgrade (v3.2.1)",
+  "version": "3.2.1",
+  "slug": "v3-2-1",
+  "summary": "Shield behavior became more dependable during active sessions, especially in harder distraction moments.",
+  "type": "shield",
+  "category": "Shield Reliability Update",
+  "tags": [
+    "3.2.1",
+    "Shield Reliability Update"
+  ],
+  "highlights": [
+    "Improved Shield reliability during focus sessions"
+  ],
+  "fixes": [
+    "Strengthened distraction monitoring in tougher cases",
+    "Added accessibility improvements across multiple screens",
+    "Improved UI consistency in different parts of the app"
+  ],
+  "improvements": [],
+  "notes": [],
+  "publishedAt": "2026-04-12",
+  "featured": false
+}

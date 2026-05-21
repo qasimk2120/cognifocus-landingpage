@@ -1,0 +1,26 @@
+{
+  "title": "What's New (v4.4.1)",
+  "version": "4.4.1",
+  "slug": "v4-4-1",
+  "summary": "XP and level progression are clearer, Diamonds rewards are live, session rewards feel better, backup status messaging is improved, and Settings is more polished on mobile.",
+  "type": "app",
+  "category": "Progression & Settings Polish",
+  "tags": [
+    "4.4.1",
+    "Progression & Settings Polish"
+  ],
+  "highlights": [
+    "XP and level progress now feel clearer and smoother",
+    "Diamonds are now live with milestone and tier rewards",
+    "Session reward moments are cleaner and more satisfying"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Google sign-in and backup status are now easier to understand",
+    "You now get clearer offline backup status messages",
+    "Settings got a cleaner, more polished mobile layout"
+  ],
+  "notes": [],
+  "publishedAt": "2026-05-01",
+  "featured": false
+}

@@ -1,11 +1,11 @@
 ---
 import BlogPostLayout from "../../components/blog/BlogPostLayout.astro";
-import posts from "../../data/blog/posts.json";
+import { getPostBySlug } from "../../utils/blog.js";
 
-const post = posts.find((entry) => entry.slug === "app-blocker-for-studying");
+const post = await getPostBySlug("app-blocker-for-studying");
 
 if (!post) {
-  throw new Error("Missing blog post data for app-blocker-for-studying");
+  throw new Error("Missing blog post content for app-blocker-for-studying");
 }
 ---
 

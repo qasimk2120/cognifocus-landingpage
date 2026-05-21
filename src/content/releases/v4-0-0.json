@@ -1,0 +1,27 @@
+{
+  "title": "Focus Expansion: Sharper Control (v4.0.0)",
+  "version": "4.0.0",
+  "slug": "v4-0-0",
+  "summary": "CogniFocus expanded beyond a basic timer with Manual Block, smarter guidance, and stronger in-session control.",
+  "type": "app",
+  "category": "Focus Expansion",
+  "tags": [
+    "4.0.0",
+    "Focus Expansion"
+  ],
+  "highlights": [
+    "Manual Block adds stronger control outside sessions",
+    "Session objectives are visible and used in reactions",
+    "You can adjust a session mid-focus without restarting"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Smarter focus guidance adds drift and burnout nudges",
+    "Planned Sessions were added to Pro",
+    "Personality responses were improved",
+    "UI consistency, notification reliability, performance, and stability"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-17",
+  "featured": false
+}

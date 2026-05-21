@@ -1,0 +1,25 @@
+{
+  "title": "Accessibility & Update Clarity (v3.2.2)",
+  "version": "3.2.2",
+  "slug": "v3-2-2",
+  "summary": "Accessibility options expanded and update messaging became clearer, so the app is easier to use and easier to trust.",
+  "type": "app",
+  "category": "Accessibility & Update Clarity",
+  "tags": [
+    "3.2.2",
+    "Accessibility & Update Clarity"
+  ],
+  "highlights": [
+    "Added reduced motion support",
+    "Improved contrast for readability",
+    "Added color-vision support options"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Added an in-app What's New dialog",
+    "Made update messaging clearer"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-12",
+  "featured": false
+}

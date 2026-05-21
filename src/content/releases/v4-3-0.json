@@ -1,0 +1,26 @@
+{
+  "title": "Daily Planning & Focus Polish (v4.3.0)",
+  "version": "4.3.0",
+  "slug": "v4-3-0",
+  "summary": "Daily planning now feels easier to run, focus controls are clearer, and support flows give you faster help with less typing.",
+  "type": "app",
+  "category": "Focus Polish",
+  "tags": [
+    "4.3.0",
+    "Focus Polish"
+  ],
+  "highlights": [
+    "Daily planning and Focus Intention flows are now cleaner and easier to manage",
+    "Session setup, Shield, and focus controls feel more consistent across the app",
+    "Header and progression visuals are clearer, with smoother XP feedback and polish"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Support form now better auto-fills your info (including linked email and saved name)",
+    "Support requests now send clearer contact context so replies are easier",
+    "Large internal cleanup improved stability and maintainability across core features"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-24",
+  "featured": false
+}

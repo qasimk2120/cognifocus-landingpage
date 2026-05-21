@@ -3,7 +3,15 @@ import SiteIcon from "../shared/SiteIcon.astro";
 
 const { page, basePath } = Astro.props;
 
-const normalizePageHref = (href) => href?.replace(/\/page\/1(?:\.html)?\/?$/, "/");
+const normalizePageHref = (href) => {
+  if (!href) {
+    return href;
+  }
+
+  return href
+    .replace(/\/page\/1(?:\.html)?\/?$/, "/")
+    .replace(/\/page\/(\d+)\/?$/, "/page/$1.html");
+};
 
 const getPageHref = (pageNumber) =>
   pageNumber <= 1

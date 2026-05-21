@@ -1,0 +1,24 @@
+{
+  "title": "Text & Localization Foundation (v3.3.0)",
+  "version": "3.3.0",
+  "slug": "v3-3-0",
+  "summary": "Text systems were reworked to make app copy clearer now and ready for stronger language support later.",
+  "type": "content",
+  "category": "Localization Foundation",
+  "tags": [
+    "3.3.0",
+    "Localization Foundation"
+  ],
+  "highlights": [
+    "Improved the text system to support future localization",
+    "Prepared the app for character-based voice and UI copy in later updates",
+    "Made legal and update-related text clearer"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Continued polish across Settings, onboarding, and content screens"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-12",
+  "featured": false
+}

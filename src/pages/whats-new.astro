@@ -1,17 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteIcon from "../components/shared/SiteIcon.astro";
-import updatesData from "../data/updates.json";
+import {
+  formatReleaseDate,
+  getReleaseDetailSections,
+  getSortedReleases,
+} from "../utils/releases.js";
 
 const title = "What's New in CogniFocus | Latest Updates";
-const description = "See what's new in CogniFocus — latest features, Shield upgrades, Goblin updates, and what's coming next.";
+const description = "See what's new in CogniFocus - latest features, Shield upgrades, Goblin updates, and what's coming next.";
 const canonical = "https://cognifocus.app/whats-new.html";
-const ogDescription = "See what's new in CogniFocus — latest features, Shield upgrades, Goblin updates, and what's coming next.";
+const ogDescription = "See what's new in CogniFocus - latest features, Shield upgrades, Goblin updates, and what's coming next.";
 const ogImageAlt = "CogniFocus app logo for a distraction-aware focus timer with character reactions";
-const updates = Array.isArray(updatesData) ? updatesData : [];
+const updates = await getSortedReleases();
 
 function escapeHtml(value) {
-  return String(value).replace(/[&<>"']/g, (char) => {
+  return String(value).replace(/[&<>\"']/g, (char) => {
     const entities = {
       "&": "&amp;",
       "<": "&lt;",
@@ -22,131 +26,6 @@ function escapeHtml(value) {
 
     return entities[char];
   });
-}
-
-function inlineMarkdown(text) {
-  return escapeHtml(text)
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(
-      /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
-      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>',
-    )
-    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-    .replace(/\*([^*]+)\*/g, "<em>$1</em>");
-}
-
-function markdownToHtml(markdown) {
-  if (!markdown || !markdown.trim()) {
-    return "<p>No detailed notes were provided for this update yet.</p>";
-  }
-
-  const lines = markdown.replace(/\r\n/g, "\n").split("\n");
-  const html = [];
-  let inList = false;
-  let listType = "ul";
-  let inCodeBlock = false;
-  let codeBuffer = [];
-  let paragraphBuffer = [];
-
-  function flushParagraph() {
-    if (paragraphBuffer.length === 0) return;
-    html.push(`<p>${inlineMarkdown(paragraphBuffer.join(" "))}</p>`);
-    paragraphBuffer = [];
-  }
-
-  function flushList() {
-    if (!inList) return;
-    html.push(`</${listType}>`);
-    inList = false;
-  }
-
-  function flushCodeBlock() {
-    if (!inCodeBlock) return;
-    html.push(`<pre><code>${escapeHtml(codeBuffer.join("\n"))}</code></pre>`);
-    inCodeBlock = false;
-    codeBuffer = [];
-  }
-
-  for (const rawLine of lines) {
-    const line = rawLine.trimEnd();
-    const trimmed = line.trim();
-
-    if (trimmed.startsWith("```")) {
-      flushParagraph();
-      flushList();
-
-      if (inCodeBlock) {
-        flushCodeBlock();
-      } else {
-        inCodeBlock = true;
-      }
-      continue;
-    }
-
-    if (inCodeBlock) {
-      codeBuffer.push(line);
-      continue;
-    }
-
-    if (!trimmed) {
-      flushParagraph();
-      flushList();
-      continue;
-    }
-
-    const headingMatch = trimmed.match(/^(#{1,4})\s+(.+)$/);
-    if (headingMatch) {
-      flushParagraph();
-      flushList();
-      const level = headingMatch[1].length;
-      html.push(`<h${level}>${inlineMarkdown(headingMatch[2])}</h${level}>`);
-      continue;
-    }
-
-    const quoteMatch = trimmed.match(/^>\s?(.*)$/);
-    if (quoteMatch) {
-      flushParagraph();
-      flushList();
-      html.push(`<blockquote>${inlineMarkdown(quoteMatch[1])}</blockquote>`);
-      continue;
-    }
-
-    const unorderedMatch = trimmed.match(/^[-*]\s+(.+)$/);
-    const orderedMatch = trimmed.match(/^\d+\.\s+(.+)$/);
-
-    if (unorderedMatch || orderedMatch) {
-      flushParagraph();
-      const nextListType = unorderedMatch ? "ul" : "ol";
-      const itemText = unorderedMatch ? unorderedMatch[1] : orderedMatch[1];
-
-      if (!inList || listType !== nextListType) {
-        flushList();
-        listType = nextListType;
-        html.push(`<${listType}>`);
-        inList = true;
-      }
-
-      html.push(`<li>${inlineMarkdown(itemText)}</li>`);
-      continue;
-    }
-
-    paragraphBuffer.push(trimmed);
-  }
-
-  flushParagraph();
-  flushList();
-  flushCodeBlock();
-
-  return html.join("");
-}
-
-function formatDate(value) {
-  const date = new Date(value);
-  return new Intl.DateTimeFormat("en", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  }).format(date);
 }
 
 function updateMetaHtml(update, isLatest) {
@@ -167,7 +46,7 @@ function updateMetaHtml(update, isLatest) {
   }
 
   parts.push(
-    `<span class="release-status">${escapeHtml(formatDate(update.date))}</span>`,
+    `<span class="release-status">${formatReleaseDate(update.date)}</span>`,
   );
 
   return parts.join("");
@@ -175,7 +54,12 @@ function updateMetaHtml(update, isLatest) {
 
 const latestUpdate = updates[0];
 const historyUpdates = updates.slice(1);
-const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") : "";
+const itemListElements = updates.slice(0, 8).map((update, index) => ({
+  "@type": "ListItem",
+  position: index + 1,
+  name: update.title,
+  description: update.summary,
+}));
 ---
 
 <BaseLayout
@@ -200,32 +84,7 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "CogniFocus release timeline",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Minor Improvements (v4.5.5)",
-        description: "General stability fixes across focus flows, plus a minor fix to prevent distraction counting twice in some cases.",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Focus Session Reliability Improvements (v4.5.4)",
-        description: "Improved stability and reliability during focus sessions, especially in tougher distraction cases.",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Introducing 1st time Walkthrough (v4.5.3)",
-        description: "A new first-time walkthrough helps users start their first focus loop, understand focus setup, follow progress and tabs, and use guidance that fits more phone sizes.",
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: "What's New (v4.5.2)",
-        description: "Blocked-app returns are cleaner, Progress shows more behavior-aware insights, focus nudges are safer, and intro screens fit tall phones and camera cutouts better.",
-      },
-    ],
+    itemListElement: itemListElements,
   })}></script>
   <link slot="head-after-social" rel="preconnect" href="https://fonts.googleapis.com" />
   <link slot="head-after-social" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -327,7 +186,16 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
             </div>
 
             <div class="release-details" hidden>
-              <div class="release-notes" set:html={latestNotesHtml}></div>
+              <div class="release-notes">
+                {latestUpdate && getReleaseDetailSections(latestUpdate).map(([label, items]) => (
+                  <section class="release-note-section">
+                    <h4>{label}</h4>
+                    <ul>
+                      {items.map((item) => <li>{item}</li>)}
+                    </ul>
+                  </section>
+                ))}
+              </div>
             </div>
           </article>
         </div>
@@ -357,7 +225,16 @@ const latestNotesHtml = latestUpdate ? markdownToHtml(latestUpdate.notes || "") 
                 </button>
               </div>
               <div class="release-details" hidden>
-                <div class="release-notes" set:html={markdownToHtml(update.notes || "")}></div>
+                <div class="release-notes">
+                  {getReleaseDetailSections(update).map(([label, items]) => (
+                    <section class="release-note-section">
+                      <h4>{label}</h4>
+                      <ul>
+                        {items.map((item) => <li>{item}</li>)}
+                      </ul>
+                    </section>
+                  ))}
+                </div>
               </div>
             </article>
           ))}

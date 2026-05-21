@@ -1,0 +1,22 @@
+{
+  "title": "Website Refresh",
+  "version": "Website",
+  "slug": "website-refresh",
+  "summary": "The website became easier to navigate on smaller screens, with clearer legal pages and a dedicated What's New timeline.",
+  "type": "website",
+  "category": "Site Update",
+  "tags": [
+    "Website",
+    "Site Update"
+  ],
+  "highlights": [
+    "Improved navigation and button layout on smaller screens",
+    "Made Privacy Policy and Terms pages more consistent",
+    "Added a dedicated What's New page"
+  ],
+  "fixes": [],
+  "improvements": [],
+  "notes": [],
+  "publishedAt": "2026-04-07",
+  "featured": false
+}

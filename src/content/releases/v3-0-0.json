@@ -1,0 +1,25 @@
+{
+  "title": "Product Baseline: New Focus Flow (v3.0.0)",
+  "version": "3.0.0",
+  "slug": "v3-0-0",
+  "summary": "This release established the modern CogniFocus baseline with a rebuilt flow, refreshed onboarding, and upgraded Shield experience.",
+  "type": "shield",
+  "category": "Product Baseline",
+  "tags": [
+    "3.0.0",
+    "Product Baseline"
+  ],
+  "highlights": [
+    "Redesigned app flow around the new Focus tab",
+    "Refreshed onboarding",
+    "Improved Focus Shield flow"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Added appearance settings including dark mode",
+    "Added new timer clock styles"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-07",
+  "featured": false
+}

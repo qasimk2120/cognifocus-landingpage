@@ -1,0 +1,24 @@
+{
+  "title": "Update Prompt Experience (v3.1.3)",
+  "version": "3.1.3",
+  "slug": "v3-1-3",
+  "summary": "New update prompts make it clearer when a release is available and what to do next.",
+  "type": "app",
+  "category": "Update Prompt Release",
+  "tags": [
+    "3.1.3",
+    "Update Prompt Release"
+  ],
+  "highlights": [
+    "Added an in-app update prompt",
+    "Made update availability clearer",
+    "Reduced guesswork around what to do next"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Added groundwork for better release status handling"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-08",
+  "featured": false
+}

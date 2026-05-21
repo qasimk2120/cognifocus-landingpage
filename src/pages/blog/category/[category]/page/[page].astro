@@ -7,14 +7,18 @@ import {
   getPostsByCategory,
 } from "../../../../../utils/blog";
 
-export function getStaticPaths({ paginate }) {
-  return getActiveCategories().flatMap((category) =>
-    paginate(getPostsByCategory(category.slug), {
-      pageSize: BLOG_PAGE_SIZE,
-      params: { category: category.slug },
-      props: { category },
-    }).filter(({ params }) => Number(params.page) > 1),
+export async function getStaticPaths({ paginate }) {
+  const categoryPaths = await Promise.all(
+    (await getActiveCategories()).map(async (category) =>
+      paginate(await getPostsByCategory(category.slug), {
+        pageSize: BLOG_PAGE_SIZE,
+        params: { category: category.slug },
+        props: { category },
+      }).filter(({ params }) => Number(params.page) > 1),
+    ),
   );
+
+  return categoryPaths.flat();
 }
 
 const { category, page } = Astro.props;

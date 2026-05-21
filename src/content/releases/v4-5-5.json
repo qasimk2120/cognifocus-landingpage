@@ -1,0 +1,22 @@
+{
+  "title": "Minor Improvements (v4.5.5)",
+  "version": "4.5.5",
+  "slug": "v4-5-5",
+  "summary": "General stability fixes across focus flows, plus a minor fix to prevent distraction counting twice in some cases.",
+  "type": "shield",
+  "category": "Stability & Shield Fixes",
+  "tags": [
+    "4.5.5",
+    "Stability & Shield Fixes"
+  ],
+  "highlights": [
+    "General stability fixes and performance improvements across focus flows"
+  ],
+  "fixes": [
+    "Minor fix to prevent distraction counting twice in some cases"
+  ],
+  "improvements": [],
+  "notes": [],
+  "publishedAt": "2026-05-18",
+  "featured": true
+}

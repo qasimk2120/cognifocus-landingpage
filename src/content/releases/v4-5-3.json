@@ -1,0 +1,25 @@
+{
+  "title": "Introducing 1st time Walkthrough (v4.5.3)",
+  "version": "4.5.3",
+  "slug": "v4-5-3",
+  "summary": "A new first-time walkthrough helps you start your first focus loop, understand setup steps, follow progress and tabs, and use guidance that fits more phone sizes.",
+  "type": "app",
+  "category": "First-Time Walkthrough",
+  "tags": [
+    "4.5.3",
+    "First-Time Walkthrough"
+  ],
+  "highlights": [
+    "New first-time walkthrough helps you start your first focus loop",
+    "Focus setup now introduces duration, goals, app blocking, and starting a session",
+    "Header and footer walkthroughs explain progress, streaks, goals and main tabs"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Guidance pointers are easier to follow across different phone sizes",
+    "Daily plan editing and onboarding prompts are more reliable"
+  ],
+  "notes": [],
+  "publishedAt": "2026-05-14",
+  "featured": false
+}

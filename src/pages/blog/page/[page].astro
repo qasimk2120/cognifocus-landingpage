@@ -6,8 +6,8 @@ import {
   getSortedPosts,
 } from "../../../utils/blog";
 
-export function getStaticPaths({ paginate }) {
-  return paginate(getSortedPosts(), { pageSize: BLOG_PAGE_SIZE }).filter(
+export async function getStaticPaths({ paginate }) {
+  return paginate(await getSortedPosts(), { pageSize: BLOG_PAGE_SIZE }).filter(
     ({ params }) => Number(params.page) > 1,
   );
 }

@@ -1,0 +1,27 @@
+{
+  "title": "Progression Feels Better Every Session (v4.4.0)",
+  "version": "4.4.0",
+  "slug": "v4-4-0",
+  "summary": "CogniFocus now gives a clearer focus progression system with smoother XP, live Diamonds rewards, and clearer Google sign-in and backup status across daily sessions.",
+  "type": "app",
+  "category": "Progression & Rewards Upgrade",
+  "tags": [
+    "4.4.0",
+    "Progression & Rewards Upgrade"
+  ],
+  "highlights": [
+    "Clearer XP progression and level feedback so your focus progress is easier to understand at a glance",
+    "Diamonds are now live, including milestone rewards and tier bonuses for Pro and Limitless users",
+    "Rewards now feel more connected across streaks, XP, and Diamonds after each session"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Google sign-in and backup status are now easier to understand, including delayed sync updates while you're offline",
+    "Settings received a cleaner footer and social layout, plus better mobile polish",
+    "Local Dev Tools behavior is more stable when cloud sync is temporarily unavailable",
+    "Character and perk unlocks tied to Diamonds are planned for upcoming updates"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-30",
+  "featured": false
+}

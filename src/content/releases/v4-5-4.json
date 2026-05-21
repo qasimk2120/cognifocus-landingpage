@@ -1,0 +1,25 @@
+{
+  "title": "Focus Session Reliability Improvements (v4.5.4)",
+  "version": "4.5.4",
+  "slug": "v4-5-4",
+  "summary": "Focus session notifications are more stable on Android, timer syncing is improved, and session recovery after reopening the app is cleaner.",
+  "type": "app",
+  "category": "Focus Session Reliability",
+  "tags": [
+    "4.5.4",
+    "Focus Session Reliability"
+  ],
+  "highlights": [
+    "Focus session notifications are now more stable and reliable on Android"
+  ],
+  "fixes": [
+    "Improved timer syncing and foreground session handling during active sessions",
+    "Session recovery behavior was refined after reopening the app",
+    "Focus timer controls and session state handling were polished",
+    "General stability fixes and performance improvements across focus flows"
+  ],
+  "improvements": [],
+  "notes": [],
+  "publishedAt": "2026-05-17",
+  "featured": false
+}

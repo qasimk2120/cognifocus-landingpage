@@ -1,0 +1,28 @@
+{
+  "title": "Setup & Onboarding Smoother (v4.1.2)",
+  "version": "4.1.2",
+  "slug": "v4-1-2",
+  "summary": "Getting started is easier, Shield setup feels clearer, and smaller-screen layouts are more comfortable during onboarding.",
+  "type": "shield",
+  "category": "Onboarding Polish",
+  "tags": [
+    "4.1.2",
+    "Onboarding Polish"
+  ],
+  "highlights": [
+    "Onboarding is smoother and easier to follow",
+    "Choosing apps for your Shield is now faster and more intuitive",
+    "Better layout and spacing on smaller screens"
+  ],
+  "fixes": [],
+  "improvements": [
+    "Improved consistency across different devices",
+    "Cleaner visuals with more refined spacing and typography",
+    "Shield setup is now faster and more reliable",
+    "General polish and stability improvements",
+    "Better performance across the app"
+  ],
+  "notes": [],
+  "publishedAt": "2026-04-21",
+  "featured": false
+}

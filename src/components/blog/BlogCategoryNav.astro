@@ -2,7 +2,7 @@
 import { getActiveCategories } from "../../utils/blog";
 
 const { activeCategorySlug = "" } = Astro.props;
-const categories = getActiveCategories();
+const categories = await getActiveCategories();
 ---
 
 <nav class="blog-category-nav" aria-label="Blog categories">
