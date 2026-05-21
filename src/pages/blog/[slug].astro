@@ -1,0 +1,23 @@
+---
+import BlogPostLayout from "../../components/blog/BlogPostLayout.astro";
+import {
+  getPostBySlug,
+  getSortedPosts,
+} from "../../utils/blog.js";
+
+export async function getStaticPaths() {
+  return (await getSortedPosts()).map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { slug } = Astro.params;
+const post = Astro.props.post || (await getPostBySlug(slug));
+
+if (!post) {
+  throw new Error(`Missing published blog post content for ${slug}`);
+}
+---
+
+<BlogPostLayout post={post} />

@@ -1,0 +1,91 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+  formatReleaseDate,
+  getReleaseBySlug,
+  getReleaseDetailSections,
+  getSortedReleases,
+} from "../../utils/releases.js";
+
+export async function getStaticPaths() {
+  return (await getSortedReleases()).map((release) => ({
+    params: { slug: release.slug },
+    props: { release },
+  }));
+}
+
+const { slug } = Astro.params;
+const release = Astro.props.release || (await getReleaseBySlug(slug));
+
+if (!release) {
+  throw new Error(`Missing published release note content for ${slug}`);
+}
+
+const title = `${release.title} | CogniFocus What's New`;
+const description = release.summary;
+const canonical = release.canonical || `https://cognifocus.app/whats-new/${release.slug}.html`;
+const sections = getReleaseDetailSections(release);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={description}
+  ogImageAlt="CogniFocus app logo for a distraction-aware focus timer with character reactions"
+  bodyClass="whats-new-page cf-shell"
+  assetBase="../assets"
+  footerProps={{}}
+>
+  <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: release.title,
+    description: release.summary,
+    datePublished: release.publishedAt,
+    url: canonical,
+    author: {
+      "@type": "Organization",
+      name: "CogniFocus",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "CogniFocus",
+      url: "https://cognifocus.app",
+    },
+  })}></script>
+  <link slot="head-after-social" rel="preconnect" href="https://fonts.googleapis.com" />
+  <link slot="head-after-social" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    slot="head-after-social"
+    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
+    rel="stylesheet"
+  />
+  <main class="container py-5 seo-guide-main">
+    <article class="focus-loop-panel mx-auto p-4 p-md-5 seo-guide-panel blog-panel blog-content">
+      <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a> &gt; <a href="/whats-new.html">What's New</a> &gt;
+        <span>{release.title}</span>
+      </nav>
+
+      <span class="feature-kicker">{release.category}</span>
+      <h1 class="hero-heading mt-3">{release.title}</h1>
+      {release.publishedAt && <p class="blog-meta mb-3">Published {formatReleaseDate(release.publishedAt)}</p>}
+      <p class="hero-muted-override">{release.summary}</p>
+
+      {release.bodyHtml ? (
+        <Fragment set:html={release.bodyHtml} />
+      ) : (
+        sections.map(([label, items]) => (
+          <section class="release-note-section">
+            <h2>{label}</h2>
+            <ul>
+              {items.map((item) => <li>{item}</li>)}
+            </ul>
+          </section>
+        ))
+      )}
+    </article>
+  </main>
+</BaseLayout>
