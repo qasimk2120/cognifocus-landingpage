@@ -13,10 +13,25 @@ function canonicalSitemap() {
     hooks: {
       async "astro:build:done"({ dir }) {
         const outDir = fileURLToPath(dir);
+        const sourceSitemapPath = join(outDir, "sitemap-0.xml");
+        const canonicalSitemapPath = join(outDir, "sitemap.xml");
+
         await copyFile(
-          join(outDir, "sitemap-0.xml"),
-          join(outDir, "sitemap.xml"),
+          sourceSitemapPath,
+          canonicalSitemapPath,
         );
+
+        for (const sitemapPath of [sourceSitemapPath, canonicalSitemapPath]) {
+          const sitemapContent = await readFile(sitemapPath, "utf8");
+          await writeFile(
+            sitemapPath,
+            sitemapContent.replace(
+              "<loc>https://cognifocus.app</loc>",
+              "<loc>https://cognifocus.app/</loc>",
+            ),
+            "utf8",
+          );
+        }
       },
     },
   };
@@ -57,9 +72,21 @@ function normalizeLlmsOutput() {
 export default defineConfig({
   site: "https://cognifocus.app",
   output: "static",
+  redirects: {
+    "/blog/stop-app-switching.html": {
+      status: 301,
+      destination: "/blog/how-to-stop-app-switching.html",
+    },
+  },
   integrations: [
     icon(),
     sitemap({
+      filter(page) {
+        return (
+          page !== "https://cognifocus.app/blog/stop-app-switching" &&
+          page !== "https://cognifocus.app/blog/stop-app-switching.html"
+        );
+      },
       serialize(item) {
         const url = new URL(item.url);
 
