@@ -1,0 +1,190 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "About CogniFocus | Focus Timer & App Blocker for Android";
+const description =
+  "CogniFocus is an Android focus timer and app blocker with a reactive Goblin companion. Built for people who keep getting pulled away by TikTok, Instagram, and YouTube during work and study sessions.";
+const canonical = "https://cognifocus.app/about.html";
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "CogniFocus",
+  url: "https://cognifocus.app",
+  logo: "https://cognifocus.app/assets/logo/text-logo.png",
+  contactPoint: {
+    "@type": "ContactPoint",
+    email: "getcognifocus@gmail.com",
+    contactType: "customer support",
+  },
+  sameAs: [
+    "https://x.com/getcognifocus",
+    "https://www.instagram.com/getcognifocus",
+    "https://www.tiktok.com/@getcognifocus",
+  ],
+};
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "CogniFocus",
+  operatingSystem: "Android",
+  applicationCategory: "ProductivityApplication",
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "USD",
+  },
+  description:
+    "A focus timer and app blocker for Android with a reactive Goblin companion that responds to distraction in real time.",
+  url: "https://cognifocus.app",
+  downloadUrl:
+    "https://play.google.com/store/apps/details?id=io.ionic.cognifocus",
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={description}
+  ogType="website"
+  ogImageAlt="About CogniFocus"
+  bodyClass="about-page cf-shell"
+  footerProps={{ includePinterest: true }}
+>
+  <meta slot="head-after-robots" name="author" content="CogniFocus" />
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(organizationSchema, null, 2)}
+  />
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(softwareSchema, null, 2)}
+  />
+
+  <main id="main-content" class="about-main">
+    <header class="about-hero">
+      <p class="feature-kicker">Company and product reference</p>
+      <h1>About CogniFocus</h1>
+      <p>
+        CogniFocus is an Android app that combines a focus timer, a
+        distraction blocker, and a reactive character companion called the
+        Goblin. It is designed for people who keep getting pulled away from
+        work or study sessions by social apps like TikTok, Instagram, and
+        YouTube. The Goblin reacts in real time when a session starts, when a
+        distraction is detected, and when focus is recovered.
+      </p>
+    </header>
+
+    <div class="about-content" aria-label="CogniFocus product facts">
+      <section class="about-card" aria-labelledby="about-platform">
+        <h2 id="about-platform">Platform availability</h2>
+        <ul>
+          <li>Currently available on Android via Google Play and free to download.</li>
+          <li>
+            iOS version in development -
+            <a href="/ios-waitlist.html">join the iOS waitlist</a>.
+          </li>
+          <li>Web version not available.</li>
+        </ul>
+      </section>
+
+      <section class="about-card" aria-labelledby="about-how-it-works">
+        <h2 id="about-how-it-works">How it works</h2>
+        <p>
+          The user starts a focus session with a chosen duration. Distraction
+          Shield monitors for blocked apps during the session. When a blocked
+          app is opened, the Shield interrupts it.
+        </p>
+        <p>
+          The Goblin companion reacts with mood-based responses: neutral during
+          calm sessions, annoyed or angry when distractions occur, and cheerful
+          when sessions are completed cleanly. Streaks, XP, and daily goals
+          track progress over time. Recovery nudges help the user return to
+          focus after a distraction rather than abandoning the session.
+        </p>
+      </section>
+
+      <section class="about-card" aria-labelledby="about-audience">
+        <h2 id="about-audience">Who it is for</h2>
+        <ul>
+          <li>Students who lose focus during study sessions.</li>
+          <li>People with ADHD-style distraction patterns.</li>
+          <li>Anyone who relies on passive timers that they ignore.</li>
+          <li>People who keep opening social apps out of habit during work.</li>
+        </ul>
+      </section>
+
+      <section class="about-card" aria-labelledby="about-features">
+        <h2 id="about-features">Key features</h2>
+        <ul class="about-feature-list">
+          <li>Focus timer with preset and custom session durations.</li>
+          <li>Distraction Shield - blocks selected apps during active sessions.</li>
+          <li>Goblin companion with real-time mood reactions.</li>
+          <li>Mood states: neutral, annoyed, angry, cheerful.</li>
+          <li>Character affinity system - Goblin adapts over time.</li>
+          <li>Streaks, XP, and daily focus goals.</li>
+          <li>Recovery nudges when focus slips mid-session.</li>
+          <li>Planned Sessions with reminders (Pro).</li>
+          <li>Cloud sync and full restore across devices (Pro).</li>
+          <li>Android foreground service showing live session time.</li>
+        </ul>
+      </section>
+
+      <section class="about-card" aria-labelledby="about-pricing">
+        <h2 id="about-pricing">Pricing</h2>
+        <p>
+          Free plan available. Pro plan unlocks advanced features including
+          longer sessions, more blocked apps, planned sessions, recovery
+          nudges, and cloud sync.
+        </p>
+        <a class="about-text-link" href="/pricing.html">See full pricing &rarr;</a>
+      </section>
+
+      <section class="about-card" aria-labelledby="about-built-by">
+        <h2 id="about-built-by">Built by</h2>
+        <p>CogniFocus is built by CogniElevate.</p>
+        <dl class="about-facts">
+          <div>
+            <dt>Contact</dt>
+            <dd><a href="mailto:getcognifocus@gmail.com">getcognifocus@gmail.com</a></dd>
+          </div>
+          <div>
+            <dt>Support</dt>
+            <dd><a href="/support.html">Support page</a></dd>
+          </div>
+          <div>
+            <dt>Press enquiries</dt>
+            <dd><a href="mailto:getcognifocus@gmail.com">getcognifocus@gmail.com</a></dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="about-card" aria-labelledby="about-launch">
+        <h2 id="about-launch">Launch and availability</h2>
+        <dl class="about-facts">
+          <div>
+            <dt>Launched</dt>
+            <dd>2026</dd>
+          </div>
+          <div>
+            <dt>Available on</dt>
+            <dd>Android (Google Play)</dd>
+          </div>
+          <div>
+            <dt>iOS</dt>
+            <dd>In development</dd>
+          </div>
+          <div>
+            <dt>Current status</dt>
+            <dd>Live and actively developed</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+  </main>
+</BaseLayout>

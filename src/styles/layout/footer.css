@@ -481,7 +481,7 @@
 .footer-brand p {
   position: absolute;
   left: 50%;
-  bottom: 58px;
+  bottom: 24px;
   transform: translateX(-50%);
   max-width: min(80vw, 360px);
   margin: 0;
@@ -501,7 +501,7 @@
 .footer-company-proof {
   position: absolute;
   left: 50%;
-  bottom: 96px;
+  bottom: 62px;
   width: min(320px, calc(100vw - 32px));
   padding: 12px 14px;
   color: var(--cf-text-secondary);
@@ -768,10 +768,10 @@
     bottom: 54px;
   }
   .footer-brand p {
-    bottom: 52px;
+    bottom: 24px;
   }
   .footer-company-proof {
-    bottom: 90px;
+    bottom: 62px;
   }
   .footer-brand .footer-actions,
   .footer-actions,
@@ -846,14 +846,14 @@
   }
   .footer-brand p {
     left: 24px;
-    bottom: 78px;
+    bottom: 66px;
     transform: none;
     max-width: calc(100vw - 48px);
     white-space: normal;
   }
   .footer-company-proof {
     left: 0;
-    bottom: 120px;
+    bottom: 108px;
     width: min(520px, calc(100vw - 48px));
     max-height: 58vh;
     transform: translateY(8px);
