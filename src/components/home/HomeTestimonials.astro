@@ -1,10 +1,46 @@
 ---
-import { Picture } from "astro:assets";
-import cheerfulGoblinFace from "../../assets/characters/goblin/face/cheerful.png";
 import annoyedGoblinFace from "../../assets/characters/goblin/face/annoyed.png";
 import angryGoblinFace from "../../assets/characters/goblin/face/angry.png";
+import cheerfulGoblinFace from "../../assets/characters/goblin/face/cheerful.png";
 import neutralGoblinAvatar from "../../assets/characters/goblin/avatar/neutral.png";
+import ReactionTestimonialCard from "./ReactionTestimonialCard.astro";
 import SiteIcon from "../shared/SiteIcon.astro";
+
+const reactionCards = [
+  {
+    moodClass: "reaction-slide--neutral",
+    quote:
+      '"The neutral look is almost worse than a notification. It feels like the app noticed I was about to drift before I did."',
+    attribution: "Beta Tester",
+    image: neutralGoblinAvatar,
+    alt: "CogniFocus Neutral Goblin watching a focus session",
+    isActive: true,
+  },
+  {
+    moodClass: "reaction-slide--annoyed",
+    quote:
+      '"I opened TikTok out of habit and the annoyed Goblin snapped me out of autopilot faster than any timer I have used."',
+    attribution: "Study Session User",
+    image: annoyedGoblinFace,
+    alt: "CogniFocus Annoyed Goblin reacting to a distraction attempt",
+  },
+  {
+    moodClass: "reaction-slide--cheerful",
+    quote:
+      '"Went from 8 Instagram breaks per study session to maybe 1. The Goblin celebrating the clean session made me want to keep the streak alive."',
+    attribution: "Early Access User",
+    image: cheerfulGoblinFace,
+    alt: "CogniFocus Cheerful Goblin reacting to a clean focus session",
+  },
+  {
+    moodClass: "reaction-slide--angry",
+    quote:
+      '"The angry reaction is ridiculous in the best way. It turns one more scroll into a tiny moment of accountability."',
+    attribution: "Focus Sprint User",
+    image: angryGoblinFace,
+    alt: "CogniFocus Angry Goblin warning about a distraction",
+  },
+];
 ---
 
 <section class="container py-5 testimonials-strip">
@@ -27,95 +63,14 @@ import SiteIcon from "../shared/SiteIcon.astro";
       as the primary motivation to maintain clean sessions.
     </p>
 
-    <div class="reaction-carousel-card" aria-live="polite">
-      <article class="reaction-slide is-active" data-reaction-slide>
-        <div class="reaction-slide-copy">
-          <p class="testimonial-quote">
-            "Went from 8 Instagram breaks per study session to maybe 1.
-            The Goblin celebrating the clean session made me want to keep
-            the streak alive."
-          </p>
-          <span class="testimonial-name">Early Access User</span>
-        </div>
-        <Picture
-          class="reaction-goblin-face"
-          src={cheerfulGoblinFace}
-          formats={["avif", "webp"]}
-          fallbackFormat="png"
-          alt="CogniFocus Cheerful Goblin reacting to a clean focus session"
-          width="244"
-          height="191"
-          layout="constrained"
-          loading="lazy"
-          decoding="async"
-        />
-      </article>
-
-      <article class="reaction-slide" data-reaction-slide>
-        <div class="reaction-slide-copy">
-          <p class="testimonial-quote">
-            "The neutral look is almost worse than a notification. It
-            feels like the app noticed I was about to drift before I did."
-          </p>
-          <span class="testimonial-name">Beta Tester</span>
-        </div>
-        <Picture
-          class="reaction-goblin-face"
-          src={neutralGoblinAvatar}
-          formats={["avif", "webp"]}
-          fallbackFormat="png"
-          alt="CogniFocus Neutral Goblin watching a focus session"
-          width="244"
-          height="191"
-          layout="constrained"
-          loading="lazy"
-          decoding="async"
-        />
-      </article>
-
-      <article class="reaction-slide" data-reaction-slide>
-        <div class="reaction-slide-copy">
-          <p class="testimonial-quote">
-            "I opened TikTok out of habit and the annoyed Goblin snapped
-            me out of autopilot faster than any timer I have used."
-          </p>
-          <span class="testimonial-name">Study Session User</span>
-        </div>
-        <Picture
-          class="reaction-goblin-face"
-          src={annoyedGoblinFace}
-          formats={["avif", "webp"]}
-          fallbackFormat="png"
-          alt="CogniFocus Annoyed Goblin reacting to a distraction attempt"
-          width="244"
-          height="191"
-          layout="constrained"
-          loading="lazy"
-          decoding="async"
-        />
-      </article>
-
-      <article class="reaction-slide" data-reaction-slide>
-        <div class="reaction-slide-copy">
-          <p class="testimonial-quote">
-            "The angry reaction is ridiculous in the best way. It turns
-            one more scroll into a tiny moment of accountability."
-          </p>
-          <span class="testimonial-name">Focus Sprint User</span>
-        </div>
-        <Picture
-          class="reaction-goblin-face"
-          src={angryGoblinFace}
-          formats={["avif", "webp"]}
-          fallbackFormat="png"
-          alt="CogniFocus Angry Goblin warning about a distraction"
-          width="244"
-          height="191"
-          layout="constrained"
-          loading="lazy"
-          decoding="async"
-        />
-      </article>
+    <div class="reaction-carousel-viewport" aria-live="polite">
+      <div class="reaction-carousel-track" data-reaction-track>
+        {
+          reactionCards.map((card) => (
+            <ReactionTestimonialCard {...card} />
+          ))
+        }
+      </div>
     </div>
 
     <div class="reaction-carousel-progress" aria-label="Reaction slides">
@@ -130,25 +85,25 @@ import SiteIcon from "../shared/SiteIcon.astro";
       <button
         type="button"
         class="reaction-progress-dot is-active"
-        aria-label="Show reaction 1"
+        aria-label="Show reaction page 1"
         data-reaction-dot="0"
       ></button>
       <button
         type="button"
         class="reaction-progress-dot"
-        aria-label="Show reaction 2"
+        aria-label="Show reaction page 2"
         data-reaction-dot="1"
       ></button>
       <button
         type="button"
         class="reaction-progress-dot"
-        aria-label="Show reaction 3"
+        aria-label="Show reaction page 3"
         data-reaction-dot="2"
       ></button>
       <button
         type="button"
         class="reaction-progress-dot"
-        aria-label="Show reaction 4"
+        aria-label="Show reaction page 4"
         data-reaction-dot="3"
       ></button>
       <button

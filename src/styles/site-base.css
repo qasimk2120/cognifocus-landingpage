@@ -8,6 +8,7 @@
   --cf-mint: #00e5c0;
   --cf-goblin: #6abf3c;
   --cf-amber: #ef9f27;
+  --cf-danger: #ff4d4d;
   --cf-vest: #7a4f2e;
   --cf-gradient: linear-gradient(135deg, #00c8e0, #1a6eff);
   --cf-cyan-08: rgba(0, 200, 224, 0.08);
@@ -63,6 +64,7 @@
   --cf-mint-rgb: 0, 229, 192;
   --cf-goblin-rgb: 106, 191, 60;
   --cf-amber-rgb: 239, 159, 39;
+  --cf-danger-rgb: 255, 77, 77;
   --cf-muted-rgb: 122, 168, 184;
   --cf-dim-rgb: 61, 96, 112;
   --cf-light-bg-rgb: 245, 248, 252;

@@ -1,0 +1,38 @@
+---
+import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
+
+interface Props {
+  moodClass: string;
+  quote: string;
+  attribution: string;
+  image: ImageMetadata;
+  alt: string;
+  isActive?: boolean;
+}
+
+const { moodClass, quote, attribution, image, alt, isActive = false } = Astro.props;
+const slideClass = ["reaction-slide", moodClass, isActive && "is-active"]
+  .filter(Boolean)
+  .join(" ");
+---
+
+<article class={slideClass} data-reaction-slide>
+  <div class="reaction-slide-copy">
+    <p class="testimonial-quote">{quote}</p>
+    <span class="testimonial-name">{attribution}</span>
+  </div>
+  <span class="reaction-slide-separator" aria-hidden="true"></span>
+  <Picture
+    class="reaction-goblin-face"
+    src={image}
+    formats={["avif", "webp"]}
+    fallbackFormat="png"
+    alt={alt}
+    width="244"
+    height="191"
+    layout="constrained"
+    loading="lazy"
+    decoding="async"
+  />
+</article>
