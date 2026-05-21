@@ -13,6 +13,7 @@ const session = document.querySelector("[data-admin-session]");
 const alertBox = document.querySelector("[data-admin-alert]");
 const denied = document.querySelector("[data-admin-denied]");
 const view = document.querySelector("[data-admin-view]");
+const adminNav = document.querySelector("[data-admin-auth-nav]");
 const IMAGE_PATH_MAX_LENGTH = 2048;
 const IMAGE_HELPER_TEXT =
   "Upload images manually to public/blog/images for now, then paste the path here.";
@@ -142,6 +143,10 @@ function setAlert(message, type = "info") {
 }
 
 function setDenied(message) {
+  if (adminNav) {
+    adminNav.hidden = true;
+  }
+
   if (view) {
     view.hidden = true;
   }
@@ -546,6 +551,10 @@ async function initAdmin() {
     return;
   }
 
+  if (adminNav) {
+    adminNav.hidden = true;
+  }
+
   document.querySelectorAll("[data-admin-logout]").forEach((button) => {
     button.addEventListener("click", () => {
       logoutAdmin();
@@ -557,6 +566,10 @@ async function initAdmin() {
 
     if (!user) {
       return;
+    }
+
+    if (adminNav) {
+      adminNav.hidden = false;
     }
 
     if (session) {
