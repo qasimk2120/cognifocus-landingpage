@@ -246,11 +246,11 @@ function renderField([name, label, type, required], item = {}) {
 function renderDashboard() {
   view.innerHTML = `
     <div class="admin-grid admin-grid-two">
-      <a class="admin-card-link" href="/admin/blog/">
+      <a class="admin-card-link" href="/admin/blog">
         <strong>Blog</strong>
         <span>List, draft, publish, and archive blog posts.</span>
       </a>
-      <a class="admin-card-link" href="/admin/releases/">
+      <a class="admin-card-link" href="/admin/releases">
         <strong>Releases</strong>
         <span>Manage release notes and update announcements.</span>
       </a>
