@@ -18,6 +18,26 @@ const adminNav = document.querySelector("[data-admin-auth-nav]");
 const IMAGE_PATH_MAX_LENGTH = 2048;
 const IMAGE_HELPER_TEXT =
   "Upload images manually to public/blog/images for now, then paste the path here.";
+const SITE_ORIGIN = "https://cognifocus.app";
+const distributionCopyCache = new Map();
+const distributionIntegrations = [
+  {
+    title: "Medium",
+    description: "Draft export is ready. API publishing and OAuth can be added later.",
+  },
+  {
+    title: "Pinterest",
+    description: "Title and description helpers are ready. Board publishing can come later.",
+  },
+  {
+    title: "Meta Business Suite",
+    description: "Facebook and Instagram planning stays separate from content editing.",
+  },
+  {
+    title: "Product Hunt",
+    description: "Launch copy can be prepared here when Product Hunt assets are ready.",
+  },
+];
 
 const resources = {
   blog: {
@@ -218,6 +238,19 @@ function getPublicHref(resource, item) {
   return config.publicPath({ ...item, slug });
 }
 
+function getPublicPathPreview(resource, slug) {
+  const config = resources[resource];
+  const normalizedSlug = String(slug || "").trim();
+
+  if (!config?.publicPath) {
+    return "";
+  }
+
+  return normalizedSlug
+    ? config.publicPath({ slug: normalizedSlug })
+    : config.publicPath({ slug: "{slug}" });
+}
+
 function toInputValue(name, value) {
   if (name === "featured") {
     return Boolean(value);
@@ -324,6 +357,32 @@ function renderField([name, label, type, required], item = {}) {
   `;
 }
 
+function renderSlugControls(resource, item = {}) {
+  const slug = toInputValue("slug", item.slug);
+  const previewPath = getPublicPathPreview(resource, slug);
+
+  return `
+    <section class="admin-slug-panel admin-field-wide" data-slug-panel>
+      <div class="admin-slug-preview">
+        <div>
+          <span>Public URL</span>
+          <code data-public-url-preview>${escapeHtml(previewPath)}</code>
+        </div>
+        <button type="button" class="admin-button admin-button-small" data-slug-toggle aria-expanded="false">
+          Advanced slug
+        </button>
+      </div>
+      <div class="admin-slug-advanced" data-slug-advanced hidden>
+        <label>
+          Slug
+          <input type="text" name="slug" value="${escapeHtml(slug)}" data-slug-input />
+          <span class="admin-helper-text">Changing this after publishing changes the public URL.</span>
+        </label>
+      </div>
+    </section>
+  `;
+}
+
 function renderDashboard() {
   view.innerHTML = `
     <div class="admin-grid admin-grid-two">
@@ -334,6 +393,10 @@ function renderDashboard() {
       <a class="admin-card-link" href="/admin/releases">
         <strong>Releases</strong>
         <span>Manage release notes and update announcements.</span>
+      </a>
+      <a class="admin-card-link" href="/admin/distribution">
+        <strong>Distribution</strong>
+        <span>Prepare published content for social and media channels.</span>
       </a>
     </div>
   `;
@@ -381,6 +444,339 @@ function renderViewAction(resource, item, size = "small") {
   }
 
   return `<a class="admin-button${sizeClass}" href="${href}" target="_blank" rel="noopener" data-public-view-action>View</a>`;
+}
+
+function getAbsoluteUrl(href) {
+  if (!href) {
+    return "";
+  }
+
+  try {
+    return new URL(href, SITE_ORIGIN).href;
+  } catch {
+    return href;
+  }
+}
+
+function getDistributionStatus(item) {
+  const status = String(item?.status || "").trim().toLowerCase();
+
+  if (status) {
+    return status;
+  }
+
+  return item?.publishedAt || item?.publishDate ? "published" : "draft";
+}
+
+function getDistributionPublicHref(resource, item) {
+  const config = resources[resource];
+  const slug = String(item?.slug || "").trim();
+
+  if (!config?.publicPath || getDistributionStatus(item) !== "published" || !slug) {
+    return "";
+  }
+
+  return config.publicPath({ ...item, slug });
+}
+
+function getCanonicalHref(resource, item) {
+  return getAbsoluteUrl(item?.canonical || getDistributionPublicHref(resource, item));
+}
+
+function normalizeText(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function limitText(value, maxLength) {
+  const text = normalizeText(value);
+
+  if (text.length <= maxLength) {
+    return text;
+  }
+
+  return `${text.slice(0, Math.max(0, maxLength - 3)).trimEnd()}...`;
+}
+
+function normalizeTags(tags) {
+  if (Array.isArray(tags)) {
+    return tags.map(normalizeText).filter(Boolean);
+  }
+
+  return String(tags || "")
+    .split(",")
+    .map(normalizeText)
+    .filter(Boolean);
+}
+
+function tagToHashtag(tag) {
+  const normalized = normalizeText(tag)
+    .split(/\s+/)
+    .map((part) => part.replace(/[^a-z0-9]/gi, ""))
+    .filter(Boolean)
+    .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
+    .join("");
+
+  return normalized ? `#${normalized}` : "";
+}
+
+function buildHashtags(tags, limit = 3) {
+  return normalizeTags(tags)
+    .slice(0, limit)
+    .map(tagToHashtag)
+    .filter(Boolean)
+    .join(" ");
+}
+
+function getDistributionFields(resource, item) {
+  const title = normalizeText(item.title || item.articleTitle || item.version || item.slug);
+  const excerpt = normalizeText(item.excerpt || item.summary || item.description);
+  const seoDescription = normalizeText(
+    item.seoDescription || item.ogDescription || item.description || item.summary || excerpt,
+  );
+  const category = normalizeText(item.category || item.type || (resource === "blog" ? "Blog" : "Release Notes"));
+  const canonicalUrl = getCanonicalHref(resource, item);
+
+  return {
+    title,
+    excerpt,
+    seoDescription,
+    category,
+    tags: normalizeTags(item.tags),
+    canonicalUrl,
+    publicUrl: getAbsoluteUrl(getDistributionPublicHref(resource, item)),
+  };
+}
+
+function buildPlatformCopy(resource, item) {
+  const fields = getDistributionFields(resource, item);
+  const summary = fields.seoDescription || fields.excerpt;
+  const hashtags = buildHashtags(fields.tags);
+  let xPost = [
+    limitText(fields.title, 90),
+    limitText(summary, 130),
+    fields.canonicalUrl,
+    hashtags,
+  ]
+    .filter(Boolean)
+    .join("\n\n");
+
+  if (xPost.length > 280) {
+    xPost = [
+      limitText(fields.title, 100),
+      fields.canonicalUrl,
+      hashtags,
+    ]
+      .filter(Boolean)
+      .join("\n\n");
+  }
+
+  return {
+    x: xPost.length > 280 ? xPost.slice(0, 277).trimEnd() + "..." : xPost,
+    linkedin: [
+      fields.title,
+      summary,
+      fields.canonicalUrl ? `Read it here: ${fields.canonicalUrl}` : "",
+      hashtags,
+    ]
+      .filter(Boolean)
+      .join("\n\n"),
+    pinterestTitle: limitText(fields.title, 100),
+    pinterestDescription: limitText(
+      [summary, fields.canonicalUrl, hashtags].filter(Boolean).join(" "),
+      500,
+    ),
+    mediumDraft: [
+      `# ${fields.title}`,
+      summary,
+      fields.canonicalUrl ? `Originally published at ${fields.canonicalUrl}` : "",
+      fields.tags.length ? `Tags: ${fields.tags.join(", ")}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n\n"),
+  };
+}
+
+function renderCopyButton(copyId, label) {
+  return `<button type="button" class="admin-button admin-button-small" data-copy-id="${escapeHtml(
+    copyId,
+  )}">${label}</button>`;
+}
+
+function renderDistributionPlaceholders() {
+  return `
+    <section class="admin-distribution-section" aria-label="Future integrations">
+      <div class="admin-section-heading">
+        <h2>Future integrations</h2>
+        <p>Placeholders only. Posting, OAuth, and scheduling are intentionally not wired yet.</p>
+      </div>
+      <div class="admin-integration-grid">
+        ${distributionIntegrations
+          .map(
+            (integration) => `
+              <article class="admin-integration-card">
+                <h3>${escapeHtml(integration.title)}</h3>
+                <p>${escapeHtml(integration.description)}</p>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+function toDistributionRow(resource, item, index) {
+  const status = getDistributionStatus(item);
+
+  if (status !== "published") {
+    return "";
+  }
+
+  const fields = getDistributionFields(resource, item);
+  const copy = buildPlatformCopy(resource, item);
+  const slug = item.slug || getItemId(item);
+  const publicHref = getDistributionPublicHref(resource, item);
+  const canonicalHref = getCanonicalHref(resource, item);
+  const copyPrefix = `${resource}-${index}`;
+
+  for (const [key, value] of Object.entries(copy)) {
+    distributionCopyCache.set(`${copyPrefix}-${key}`, value);
+  }
+
+  return `
+    <tr>
+      <td>
+        <strong>${escapeHtml(fields.title || "Untitled")}</strong>
+        <span>${resource === "blog" ? "Blog post" : "Release note"}</span>
+      </td>
+      <td>
+        <code>${escapeHtml(slug || "")}</code>
+        <span>${escapeHtml(publicHref || canonicalHref || "")}</span>
+      </td>
+      <td>${escapeHtml(formatDisplayDate(getDisplayDate(item)) || "Not set")}</td>
+      <td>${escapeHtml(fields.category || "Uncategorized")}</td>
+      <td><span class="admin-status admin-status-published">Published</span></td>
+      <td>
+        <div class="admin-distribution-actions">
+          ${renderCopyButton(`${copyPrefix}-x`, "Copy X post")}
+          ${renderCopyButton(`${copyPrefix}-linkedin`, "Copy LinkedIn post")}
+          ${renderCopyButton(`${copyPrefix}-pinterestTitle`, "Copy Pinterest title")}
+          ${renderCopyButton(`${copyPrefix}-pinterestDescription`, "Copy Pinterest description")}
+          ${renderCopyButton(`${copyPrefix}-mediumDraft`, "Copy Medium draft")}
+          ${
+            publicHref
+              ? `<a class="admin-button admin-button-small" href="${escapeHtml(publicHref)}" target="_blank" rel="noopener">Open public page</a>`
+              : `<span class="admin-button admin-button-small admin-button-muted" aria-disabled="true">Open public page</span>`
+          }
+          ${
+            canonicalHref
+              ? `<a class="admin-button admin-button-small" href="${escapeHtml(canonicalHref)}" target="_blank" rel="noopener">Open canonical URL</a>`
+              : `<span class="admin-button admin-button-small admin-button-muted" aria-disabled="true">Open canonical URL</span>`
+          }
+        </div>
+      </td>
+    </tr>
+  `;
+}
+
+async function copyTextToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  textarea.setAttribute("readonly", "");
+  textarea.style.position = "fixed";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+}
+
+function bindDistributionCopyActions() {
+  view.querySelectorAll("[data-copy-id]").forEach((button) => {
+    const originalLabel = button.textContent;
+
+    button.addEventListener("click", async () => {
+      const copyText = distributionCopyCache.get(button.dataset.copyId) || "";
+
+      if (!copyText) {
+        setAlert("No generated copy was available for that action.", "error");
+        return;
+      }
+
+      try {
+        await copyTextToClipboard(copyText);
+        button.textContent = "Copied";
+        setAlert("Distribution copy added to clipboard.", "success");
+        window.setTimeout(() => {
+          button.textContent = originalLabel;
+        }, 1400);
+      } catch {
+        setAlert("Clipboard copy failed in this browser.", "error");
+      }
+    });
+  });
+}
+
+async function renderDistribution() {
+  distributionCopyCache.clear();
+  view.innerHTML = `<div class="admin-loading">Loading distribution items...</div>`;
+
+  const [blogItems, releaseItems] = await Promise.all([
+    listCmsItems("blog"),
+    listCmsItems("releases"),
+  ]);
+  const rows = [
+    ...blogItems.map((item, index) => ({ resource: "blog", item, index })),
+    ...releaseItems.map((item, index) => ({ resource: "releases", item, index })),
+  ]
+    .filter(({ item }) => getDistributionStatus(item) === "published")
+    .sort((left, right) => {
+      const leftTime = new Date(normalizeCmsDateValue(getDisplayDate(left.item)) || 0).getTime();
+      const rightTime = new Date(normalizeCmsDateValue(getDisplayDate(right.item)) || 0).getTime();
+      return (Number.isNaN(rightTime) ? 0 : rightTime) - (Number.isNaN(leftTime) ? 0 : leftTime);
+    });
+
+  view.innerHTML = `
+    <div class="admin-list-toolbar">
+      <div>
+        <h2>Distribution queue</h2>
+        <p>${rows.length} published ${rows.length === 1 ? "item" : "items"} ready for social and media prep</p>
+      </div>
+    </div>
+    ${
+      rows.length === 0
+        ? `<div class="admin-empty">No published blog posts or release notes are ready for distribution.</div>`
+        : `
+          <div class="admin-table-wrap admin-distribution-table-wrap">
+            <table class="admin-table admin-distribution-table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Slug / URL</th>
+                  <th>Publish date</th>
+                  <th>Category</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${rows
+                  .map(({ resource, item, index }) => toDistributionRow(resource, item, index))
+                  .join("")}
+              </tbody>
+            </table>
+          </div>
+        `
+    }
+    ${renderDistributionPlaceholders()}
+  `;
+
+  bindDistributionCopyActions();
 }
 
 async function renderList(resource) {
@@ -534,8 +930,33 @@ function getImagePathLengthError(payload) {
 function syncSlug(form) {
   const title = form.elements.title;
   const slug = form.elements.slug;
+  const preview = form.querySelector("[data-public-url-preview]");
+  const toggle = form.querySelector("[data-slug-toggle]");
+  const advanced = form.querySelector("[data-slug-advanced]");
+
+  const updatePreview = () => {
+    if (preview && slug) {
+      preview.textContent = getPublicPathPreview(state.resource, slug.value);
+    }
+  };
+
+  if (toggle && advanced) {
+    toggle.addEventListener("click", () => {
+      const isOpen = !advanced.hidden;
+      advanced.hidden = isOpen;
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      toggle.textContent = isOpen ? "Advanced slug" : "Hide slug";
+
+      if (isOpen) {
+        return;
+      }
+
+      slug?.focus();
+    });
+  }
 
   if (!title || !slug) {
+    updatePreview();
     return;
   }
 
@@ -543,13 +964,18 @@ function syncSlug(form) {
 
   slug.addEventListener("input", () => {
     slugTouched = true;
+    slug.value = slugify(slug.value);
+    updatePreview();
   });
 
   title.addEventListener("input", () => {
     if (!slugTouched) {
       slug.value = slugify(title.value);
+      updatePreview();
     }
   });
+
+  updatePreview();
 }
 
 function setFormLoading(form, isLoading) {
@@ -565,7 +991,11 @@ async function renderForm(resource, mode, item = {}) {
   view.innerHTML = `
     <form class="admin-form admin-editor" data-admin-editor>
       <div class="admin-form-grid">
-        ${config.fields.map((field) => renderField(field, item)).join("")}
+        ${renderSlugControls(resource, item)}
+        ${config.fields
+          .filter(([name]) => name !== "slug")
+          .map((field) => renderField(field, item))
+          .join("")}
       </div>
       <div class="admin-editor-actions">
         <a class="admin-button" href="${config.basePath}">Back</a>
@@ -718,6 +1148,11 @@ async function initAdmin() {
 
     if (state.mode === "dashboard") {
       renderDashboard();
+      return;
+    }
+
+    if (state.mode === "distribution") {
+      await renderDistribution();
       return;
     }
 
