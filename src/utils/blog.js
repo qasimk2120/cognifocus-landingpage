@@ -15,13 +15,34 @@ export const BLOG_CATEGORIES = [
   { label: "Release Notes", slug: "release-notes" },
 ];
 
-export const formatBlogDate = (value) =>
-  new Intl.DateTimeFormat("en", {
+function parseBlogDate(value) {
+  const normalized = String(value || "").trim();
+
+  if (!normalized) {
+    return null;
+  }
+
+  const parsed = /^\d{4}-\d{2}-\d{2}$/.test(normalized)
+    ? new Date(`${normalized}T00:00:00Z`)
+    : new Date(normalized);
+
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+export const formatBlogDate = (value) => {
+  const parsed = parseBlogDate(value);
+
+  if (!parsed) {
+    return "";
+  }
+
+  return new Intl.DateTimeFormat("en", {
     month: "long",
     day: "numeric",
     year: "numeric",
     timeZone: "UTC",
-  }).format(new Date(`${value}T00:00:00Z`));
+  }).format(parsed);
+};
 
 export function normalizeBlogPost(entry) {
   const post = entry.data;
@@ -38,7 +59,7 @@ export function normalizeBlogPost(entry) {
     ogTitle: post.ogTitle || post.seoTitle || post.title,
     ogDescription: post.ogDescription || post.seoDescription || post.description,
     ogImage: post.ogImage || post.coverImage,
-    displayDate: post.displayDate || formatBlogDate(publishDate),
+    displayDate: post.displayDate || (parseBlogDate(publishDate) ? formatBlogDate(publishDate) : ""),
     categorySlug: post.categorySlug || "",
     excerpt: post.excerpt || post.description,
     bodyClass: post.bodyClass || "seo-guide-page blog-page cf-shell",

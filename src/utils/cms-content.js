@@ -49,6 +49,83 @@ function slugify(value = "") {
     .replace(/^-+|-+$/g, "");
 }
 
+function toDateFromTimestampLike(value) {
+  if (!value) {
+    return null;
+  }
+
+  if (value instanceof Date) {
+    return Number.isNaN(value.getTime()) ? null : value;
+  }
+
+  if (typeof value?.toDate === "function") {
+    return toDateFromTimestampLike(value.toDate());
+  }
+
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+
+    if (!trimmed) {
+      return null;
+    }
+
+    const parsed = new Date(trimmed);
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+  }
+
+  if (typeof value !== "object") {
+    return null;
+  }
+
+  const seconds = value.seconds ?? value._seconds;
+  const nanoseconds = value.nanoseconds ?? value._nanoseconds ?? 0;
+
+  if (typeof seconds !== "number") {
+    return null;
+  }
+
+  const milliseconds =
+    (seconds * 1000) + Math.floor(Number(nanoseconds || 0) / 1000000);
+  const parsed = new Date(milliseconds);
+
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function normalizeCmsDateValue(value) {
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+
+    if (!trimmed) {
+      return "";
+    }
+
+    if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) {
+      return trimmed;
+    }
+
+    const parsed = toDateFromTimestampLike(trimmed);
+    return parsed ? parsed.toISOString() : trimmed;
+  }
+
+  const parsed = toDateFromTimestampLike(value);
+  return parsed ? parsed.toISOString() : "";
+}
+
+function toDateOnly(value) {
+  const normalized = normalizeCmsDateValue(value);
+
+  if (!normalized) {
+    return "";
+  }
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(normalized)) {
+    return normalized;
+  }
+
+  const parsed = toDateFromTimestampLike(normalized);
+  return parsed ? parsed.toISOString().slice(0, 10) : normalized;
+}
+
 function normalizeArray(value) {
   if (Array.isArray(value)) {
     return value.map((item) => String(item).trim()).filter(Boolean);
@@ -176,7 +253,8 @@ async function getCmsOrLocalItems(resource, localLoader) {
 
 function normalizeBlogPost(item, source = "cms") {
   const slug = item.slug || item.id || slugify(item.title);
-  const publishedAt = item.publishedAt || item.publishDate || "";
+  const publishedAt = toDateOnly(item.publishedAt || item.publishDate || "");
+  const updatedAt = toDateOnly(item.updatedAt || item.updatedDate || publishedAt);
   const bodyMarkdown = item.bodyMarkdown || "";
   const bodyHtml = bodyMarkdown.trim()
     ? renderMarkdownToHtml(bodyMarkdown)
@@ -191,7 +269,8 @@ function normalizeBlogPost(item, source = "cms") {
     status: item.status || "published",
     publishedAt,
     publishDate: publishedAt,
-    updatedDate: item.updatedAt || publishedAt,
+    updatedAt,
+    updatedDate: updatedAt,
     articleTitle: item.articleTitle || item.title,
     title: item.seoTitle || item.title,
     description: item.description || item.excerpt || item.seoDescription || "",
@@ -219,7 +298,7 @@ function normalizeBlogPost(item, source = "cms") {
 
 function normalizeReleaseNote(item, source = "cms") {
   const slug = item.slug || item.id || slugify(item.version || item.title);
-  const publishedAt = item.publishedAt || item.date || "";
+  const publishedAt = toDateOnly(item.publishedAt || item.date || "");
   const bodyMarkdown = item.bodyMarkdown || "";
   const bodyHtml = item.bodyHtml || renderMarkdownToHtml(bodyMarkdown);
   const category = item.category || item.type || "App Update";
