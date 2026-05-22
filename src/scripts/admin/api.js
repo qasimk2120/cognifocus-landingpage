@@ -46,6 +46,75 @@ function getResourceEndpoints(resource) {
   return endpoints;
 }
 
+const DATE_FIELD_NAMES = ["publishedAt", "createdAt", "updatedAt"];
+
+function toDateFromTimestampLike(value) {
+  if (!value) {
+    return null;
+  }
+
+  if (value instanceof Date) {
+    return Number.isNaN(value.getTime()) ? null : value;
+  }
+
+  if (typeof value?.toDate === "function") {
+    return toDateFromTimestampLike(value.toDate());
+  }
+
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+
+    if (!trimmed) {
+      return null;
+    }
+
+    const parsed = new Date(trimmed);
+    return Number.isNaN(parsed.getTime()) ? null : parsed;
+  }
+
+  if (typeof value !== "object") {
+    return null;
+  }
+
+  const seconds = value.seconds ?? value._seconds;
+  const nanoseconds = value.nanoseconds ?? value._nanoseconds ?? 0;
+
+  if (typeof seconds !== "number") {
+    return null;
+  }
+
+  const milliseconds =
+    (seconds * 1000) + Math.floor(Number(nanoseconds || 0) / 1000000);
+  const parsed = new Date(milliseconds);
+
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+export function normalizeCmsDateValue(value) {
+  if (typeof value === "string") {
+    return value.trim();
+  }
+
+  const parsed = toDateFromTimestampLike(value);
+  return parsed ? parsed.toISOString() : value;
+}
+
+function normalizeCmsItem(item) {
+  if (!item || typeof item !== "object" || Array.isArray(item)) {
+    return item;
+  }
+
+  const normalized = { ...item };
+
+  for (const field of DATE_FIELD_NAMES) {
+    if (field in normalized) {
+      normalized[field] = normalizeCmsDateValue(normalized[field]);
+    }
+  }
+
+  return normalized;
+}
+
 function buildEndpoint(functionName, query = {}) {
   const url = new URL(`${getFunctionBaseUrl()}/${functionName}`);
 
@@ -151,84 +220,86 @@ function withIdPayload(id, body = {}) {
 }
 
 export async function listBlogPosts() {
-  return normalizeItemsPayload(await cmsRequest(endpointMap.blog.list), "blog");
-}
-
-export async function getBlogPost(idOrSlug) {
-  return normalizeItemPayload(
-    await cmsRequest(endpointMap.blog.get, {
-      query: { slug: idOrSlug },
-    }),
+  return normalizeItemsPayload(await cmsRequest(endpointMap.blog.list), "blog").map(
+    normalizeCmsItem,
   );
 }
 
+export async function getBlogPost(idOrSlug) {
+  return normalizeCmsItem(normalizeItemPayload(
+    await cmsRequest(endpointMap.blog.get, {
+      query: { slug: idOrSlug },
+    }),
+  ));
+}
+
 export async function createBlogPost(payload) {
-  return normalizeItemPayload(
+  return normalizeCmsItem(normalizeItemPayload(
     await cmsRequest(endpointMap.blog.create, {
       method: "POST",
       body: payload,
     }),
-  );
+  ));
 }
 
 export async function updateBlogPost(payload) {
-  return normalizeItemPayload(
+  return normalizeCmsItem(normalizeItemPayload(
     await cmsRequest(endpointMap.blog.update, {
       method: "POST",
       body: payload,
     }),
-  );
+  ));
 }
 
 export async function archiveBlogPost(payload) {
-  return normalizeItemPayload(
+  return normalizeCmsItem(normalizeItemPayload(
     await cmsRequest(endpointMap.blog.archive, {
       method: "POST",
       body: payload,
     }),
-  );
+  ));
 }
 
 export async function listReleaseNotes() {
   return normalizeItemsPayload(
     await cmsRequest(endpointMap.releases.list),
     "releases",
-  );
+  ).map(normalizeCmsItem);
 }
 
 export async function getReleaseNote(idOrSlug) {
-  return normalizeItemPayload(
+  return normalizeCmsItem(normalizeItemPayload(
     await cmsRequest(endpointMap.releases.get, {
       query: { slug: idOrSlug },
     }),
-  );
+  ));
 }
 
 export async function createReleaseNote(payload) {
-  return normalizeItemPayload(
+  return normalizeCmsItem(normalizeItemPayload(
     await cmsRequest(endpointMap.releases.create, {
       method: "POST",
       body: payload,
     }),
-  );
+  ));
 }
 
 export async function updateReleaseNote(payload) {
-  return normalizeItemPayload(
+  return normalizeCmsItem(normalizeItemPayload(
     await cmsRequest(endpointMap.releases.update, {
       method: "POST",
       body: payload,
     }),
-  );
+  ));
 }
 
 export async function archiveReleaseNote(payload) {
-  return normalizeItemPayload(
+  return normalizeCmsItem(normalizeItemPayload(
     await cmsRequest(endpointMap.releases.archive, {
       method: "POST",
       body: payload,
     }),
-  );
+  ));
 }
 
 export async function listCmsItems(resource) {

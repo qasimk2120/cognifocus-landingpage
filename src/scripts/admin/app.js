@@ -4,6 +4,7 @@ import {
   createCmsItem,
   getCmsItem,
   listCmsItems,
+  normalizeCmsDateValue,
   updateCmsItem,
 } from "./api.js";
 import { clearAdminSession, logoutAdmin, requireAdminUser } from "./auth.js";
@@ -23,6 +24,7 @@ const resources = {
     singular: "blog post",
     plural: "blog posts",
     basePath: "/admin/blog",
+    editPath: "/admin/blog/edit",
     newPath: "/admin/blog/new",
     idLabel: "slug",
     publicPath: (item) => `/blog/${encodeURIComponent(item.slug)}.html`,
@@ -53,6 +55,7 @@ const resources = {
     singular: "release note",
     plural: "release notes",
     basePath: "/admin/releases",
+    editPath: "/admin/releases/edit",
     newPath: "/admin/releases/new",
     idLabel: "slug",
     publicPath: (item) => `/whats-new/${encodeURIComponent(item.slug)}.html`,
@@ -87,9 +90,15 @@ const state = {
 };
 
 if (state.mode === "edit" && !state.itemId) {
-  const pathParts = window.location.pathname.replace(/\/$/, "").split("/");
-  const pathId = pathParts[pathParts.length - 1] || "";
-  state.itemId = decodeURIComponent(pathId.replace(/\.html$/, ""));
+  const queryId = new URLSearchParams(window.location.search).get("id");
+
+  if (queryId) {
+    state.itemId = queryId;
+  } else {
+    const pathParts = window.location.pathname.replace(/\/$/, "").split("/");
+    const pathId = pathParts[pathParts.length - 1] || "";
+    state.itemId = decodeURIComponent(pathId.replace(/\.html$/, ""));
+  }
 }
 
 function escapeHtml(value) {
@@ -111,25 +120,45 @@ function slugify(value) {
 }
 
 function normalizeDateTimeValue(value) {
-  if (!value) {
+  const normalizedValue = normalizeCmsDateValue(value);
+
+  if (!normalizedValue || typeof normalizedValue !== "string") {
     return "";
   }
 
-  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(value)) {
-    return value.slice(0, 16);
+  if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(normalizedValue)) {
+    const date = new Date(normalizedValue);
+
+    if (Number.isNaN(date.getTime())) {
+      return normalizedValue.slice(0, 16);
+    }
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
   }
 
-  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
-    return `${value}T09:00`;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(normalizedValue)) {
+    return `${normalizedValue}T09:00`;
   }
 
-  const date = new Date(value);
+  const date = new Date(normalizedValue);
 
   if (Number.isNaN(date.getTime())) {
     return "";
   }
 
-  return date.toISOString().slice(0, 16);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
 }
 
 function todayDateTime() {
@@ -173,7 +202,9 @@ function getEditHref(resource, item) {
   const config = resources[resource];
   const id = getItemId(item);
 
-  return id ? `${config.basePath}/${encodeURIComponent(id)}` : config.basePath;
+  return id
+    ? `${config.editPath}?id=${encodeURIComponent(id)}`
+    : config.editPath;
 }
 
 function getPublicHref(resource, item) {
@@ -293,6 +324,29 @@ function getDisplayDate(item) {
   return item.publishedAt || item.updatedAt || item.createdAt || "";
 }
 
+function formatDisplayDate(value) {
+  const normalizedValue = normalizeCmsDateValue(value);
+
+  if (!normalizedValue || typeof normalizedValue !== "string") {
+    return "";
+  }
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(normalizedValue)) {
+    return normalizedValue;
+  }
+
+  const date = new Date(normalizedValue);
+
+  if (Number.isNaN(date.getTime())) {
+    return normalizedValue;
+  }
+
+  return new Intl.DateTimeFormat("en", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(date);
+}
+
 function renderFeaturedBadge(item) {
   return item.featured
     ? `<span class="admin-featured-badge">Featured</span>`
@@ -354,7 +408,7 @@ async function renderList(resource) {
                           item.status || "draft",
                         )}</span></td>
                         <td>${renderFeaturedBadge(item)}</td>
-                        <td>${escapeHtml(getDisplayDate(item) || "Not set")}</td>
+                        <td>${escapeHtml(formatDisplayDate(getDisplayDate(item)) || "Not set")}</td>
                         <td>
                           <div class="admin-row-actions">
                             ${renderViewAction(resource, item)}
@@ -551,6 +605,7 @@ async function renderForm(resource, mode, item = {}) {
 
       const savedId = getItemId(saved) || payload.slug;
       state.itemId = savedId;
+      window.history.replaceState({}, "", getEditHref(resource, saved));
       const viewAction = form.querySelector("[data-public-view-action]");
 
       if (viewAction) {
@@ -583,6 +638,10 @@ async function renderEditor(resource, mode) {
   }
 
   view.innerHTML = `<div class="admin-loading">Loading ${config.singular}...</div>`;
+
+  if (!state.itemId) {
+    throw new Error(`Missing ${config.idLabel} for this ${config.singular}.`);
+  }
 
   const item = await getCmsItem(resource, state.itemId);
   await renderForm(resource, mode, item);
