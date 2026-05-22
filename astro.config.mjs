@@ -81,6 +81,8 @@ export default defineConfig({
       filter(page) {
         return (
           !page.startsWith("https://cognifocus.app/admin") &&
+          page !== "https://cognifocus.app/404" &&
+          page !== "https://cognifocus.app/404.html" &&
           page !== "https://cognifocus.app/blog/stop-app-switching" &&
           page !== "https://cognifocus.app/blog/stop-app-switching.html"
         );
