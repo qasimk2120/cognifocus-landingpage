@@ -47,6 +47,7 @@ function getResourceEndpoints(resource) {
 }
 
 const DATE_FIELD_NAMES = ["publishedAt", "createdAt", "updatedAt"];
+const DEPLOY_METADATA_KEY = "__cmsDeploy";
 
 function toDateFromTimestampLike(value) {
   if (!value) {
@@ -208,7 +209,69 @@ export function normalizeItemsPayload(payload, resource) {
 }
 
 export function normalizeItemPayload(payload) {
-  return payload?.item || payload?.data || payload || {};
+  const item = payload?.item || payload?.data || payload || {};
+  const deployMetadata = getDeployMetadata(payload) || getDeployMetadata(item);
+
+  if (
+    deployMetadata &&
+    item &&
+    typeof item === "object" &&
+    !Array.isArray(item)
+  ) {
+    return {
+      ...item,
+      [DEPLOY_METADATA_KEY]: deployMetadata,
+    };
+  }
+
+  return item;
+}
+
+function getDeployMetadata(payload) {
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    return null;
+  }
+
+  const nestedMetadata =
+    payload.deploy ||
+    payload.deployment ||
+    payload.deployTrigger ||
+    payload.deployTriggerMetadata ||
+    payload.rebuild ||
+    payload.siteRebuild ||
+    payload.githubActions ||
+    payload.workflow ||
+    payload.workflowRun;
+
+  if (nestedMetadata) {
+    return nestedMetadata;
+  }
+
+  const directMetadata = {};
+
+  for (const key of [
+    "deployTriggered",
+    "rebuildTriggered",
+    "workflowDispatched",
+    "workflowId",
+    "workflowName",
+    "workflowUrl",
+    "workflowRunId",
+    "workflowRunUrl",
+    "runId",
+    "runUrl",
+    "htmlUrl",
+    "url",
+    "ref",
+    "sha",
+    "message",
+  ]) {
+    if (key in payload) {
+      directMetadata[key] = payload[key];
+    }
+  }
+
+  return Object.keys(directMetadata).length ? directMetadata : null;
 }
 
 function withIdPayload(id, body = {}) {
