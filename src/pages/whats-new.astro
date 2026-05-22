@@ -52,6 +52,10 @@ function updateMetaHtml(update, isLatest) {
   return parts.join("");
 }
 
+function getReleaseHref(update) {
+  return `/whats-new/${update.slug}.html`;
+}
+
 const latestUpdate = updates[0];
 const historyUpdates = updates.slice(1);
 const itemListElements = updates.slice(0, 8).map((update, index) => ({
@@ -59,6 +63,7 @@ const itemListElements = updates.slice(0, 8).map((update, index) => ({
   position: index + 1,
   name: update.title,
   description: update.summary,
+  url: `https://cognifocus.app${getReleaseHref(update)}`,
 }));
 ---
 
@@ -183,6 +188,11 @@ const itemListElements = updates.slice(0, 8).map((update, index) => ({
               >
                 Read detailed notes
               </button>
+              {latestUpdate && (
+                <a class="release-link-btn" href={getReleaseHref(latestUpdate)}>
+                  View full note
+                </a>
+              )}
             </div>
 
             <div class="release-details" hidden>
@@ -223,6 +233,9 @@ const itemListElements = updates.slice(0, 8).map((update, index) => ({
                 >
                   Read detailed notes
                 </button>
+                <a class="release-link-btn" href={getReleaseHref(update)}>
+                  View full note
+                </a>
               </div>
               <div class="release-details" hidden>
                 <div class="release-notes">
