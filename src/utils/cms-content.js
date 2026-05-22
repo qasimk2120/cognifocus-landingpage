@@ -1,5 +1,6 @@
 import { getCollection } from "astro:content";
 import { renderMarkdownToHtml } from "./markdown.js";
+import { normalizeBlogTextFields } from "./text-normalize.js";
 
 const CMS_SOURCE = String(import.meta.env.CMS_CONTENT_SOURCE || "auto").trim();
 const CMS_BASE_URL = String(
@@ -252,45 +253,69 @@ async function getCmsOrLocalItems(resource, localLoader) {
 }
 
 function normalizeBlogPost(item, source = "cms") {
-  const slug = item.slug || item.id || slugify(item.title);
-  const publishedAt = toDateOnly(item.publishedAt || item.publishDate || "");
-  const updatedAt = toDateOnly(item.updatedAt || item.updatedDate || publishedAt);
-  const bodyMarkdown = item.bodyMarkdown || "";
+  const normalizedItem = normalizeBlogTextFields(item);
+  const slug = normalizedItem.slug || normalizedItem.id || slugify(normalizedItem.title);
+  const publishedAt = toDateOnly(normalizedItem.publishedAt || normalizedItem.publishDate || "");
+  const updatedAt = toDateOnly(normalizedItem.updatedAt || normalizedItem.updatedDate || publishedAt);
+  const bodyMarkdown = normalizedItem.bodyMarkdown || "";
   const bodyHtml = bodyMarkdown.trim()
     ? renderMarkdownToHtml(bodyMarkdown)
-    : item.bodyHtml || "";
-  const category = item.category || "Focus Guides";
-  const categorySlug = item.categorySlug || slugify(category);
-  const canonical = item.canonical || `https://cognifocus.app/blog/${slug}.html`;
+    : normalizedItem.bodyHtml || "";
+  const category = normalizedItem.category || "Focus Guides";
+  const categorySlug = normalizedItem.categorySlug || slugify(category);
+  const canonical = normalizedItem.canonical || `https://cognifocus.app/blog/${slug}.html`;
 
   return {
-    ...item,
+    ...normalizedItem,
     slug,
-    status: item.status || "published",
+    status: normalizedItem.status || "published",
     publishedAt,
     publishDate: publishedAt,
     updatedAt,
     updatedDate: updatedAt,
-    articleTitle: item.articleTitle || item.title,
-    title: item.seoTitle || item.title,
-    description: item.description || item.excerpt || item.seoDescription || "",
+    articleTitle: normalizedItem.articleTitle || normalizedItem.title,
+    title: normalizedItem.seoTitle || normalizedItem.title,
+    description:
+      normalizedItem.description ||
+      normalizedItem.excerpt ||
+      normalizedItem.seoDescription ||
+      "",
     canonical,
-    ogTitle: item.ogTitle || item.seoTitle || item.title,
+    ogTitle: normalizedItem.ogTitle || normalizedItem.seoTitle || normalizedItem.title,
     ogDescription:
-      item.ogDescription || item.seoDescription || item.description || item.excerpt,
-    ogImage: item.ogImage || item.coverImageUrl || item.coverImage,
-    displayDate: item.displayDate || "",
+      normalizedItem.ogDescription ||
+      normalizedItem.seoDescription ||
+      normalizedItem.description ||
+      normalizedItem.excerpt,
+    ogImage:
+      normalizedItem.ogImage ||
+      normalizedItem.coverImageUrl ||
+      normalizedItem.coverImage,
+    displayDate: normalizedItem.displayDate || "",
     category,
     categorySlug,
-    excerpt: item.excerpt || item.description || "",
-    featured: Boolean(item.featured),
-    bodyClass: item.bodyClass || "seo-guide-page blog-page cf-shell",
-    includePinterest: item.includePinterest ?? true,
-    schemaHeadline: item.schemaHeadline || item.articleTitle || item.title,
-    schemaDescription: item.schemaDescription || item.description || item.excerpt,
-    breadcrumbTitle: item.breadcrumbTitle || item.articleTitle || item.title,
-    breadcrumbLabel: item.breadcrumbLabel || item.articleTitle || item.title,
-    coverImageUrl: item.coverImageUrl || item.coverImage || "",
+    excerpt: normalizedItem.excerpt || normalizedItem.description || "",
+    featured: Boolean(normalizedItem.featured),
+    bodyClass: normalizedItem.bodyClass || "seo-guide-page blog-page cf-shell",
+    includePinterest: normalizedItem.includePinterest ?? true,
+    schemaHeadline:
+      normalizedItem.schemaHeadline ||
+      normalizedItem.articleTitle ||
+      normalizedItem.title,
+    schemaDescription:
+      normalizedItem.schemaDescription ||
+      normalizedItem.description ||
+      normalizedItem.excerpt,
+    breadcrumbTitle:
+      normalizedItem.breadcrumbTitle ||
+      normalizedItem.articleTitle ||
+      normalizedItem.title,
+    breadcrumbLabel:
+      normalizedItem.breadcrumbLabel ||
+      normalizedItem.articleTitle ||
+      normalizedItem.title,
+    coverImageUrl:
+      normalizedItem.coverImageUrl || normalizedItem.coverImage || "",
     bodyMarkdown,
     bodyHtml,
   };

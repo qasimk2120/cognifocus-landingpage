@@ -3,6 +3,7 @@ import {
   getPublishedBlogPosts,
 } from "./cms-content.js";
 import { renderMarkdownToHtml } from "./markdown.js";
+import { normalizeBlogTextFields } from "./text-normalize.js";
 
 export const BLOG_PAGE_SIZE = 6;
 
@@ -45,7 +46,7 @@ export const formatBlogDate = (value) => {
 };
 
 export function normalizeBlogPost(entry) {
-  const post = entry.data;
+  const post = normalizeBlogTextFields(entry.data);
   const publishDate = post.publishedAt;
   const updatedDate = post.updatedAt || post.publishedAt;
   const bodyMarkdown = post.bodyMarkdown || "";
