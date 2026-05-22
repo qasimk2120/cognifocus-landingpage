@@ -19,6 +19,9 @@ const IMAGE_PATH_MAX_LENGTH = 2048;
 const IMAGE_HELPER_TEXT =
   "Upload images manually to public/blog/images for now, then paste the path here.";
 const SITE_ORIGIN = "https://cognifocus.app";
+const GITHUB_ACTIONS_WORKFLOW_URL =
+  "https://github.com/qasimk2120/cognifocus-landingpage/actions/workflows/deploy.yml";
+const CMS_DEPLOY_METADATA_KEY = "__cmsDeploy";
 const distributionCopyCache = new Map();
 const distributionIntegrations = [
   {
@@ -192,6 +195,16 @@ function setAlert(message, type = "info") {
 
   alertBox.hidden = !message;
   alertBox.textContent = message || "";
+  alertBox.dataset.type = type;
+}
+
+function setAlertHtml(html, type = "info") {
+  if (!alertBox) {
+    return;
+  }
+
+  alertBox.hidden = !html;
+  alertBox.innerHTML = html || "";
   alertBox.dataset.type = type;
 }
 
@@ -433,6 +446,115 @@ function renderFeaturedBadge(item) {
   return item.featured
     ? `<span class="admin-featured-badge">Featured</span>`
     : `<span class="admin-featured-muted">No</span>`;
+}
+
+function getDeployMetadata(item) {
+  return item?.[CMS_DEPLOY_METADATA_KEY] || null;
+}
+
+function getDeployMetadataUrl(metadata) {
+  if (!metadata || typeof metadata !== "object" || Array.isArray(metadata)) {
+    return "";
+  }
+
+  return normalizeExternalUrl(
+    metadata.workflowRunUrl ||
+    metadata.runUrl ||
+    metadata.htmlUrl ||
+    metadata.workflowUrl ||
+    metadata.url ||
+    "",
+  );
+}
+
+function normalizeExternalUrl(value) {
+  const rawUrl = String(value || "").trim();
+
+  if (!rawUrl) {
+    return "";
+  }
+
+  try {
+    const url = new URL(rawUrl);
+    return url.protocol === "https:" || url.protocol === "http:" ? url.href : "";
+  } catch {
+    return "";
+  }
+}
+
+function formatDeployMetadataValue(value) {
+  if (value === true) {
+    return "yes";
+  }
+
+  if (value === false) {
+    return "no";
+  }
+
+  if (value == null) {
+    return "";
+  }
+
+  if (typeof value === "object") {
+    return "";
+  }
+
+  return String(value).trim();
+}
+
+function formatDeployMetadata(metadata) {
+  if (!metadata) {
+    return "";
+  }
+
+  if (typeof metadata === "string") {
+    return metadata.trim();
+  }
+
+  if (typeof metadata === "boolean") {
+    return metadata ? "Deploy trigger reported." : "Deploy trigger was not reported as started.";
+  }
+
+  if (typeof metadata !== "object" || Array.isArray(metadata)) {
+    return "";
+  }
+
+  const entries = [
+    ["Message", metadata.message],
+    ["Triggered", metadata.deployTriggered ?? metadata.rebuildTriggered ?? metadata.workflowDispatched],
+    ["Workflow", metadata.workflowName ?? metadata.workflowId],
+    ["Run", metadata.workflowRunId ?? metadata.runId],
+    ["Ref", metadata.ref],
+    ["SHA", typeof metadata.sha === "string" ? metadata.sha.slice(0, 7) : metadata.sha],
+  ]
+    .map(([label, value]) => [label, formatDeployMetadataValue(value)])
+    .filter(([, value]) => value);
+
+  return entries.map(([label, value]) => `${label}: ${value}`).join(" · ");
+}
+
+function renderDeployFeedback(item) {
+  const metadata = getDeployMetadata(item);
+  const metadataText = formatDeployMetadata(metadata);
+  const metadataUrl = getDeployMetadataUrl(metadata);
+  const runLink = metadataUrl
+    ? ` <a href="${escapeHtml(metadataUrl)}" target="_blank" rel="noopener">Open run</a>`
+    : "";
+
+  return `
+    <span>Saved. Site rebuild should start shortly.</span>
+    <a href="${GITHUB_ACTIONS_WORKFLOW_URL}" target="_blank" rel="noopener">GitHub Actions</a>
+    ${
+      metadataText || runLink
+        ? `<small class="admin-deploy-meta">${escapeHtml(metadataText)}${runLink}</small>`
+        : ""
+    }
+  `;
+}
+
+function setInlineSuccessWithDeploy(message, item) {
+  message.innerHTML = renderDeployFeedback(item);
+  message.dataset.type = "success";
 }
 
 function renderViewAction(resource, item, size = "small") {
@@ -863,8 +985,8 @@ async function renderList(resource) {
       setAlert(`Archiving ${config.singular}...`);
 
       try {
-        await archiveCmsItem(resource, id);
-        setAlert(`${config.singular[0].toUpperCase()}${config.singular.slice(1)} archived.`, "success");
+        const archived = await archiveCmsItem(resource, id);
+        setAlertHtml(renderDeployFeedback(archived), "success");
         await renderList(resource);
       } catch (error) {
         handleError(error);
@@ -1061,11 +1183,7 @@ async function renderForm(resource, mode, item = {}) {
         viewAction.outerHTML = renderViewAction(resource, saved, "normal");
       }
 
-      message.textContent =
-        requestedStatus === "archived"
-          ? `${config.singular[0].toUpperCase()}${config.singular.slice(1)} archived.`
-          : `${config.singular[0].toUpperCase()}${config.singular.slice(1)} saved.`;
-      message.dataset.type = "success";
+      setInlineSuccessWithDeploy(message, saved);
     } catch (error) {
       handleError(error, message);
     } finally {

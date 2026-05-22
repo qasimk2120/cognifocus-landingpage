@@ -225,6 +225,14 @@ body.admin-page {
   color: var(--admin-danger);
 }
 
+.admin-alert a,
+.admin-form-message a {
+  color: inherit;
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .admin-grid {
   display: grid;
   gap: 16px;
@@ -492,6 +500,19 @@ body.admin-page {
 .admin-empty,
 .admin-loading {
   color: var(--admin-muted);
+}
+
+.admin-form-message {
+  display: grid;
+  gap: 6px;
+}
+
+.admin-deploy-meta {
+  display: block;
+  color: var(--admin-muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
 }
 
 .admin-distribution-section {
