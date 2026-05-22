@@ -24,6 +24,10 @@ const cmsPayloadKeys = {
   releases: ["releases", "releaseNotes", "notes"],
 };
 
+function getCmsAuthMode() {
+  return CMS_BUILD_AUTH_TOKEN ? "build-token" : "none";
+}
+
 function shouldUseCms() {
   return CMS_SOURCE === "cms" || (CMS_SOURCE !== "local" && Boolean(CMS_BASE_URL));
 }
@@ -130,13 +134,31 @@ async function fetchCmsItems(resource) {
   return normalizeItemsPayload(payload, resource).filter(isPublishedCmsItem);
 }
 
+async function loadLocalItems(resource, localLoader, reason) {
+  const items = await localLoader();
+  console.warn(
+    `[cms-content] Using local ${resource} content (${items.length} items). ${reason}`,
+  );
+  return { items, source: "local" };
+}
+
 async function getCmsOrLocalItems(resource, localLoader) {
   if (!shouldUseCms()) {
-    return localLoader();
+    const reason =
+      CMS_SOURCE === "local"
+        ? "CMS source is forced to local."
+        : "CMS base URL is not configured.";
+    return loadLocalItems(resource, localLoader, reason);
   }
 
   try {
-    return await fetchCmsItems(resource);
+    const items = await fetchCmsItems(resource);
+    console.info(
+      `[cms-content] Using CMS ${resource} content (${items.length} published items) from ${trimTrailingSlash(
+        CMS_BASE_URL,
+      )}. Auth mode: ${getCmsAuthMode()}.`,
+    );
+    return { items, source: "cms" };
   } catch (error) {
     if (shouldFailOnCmsError()) {
       throw new Error(
@@ -144,10 +166,11 @@ async function getCmsOrLocalItems(resource, localLoader) {
       );
     }
 
-    console.warn(
-      `[cms-content] Falling back to local ${resource} because CMS fetch failed: ${error.message}`,
+    return loadLocalItems(
+      resource,
+      localLoader,
+      `Falling back because CMS fetch failed: ${error.message}. Auth mode: ${getCmsAuthMode()}.`,
     );
-    return localLoader();
   }
 }
 
@@ -155,10 +178,7 @@ function normalizeBlogPost(item, source = "cms") {
   const slug = item.slug || item.id || slugify(item.title);
   const publishedAt = item.publishedAt || item.publishDate || "";
   const bodyMarkdown = item.bodyMarkdown || "";
-  const bodyHtml =
-    bodyMarkdown && source === "cms"
-      ? renderMarkdownToHtml(bodyMarkdown)
-      : item.bodyHtml || renderMarkdownToHtml(bodyMarkdown);
+  const bodyHtml = item.bodyHtml || renderMarkdownToHtml(bodyMarkdown);
   const category = item.category || "Focus Guides";
   const categorySlug = item.categorySlug || slugify(category);
   const canonical = item.canonical || `https://cognifocus.app/blog/${slug}.html`;
@@ -199,10 +219,7 @@ function normalizeReleaseNote(item, source = "cms") {
   const slug = item.slug || item.id || slugify(item.version || item.title);
   const publishedAt = item.publishedAt || item.date || "";
   const bodyMarkdown = item.bodyMarkdown || "";
-  const bodyHtml =
-    bodyMarkdown && source === "cms"
-      ? renderMarkdownToHtml(bodyMarkdown)
-      : item.bodyHtml || renderMarkdownToHtml(bodyMarkdown);
+  const bodyHtml = item.bodyHtml || renderMarkdownToHtml(bodyMarkdown);
   const category = item.category || item.type || "App Update";
 
   return {
@@ -244,7 +261,7 @@ async function loadLocalReleaseNotes() {
 
 export async function getPublishedBlogPosts() {
   blogPostsPromise ??= getCmsOrLocalItems("blog", loadLocalBlogPosts).then(
-    (items) => items.map((item) => normalizeBlogPost(item, shouldUseCms() ? "cms" : "local")),
+    ({ items, source }) => items.map((item) => normalizeBlogPost(item, source)),
   );
 
   return blogPostsPromise;
@@ -258,8 +275,8 @@ export async function getPublishedReleaseNotes() {
   releaseNotesPromise ??= getCmsOrLocalItems(
     "releases",
     loadLocalReleaseNotes,
-  ).then((items) =>
-    items.map((item) => normalizeReleaseNote(item, shouldUseCms() ? "cms" : "local")),
+  ).then(({ items, source }) =>
+    items.map((item) => normalizeReleaseNote(item, source)),
   );
 
   return releaseNotesPromise;

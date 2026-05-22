@@ -28,6 +28,8 @@ jobs:
       PUBLIC_FIREBASE_APP_ID: ${{ secrets.PUBLIC_FIREBASE_APP_ID }}
       PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.PUBLIC_FIREBASE_MEASUREMENT_ID }}
       PUBLIC_CMS_FUNCTION_BASE_URL: ${{ secrets.PUBLIC_CMS_FUNCTION_BASE_URL }}
+      CMS_BUILD_AUTH_TOKEN: ${{ secrets.CMS_BUILD_AUTH_TOKEN }}
+      CMS_BUILD_ID_TOKEN: ${{ secrets.CMS_BUILD_ID_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -60,6 +62,16 @@ jobs:
             fi
           done
           exit "$missing"
+
+      - name: Report CMS build auth mode
+        run: |
+          if [ -n "$CMS_BUILD_AUTH_TOKEN" ]; then
+            echo "CMS build auth token configured via CMS_BUILD_AUTH_TOKEN."
+          elif [ -n "$CMS_BUILD_ID_TOKEN" ]; then
+            echo "CMS build auth token configured via CMS_BUILD_ID_TOKEN."
+          else
+            echo "::warning::No CMS build auth token configured. Astro may fall back to local CMS JSON if the CMS endpoints require auth."
+          fi
 
       - name: Build site
         run: npm run build

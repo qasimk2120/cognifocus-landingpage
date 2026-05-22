@@ -248,6 +248,25 @@ function renderField([name, label, type, required], item = {}) {
   const imagePathMaxLength =
     name === "coverImageUrl" ? ` maxlength="${IMAGE_PATH_MAX_LENGTH}"` : "";
 
+  if (name === "publishedAt") {
+    const publishedLabel = value
+      ? normalizeDateTimeValue(value)
+      : "";
+    const publishedHint = value
+      ? "Set automatically when this item was first published."
+      : "This will be set automatically the first time you publish.";
+
+    return `
+      <label>
+        ${label}
+        <input type="datetime-local" name="${name}" value="${escapeHtml(
+          publishedLabel,
+        )}" readonly disabled />
+        <span class="admin-helper-text">${publishedHint}</span>
+      </label>
+    `;
+  }
+
   if (type === "select") {
     const current = value || "draft";
 
@@ -482,6 +501,10 @@ function readPayload(form, resource, requestedStatus) {
   for (const [name] of resources[resource].fields) {
     const element = form.elements[name];
 
+    if (name === "publishedAt") {
+      continue;
+    }
+
     if (name === "featured") {
       payload[name] = Boolean(element?.checked);
     } else if (["tags", "publishTargets"].includes(name)) {
@@ -494,10 +517,6 @@ function readPayload(form, resource, requestedStatus) {
   }
 
   payload.status = requestedStatus || payload.status || "draft";
-
-  if (payload.status === "published" && !payload.publishedAt) {
-    payload.publishedAt = todayDateTime();
-  }
 
   return payload;
 }
