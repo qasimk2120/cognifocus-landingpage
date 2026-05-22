@@ -8,7 +8,7 @@ const CMS_BASE_URL = String(
     "",
 ).trim();
 const CMS_BUILD_AUTH_TOKEN = String(
-  import.meta.env.CMS_BUILD_AUTH_TOKEN || import.meta.env.CMS_BUILD_ID_TOKEN || "",
+  import.meta.env.CMS_BUILD_AUTH_TOKEN || "",
 ).trim();
 
 let blogPostsPromise;
