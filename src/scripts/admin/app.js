@@ -25,6 +25,7 @@ const resources = {
     basePath: "/admin/blog",
     newPath: "/admin/blog/new",
     idLabel: "slug",
+    publicPath: (item) => `/blog/${encodeURIComponent(item.slug)}.html`,
     fields: [
       ["title", "Title", "text", true],
       ["slug", "Slug", "text", true],
@@ -37,6 +38,7 @@ const resources = {
       ["seoTitle", "SEO title", "text"],
       ["seoDescription", "SEO description", "textarea"],
       ["canonical", "Canonical URL", "url"],
+      ["featured", "Featured", "checkbox"],
       ["status", "Status", "select"],
       ["publishedAt", "Published at", "datetime-local"],
       ["instagramCaption", "Instagram caption", "textarea"],
@@ -53,6 +55,7 @@ const resources = {
     basePath: "/admin/releases",
     newPath: "/admin/releases/new",
     idLabel: "slug",
+    publicPath: (item) => `/whats-new/${encodeURIComponent(item.slug)}.html`,
     fields: [
       ["title", "Title", "text", true],
       ["slug", "Slug", "text", true],
@@ -63,6 +66,7 @@ const resources = {
       ["highlights", "Highlights", "textarea"],
       ["fixes", "Fixes", "textarea"],
       ["improvements", "Improvements", "textarea"],
+      ["featured", "Featured", "checkbox"],
       ["status", "Status", "select"],
       ["publishedAt", "Published at", "datetime-local"],
       ["instagramCaption", "Instagram caption", "textarea"],
@@ -172,7 +176,22 @@ function getEditHref(resource, item) {
   return id ? `${config.basePath}/${encodeURIComponent(id)}` : config.basePath;
 }
 
+function getPublicHref(resource, item) {
+  const config = resources[resource];
+  const slug = String(item?.slug || "").trim();
+
+  if (!config?.publicPath || item?.status !== "published" || !slug) {
+    return "";
+  }
+
+  return config.publicPath({ ...item, slug });
+}
+
 function toInputValue(name, value) {
+  if (name === "featured") {
+    return Boolean(value);
+  }
+
   if (name === "tags" || name === "publishTargets") {
     return Array.isArray(value) ? value.join(", ") : value || "";
   }
@@ -214,6 +233,18 @@ function renderField([name, label, type, required], item = {}) {
             )
             .join("")}
         </select>
+      </label>
+    `;
+  }
+
+  if (type === "checkbox") {
+    return `
+      <label class="admin-checkbox-field">
+        <input type="checkbox" name="${name}"${value ? " checked" : ""} />
+        <span>
+          ${label}
+          <small>Feature this item in public content surfaces.</small>
+        </span>
       </label>
     `;
   }
@@ -262,6 +293,23 @@ function getDisplayDate(item) {
   return item.publishedAt || item.updatedAt || item.createdAt || "";
 }
 
+function renderFeaturedBadge(item) {
+  return item.featured
+    ? `<span class="admin-featured-badge">Featured</span>`
+    : `<span class="admin-featured-muted">No</span>`;
+}
+
+function renderViewAction(resource, item, size = "small") {
+  const href = getPublicHref(resource, item);
+  const sizeClass = size === "small" ? " admin-button-small" : "";
+
+  if (!href) {
+    return `<span class="admin-button${sizeClass} admin-button-muted" aria-disabled="true" data-public-view-action>View</span>`;
+  }
+
+  return `<a class="admin-button${sizeClass}" href="${href}" target="_blank" rel="noopener" data-public-view-action>View</a>`;
+}
+
 async function renderList(resource) {
   const config = resources[resource];
 
@@ -287,6 +335,7 @@ async function renderList(resource) {
                 <tr>
                   <th>Title</th>
                   <th>Status</th>
+                  <th>Featured</th>
                   <th>Published</th>
                   <th></th>
                 </tr>
@@ -304,9 +353,11 @@ async function renderList(resource) {
                         <td><span class="admin-status admin-status-${escapeHtml(item.status || "draft")}">${escapeHtml(
                           item.status || "draft",
                         )}</span></td>
+                        <td>${renderFeaturedBadge(item)}</td>
                         <td>${escapeHtml(getDisplayDate(item) || "Not set")}</td>
                         <td>
                           <div class="admin-row-actions">
+                            ${renderViewAction(resource, item)}
                             <a class="admin-button admin-button-small" href="${getEditHref(
                               resource,
                               item,
@@ -375,7 +426,11 @@ function readPayload(form, resource, requestedStatus) {
   const payload = {};
 
   for (const [name] of resources[resource].fields) {
-    if (["tags", "publishTargets"].includes(name)) {
+    const element = form.elements[name];
+
+    if (name === "featured") {
+      payload[name] = Boolean(element?.checked);
+    } else if (["tags", "publishTargets"].includes(name)) {
       payload[name] = readCommaList(formData, name);
     } else if (["highlights", "fixes", "improvements"].includes(name)) {
       payload[name] = readArrayFromTextarea(formData, name);
@@ -441,6 +496,7 @@ async function renderForm(resource, mode, item = {}) {
       </div>
       <div class="admin-editor-actions">
         <a class="admin-button" href="${config.basePath}">Back</a>
+        ${renderViewAction(resource, item, "normal")}
         <button type="submit" class="admin-button" data-save-status="draft">Save Draft</button>
         <button type="submit" class="admin-button admin-button-primary" data-save-status="published">Publish</button>
         ${
@@ -495,6 +551,12 @@ async function renderForm(resource, mode, item = {}) {
 
       const savedId = getItemId(saved) || payload.slug;
       state.itemId = savedId;
+      const viewAction = form.querySelector("[data-public-view-action]");
+
+      if (viewAction) {
+        viewAction.outerHTML = renderViewAction(resource, saved, "normal");
+      }
+
       message.textContent =
         requestedStatus === "archived"
           ? `${config.singular[0].toUpperCase()}${config.singular.slice(1)} archived.`
