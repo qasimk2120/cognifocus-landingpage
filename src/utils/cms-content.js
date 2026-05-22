@@ -178,7 +178,9 @@ function normalizeBlogPost(item, source = "cms") {
   const slug = item.slug || item.id || slugify(item.title);
   const publishedAt = item.publishedAt || item.publishDate || "";
   const bodyMarkdown = item.bodyMarkdown || "";
-  const bodyHtml = item.bodyHtml || renderMarkdownToHtml(bodyMarkdown);
+  const bodyHtml = bodyMarkdown.trim()
+    ? renderMarkdownToHtml(bodyMarkdown)
+    : item.bodyHtml || "";
   const category = item.category || "Focus Guides";
   const categorySlug = item.categorySlug || slugify(category);
   const canonical = item.canonical || `https://cognifocus.app/blog/${slug}.html`;

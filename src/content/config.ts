@@ -30,6 +30,7 @@ const blog = defineCollection({
     schemaDescription: z.string().optional(),
     breadcrumbTitle: z.string().optional(),
     breadcrumbLabel: z.string().optional(),
+    bodyMarkdown: z.string().optional(),
     bodyHtml: z.string().optional(),
   }),
 });
@@ -64,4 +65,3 @@ const releases = defineCollection({
 });
 
 export const collections = { blog, releases };
-

@@ -88,7 +88,7 @@ const panelClass =
       <h1 class="hero-heading mt-3">{post.articleTitle}</h1>
       {post.displayDate && <p class="blog-meta mb-3">Published {post.displayDate}</p>}
 
-      {/* Trusted local static blog HTML from the Astro blog content collection. */}
+      {/* Trusted build-time article HTML generated from CMS markdown or legacy HTML. */}
       <Fragment set:html={post.bodyHtml} />
     </article>
   </main>
