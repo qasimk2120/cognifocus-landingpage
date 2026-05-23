@@ -1,8 +1,12 @@
 {
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "npm run check:mojibake",
     "build": "astro build",
-    "preview": "astro preview"
+    "postbuild": "npm run check:mojibake -- --include-dist",
+    "preview": "astro preview",
+    "check:mojibake": "node scripts/check-mojibake.mjs",
+    "sync:cms-content": "node scripts/sync-cms-content.mjs"
   },
   "devDependencies": {
     "@astrojs/rss": "^4.0.18",

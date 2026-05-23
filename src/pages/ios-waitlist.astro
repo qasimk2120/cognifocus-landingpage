@@ -9,7 +9,28 @@ const description = "The Goblin is coming to iPhone. Join the CogniFocus iOS wai
 const canonical = "https://cognifocus.app/ios-waitlist.html";
 const ogTitle = "CogniFocus for iOS is coming";
 const ogDescription = "The Goblin is coming to iPhone. Join the CogniFocus iOS waitlist and be first to know when it drops.";
-const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebPage\",\n        \"name\": \"CogniFocus for iOS Waitlist\",\n        \"url\": \"https://cognifocus.app/ios-waitlist.html\",\n        \"description\": \"Join the CogniFocus iOS waitlist and get an email when the iPhone version is ready.\",\n        \"isPartOf\": {\n          \"@type\": \"WebSite\",\n          \"name\": \"CogniFocus\",\n          \"url\": \"https://cognifocus.app/\"\n        },\n        \"about\": {\n          \"@type\": \"SoftwareApplication\",\n          \"name\": \"CogniFocus\",\n          \"applicationCategory\": \"ProductivityApplication\",\n          \"operatingSystem\": \"Android\",\n          \"url\": \"https://cognifocus.app/\",\n          \"downloadUrl\": \"https://play.google.com/store/apps/details?id=io.ionic.cognifocus\"\n        },\n        \"publisher\": {\n          \"@type\": \"Organization\",\n          \"name\": \"CogniElevate\",\n          \"url\": \"https://cognifocus.app/\"\n        }\n      }";
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "CogniFocus for iOS Waitlist",
+  "url": "https://cognifocus.app/ios-waitlist.html",
+  "description": "Join the CogniFocus iOS waitlist and get an email when the iPhone version is ready.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "CogniFocus",
+    "url": "https://cognifocus.app/"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": "CogniFocus iOS waitlist",
+    "description": "CogniFocus is available now on Android, and the iOS version is in development."
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CogniElevate",
+    "url": "https://cognifocus.app/"
+  }
+});
 ---
 
 <BaseLayout

@@ -9,16 +9,35 @@ const articleSchema = {
   headline: post.articleTitle,
   description: post.description,
   datePublished: post.publishDate,
+  dateModified: post.dateModified || post.publishDate,
+  image: post.ogImage || "https://cognifocus.app/assets/og/og-image.png",
   author: {
-    "@type": "Organization",
-    name: "CogniFocus",
+    "@type": "Person",
+    name: "Qasim Khan",
+    url: "https://cognifocus.app/about.html",
+    jobTitle: "Founder, CogniFocus",
   },
   publisher: {
     "@type": "Organization",
     name: "CogniFocus",
     url: "https://cognifocus.app",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://cognifocus.app/assets/logo/app-logo.png",
+    },
   },
   url: post.canonical,
+};
+
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: post.articleTitle,
+  url: post.canonical,
+  speakable: {
+    "@type": "SpeakableSpecification",
+    cssSelector: ["h1.hero-heading", ".feature-kicker", ".blog-meta"],
+  },
 };
 
 const breadcrumbSchema = {
@@ -70,6 +89,7 @@ const panelClass =
 >
   <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify(articleSchema)}></script>
   <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)}></script>
+  <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify(webPageSchema)}></script>
   <link slot="head-after-social" rel="preconnect" href="https://fonts.googleapis.com" />
   <link slot="head-after-social" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link

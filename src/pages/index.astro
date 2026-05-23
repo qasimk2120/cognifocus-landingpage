@@ -5,10 +5,11 @@ import HomeFAQ from "../components/home/HomeFAQ.astro";
 import HomeFinalCTA from "../components/home/HomeFinalCTA.astro";
 import HomeGoblinCards from "../components/home/HomeGoblinCards.astro";
 import HomeHero from "../components/home/HomeHero.astro";
+import HomeProductAnswers from "../components/home/HomeProductAnswers.astro";
 import HomeTestimonials from "../components/home/HomeTestimonials.astro";
 
 const title = "CogniFocus | Focus Timer & App Blocker for Android";
-const description = "A focus timer and app blocker that sends a Goblin after you the second you drift to any distracting app \u007c TikTok, Instagram, YouTube and more";
+const description = "CogniFocus is a focus timer and app blocker for Android with Goblin reactions, Shield blocking, recovery nudges, and an iOS waitlist for iPhone updates.";
 const canonical = "https://cognifocus.app/";
 const ogTitle = "CogniFocus \u007c Focus Timer & App Blocker for Android";
 const ogDescription = description;
@@ -18,6 +19,7 @@ const schemas = [
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "CogniFocus",
+    "alternateName": "CogniFocus Focus Timer",
     "operatingSystem": "Android",
     "applicationCategory": "ProductivityApplication",
     "offers": {
@@ -25,73 +27,47 @@ const schemas = [
       "price": "0",
       "priceCurrency": "USD"
     },
-    "description": "A focus timer and app blocker that sends a Goblin after you the second you drift to TikTok, Instagram, or YouTube.",
+    "description": "A focus timer and app blocker for Android with Goblin reactions, Shield blocking, recovery nudges, and an iOS waitlist for iPhone updates.",
     "url": "https://cognifocus.app",
-    "downloadUrl": "https://play.google.com/store/apps/details?id=io.ionic.cognifocus"
+    "downloadUrl": "https://play.google.com/store/apps/details?id=io.ionic.cognifocus",
+    "featureList": [
+      "Focus timer",
+      "Distraction Shield app blocking",
+      "Goblin companion reactions",
+      "Recovery nudges",
+      "Streaks and XP",
+      "Planned sessions",
+      "iOS waitlist"
+    ]
   }),
-  "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebSite\",\n        \"name\": \"CogniFocus\",\n        \"url\": \"https://cognifocus.app/\"\n      }",
-  "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"WebPage\",\n        \"name\": \"CogniFocus - Focus Timer & App Blocker\",\n        \"speakable\": {\n          \"@type\": \"SpeakableSpecification\",\n          \"cssSelector\": [\".seo-eyebrow\", \".hero-muted-override\", \"#faq\"]\n        },\n        \"url\": \"https://cognifocus.app/\"\n      }",
-  "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"Organization\",\n        \"name\": \"CogniElevate\",\n        \"url\": \"https://cognifocus.app/\",\n        \"logo\": \"https://cognifocus.app/assets/logo/app-logo.png\",\n        \"sameAs\": [\n          \"https://www.tiktok.com/@cognifocus.app\",\n          \"https://www.instagram.com/cognifocus.app/\",\n          \"https://www.facebook.com/share/1Am7kCzkjG/\",\n          \"https://x.com/getcognifocus\",\n          \"https://www.pinterest.com/getcognifocus/\",\n          \"https://www.producthunt.com/products/cognifocus\"\n        ]\n      }"
-  ,
   JSON.stringify({
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "What makes CogniFocus different?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "CogniFocus is an Android focus timer that pushes back when your attention drifts. Shield blocking, Goblin reactions, and recovery nudges make it feel active during a session instead of passive.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "How does Shield block apps during a session?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "During an active session, Shield watches for blocked apps and steps in before the scroll takes over. The Goblin reacts, and the session nudges you back toward work instead of letting the distraction loop win.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Is CogniFocus good for ADHD or study focus?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Yes. CogniFocus is built for study blocks, ADHD-friendly focus loops, and anyone who needs a gentler but firmer way to stay on one task.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What happens when I drift or slip?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "If you slip into a blocked app or lose focus, recovery nudges help you come back without losing the whole run. The Goblin keeps the session honest, but one distraction does not have to end it.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "Why does CogniFocus need Android permissions?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Usage Access lets CogniFocus see which app is in front so Shield can react. Display over other apps lets the Shield screen appear. Those permissions are used for focus protection, not for reading your content.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "What do Free, Pro, and Limitless include?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text:
-            "Basic, or Free, covers the core focus loop with lighter limits. Pro expands the session tools with stronger Shield capacity, Manual Block, Planned Sessions, reminders, recovery nudges, and restore support. If a Limitless tier is offered later, its exact limits and extras will be listed on pricing before checkout.",
-        },
-      },
-    ],
+    "@type": "WebSite",
+    "name": "CogniFocus",
+    "url": "https://cognifocus.app/"
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "CogniFocus - Focus Timer & App Blocker for Android",
+    "description": "CogniFocus is available now on Android, with an iOS waitlist open for iPhone updates.",
+    "url": "https://cognifocus.app/",
+    "relatedLink": "https://cognifocus.app/ios-waitlist.html"
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CogniElevate",
+    "url": "https://cognifocus.app/",
+    "logo": "https://cognifocus.app/assets/logo/app-logo.png",
+    "sameAs": [
+      "https://www.tiktok.com/@cognifocus.app",
+      "https://www.instagram.com/cognifocus.app/",
+      "https://www.facebook.com/share/1Am7kCzkjG/",
+      "https://x.com/getcognifocus",
+      "https://www.pinterest.com/getcognifocus/",
+      "https://www.producthunt.com/products/cognifocus"
+    ]
   })
 ];
 ---
@@ -107,11 +83,6 @@ const schemas = [
   launchBannerProps={{ includeIosNotification: false }}
   footerProps={{ includePinterest: true, faqHref: "/#faq", xHref: "https://x.com/getcognifocus" }}
 >
-  <meta
-    slot="head-after-robots"
-    name="keywords"
-    content="focus app android, app blocker android, distraction blocker, tiktok blocker, instagram blocker, app blocker for studying, adhd focus app, study focus app, focus timer android, deep focus timer, android productivity app, cognifocus, reddit blocker, facebook blocker, social media blocker android, app blocker any app, custom app blocker android, focus friend app, focus companion app, focus companion android, productivity companion android"
-  />
   <meta slot="head-after-robots" name="author" content="CogniFocus" />
   <meta slot="head-after-robots" name="application-name" content="CogniFocus" />
 
@@ -133,6 +104,7 @@ const schemas = [
 
   <main id="main-content">
     <HomeHero />
+    <HomeProductAnswers />
     <HomeTestimonials />
     <HomeGoblinCards />
     <HomeAttentionSpirals />

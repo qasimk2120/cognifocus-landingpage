@@ -1,0 +1,75 @@
+name: Sync CMS fallback content
+
+on:
+  workflow_dispatch:
+    inputs:
+      prune:
+        description: Delete local fallback JSON files that are no longer published in CMS
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    env:
+      PUBLIC_CMS_FUNCTION_BASE_URL: ${{ secrets.PUBLIC_CMS_FUNCTION_BASE_URL }}
+      CMS_BUILD_AUTH_TOKEN: ${{ secrets.CMS_BUILD_AUTH_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify CMS sync env
+        run: |
+          missing=0
+          for key in PUBLIC_CMS_FUNCTION_BASE_URL CMS_BUILD_AUTH_TOKEN
+          do
+            if [ -z "${!key}" ]; then
+              echo "::error::$key is missing"
+              missing=1
+            fi
+          done
+          exit "$missing"
+
+      - name: Sync fallback JSON from CMS
+        run: |
+          if [ "${{ inputs.prune }}" = "true" ]; then
+            npm run sync:cms-content -- --prune
+          else
+            npm run sync:cms-content
+          fi
+
+      - name: Check generated content encoding
+        run: npm run check:mojibake
+
+      - name: Commit refreshed fallback content
+        run: |
+          if git diff --quiet -- src/content/blog src/content/releases; then
+            echo "Fallback content is already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/content/blog src/content/releases
+          git commit -m "Sync CMS fallback content"
+          git push

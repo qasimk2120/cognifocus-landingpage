@@ -5,10 +5,10 @@ import SiteIcon from "../components/shared/SiteIcon.astro";
 import appLogo from "../assets/logo/app-logo.png";
 
 const title = "Download CogniFocus for Android";
-const description = "Download CogniFocus for Android. Start your first focus session free \u007c the Goblin is waiting.";
+const description = "Download CogniFocus on Google Play. Start your first focus session free on Android, or join the iOS waitlist for iPhone updates.";
 const canonical = "https://cognifocus.app/download.html";
 const ogTitle = "Download CogniFocus";
-const ogDescription = "The Goblin is waiting. Start your first focus session free on Android.";
+const ogDescription = description;
 const schemaJson = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -20,7 +20,7 @@ const schemaJson = JSON.stringify({
     "price": "0",
     "priceCurrency": "USD"
   },
-  "description": "A focus timer and app blocker that sends a Goblin after you the second you drift to TikTok, Instagram, or YouTube.",
+  "description": "A focus timer and app blocker for Android with Goblin reactions, Shield blocking, recovery nudges, and an iOS waitlist for iPhone updates.",
   "url": "https://cognifocus.app",
   "downloadUrl": "https://play.google.com/store/apps/details?id=io.ionic.cognifocus"
 }, null, 2);
@@ -136,12 +136,11 @@ const schemaJson = JSON.stringify({
         <div class="download-card-header">
           <div class="download-icon" aria-hidden="true">&#128241;</div>
           <div>
-            <h2>Android only for now</h2>
-            <p>iOS waitlist is open.</p>
+            <h2>Available now on Android</h2>
+            <p>iOS waitlist is open for iPhone updates.</p>
           </div>
         </div>
       </article>
     </main>
   
 </BaseLayout>
-
