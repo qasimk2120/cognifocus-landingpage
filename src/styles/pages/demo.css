@@ -100,8 +100,16 @@ body.demo-page {
   border: 0;
   border-radius: inherit;
   background:
-    radial-gradient(circle at center, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.42) 100%),
-    linear-gradient(180deg, rgba(var(--cf-black-rgb), 0.14), rgba(var(--cf-black-rgb), 0.24));
+    radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 0.08) 0%,
+      rgba(0, 0, 0, 0.42) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(var(--cf-black-rgb), 0.14),
+      rgba(var(--cf-black-rgb), 0.24)
+    );
   color: var(--cf-text);
   cursor: pointer;
 }
@@ -231,12 +239,11 @@ body.demo-page {
   position: relative;
   width: min(100%, 1040px);
   border-radius: clamp(18px, 2.6vw, 28px);
-  background:
-    linear-gradient(
-      145deg,
-      rgba(var(--cf-surface2-rgb), 0.22),
-      rgba(var(--cf-navy-rgb), 0.34)
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(var(--cf-surface2-rgb), 0.22),
+    rgba(var(--cf-navy-rgb), 0.34)
+  );
   box-shadow:
     0 28px 74px rgba(var(--cf-black-rgb), 0.28),
     0 0 58px rgba(var(--cf-cyan-rgb), 0.08);
@@ -350,12 +357,11 @@ body.demo-page {
   }
 
   html:not([data-theme]) .home-demo-showcase .demo-video-shell {
-    background:
-      linear-gradient(
-        145deg,
-        rgba(var(--cf-light-card-rgb), 0.62),
-        rgba(var(--cf-light-surface-rgb), 0.72)
-      );
+    background: linear-gradient(
+      145deg,
+      rgba(var(--cf-light-card-rgb), 0.62),
+      rgba(var(--cf-light-surface-rgb), 0.72)
+    );
     box-shadow:
       0 28px 68px rgba(var(--cf-light-shadow-rgb), 0.14),
       0 0 52px rgba(var(--cf-cyan-rgb), 0.08);
@@ -404,12 +410,11 @@ html[data-theme="light"] .home-demo-pill {
 }
 
 html[data-theme="light"] .home-demo-showcase .demo-video-shell {
-  background:
-    linear-gradient(
-      145deg,
-      rgba(var(--cf-light-card-rgb), 0.62),
-      rgba(var(--cf-light-surface-rgb), 0.72)
-    );
+  background: linear-gradient(
+    145deg,
+    rgba(var(--cf-light-card-rgb), 0.62),
+    rgba(var(--cf-light-surface-rgb), 0.72)
+  );
   box-shadow:
     0 28px 68px rgba(var(--cf-light-shadow-rgb), 0.14),
     0 0 52px rgba(var(--cf-cyan-rgb), 0.08);
