@@ -6,6 +6,23 @@ const description =
   "Learn about CogniFocus, the Android focus timer and app blocker with Goblin reactions, an iOS waitlist, and future platform expansion plans.";
 const canonical = "https://cognifocus.app/about.html";
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Qasim Khan",
+  jobTitle: "Founder",
+  worksFor: {
+    "@type": "Organization",
+    name: "CogniElevate",
+    url: "https://cognifocus.app",
+  },
+  url: "https://cognifocus.app/about.html",
+  email: "getcognifocus@gmail.com",
+  sameAs: [
+    "https://x.com/getcognifocus",
+  ],
+};
+
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -57,7 +74,12 @@ const softwareSchema = {
   bodyClass="about-page cf-shell"
   footerProps={{ includePinterest: true }}
 >
-  <meta slot="head-after-robots" name="author" content="CogniFocus" />
+  <meta slot="head-after-robots" name="author" content="Qasim Khan" />
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(personSchema, null, 2)}
+  />
   <script
     slot="head"
     type="application/ld+json"

@@ -97,6 +97,7 @@ export default defineConfig({
         }
 
         item.url = url.href;
+        item.lastmod = new Date().toISOString().split("T")[0];
         return item;
       },
     }),
