@@ -8,6 +8,7 @@ const {
   class: className = "",
   loading = "lazy",
   decoding = "async",
+  title = alt,
 } = Astro.props;
 
 if (!alt && alt !== "") {
@@ -19,6 +20,7 @@ if (!alt && alt !== "") {
   <img
     src={src}
     alt={alt}
+    title={title || undefined}
     width={width}
     height={height}
     loading={loading}

@@ -51,8 +51,9 @@ function renderInline(markdown = "") {
         return escapeHtml(alt);
       }
 
-      const title = rawTitle
-        ? ` title="${escapeAttribute(rawTitle.trim())}"`
+      const titleText = rawTitle?.trim() || alt.trim();
+      const title = titleText
+        ? ` title="${escapeAttribute(titleText)}"`
         : "";
 
       return `<img src="${escapeAttribute(src)}" alt="${escapeAttribute(
