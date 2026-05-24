@@ -8,7 +8,6 @@
   "ogDescription": "Simple methods to build distraction-free focus sessions on Android.",
   "ogImage": "https://cognifocus.app/assets/og/og-image.png",
   "ogType": "website",
-  "displayDate": "",
   "category": "Focus Guides",
   "categorySlug": "focus-guides",
   "tags": [
@@ -30,5 +29,17 @@
   "featured": false,
   "coverImage": "https://cognifocus.app/assets/og/og-image.png",
   "seoTitle": "How to Focus Without Distractions | CogniFocus",
-  "seoDescription": "Learn how to focus without distractions using app blocking, clear session structure, and practical recovery habits."
+  "seoDescription": "Learn how to focus without distractions using app blocking, clear session structure, and practical recovery habits.",
+  "coverImageUrl": "https://cognifocus.app/assets/og/og-image.png",
+  "createdAt": "2026-05-10T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
+  "id": "focus-without-distractions",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\focus-without-distractions.json",
+    "importedAt": "2026-05-22T02:27:49.651Z"
+  },
+  "social": {},
+  "status": "published",
+  "updatedBy": "cms-content-migration"
 }

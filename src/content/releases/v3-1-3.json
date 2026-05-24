@@ -4,7 +4,7 @@
   "slug": "v3-1-3",
   "summary": "New update prompts make it clearer when a release is available and what to do next.",
   "type": "app",
-  "category": "Update Prompt Release",
+  "category": "app",
   "tags": [
     "3.1.3",
     "Update Prompt Release"
@@ -20,5 +20,20 @@
   ],
   "notes": [],
   "publishedAt": "2026-04-08",
-  "featured": false
+  "featured": false,
+  "bodyMarkdown": "## Highlights\n\n- Added an in-app update prompt\n- Made update availability clearer\n- Reduced guesswork around what to do next\n\n## Improvements\n\n- Added groundwork for better release status handling\n\n## Why this matters\n\nUpdate Prompt Experience (v3.1.3) is one of those tidy-up releases that does not need a parade, but it still helps the app feel less fussy. Small fixes matter here because CogniFocus is supposed to get out of your way fast. Tap in, start the thing, dodge the scroll spiral, continue your tiny heroic quest. That is the whole deal.\n\n- Added an in-app update prompt gets a little more room to breathe.\n- Made update availability clearer gets a little more room to breathe.\n- Reduced guesswork around what to do next gets a little more room to breathe.\n- Added groundwork for better release status handling gets a little more room to breathe.\n\nSo yes, this is a smaller note. The point is still real: fewer weird little moments, clearer feedback, and less friction between you and the session you meant to start. The Goblin may still be dramatic about it, obviously, but the app should feel calmer where it counts.",
+  "canonical": "https://cognifocus.app/whats-new/v3-1-3.html",
+  "createdAt": "2026-04-08T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
+  "id": "v3-1-3",
+  "legacyCategoryLabel": "Update Prompt Release",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v3-1-3.json",
+    "importedAt": "2026-05-22T02:27:51.107Z"
+  },
+  "social": {},
+  "status": "published",
+  "updatedAt": "2026-04-08T09:00:00.000Z",
+  "updatedBy": "cms-content-migration"
 }

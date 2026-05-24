@@ -4,7 +4,7 @@
   "slug": "v4-2-0",
   "summary": "Focus sessions feel more predictable: Shield readiness is clearer, reminders are stronger, and progress tracking gives better feedback.",
   "type": "shield",
-  "category": "Shield & Progress Update",
+  "category": "shield",
   "tags": [
     "4.2.0",
     "Shield & Progress Update"
@@ -23,5 +23,20 @@
   "improvements": [],
   "notes": [],
   "publishedAt": "2026-04-22",
-  "featured": false
+  "featured": false,
+  "bodyMarkdown": "## Highlights\n\n- Shield now clearly tells you when apps or permissions are missing before a focus session\n\n## Fixes\n\n- Planned Sessions now send stronger reminders and keep missed sessions visible\n- New XP, levels, and Focus Score begin shaping progress around real focus quality\n- Goblin reactions now better reflect streak risk, comebacks, XP moments, and missed planned sessions\n- Account sync now protects more progress, settings, and planned-session state across reinstalls\n- Purchase and account setup flows are more stable\n- Session notifications are more reliable during active focus sessions\n\n## Why this matters\n\nControl, Progress & Reliability (v4.2.0) is one of those tidy-up releases that does not need a parade, but it still helps the Shield feel less fussy. Small fixes matter here because CogniFocus is supposed to get out of your way fast. Tap in, start the thing, dodge the scroll spiral, continue your tiny heroic quest. That is the whole deal.\n\n- Shield now clearly tells you when apps or permissions are missing before a focus session gets a little more room to breathe.\n- Planned Sessions now send stronger reminders and keep missed sessions visible gets a little more room to breathe.\n- New XP, levels, and Focus Score begin shaping progress around real focus quality gets a little more room to breathe.\n- Goblin reactions now better reflect streak risk, comebacks, XP moments, and missed planned sessions gets a little more room to breathe.\n\nSo yes, this is a smaller note. The point is still real: fewer weird little moments, clearer feedback, and less friction between you and the session you meant to start. The Goblin may still be dramatic about it, obviously, but the app should feel calmer where it counts.",
+  "canonical": "https://cognifocus.app/whats-new/v4-2-0.html",
+  "createdAt": "2026-04-22T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
+  "id": "v4-2-0",
+  "legacyCategoryLabel": "Shield & Progress Update",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-2-0.json",
+    "importedAt": "2026-05-22T02:27:52.979Z"
+  },
+  "social": {},
+  "status": "published",
+  "updatedAt": "2026-04-22T09:00:00.000Z",
+  "updatedBy": "cms-content-migration"
 }

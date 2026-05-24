@@ -32,5 +32,17 @@
   "featured": false,
   "coverImage": "https://cognifocus.app/assets/og/og-image.png",
   "seoTitle": "CogniFocus vs Stay Focused: Which Android App Blocker Actually Works?",
-  "seoDescription": "Comparing CogniFocus and Stay Focused for Android. One reacts to distractions in real time. The other schedules them away. Here is which one fits your focus style."
+  "seoDescription": "Comparing CogniFocus and Stay Focused for Android. One reacts to distractions in real time. The other schedules them away. Here is which one fits your focus style.",
+  "coverImageUrl": "https://cognifocus.app/assets/og/og-image.png",
+  "createdAt": "2026-05-14T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
+  "id": "cognifocus-vs-stay-focused",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\cognifocus-vs-stay-focused.json",
+    "importedAt": "2026-05-22T02:27:48.878Z"
+  },
+  "social": {},
+  "status": "published",
+  "updatedBy": "cms-content-migration"
 }

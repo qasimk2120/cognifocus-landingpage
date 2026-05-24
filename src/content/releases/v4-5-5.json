@@ -4,7 +4,7 @@
   "slug": "v4-5-5",
   "summary": "General stability fixes across focus flows, plus a minor fix to prevent distraction counting twice in some cases.",
   "type": "shield",
-  "category": "Stability & Shield Fixes",
+  "category": "shield",
   "tags": [
     "4.5.5",
     "Stability & Shield Fixes"
@@ -18,5 +18,20 @@
   "improvements": [],
   "notes": [],
   "publishedAt": "2026-05-18",
-  "featured": true
+  "featured": true,
+  "bodyMarkdown": "## Highlights\n\n- General stability fixes and performance improvements across focus flows\n\n## Fixes\n\n- Minor fix to prevent distraction counting twice in some cases\n\n## Why this matters\n\nMinor Improvements (v4.5.5) is one of those tidy-up releases that does not need a parade, but it still helps the Shield feel less fussy. Small fixes matter here because CogniFocus is supposed to get out of your way fast. Tap in, start the thing, dodge the scroll spiral, continue your tiny heroic quest. That is the whole deal.\n\n- General stability fixes and performance improvements across focus flows gets a little more room to breathe.\n- Minor fix to prevent distraction counting twice in some cases gets a little more room to breathe.\n\nSo yes, this is a smaller note. The point is still real: fewer weird little moments, clearer feedback, and less friction between you and the session you meant to start. The Goblin may still be dramatic about it, obviously, but the app should feel calmer where it counts.",
+  "canonical": "https://cognifocus.app/whats-new/v4-5-5.html",
+  "createdAt": "2026-05-18T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
+  "id": "v4-5-5",
+  "legacyCategoryLabel": "Stability & Shield Fixes",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-5-5.json",
+    "importedAt": "2026-05-22T02:27:56.194Z"
+  },
+  "social": {},
+  "status": "published",
+  "updatedAt": "2026-05-18T09:00:00.000Z",
+  "updatedBy": "cms-content-migration"
 }

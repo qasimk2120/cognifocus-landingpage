@@ -4,7 +4,7 @@
   "slug": "v3-2-0",
   "summary": "Sessions gained better day-to-day structure with Daily Objective, post-session feedback, and smoother active-session flow.",
   "type": "app",
-  "category": "Focus Expansion",
+  "category": "app",
   "tags": [
     "3.2.0",
     "Focus Expansion"
@@ -23,5 +23,20 @@
   ],
   "notes": [],
   "publishedAt": "2026-04-11",
-  "featured": false
+  "featured": false,
+  "bodyMarkdown": "## Highlights\n\n- Added Daily Objective to Focus\n- Added lightweight post-session feedback\n- Added native app sharing\n\n## Improvements\n\n- Added a teaser for future companions on intro screens\n- Improved theme consistency\n- Improved end-of-session urgency visuals\n- Improved notifications and Shield reliability\n\n## Why this matters\n\nSession Experience Expansion (v3.2.0) is one of those tidy-up releases that does not need a parade, but it still helps the app feel less fussy. Small fixes matter here because CogniFocus is supposed to get out of your way fast. Tap in, start the thing, dodge the scroll spiral, continue your tiny heroic quest. That is the whole deal.\n\n- Added Daily Objective to Focus gets a little more room to breathe.\n- Added lightweight post-session feedback gets a little more room to breathe.\n- Added native app sharing gets a little more room to breathe.\n- Added a teaser for future companions on intro screens gets a little more room to breathe.\n\nSo yes, this is a smaller note. The point is still real: fewer weird little moments, clearer feedback, and less friction between you and the session you meant to start. The Goblin may still be dramatic about it, obviously, but the app should feel calmer where it counts.",
+  "canonical": "https://cognifocus.app/whats-new/v3-2-0.html",
+  "createdAt": "2026-04-11T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
+  "id": "v3-2-0",
+  "legacyCategoryLabel": "Focus Expansion",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v3-2-0.json",
+    "importedAt": "2026-05-22T02:27:51.355Z"
+  },
+  "social": {},
+  "status": "published",
+  "updatedAt": "2026-04-11T09:00:00.000Z",
+  "updatedBy": "cms-content-migration"
 }

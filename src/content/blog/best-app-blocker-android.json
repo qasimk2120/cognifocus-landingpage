@@ -8,7 +8,6 @@
   "ogDescription": "What to look for in an Android app blocker if your goal is real focus sessions.",
   "ogImage": "https://cognifocus.app/assets/og/og-image.png",
   "ogType": "website",
-  "displayDate": "",
   "category": "App Blocking",
   "categorySlug": "app-blocking",
   "tags": [
@@ -32,5 +31,17 @@
   "featured": false,
   "coverImage": "https://cognifocus.app/assets/og/og-image.png",
   "seoTitle": "Best App Blocker for Android Focus Sessions | CogniFocus",
-  "seoDescription": "Looking for the best app blocker for Android? See what features matter for real focus: app blocking, timer flow, and quick recovery."
+  "seoDescription": "Looking for the best app blocker for Android? See what features matter for real focus: app blocking, timer flow, and quick recovery.",
+  "coverImageUrl": "https://cognifocus.app/assets/og/og-image.png",
+  "createdAt": "2026-05-10T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
+  "id": "best-app-blocker-android",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\best-app-blocker-android.json",
+    "importedAt": "2026-05-22T02:27:47.361Z"
+  },
+  "social": {},
+  "status": "published",
+  "updatedBy": "cms-content-migration"
 }

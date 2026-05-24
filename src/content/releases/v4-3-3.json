@@ -4,7 +4,7 @@
   "slug": "v4-3-3",
   "summary": "Getting help is now faster and clearer, with a better support form experience, stronger feedback handling, and cleaner in-app messaging.",
   "type": "app",
-  "category": "Support & UI Polish",
+  "category": "app",
   "tags": [
     "4.3.3",
     "Support & UI Polish"
@@ -21,5 +21,20 @@
   ],
   "notes": [],
   "publishedAt": "2026-04-28",
-  "featured": false
+  "featured": false,
+  "bodyMarkdown": "## Highlights\n\n- Added a new support request modal and cleaner feedback form flow\n- Settings support actions are now easier to use with stronger validation and submission handling\n- Support and feedback submissions now show clearer error and success messaging\n\n## Improvements\n\n- App notices and alerts are now more consistent across Settings and support actions\n- Global modal and alert styling received a polish pass for a cleaner mobile experience\n\n## Why this matters\n\nWhat's New (v4.3.3) is one of those tidy-up releases that does not need a parade, but it still helps the app feel less fussy. Small fixes matter here because CogniFocus is supposed to get out of your way fast. Tap in, start the thing, dodge the scroll spiral, continue your tiny heroic quest. That is the whole deal.\n\n- Added a new support request modal and cleaner feedback form flow gets a little more room to breathe.\n- Settings support actions are now easier to use with stronger validation and submission handling gets a little more room to breathe.\n- Support and feedback submissions now show clearer error and success messaging gets a little more room to breathe.\n- App notices and alerts are now more consistent across Settings and support actions gets a little more room to breathe.\n\nSo yes, this is a smaller note. The point is still real: fewer weird little moments, clearer feedback, and less friction between you and the session you meant to start. The Goblin may still be dramatic about it, obviously, but the app should feel calmer where it counts.",
+  "canonical": "https://cognifocus.app/whats-new/v4-3-3.html",
+  "createdAt": "2026-04-28T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
+  "id": "v4-3-3",
+  "legacyCategoryLabel": "Support & UI Polish",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-3-3.json",
+    "importedAt": "2026-05-22T02:27:53.903Z"
+  },
+  "social": {},
+  "status": "published",
+  "updatedAt": "2026-04-28T09:00:00.000Z",
+  "updatedBy": "cms-content-migration"
 }

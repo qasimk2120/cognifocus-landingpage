@@ -4,7 +4,7 @@
   "slug": "v4-5-4",
   "summary": "Focus session notifications are more stable on Android, timer syncing is improved, and session recovery after reopening the app is cleaner.",
   "type": "app",
-  "category": "Focus Session Reliability",
+  "category": "app",
   "tags": [
     "4.5.4",
     "Focus Session Reliability"
@@ -21,5 +21,20 @@
   "improvements": [],
   "notes": [],
   "publishedAt": "2026-05-17",
-  "featured": false
+  "featured": false,
+  "bodyMarkdown": "## Highlights\n\n- Focus session notifications are now more stable and reliable on Android\n\n## Fixes\n\n- Improved timer syncing and foreground session handling during active sessions\n- Session recovery behavior was refined after reopening the app\n- Focus timer controls and session state handling were polished\n- General stability fixes and performance improvements across focus flows\n\n## Why this matters\n\nFocus Session Reliability Improvements (v4.5.4) is one of those tidy-up releases that does not need a parade, but it still helps the app feel less fussy. Small fixes matter here because CogniFocus is supposed to get out of your way fast. Tap in, start the thing, dodge the scroll spiral, continue your tiny heroic quest. That is the whole deal.\n\n- Focus session notifications are now more stable and reliable on Android gets a little more room to breathe.\n- Improved timer syncing and foreground session handling during active sessions gets a little more room to breathe.\n- Session recovery behavior was refined after reopening the app gets a little more room to breathe.\n- Focus timer controls and session state handling were polished gets a little more room to breathe.\n\nSo yes, this is a smaller note. The point is still real: fewer weird little moments, clearer feedback, and less friction between you and the session you meant to start. The Goblin may still be dramatic about it, obviously, but the app should feel calmer where it counts.",
+  "canonical": "https://cognifocus.app/whats-new/v4-5-4.html",
+  "createdAt": "2026-05-17T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
+  "id": "v4-5-4",
+  "legacyCategoryLabel": "Focus Session Reliability",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-5-4.json",
+    "importedAt": "2026-05-22T02:27:55.972Z"
+  },
+  "social": {},
+  "status": "published",
+  "updatedAt": "2026-05-17T09:00:00.000Z",
+  "updatedBy": "cms-content-migration"
 }
