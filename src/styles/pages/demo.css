@@ -146,6 +146,7 @@ body.demo-page {
   position: relative;
   display: grid;
   justify-items: center;
+  text-align: center;
   gap: clamp(0.9rem, 2.2vw, 1.3rem);
   max-width: min(100%, 1080px);
   margin-inline: auto;
@@ -215,13 +216,15 @@ body.demo-page {
 }
 
 .home-demo-heading {
-  margin: 0;
+  width: min(100%, 780px);
+  margin: 0 auto;
   color: var(--cf-text);
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 760;
   line-height: 1.03;
   letter-spacing: -0.04em;
   text-align: center;
+  text-wrap: balance;
 }
 
 .home-demo-showcase .demo-video-shell {
@@ -463,6 +466,7 @@ html[data-theme="light"] .hero-ios-waitlist:focus-visible {
 
   .home-demo-heading {
     font-size: clamp(1.8rem, 8vw, 2.6rem);
+    width: min(100%, 21rem);
   }
 
   .home-demo-pill {
