@@ -9,3 +9,8 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 Thumbs.db
+/.tmp-qa
+/.sixth
+/.github
+/.claude
+docs/

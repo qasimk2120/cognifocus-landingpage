@@ -1,36 +1,19 @@
-export function initGoblinBehaviorCards() {
-  const cards = document.querySelectorAll(".goblin-card");
-  if (cards.length === 0) return;
+export function initAttentionSpiralsCarousel() {
+  const carousel = document.querySelector("[data-attention-spirals-carousel]");
+  if (!carousel) return;
 
-  cards.forEach((card) => {
-    card.addEventListener("click", (e) => {
-      e.preventDefault();
-      const isExpanded = card.getAttribute("aria-expanded") === "true";
-      card.setAttribute("aria-expanded", String(!isExpanded));
-    });
+  const cards = Array.from(carousel.querySelectorAll(".attention-spiral-card"));
+  const dots = Array.from(carousel.querySelectorAll("[data-attention-spirals-dot]"));
+  const previousButton = document.querySelector("[data-attention-spirals-prev]");
+  const nextButton = document.querySelector("[data-attention-spirals-next]");
 
-    card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        const isExpanded = card.getAttribute("aria-expanded") === "true";
-        card.setAttribute("aria-expanded", String(!isExpanded));
-      }
-    });
-  });
+  if (!previousButton || !nextButton || cards.length === 0) return;
 
-  const carousel = document.querySelector("[data-goblin-carousel]");
-  const previousButton = document.querySelector("[data-goblin-carousel-prev]");
-  const nextButton = document.querySelector("[data-goblin-carousel-next]");
-  const dots = Array.from(document.querySelectorAll("[data-goblin-carousel-dot]"));
-
-  if (!carousel || !previousButton || !nextButton) return;
-
-  const cardList = Array.from(cards);
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)",
   ).matches;
   const mobileCarouselQuery = window.matchMedia("(max-width: 767.98px)");
-  const autoScrollDelay = 3200;
+  const autoScrollDelay = 3400;
   let autoScrollTimer = null;
   let resumeAutoScrollTimer = null;
   let isPointerActive = false;
@@ -38,11 +21,10 @@ export function initGoblinBehaviorCards() {
   function getActiveIndex() {
     const carouselCenter = carousel.scrollLeft + carousel.clientWidth / 2;
 
-    return cardList.reduce((closestIndex, card, index) => {
+    return cards.reduce((closestIndex, card, index) => {
       const cardCenter = card.offsetLeft + card.offsetWidth / 2;
-      const closestCard = cardList[closestIndex];
-      const closestCenter =
-        closestCard.offsetLeft + closestCard.offsetWidth / 2;
+      const closestCard = cards[closestIndex];
+      const closestCenter = closestCard.offsetLeft + closestCard.offsetWidth / 2;
 
       return Math.abs(cardCenter - carouselCenter) <
         Math.abs(closestCenter - carouselCenter)
@@ -52,8 +34,7 @@ export function initGoblinBehaviorCards() {
   }
 
   function scrollToCard(index) {
-    const targetCard =
-      cardList[Math.max(0, Math.min(index, cardList.length - 1))];
+    const targetCard = cards[Math.max(0, Math.min(index, cards.length - 1))];
     if (!targetCard) return;
 
     const left =
@@ -63,6 +44,23 @@ export function initGoblinBehaviorCards() {
     carousel.scrollTo({
       left,
       behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+  }
+
+  function syncCarouselState() {
+    const activeIndex = getActiveIndex();
+
+    previousButton.disabled = activeIndex === 0;
+    nextButton.disabled = activeIndex === cards.length - 1;
+
+    dots.forEach((dot, index) => {
+      const isActive = index === activeIndex;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-current", isActive ? "true" : "false");
+      dot.setAttribute(
+        "aria-label",
+        `Show attention spiral ${index + 1}`,
+      );
     });
   }
 
@@ -78,7 +76,7 @@ export function initGoblinBehaviorCards() {
       prefersReducedMotion ||
       !mobileCarouselQuery.matches ||
       autoScrollTimer ||
-      cardList.length < 2
+      cards.length < 2
     ) {
       return;
     }
@@ -86,7 +84,7 @@ export function initGoblinBehaviorCards() {
     autoScrollTimer = window.setInterval(() => {
       if (isPointerActive) return;
 
-      const nextIndex = (getActiveIndex() + 1) % cardList.length;
+      const nextIndex = (getActiveIndex() + 1) % cards.length;
       scrollToCard(nextIndex);
     }, autoScrollDelay);
   }
@@ -104,20 +102,6 @@ export function initGoblinBehaviorCards() {
     }, autoScrollDelay);
   }
 
-  function syncCarouselState() {
-    const activeIndex = getActiveIndex();
-
-    previousButton.disabled = activeIndex === 0;
-    nextButton.disabled = activeIndex === cardList.length - 1;
-
-    dots.forEach((dot, index) => {
-      const isActive = index === activeIndex;
-      dot.classList.toggle("is-active", isActive);
-      dot.setAttribute("aria-current", isActive ? "true" : "false");
-      dot.setAttribute("aria-label", `Show distraction reaction ${index + 1}`);
-    });
-  }
-
   previousButton.addEventListener("click", () => {
     pauseAutoScrollForInteraction();
     scrollToCard(getActiveIndex() - 1);
@@ -131,7 +115,7 @@ export function initGoblinBehaviorCards() {
   dots.forEach((dot) => {
     dot.addEventListener("click", () => {
       pauseAutoScrollForInteraction();
-      scrollToCard(Number(dot.dataset.goblinCarouselDot || 0));
+      scrollToCard(Number(dot.dataset.attentionSpiralsDot || 0));
     });
   });
 
@@ -163,6 +147,7 @@ export function initGoblinBehaviorCards() {
     stopAutoScroll();
     startAutoScroll();
   });
+
   syncCarouselState();
   startAutoScroll();
 }

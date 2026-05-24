@@ -130,9 +130,28 @@ const schemas = [
     <HomeAttentionSpirals />
     <HomeFinalCTA />
   </main>
+  <aside
+    class="cf-behavior-companion"
+    data-behavior-companion
+    aria-hidden="true"
+  >
+    <p class="cf-behavior-companion__bubble" data-companion-bubble>
+      still scrolling huh
+    </p>
+    <span class="cf-behavior-companion__avatar">
+      <img
+        src="/assets/characters/goblin/avatar/annoyed.png"
+        data-companion-avatar
+        alt=""
+        loading="lazy"
+        decoding="async"
+        width="500"
+        height="500"
+      />
+    </span>
+  </aside>
   <HomeFAQ />
   <script>
     import "../scripts/entries/home.js";
   </script>
 </BaseLayout>
-

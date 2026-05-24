@@ -2,7 +2,7 @@
 import SiteIcon from "../shared/SiteIcon.astro";
 ---
 
-<section class="container py-5 attention-spirals-section">
+<section id="attention-spirals" class="container py-5 attention-spirals-section">
   <div class="attention-spirals-panel mx-auto">
     <div class="text-center attention-spirals-heading mx-auto">
       <span class="feature-kicker">ATTENTION SPIRALS</span>
@@ -16,7 +16,7 @@ import SiteIcon from "../shared/SiteIcon.astro";
       </p>
     </div>
 
-    <div class="attention-spirals-grid">
+    <div class="attention-spirals-grid" data-attention-spirals-carousel>
       <article class="attention-spiral-card attention-spiral-card--quick">
         <div class="attention-spiral-visual" aria-hidden="true">
           <span class="spiral-progress-ring"></span>
@@ -90,6 +90,52 @@ import SiteIcon from "../shared/SiteIcon.astro";
           it.&rdquo;
         </p>
       </article>
+    </div>
+
+    <div
+      class="attention-spirals-carousel-controls"
+      aria-label="Attention spiral cards"
+    >
+      <button
+        type="button"
+        class="attention-spirals-carousel-arrow"
+        aria-label="Show previous attention spiral"
+        data-attention-spirals-prev
+      >
+        <SiteIcon name="mdi:chevron-left" aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        class="attention-spirals-carousel-dot is-active"
+        aria-label="Show attention spiral 1"
+        data-attention-spirals-dot="0"
+      ></button>
+      <button
+        type="button"
+        class="attention-spirals-carousel-dot"
+        aria-label="Show attention spiral 2"
+        data-attention-spirals-dot="1"
+      ></button>
+      <button
+        type="button"
+        class="attention-spirals-carousel-dot"
+        aria-label="Show attention spiral 3"
+        data-attention-spirals-dot="2"
+      ></button>
+      <button
+        type="button"
+        class="attention-spirals-carousel-dot"
+        aria-label="Show attention spiral 4"
+        data-attention-spirals-dot="3"
+      ></button>
+      <button
+        type="button"
+        class="attention-spirals-carousel-arrow"
+        aria-label="Show next attention spiral"
+        data-attention-spirals-next
+      >
+        <SiteIcon name="mdi:chevron-right" aria-hidden="true" />
+      </button>
     </div>
   </div>
 </section>

@@ -37,7 +37,7 @@ const tapHintLabels = {
       </div>
     </div>
 
-    <div class="goblin-cards-grid">
+    <div class="goblin-cards-grid" data-goblin-carousel>
       <!-- Card 1: Angry -->
       <button class="goblin-card" type="button" aria-expanded="false">
         <div class="goblin-card-inner">
@@ -256,6 +256,58 @@ const tapHintLabels = {
             <span class="goblin-tag">Companion roadmap</span>
           </div>
         </div>
+      </button>
+    </div>
+
+    <div
+      class="goblin-cards-carousel-controls"
+      aria-label="Distraction reaction cards"
+    >
+      <button
+        type="button"
+        class="goblin-cards-carousel-arrow"
+        aria-label="Show previous distraction reaction"
+        data-goblin-carousel-prev
+      >
+        <SiteIcon name="mdi:chevron-left" aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        class="goblin-cards-carousel-dot is-active"
+        aria-label="Show distraction reaction 1"
+        data-goblin-carousel-dot="0"
+      ></button>
+      <button
+        type="button"
+        class="goblin-cards-carousel-dot"
+        aria-label="Show distraction reaction 2"
+        data-goblin-carousel-dot="1"
+      ></button>
+      <button
+        type="button"
+        class="goblin-cards-carousel-dot"
+        aria-label="Show distraction reaction 3"
+        data-goblin-carousel-dot="2"
+      ></button>
+      <button
+        type="button"
+        class="goblin-cards-carousel-dot"
+        aria-label="Show distraction reaction 4"
+        data-goblin-carousel-dot="3"
+      ></button>
+      <button
+        type="button"
+        class="goblin-cards-carousel-dot"
+        aria-label="Show distraction reaction 5"
+        data-goblin-carousel-dot="4"
+      ></button>
+      <button
+        type="button"
+        class="goblin-cards-carousel-arrow"
+        aria-label="Show next distraction reaction"
+        data-goblin-carousel-next
+      >
+        <SiteIcon name="mdi:chevron-right" aria-hidden="true" />
       </button>
     </div>
   </div>
