@@ -1,0 +1,42 @@
+{
+  "slug": "how-to-block-reddit-on-android",
+  "title": "How to Block Reddit on Android When It's Eating Your Focus Time",
+  "articleTitle": "How to Block Reddit on Android When It's Eating Your Focus Time",
+  "description": "Reddit's infinite scroll and niche communities make it one of the stickiest apps on Android. Here's how to block it during sessions without deleting your account.",
+  "canonical": "https://cognifocus.app/blog/how-to-block-reddit-on-android.html",
+  "ogTitle": "How to Block Reddit on Android",
+  "ogDescription": "Reddit's infinite scroll is designed to keep you reading. Here's how to block it on Android during work and study sessions without losing your account.",
+  "displayDate": "May 24, 2026",
+  "category": "App Blocking",
+  "categorySlug": "app-blocking",
+  "tags": [
+    "reddit",
+    "android",
+    "app blocker",
+    "block reddit",
+    "focus",
+    "distraction"
+  ],
+  "excerpt": "Reddit's infinite scroll and niche communities make it one of the stickiest apps on Android. Here's how to block it during sessions without deleting your account.",
+  "bodyClass": "seo-guide-page blog-page cf-shell",
+  "includePinterest": true,
+  "schemaHeadline": "How to Block Reddit on Android When It's Eating Your Focus Time",
+  "schemaDescription": "Reddit's infinite scroll and niche communities make it one of the stickiest apps on Android. Here's how to block it during sessions without deleting your account.",
+  "breadcrumbTitle": "How to Block Reddit on Android When It's Eating Your Focus Time",
+  "breadcrumbLabel": "How to Block Reddit on Android When It's Eating Your Focus Time",
+  "bodyMarkdown": "Reddit is a different kind of attention trap than TikTok or Instagram. It feels productive — you're reading, learning, engaging with a community. But the infinite scroll and the sheer breadth of topics means you can spend an hour on something completely unrelated to what you were doing before you opened the app.\n\nThe tricky part is that Reddit actually is useful sometimes. Blocking it completely tends to fail because the legitimate use case keeps pulling you back. What works better is blocking it during defined work windows while leaving it accessible when you're genuinely on a break.\n\n## Why Reddit Is Particularly Hard to Block\n\nReddit's subreddit system means there's always something relevant to whatever you're working on. Researching code? r/programming. Studying medicine? r/medicine. Working on a business? r/entrepreneur. The app can justify itself as \"relevant\" even when you're 45 minutes into a thread and nowhere near your actual task.\n\nThe emotional hook is also different: Reddit feels like a community, not just an entertainment feed. Leaving feels like stepping out of a conversation.\n\n## Method 1: Android Digital Wellbeing Timer\n\n**Settings → Digital Wellbeing → Dashboard → Reddit**, set a daily time limit.\n\nThis gives you a notification when you're approaching your limit. The timer resets daily. Same problem as all Digital Wellbeing tools: the override is one tap, and the decision happens after you're already in the app.\n\n## Method 2: Block Reddit During Focus Sessions with CogniFocus\n\nAdd Reddit (and any third-party Reddit clients like Apollo or Infinity) to your CogniFocus block list, then start a focus session. Shield intercepts Reddit the moment it opens — before the feed loads, before you're already scrolling.\n\nThis works because the block happens at the beginning of the open, not after you've already been in the app for five minutes. The Goblin reacts when it catches the block, creating a brief moment of friction that's usually enough to redirect.\n\n**Setup:**\n1. Download CogniFocus from Google Play.\n2. Add Reddit and any Reddit clients you use to your block list.\n3. Grant Usage Access and Overlay permissions.\n4. Start a focus session before your work block.\n5. Open Reddit during the session — Shield catches it before the feed loads.\n\n**Important:** if you use Reddit through Chrome rather than the app, you'll need to add Chrome to your block list too, or use a browser that supports URL-level blocking. CogniFocus blocks at the app level (the Reddit app itself), not at the URL level inside Chrome.\n\n## Method 3: Uninstall the App, Use Old Reddit in a Browser\n\nThe official Reddit app is significantly more addictive than the old.reddit.com web interface. Old Reddit has no infinite scroll in the same way — it's paginated. If you need Reddit occasionally, uninstall the app and use old.reddit.com in a mobile browser instead.\n\nThis changes the experience enough to reduce habitual opens. You can then block the browser during sessions if needed.\n\n## Method 4: Remove Reddit Notifications\n\nReddit's notifications are aggressive by default. Every reply, every upvote on a comment, every direct message pulls you back in. Go to **Reddit → Profile → Settings → Notifications** and turn off everything except direct messages.\n\nThis doesn't stop you opening Reddit, but it removes one major trigger for doing so.\n\n## Method 5: Use a Reddit Client With Strict Timer Support\n\nSome third-party Reddit clients (like Infinity for Reddit) have built-in usage timers. Set a session limit inside the client. The limitation is the same as any self-set limit: you can override it with one tap.\n\n## Which Method Works Best?\n\nFor blocking Reddit during work and study sessions: **CogniFocus with Shield** — adds Reddit to the session block list, catches it in real time, Goblin reacts, session continues.\n\nFor a structural change: **Uninstall the app and use old.reddit.com** — paginated, less addictive, no notifications.\n\nFor people who use Reddit on mobile: **Combine CogniFocus blocking with notification removal** — closes two of the three main entry points.\n\n## The One Thing That Helps Most\n\nReddit's pull is strongest in transition moments — between tasks, after finishing something, during the \"what do I do next\" gap. Starting a new focus session before you hit that transition is the most effective intervention. You're in a committed session with Shield active, and the moment you would normally open Reddit, the session structure catches it.\n\n[Download CogniFocus on Google Play](https://play.google.com/store/apps/details?id=io.ionic.cognifocus) — free to start.\n",
+  "publishedAt": "2026-05-24",
+  "updatedAt": "2026-05-24",
+  "featured": false,
+  "seoTitle": "How to Block Reddit on Android When It's Eating Your Focus Time",
+  "seoDescription": "Reddit's infinite scroll is designed to keep you reading. Here's how to block it on Android during work and study sessions without losing your account.",
+  "createdAt": {
+    "_seconds": 1779584137,
+    "_nanoseconds": 548000000
+  },
+  "createdBy": "claude-cms-agent",
+  "id": "how-to-block-reddit-on-android",
+  "social": {},
+  "status": "published",
+  "updatedBy": "claude-cms-agent"
+}
