@@ -30,13 +30,15 @@
   "featured": false,
   "seoTitle": "How to Block YouTube on Android During Work and Study",
   "seoDescription": "YouTube autoplay is designed to keep you watching. Here's how to block it on Android during work and study sessions so one video doesn't become two hours.",
-  "createdAt": {
-    "_seconds": 1779584136,
-    "_nanoseconds": 980000000
-  },
-  "createdBy": "claude-cms-agent",
+  "createdAt": "2026-05-24T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
   "id": "how-to-block-youtube-on-android",
+  "migration": {
+    "importedAt": "2026-05-24T01:19:22.412Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\how-to-block-youtube-on-android.json",
+    "source": "cognifocus-landingpage"
+  },
   "social": {},
   "status": "published",
-  "updatedBy": "claude-cms-agent"
+  "updatedBy": "cms-content-migration"
 }

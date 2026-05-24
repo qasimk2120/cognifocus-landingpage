@@ -24,11 +24,11 @@
   "createdAt": "2026-04-07T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "website-refresh",
-  "legacyCategoryLabel": "Site Update",
+  "legacyCategoryLabel": "website",
   "migration": {
     "source": "cognifocus-landingpage",
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\website-refresh.json",
-    "importedAt": "2026-05-22T02:27:56.418Z"
+    "importedAt": "2026-05-24T01:19:29.809Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\website-refresh.json"
   },
   "social": {},
   "status": "published",

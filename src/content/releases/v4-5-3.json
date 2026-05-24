@@ -27,11 +27,11 @@
   "createdAt": "2026-05-14T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v4-5-3",
-  "legacyCategoryLabel": "First-Time Walkthrough",
+  "legacyCategoryLabel": "app",
   "migration": {
-    "source": "cognifocus-landingpage",
     "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-5-3.json",
-    "importedAt": "2026-05-22T02:27:55.738Z"
+    "source": "cognifocus-landingpage",
+    "importedAt": "2026-05-24T01:19:29.134Z"
   },
   "social": {},
   "status": "published",

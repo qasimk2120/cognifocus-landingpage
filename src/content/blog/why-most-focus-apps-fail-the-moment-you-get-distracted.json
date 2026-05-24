@@ -1,6 +1,6 @@
 {
   "slug": "why-most-focus-apps-fail-the-moment-you-get-distracted",
-  "title": "Why Most Focus Apps Fail After Distractions | CogniFocus",
+  "title": "Why Most Focus Apps Fail the Moment You Get Distracted",
   "articleTitle": "Why Most Focus Apps Fail the Moment You Get Distracted",
   "description": "Most focus apps count time but fail the moment attention slips. Here’s why distraction recovery matters more than passive timers",
   "canonical": "https://cognifocus.app/blog/why-most-focus-apps-fail-the-moment-you-get-distracted.html",
@@ -25,17 +25,19 @@
   "publishedAt": "2026-05-22",
   "updatedAt": "2026-05-22",
   "featured": false,
-  "seoTitle": "Why Most Focus Apps Fail After Distractions | CogniFocus",
-  "seoDescription": "Most focus apps count time but fail during real distractions. Learn why reactive focus systems work better than passive timers.",
-  "createdAt": {
-    "_seconds": 1779483376,
-    "_nanoseconds": 800000000
-  },
-  "createdBy": "cognielevate@gmail.com",
+  "coverImage": "https://cognifocus.app/assets/og/og-image.png",
+  "seoTitle": "Why Most Focus Apps Fail the Moment You Get Distracted",
+  "seoDescription": "Most focus apps count time but do nothing when attention slips. Here's why real-time reaction and recovery matter more than passive timers.",
+  "coverImageUrl": "https://cognifocus.app/assets/og/og-image.png",
+  "createdAt": "2026-05-22T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
   "id": "why-most-focus-apps-fail-the-moment-you-get-distracted",
-  "social": {
-    "publishTargets": []
+  "migration": {
+    "importedAt": "2026-05-24T01:19:23.701Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\why-most-focus-apps-fail-the-moment-you-get-distracted.json",
+    "source": "cognifocus-landingpage"
   },
+  "social": {},
   "status": "published",
-  "updatedBy": "cognielevate@gmail.com"
+  "updatedBy": "cms-content-migration"
 }

@@ -27,11 +27,11 @@
   "createdAt": "2026-04-12T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v3-2-2",
-  "legacyCategoryLabel": "Accessibility & Update Clarity",
+  "legacyCategoryLabel": "app",
   "migration": {
     "source": "cognifocus-landingpage",
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v3-2-2.json",
-    "importedAt": "2026-05-22T02:27:51.817Z"
+    "importedAt": "2026-05-24T01:19:25.319Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v3-2-2.json"
   },
   "social": {},
   "status": "published",

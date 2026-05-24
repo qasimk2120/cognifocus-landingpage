@@ -27,11 +27,11 @@
   "createdAt": "2026-04-28T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v4-3-3",
-  "legacyCategoryLabel": "Support & UI Polish",
+  "legacyCategoryLabel": "app",
   "migration": {
     "source": "cognifocus-landingpage",
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-3-3.json",
-    "importedAt": "2026-05-22T02:27:53.903Z"
+    "importedAt": "2026-05-24T01:19:27.354Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-3-3.json"
   },
   "social": {},
   "status": "published",

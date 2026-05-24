@@ -27,11 +27,11 @@
   "createdAt": "2026-05-04T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v4-5-0",
-  "legacyCategoryLabel": "Onboarding & Progression Upgrade",
+  "legacyCategoryLabel": "app",
   "migration": {
     "source": "cognifocus-landingpage",
     "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-5-0.json",
-    "importedAt": "2026-05-22T02:27:55.058Z"
+    "importedAt": "2026-05-24T01:19:28.484Z"
   },
   "social": {},
   "status": "published",

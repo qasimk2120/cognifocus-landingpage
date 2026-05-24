@@ -39,9 +39,9 @@
   "createdBy": "cms-content-migration",
   "id": "how-to-stop-app-switching",
   "migration": {
-    "source": "cognifocus-landingpage",
     "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\how-to-stop-app-switching.json",
-    "importedAt": "2026-05-22T02:27:49.890Z"
+    "importedAt": "2026-05-24T01:19:22.675Z",
+    "source": "cognifocus-landingpage"
   },
   "social": {},
   "status": "published",

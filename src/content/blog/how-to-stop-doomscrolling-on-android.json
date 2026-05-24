@@ -30,13 +30,15 @@
   "featured": false,
   "seoTitle": "How to Stop Doomscrolling on Android (Without Deleting Your Apps)",
   "seoDescription": "Doomscrolling on Android is a habit loop, not a willpower problem. Here is what actually breaks it — including the app blocker approach that actually sticks.",
-  "createdAt": {
-    "_seconds": 1779584133,
-    "_nanoseconds": 581000000
-  },
-  "createdBy": "claude-cms-agent",
+  "createdAt": "2026-05-24T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
   "id": "how-to-stop-doomscrolling-on-android",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "importedAt": "2026-05-24T01:19:22.951Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\how-to-stop-doomscrolling-on-android.json"
+  },
   "social": {},
   "status": "published",
-  "updatedBy": "claude-cms-agent"
+  "updatedBy": "cms-content-migration"
 }

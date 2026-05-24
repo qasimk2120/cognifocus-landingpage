@@ -30,13 +30,15 @@
   "featured": false,
   "seoTitle": "How to Block Reddit on Android When It's Eating Your Focus Time",
   "seoDescription": "Reddit's infinite scroll is designed to keep you reading. Here's how to block it on Android during work and study sessions without losing your account.",
-  "createdAt": {
-    "_seconds": 1779584137,
-    "_nanoseconds": 548000000
-  },
-  "createdBy": "claude-cms-agent",
+  "createdAt": "2026-05-24T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
   "id": "how-to-block-reddit-on-android",
+  "migration": {
+    "importedAt": "2026-05-24T01:19:22.171Z",
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\how-to-block-reddit-on-android.json"
+  },
   "social": {},
   "status": "published",
-  "updatedBy": "claude-cms-agent"
+  "updatedBy": "cms-content-migration"
 }

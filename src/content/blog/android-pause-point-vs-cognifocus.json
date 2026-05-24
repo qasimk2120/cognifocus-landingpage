@@ -30,15 +30,15 @@
   "featured": false,
   "seoTitle": "Android Pause Point vs CogniFocus: What's the Difference?",
   "seoDescription": "Android's new Pause Point feature vs CogniFocus — both help you stop doomscrolling, but they work very differently. Here's which one to use and when.",
-  "createdAt": {
-    "_seconds": 1779584138,
-    "_nanoseconds": 203000000
-  },
-  "createdBy": "claude-cms-agent",
+  "createdAt": "2026-05-24T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
   "id": "android-pause-point-vs-cognifocus",
-  "social": {
-    "publishTargets": []
+  "migration": {
+    "importedAt": "2026-05-24T01:19:17.999Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\android-pause-point-vs-cognifocus.json",
+    "source": "cognifocus-landingpage"
   },
+  "social": {},
   "status": "published",
-  "updatedBy": "cognielevate@gmail.com"
+  "updatedBy": "cms-content-migration"
 }

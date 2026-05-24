@@ -26,11 +26,11 @@
   "createdAt": "2026-05-13T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v4-5-2",
-  "legacyCategoryLabel": "Shield & Progress Polish",
+  "legacyCategoryLabel": "shield",
   "migration": {
     "source": "cognifocus-landingpage",
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-5-2.json",
-    "importedAt": "2026-05-22T02:27:55.522Z"
+    "importedAt": "2026-05-24T01:19:28.913Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-5-2.json"
   },
   "social": {},
   "status": "published",

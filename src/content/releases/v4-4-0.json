@@ -29,11 +29,11 @@
   "createdAt": "2026-04-30T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v4-4-0",
-  "legacyCategoryLabel": "Progression & Rewards Upgrade",
+  "legacyCategoryLabel": "app",
   "migration": {
     "source": "cognifocus-landingpage",
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-4-0.json",
-    "importedAt": "2026-05-22T02:27:54.133Z"
+    "importedAt": "2026-05-24T01:19:27.575Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-4-0.json"
   },
   "social": {},
   "status": "published",

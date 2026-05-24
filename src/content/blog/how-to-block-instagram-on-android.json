@@ -30,13 +30,15 @@
   "featured": false,
   "seoTitle": "How to Block Instagram on Android (And Actually Stick to It)",
   "seoDescription": "Built-in screen time won't hold. Here's how to block Instagram on Android during sessions, work blocks, and late-night scroll habits that actually sticks.",
-  "createdAt": {
-    "_seconds": 1779584135,
-    "_nanoseconds": 726000000
-  },
-  "createdBy": "claude-cms-agent",
+  "createdAt": "2026-05-24T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
   "id": "how-to-block-instagram-on-android",
+  "migration": {
+    "importedAt": "2026-05-24T01:19:21.907Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\how-to-block-instagram-on-android.json",
+    "source": "cognifocus-landingpage"
+  },
   "social": {},
   "status": "published",
-  "updatedBy": "claude-cms-agent"
+  "updatedBy": "cms-content-migration"
 }

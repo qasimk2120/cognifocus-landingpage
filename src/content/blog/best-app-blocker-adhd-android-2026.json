@@ -30,13 +30,15 @@
   "featured": false,
   "seoTitle": "Best App Blocker for ADHD on Android in 2026",
   "seoDescription": "Comparing the best app blockers for ADHD on Android in 2026. Which ones actually work when willpower is not the problem — attention regulation is.",
-  "createdAt": {
-    "_seconds": 1779584134,
-    "_nanoseconds": 879000000
-  },
-  "createdBy": "claude-cms-agent",
+  "createdAt": "2026-05-24T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
   "id": "best-app-blocker-adhd-android-2026",
+  "migration": {
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\best-app-blocker-adhd-android-2026.json",
+    "importedAt": "2026-05-24T01:19:18.929Z",
+    "source": "cognifocus-landingpage"
+  },
   "social": {},
   "status": "published",
-  "updatedBy": "claude-cms-agent"
+  "updatedBy": "cms-content-migration"
 }

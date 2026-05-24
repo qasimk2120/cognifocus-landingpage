@@ -26,11 +26,11 @@
   "createdAt": "2026-05-03T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v4-4-3",
-  "legacyCategoryLabel": "Cloud Sync Reliability",
+  "legacyCategoryLabel": "app",
   "migration": {
-    "source": "cognifocus-landingpage",
+    "importedAt": "2026-05-24T01:19:28.253Z",
     "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-4-3.json",
-    "importedAt": "2026-05-22T02:27:54.838Z"
+    "source": "cognifocus-landingpage"
   },
   "social": {},
   "status": "published",

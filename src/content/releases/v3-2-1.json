@@ -26,11 +26,11 @@
   "createdAt": "2026-04-12T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v3-2-1",
-  "legacyCategoryLabel": "Shield Reliability Update",
+  "legacyCategoryLabel": "shield",
   "migration": {
     "source": "cognifocus-landingpage",
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v3-2-1.json",
-    "importedAt": "2026-05-22T02:27:51.592Z"
+    "importedAt": "2026-05-24T01:19:25.094Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v3-2-1.json"
   },
   "social": {},
   "status": "published",

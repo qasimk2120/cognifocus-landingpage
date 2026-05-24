@@ -29,11 +29,11 @@
   "createdAt": "2026-04-17T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v4-0-0",
-  "legacyCategoryLabel": "Focus Expansion",
+  "legacyCategoryLabel": "app",
   "migration": {
     "source": "cognifocus-landingpage",
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-0-0.json",
-    "importedAt": "2026-05-22T02:27:52.278Z"
+    "importedAt": "2026-05-24T01:19:25.782Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-0-0.json"
   },
   "social": {},
   "status": "published",

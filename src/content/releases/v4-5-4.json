@@ -27,11 +27,11 @@
   "createdAt": "2026-05-17T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v4-5-4",
-  "legacyCategoryLabel": "Focus Session Reliability",
+  "legacyCategoryLabel": "app",
   "migration": {
-    "source": "cognifocus-landingpage",
+    "importedAt": "2026-05-24T01:19:29.368Z",
     "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-5-4.json",
-    "importedAt": "2026-05-22T02:27:55.972Z"
+    "source": "cognifocus-landingpage"
   },
   "social": {},
   "status": "published",

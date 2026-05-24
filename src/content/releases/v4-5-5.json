@@ -24,11 +24,11 @@
   "createdAt": "2026-05-18T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v4-5-5",
-  "legacyCategoryLabel": "Stability & Shield Fixes",
+  "legacyCategoryLabel": "shield",
   "migration": {
     "source": "cognifocus-landingpage",
     "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-5-5.json",
-    "importedAt": "2026-05-22T02:27:56.194Z"
+    "importedAt": "2026-05-24T01:19:29.588Z"
   },
   "social": {},
   "status": "published",

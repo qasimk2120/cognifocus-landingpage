@@ -30,13 +30,15 @@
   "featured": false,
   "seoTitle": "Best Pomodoro Timer for Android in 2026 (With App Blocking)",
   "seoDescription": "Comparing the best Pomodoro timers for Android in 2026 — including which ones actually block distracting apps during the work interval, not just count down.",
-  "createdAt": {
-    "_seconds": 1779584137,
-    "_nanoseconds": 928000000
-  },
-  "createdBy": "claude-cms-agent",
+  "createdAt": "2026-05-24T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
   "id": "best-pomodoro-timer-android-2026",
+  "migration": {
+    "importedAt": "2026-05-24T01:19:19.811Z",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\best-pomodoro-timer-android-2026.json",
+    "source": "cognifocus-landingpage"
+  },
   "social": {},
   "status": "published",
-  "updatedBy": "claude-cms-agent"
+  "updatedBy": "cms-content-migration"
 }

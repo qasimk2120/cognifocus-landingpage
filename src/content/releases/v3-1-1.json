@@ -29,11 +29,11 @@
   "createdAt": "2026-04-08T09:00:00.000Z",
   "createdBy": "cms-content-migration",
   "id": "v3-1-1",
-  "legacyCategoryLabel": "Refinement Release",
+  "legacyCategoryLabel": "shield",
   "migration": {
-    "source": "cognifocus-landingpage",
+    "importedAt": "2026-05-24T01:19:24.182Z",
     "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v3-1-1.json",
-    "importedAt": "2026-05-22T02:27:50.639Z"
+    "source": "cognifocus-landingpage"
   },
   "social": {},
   "status": "published",
