@@ -395,6 +395,10 @@
 }
 
 .cf-launch-banner__text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
   color: var(--cf-text-secondary);
   white-space: nowrap;
 }
@@ -402,7 +406,6 @@
 .cf-launch-banner__countdown {
   color: var(--cf-cyan);
   font-weight: 500;
-  margin-left: 4px;
 }
 
 .cf-launch-banner__link {
