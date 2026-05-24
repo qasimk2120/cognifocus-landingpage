@@ -133,15 +133,22 @@
 }
 .blog-page .seo-guide-main {
   padding-top: 2rem !important;
-  max-width: min(1200px, calc(100vw - 28px));
+  max-width: min(1380px, calc(100vw - 40px));
 }
 .blog-page .blog-panel {
-  max-width: 980px;
+  max-width: 1120px;
   margin-inline: auto;
+}
+.blog-page .blog-list-panel {
+  max-width: 1240px;
+}
+.blog-page .blog-post-panel {
+  max-width: 1120px;
 }
 @media (max-width: 991.98px) {
   .blog-page .seo-guide-main {
     padding-top: 1.75rem !important;
+    max-width: calc(100vw - 24px);
   }
 }
 .blog-breadcrumb {
@@ -193,6 +200,11 @@
 .blog-list {
   display: grid;
   gap: 1rem;
+}
+@media (min-width: 1120px) {
+  .blog-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 .blog-card {
   position: relative;
@@ -254,6 +266,8 @@
   line-height: 1;
 }
 .blog-card h2 {
+  font-size: clamp(1.18rem, 1.6vw, 1.5rem);
+  line-height: 1.18;
   margin-bottom: 0.45rem;
 }
 .blog-meta {
@@ -349,18 +363,19 @@
 }
 .blog-content h2 {
   color: var(--cf-text);
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-size: clamp(1.25rem, 2.1vw, 1.75rem);
   margin-top: 1.5rem;
   margin-bottom: 0.7rem;
 }
 .blog-content h3 {
   color: var(--cf-text);
-  font-size: clamp(1.05rem, 2vw, 1.28rem);
+  font-size: clamp(1.08rem, 1.55vw, 1.36rem);
   margin-top: 1.2rem;
   margin-bottom: 0.55rem;
 }
 .blog-content p,
 .blog-content li {
+  font-size: clamp(1rem, 1vw, 1.08rem);
   line-height: 1.75;
 }
 .blog-content p {
@@ -394,6 +409,7 @@
 }
 .blog-table-wrap {
   margin: 1.15rem 0;
+  width: 100%;
   overflow-x: auto;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.18);
   border-radius: 8px;
