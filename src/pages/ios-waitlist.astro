@@ -1,7 +1,7 @@
 ﻿---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteIcon from "../components/shared/SiteIcon.astro";
-import ArcadeDemoEmbed from "../components/shared/ArcadeDemoEmbed.astro";
+import DemoVideo from "../components/shared/DemoVideo.astro";
 
 const title = "CogniFocus for iOS \u007c Join the Waitlist";
 const description = "The Goblin is coming to iPhone. Join the CogniFocus iOS waitlist and be first to know when it drops.";
@@ -139,8 +139,9 @@ const schemaJson = JSON.stringify({
 
             <div class="ios-waitlist-animation-col">
               <div class="ios-waitlist-demo-media">
-                <ArcadeDemoEmbed />
+                <DemoVideo controls={true} autoplay={false} loop={false} muted={false} />
               </div>
+              <p class="ios-waitlist-demo-subtext">See CogniFocus fight distractions in 34 seconds</p>
             </div>
 
             <div class="ios-waitlist-card-divider" aria-hidden="true"></div>

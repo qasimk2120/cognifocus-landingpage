@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import ArcadeDemoEmbed from "../components/shared/ArcadeDemoEmbed.astro";
+import DemoVideo from "../components/shared/DemoVideo.astro";
 import SiteIcon from "../components/shared/SiteIcon.astro";
 
 const title = "CogniFocus Demo | Focus App That Reacts When You Lose Focus";
@@ -8,8 +8,6 @@ const description =
   "Watch how CogniFocus helps you stay focused with a focus timer, distraction Shield, and reactive Goblin companion.";
 const canonical = "https://cognifocus.app/demo.html";
 const pageTitle = "CogniFocus Demo";
-const embedUrl =
-  "https://demo.arcade.software/video/vV46cmtBx0HcXD74cEL4?embed&embed_mobile=inline&embed_desktop=inline&show_copy_link=true";
 const schemas = [
   {
     "@context": "https://schema.org",
@@ -23,8 +21,10 @@ const schemas = [
       "@type": "VideoObject",
       "name": "How CogniFocus Helps You Stay Focused",
       "description": description,
-      "embedUrl": embedUrl,
-      "duration": "PT34S",
+      "thumbnailUrl": "https://cognifocus.app/images/cognifocus-focus-app-demo-poster.webp",
+      "uploadDate": "2026-05-24",
+      "contentUrl": "https://cognifocus.app/videos/cognifocus-focus-app-demo.mp4",
+      "embedUrl": "https://cognifocus.app/demo",
       "publisher": {
         "@type": "Organization",
         "name": "CogniFocus",
@@ -92,14 +92,10 @@ const schemas = [
     <header class="demo-hero">
       <p class="feature-kicker">{pageTitle}</p>
       <h1>See CogniFocus fight distractions in 34 seconds</h1>
-      <p>
-        A quick walkthrough of the focus timer, Shield interruption, Goblin
-        reaction, and recovery loop.
-      </p>
     </header>
 
     <section class="demo-video-card" aria-label="How CogniFocus Helps You Stay Focused">
-      <ArcadeDemoEmbed />
+      <DemoVideo controls={true} autoplay={true} loop={false} muted={false} />
     </section>
 
     <div class="demo-actions" aria-label="Demo page actions">

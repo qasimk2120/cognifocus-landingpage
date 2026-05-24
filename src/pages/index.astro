@@ -18,6 +18,17 @@ const twitterImage = "https://cognifocus.app/assets/og/og-twitter.png";
 const ogImageWidth = 1200;
 const ogImageHeight = 630;
 const ogImageAlt = "CogniFocus reactive focus app with a Goblin companion that blocks distractions";
+const videoSchema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "How CogniFocus Helps You Stay Focused",
+  "description":
+    "Watch how CogniFocus helps protect focus with a focus timer, Distraction Shield, Goblin companion reactions, and distraction recovery.",
+  "thumbnailUrl": "https://cognifocus.app/images/cognifocus-focus-app-demo-poster.webp",
+  "uploadDate": "2026-05-24",
+  "contentUrl": "https://cognifocus.app/videos/cognifocus-focus-app-demo.mp4",
+  "embedUrl": "https://cognifocus.app/demo"
+});
 const schemas = [
   JSON.stringify({
     "@context": "https://schema.org",
@@ -93,6 +104,7 @@ const schemas = [
 >
   <meta slot="head-after-robots" name="author" content="CogniFocus" />
   <meta slot="head-after-robots" name="application-name" content="CogniFocus" />
+  <script slot="head-after-social" type="application/ld+json" set:html={videoSchema} />
 
   <link slot="head-after-icon" rel="preconnect" href="https://fonts.googleapis.com" />
   <link slot="head-after-icon" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

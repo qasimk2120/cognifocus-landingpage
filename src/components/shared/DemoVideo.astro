@@ -1,0 +1,132 @@
+---
+const {
+	controls = false,
+	autoplay = false,
+	loop = false,
+	muted = false,
+	previewMode = false,
+	poster = "/images/cognifocus-focus-app-demo-poster.webp",
+	videoId = "demoVideoPlayer",
+	playButtonLabel = "Play CogniFocus demo video",
+	replayButtonLabel = "Replay CogniFocus demo video",
+} = Astro.props;
+---
+
+<div
+	class:list={["demo-video-shell", previewMode && "demo-video-shell--preview"]}
+	data-demo-video-preview={previewMode ? "true" : "false"}
+>
+	{
+		previewMode && (
+			<button
+				type="button"
+				class="demo-video-overlay"
+				aria-label={playButtonLabel}
+				aria-controls={videoId}
+				data-play-label={playButtonLabel}
+				data-replay-label={replayButtonLabel}
+				data-demo-video-play-button
+			>
+				<span class="demo-video-play-badge" aria-hidden="true">
+					<svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+						<path d="M9 7.5v9l7.5-4.5-7.5-4.5z" fill="currentColor" />
+					</svg>
+				</span>
+			</button>
+		)
+	}
+	<video
+		id={videoId}
+		class="demo-video"
+		autoplay={autoplay}
+		muted={muted}
+		playsinline
+		preload="metadata"
+		controls={controls}
+		loop={loop}
+		poster={poster}
+		data-demo-video
+	>
+		<source src="/videos/cognifocus-focus-app-demo.webm" type="video/webm" />
+		<source src="/videos/cognifocus-focus-app-demo.mp4" type="video/mp4" />
+		Your browser does not support the CogniFocus demo video.
+	</video>
+	<script>
+		const initDemoVideoPreview = () => {
+			document.querySelectorAll('[data-demo-video-preview="true"]').forEach((shell) => {
+				if (!(shell instanceof HTMLElement) || shell.dataset.demoVideoInitialized === "true") {
+					return;
+				}
+
+				shell.dataset.demoVideoInitialized = "true";
+
+				const video = shell.querySelector('[data-demo-video]');
+				const button = shell.querySelector('[data-demo-video-play-button]');
+
+				if (!(video instanceof HTMLVideoElement) || !(button instanceof HTMLButtonElement)) {
+					return;
+				}
+
+				const showPlayOverlay = () => {
+					shell.dataset.demoVideoState = "ready";
+					button.hidden = false;
+					button.setAttribute("aria-label", button.dataset.playLabel || "Play video");
+				};
+
+				const showReplayOverlay = () => {
+					shell.dataset.demoVideoState = "ended";
+					button.hidden = false;
+					button.setAttribute("aria-label", button.dataset.replayLabel || "Replay video");
+				};
+
+				const hideOverlay = () => {
+					shell.dataset.demoVideoState = "playing";
+					button.hidden = true;
+				};
+
+				showPlayOverlay();
+
+				const startPlayback = async (replay = false) => {
+					try {
+						hideOverlay();
+
+						if (replay) {
+							video.currentTime = 0;
+						}
+
+						video.muted = false;
+						video.controls = true;
+						const playResult = video.play();
+
+						if (playResult && typeof playResult.then === "function") {
+							await playResult;
+						}
+					} catch {
+						video.controls = true;
+						if (replay) {
+							showReplayOverlay();
+						} else {
+							showPlayOverlay();
+						}
+					}
+				};
+
+				const handleActivate = (event) => {
+					event.preventDefault();
+					void startPlayback(shell.dataset.demoVideoState === "ended");
+				};
+
+				button.addEventListener("click", handleActivate);
+				video.addEventListener("play", hideOverlay);
+				video.addEventListener("playing", hideOverlay);
+				video.addEventListener("ended", showReplayOverlay);
+			});
+		};
+
+		if (document.readyState === "loading") {
+			document.addEventListener("DOMContentLoaded", initDemoVideoPreview, { once: true });
+		} else {
+			initDemoVideoPreview();
+		}
+	</script>
+</div>

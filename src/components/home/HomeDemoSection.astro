@@ -1,5 +1,5 @@
 ---
-import ArcadeDemoEmbed from "../shared/ArcadeDemoEmbed.astro";
+import DemoVideo from "../shared/DemoVideo.astro";
 ---
 
 <section
@@ -8,8 +8,9 @@ import ArcadeDemoEmbed from "../shared/ArcadeDemoEmbed.astro";
   aria-labelledby="homeDemoTitle"
 >
   <div class="home-demo-showcase">
-    <h2 id="homeDemoTitle" class="home-demo-pill">WATCH DEMO</h2>
-    <ArcadeDemoEmbed />
+    <p class="home-demo-pill">APP DEMO</p>
+    <h2 id="homeDemoTitle" class="home-demo-heading">See CogniFocus fight distractions in 34 seconds</h2>
+    <DemoVideo previewMode={true} />
     <p class="home-demo-caption">
       <a href="/demo.html">Open full demo page</a>
     </p>
