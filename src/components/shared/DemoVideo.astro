@@ -35,6 +35,14 @@ const {
 			</button>
 		)
 	}
+	{
+		previewMode && (
+			<a href="/demo.html" class="demo-video-full-demo-cta" data-demo-video-full-demo-cta>
+				<span>Watch full demo</span>
+				<span aria-hidden="true">→</span>
+			</a>
+		)
+	}
 	<video
 		id={videoId}
 		class="demo-video"
@@ -59,11 +67,17 @@ const {
 				}
 
 				shell.dataset.demoVideoInitialized = "true";
+				shell.dataset.demoVideoState = "loading";
 
 				const video = shell.querySelector('[data-demo-video]');
 				const button = shell.querySelector('[data-demo-video-play-button]');
+				const fullDemoCta = shell.querySelector('[data-demo-video-full-demo-cta]');
 
-				if (!(video instanceof HTMLVideoElement) || !(button instanceof HTMLButtonElement)) {
+				if (
+					!(video instanceof HTMLVideoElement) ||
+					!(button instanceof HTMLButtonElement) ||
+					!(fullDemoCta instanceof HTMLAnchorElement)
+				) {
 					return;
 				}
 
@@ -84,7 +98,26 @@ const {
 					button.hidden = true;
 				};
 
-				showPlayOverlay();
+				const revealPreviewControls = () => {
+					showPlayOverlay();
+					fullDemoCta.hidden = false;
+				};
+
+				const handlePreviewLoad = () => {
+					revealPreviewControls();
+					video.removeEventListener("loadedmetadata", handlePreviewLoad);
+					video.removeEventListener("canplay", handlePreviewLoad);
+				};
+
+				fullDemoCta.hidden = true;
+				button.hidden = true;
+
+				video.addEventListener("loadedmetadata", handlePreviewLoad, { once: true });
+				video.addEventListener("canplay", handlePreviewLoad, { once: true });
+
+				if (video.readyState >= 1) {
+					handlePreviewLoad();
+				}
 
 				const startPlayback = async (replay = false) => {
 					try {
