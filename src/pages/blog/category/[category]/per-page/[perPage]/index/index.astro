@@ -1,0 +1,54 @@
+---
+import BlogListLayout from "../../../../../../../components/blog/BlogListLayout.astro";
+import {
+  BLOG_PAGE_SIZE,
+  BLOG_PAGE_SIZE_OPTIONS,
+  getActiveCategories,
+  getCategoryPagePath,
+  getPageSlice,
+  getPostsByCategory,
+  getTotalPages,
+  normalizeBlogPageSize,
+} from "../../../../../../../utils/blog";
+
+export async function getStaticPaths() {
+  const pageSizePaths = BLOG_PAGE_SIZE_OPTIONS.filter((size) => size !== BLOG_PAGE_SIZE);
+
+  return (await getActiveCategories()).flatMap((category) =>
+    pageSizePaths.map((pageSize) => ({
+      params: { category: category.slug, perPage: String(pageSize) },
+      props: { category, pageSize },
+    })),
+  );
+}
+
+const { category } = Astro.props;
+const pageSize = normalizeBlogPageSize(Astro.props.pageSize);
+const posts = await getPostsByCategory(category.slug);
+const title = `${category.label} | CogniFocus Blog - ${pageSize} Posts Per Page`;
+const description = `Browse CogniFocus ${category.label.toLowerCase()} articles ${pageSize} posts per page, with practical ideas for protecting focus and reducing app switching.`;
+const canonical = `https://cognifocus.app${getCategoryPagePath(category.slug, 1, pageSize)}`;
+const page = {
+  currentPage: 1,
+  lastPage: getTotalPages(posts, pageSize),
+};
+---
+
+<BlogListLayout
+  posts={getPageSlice(posts, 1, pageSize)}
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={description}
+  eyebrow="CogniFocus Blog"
+  heading={category.label}
+  headingAccent=""
+  intro="Browse CogniFocus guides in this category, with practical ideas for protecting focus, reducing app switching, and returning to your work faster."
+  activeCategorySlug={category.slug}
+  breadcrumbLabel={category.label}
+  page={page}
+  basePath={`/blog/category/${category.slug}/per-page/${pageSize}`}
+  pageSize={pageSize}
+  robots="noindex, follow"
+/>

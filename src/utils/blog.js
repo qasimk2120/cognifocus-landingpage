@@ -6,6 +6,7 @@ import { renderMarkdownToHtml } from "./markdown.js";
 import { normalizeBlogTextFields } from "./text-normalize.js";
 
 export const BLOG_PAGE_SIZE = 6;
+export const BLOG_PAGE_SIZE_OPTIONS = [6, 12, 24];
 
 export const BLOG_CATEGORIES = [
   { label: "Focus Guides", slug: "focus-guides" },
@@ -121,10 +122,38 @@ export const getTotalPages = (entries, pageSize = BLOG_PAGE_SIZE) =>
 export const getPageSlice = (entries, pageNumber, pageSize = BLOG_PAGE_SIZE) =>
   entries.slice((pageNumber - 1) * pageSize, pageNumber * pageSize);
 
-export const getBlogPagePath = (pageNumber) =>
-  pageNumber <= 1 ? "/blog/" : `/blog/page/${pageNumber}.html`;
+export const normalizeBlogPageSize = (value) => {
+  const pageSize = Number(value);
 
-export const getCategoryPagePath = (categorySlug, pageNumber = 1) =>
-  pageNumber <= 1
-    ? `/blog/category/${categorySlug}/`
-    : `/blog/category/${categorySlug}/page/${pageNumber}.html`;
+  return BLOG_PAGE_SIZE_OPTIONS.includes(pageSize) ? pageSize : BLOG_PAGE_SIZE;
+};
+
+export const getBlogPagePath = (pageNumber, pageSize = BLOG_PAGE_SIZE) => {
+  const normalizedPageSize = normalizeBlogPageSize(pageSize);
+
+  if (normalizedPageSize === BLOG_PAGE_SIZE) {
+    return pageNumber <= 1 ? "/blog/" : `/blog/page/${pageNumber}.html`;
+  }
+
+  return pageNumber <= 1
+    ? `/blog/per-page/${normalizedPageSize}/`
+    : `/blog/per-page/${normalizedPageSize}/page/${pageNumber}.html`;
+};
+
+export const getCategoryPagePath = (
+  categorySlug,
+  pageNumber = 1,
+  pageSize = BLOG_PAGE_SIZE,
+) => {
+  const normalizedPageSize = normalizeBlogPageSize(pageSize);
+
+  if (normalizedPageSize === BLOG_PAGE_SIZE) {
+    return pageNumber <= 1
+      ? `/blog/category/${categorySlug}/`
+      : `/blog/category/${categorySlug}/page/${pageNumber}.html`;
+  }
+
+  return pageNumber <= 1
+    ? `/blog/category/${categorySlug}/per-page/${normalizedPageSize}/`
+    : `/blog/category/${categorySlug}/per-page/${normalizedPageSize}/page/${pageNumber}.html`;
+};

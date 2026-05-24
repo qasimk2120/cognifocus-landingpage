@@ -1,0 +1,49 @@
+---
+import BlogListLayout from "../../../../../components/blog/BlogListLayout.astro";
+import {
+  BLOG_PAGE_SIZE,
+  BLOG_PAGE_SIZE_OPTIONS,
+  getBlogPagePath,
+  getPageSlice,
+  getSortedPosts,
+  getTotalPages,
+  normalizeBlogPageSize,
+} from "../../../../../utils/blog";
+
+export async function getStaticPaths() {
+  const pageSizePaths = BLOG_PAGE_SIZE_OPTIONS.filter((size) => size !== BLOG_PAGE_SIZE);
+
+  return pageSizePaths.map((pageSize) => ({
+    params: { perPage: String(pageSize) },
+    props: { pageSize },
+  }));
+}
+
+const pageSize = normalizeBlogPageSize(Astro.props.pageSize);
+const sortedPosts = await getSortedPosts();
+const title = `CogniFocus Blog - ${pageSize} Posts Per Page`;
+const description = `Browse CogniFocus guides ${pageSize} posts per page, covering focus sessions, app blocking, ADHD-friendly productivity, and beating doomscrolling on Android.`;
+const canonical = `https://cognifocus.app${getBlogPagePath(1, pageSize)}`;
+const page = {
+  currentPage: 1,
+  lastPage: getTotalPages(sortedPosts, pageSize),
+};
+---
+
+<BlogListLayout
+  posts={getPageSlice(sortedPosts, 1, pageSize)}
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={description}
+  eyebrow="CogniFocus Blog"
+  heading="CogniFocus Blog"
+  headingAccent=""
+  intro="Browse practical guides for protecting focus sessions, blocking distracting apps, and recovering faster when attention slips."
+  breadcrumbLabel="Blog"
+  page={page}
+  basePath={`/blog/per-page/${pageSize}`}
+  pageSize={pageSize}
+  robots="noindex, follow"
+/>

@@ -1,4 +1,4 @@
----
+﻿---
 import BlogListLayout from "../../../components/blog/BlogListLayout.astro";
 import {
   BLOG_PAGE_SIZE,
@@ -14,7 +14,7 @@ export async function getStaticPaths({ paginate }) {
 
 const { page } = Astro.props;
 const pageNumber = page.currentPage;
-const title = `CogniFocus Blog — Page ${pageNumber}`;
+const title = `CogniFocus Blog - Page ${pageNumber}`;
 const description = `Page ${pageNumber} of CogniFocus guides on focus sessions, app blocking, ADHD-friendly productivity, and beating doomscrolling on Android.`;
 const canonical = `https://cognifocus.app${getBlogPagePath(pageNumber)}`;
 ---
@@ -34,4 +34,5 @@ const canonical = `https://cognifocus.app${getBlogPagePath(pageNumber)}`;
   pageContext={`Page ${page.currentPage} of ${page.lastPage}`}
   page={page}
   basePath="/blog"
+  pageSize={BLOG_PAGE_SIZE}
 />

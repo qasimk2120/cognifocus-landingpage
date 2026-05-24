@@ -81,6 +81,8 @@ export default defineConfig({
       filter(page) {
         return (
           !page.startsWith("https://cognifocus.app/admin") &&
+          !page.includes("/blog/per-page/") &&
+          !page.includes("/per-page/") &&
           page !== "https://cognifocus.app/404" &&
           page !== "https://cognifocus.app/404.html" &&
           page !== "https://cognifocus.app/blog/stop-app-switching" &&
@@ -136,6 +138,7 @@ export default defineConfig({
         "**.txt",
         "node_modules/**",
         "../dist/blog/category/**",
+        "../dist/blog/per-page/**",
         "../dist/blog/page/**",
         "../dist/drafts/**",
         "../dist/internal/**",

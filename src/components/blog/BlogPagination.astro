@@ -1,7 +1,16 @@
 ---
 import SiteIcon from "../shared/SiteIcon.astro";
+import { BLOG_PAGE_SIZE, BLOG_PAGE_SIZE_OPTIONS, normalizeBlogPageSize } from "../../utils/blog";
 
-const { page, basePath } = Astro.props;
+const {
+  page,
+  basePath,
+  pageSize = BLOG_PAGE_SIZE,
+  pageSizeOptions = BLOG_PAGE_SIZE_OPTIONS,
+} = Astro.props;
+
+const currentPageSize = normalizeBlogPageSize(pageSize);
+const defaultBasePath = (basePath || "/blog").replace(/\/per-page\/\d+$/, "");
 
 const normalizePageHref = (href) => {
   if (!href) {
@@ -17,6 +26,11 @@ const getPageHref = (pageNumber) =>
   pageNumber <= 1
     ? `${basePath}/`.replace(/\/+/g, "/")
     : `${basePath}/page/${pageNumber}.html`.replace(/\/+/g, "/");
+
+const getPageSizeHref = (size) =>
+  normalizeBlogPageSize(size) === BLOG_PAGE_SIZE
+    ? `${defaultBasePath}/`.replace(/\/+/g, "/")
+    : `${defaultBasePath}/per-page/${size}/`.replace(/\/+/g, "/");
 
 const getPageNumbers = () => {
   const currentPage = page?.currentPage ?? 1;
@@ -41,54 +55,88 @@ const getPageNumbers = () => {
     }, []);
 };
 
-const previousHref = normalizePageHref(page?.url?.prev);
-const nextHref = normalizePageHref(page?.url?.next);
 const currentPage = page?.currentPage ?? 1;
 const lastPage = page?.lastPage ?? 1;
+const previousHref = currentPage > 1 ? normalizePageHref(getPageHref(currentPage - 1)) : undefined;
+const nextHref = currentPage < lastPage ? normalizePageHref(getPageHref(currentPage + 1)) : undefined;
 const pageNumbers = getPageNumbers();
+const selectId = `blog-page-size-${basePath.replace(/[^a-z0-9]+/gi, "-").replace(/^-|-$/g, "") || "blog"}`;
 ---
 
 {
   page && (
-    <nav class="blog-pagination" aria-label="Blog pagination">
-      {previousHref ? (
-        <a href={previousHref} class="blog-pagination-button" aria-label="Previous page">
-          <SiteIcon name="mdi:chevron-left" aria-hidden="true" />
-          <span>Prev</span>
-        </a>
-      ) : (
-        <span class="blog-pagination-spacer" aria-hidden="true"></span>
-      )}
-      <div class="blog-pagination-pages" aria-label="Page links">
-        {
-          pageNumbers.map((value, index) =>
-            value === "ellipsis" ? (
-              <span class="blog-pagination-ellipsis" aria-hidden="true">
-                ...
-              </span>
-            ) : (
-              <a
-                href={getPageHref(value)}
-                class:list={[
-                  "blog-pagination-page-link",
-                  { "is-active": value === currentPage },
-                ]}
-                aria-current={value === currentPage ? "page" : undefined}
+    <div class="blog-pagination-shell">
+      <div class="blog-pagination-size">
+        <label for={selectId}>Show</label>
+        <select
+          id={selectId}
+          class="blog-pagination-size-select"
+          aria-label="Posts per page"
+          data-blog-page-size-select
+        >
+          {
+            pageSizeOptions.map((option) => (
+              <option
+                value={getPageSizeHref(option)}
+                selected={normalizeBlogPageSize(option) === currentPageSize}
               >
-                {value}
-              </a>
-            ),
-          )
-        }
+                {option} posts
+              </option>
+            ))
+          }
+        </select>
       </div>
-      {nextHref ? (
-        <a href={nextHref} class="blog-pagination-button" aria-label="Next page">
-          <span>Next</span>
-          <SiteIcon name="mdi:chevron-right" aria-hidden="true" />
-        </a>
-      ) : (
-        <span class="blog-pagination-spacer" aria-hidden="true"></span>
-      )}
-    </nav>
+      <nav class="blog-pagination" aria-label="Blog pagination">
+        {previousHref ? (
+          <a href={previousHref} class="blog-pagination-button" aria-label="Previous page">
+            <SiteIcon name="mdi:chevron-left" aria-hidden="true" />
+            <span>Prev</span>
+          </a>
+        ) : (
+          <span class="blog-pagination-spacer" aria-hidden="true"></span>
+        )}
+        <div class="blog-pagination-pages" aria-label="Page links">
+          {
+            pageNumbers.map((value) =>
+              value === "ellipsis" ? (
+                <span class="blog-pagination-ellipsis" aria-hidden="true">
+                  ...
+                </span>
+              ) : (
+                <a
+                  href={getPageHref(value)}
+                  class:list={[
+                    "blog-pagination-page-link",
+                    { "is-active": value === currentPage },
+                  ]}
+                  aria-current={value === currentPage ? "page" : undefined}
+                >
+                  {value}
+                </a>
+              ),
+            )
+          }
+        </div>
+        {nextHref ? (
+          <a href={nextHref} class="blog-pagination-button" aria-label="Next page">
+            <span>Next</span>
+            <SiteIcon name="mdi:chevron-right" aria-hidden="true" />
+          </a>
+        ) : (
+          <span class="blog-pagination-spacer" aria-hidden="true"></span>
+        )}
+      </nav>
+      <script is:inline>
+        document.addEventListener("change", (event) => {
+          const select = event.target.closest("[data-blog-page-size-select]");
+
+          if (!select || !select.value) {
+            return;
+          }
+
+          window.location.href = select.value;
+        });
+      </script>
+    </div>
   )
 }

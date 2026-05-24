@@ -21,6 +21,9 @@ const {
   pageContext,
   page,
   basePath,
+  pageSize,
+  pageSizeOptions,
+  robots = "index, follow",
 } = Astro.props;
 ---
 
@@ -33,6 +36,7 @@ const {
   ogImageAlt="CogniFocus"
   includeOgImageAlt={false}
   includeTwitterImageAlt={false}
+  robots={robots}
   bodyClass="seo-guide-page blog-page cf-shell"
   assetBase={assetBase}
   bootstrapIconsFirst={true}
@@ -65,7 +69,12 @@ const {
 
       <BlogCategoryNav activeCategorySlug={activeCategorySlug} />
       <BlogPostList posts={posts} />
-      <BlogPagination page={page} basePath={basePath} />
+      <BlogPagination
+        page={page}
+        basePath={basePath}
+        pageSize={pageSize}
+        pageSizeOptions={pageSizeOptions}
+      />
     </section>
   </main>
 </BaseLayout>

@@ -1,0 +1,60 @@
+---
+import BlogListLayout from "../../../../../components/blog/BlogListLayout.astro";
+import {
+  BLOG_PAGE_SIZE,
+  BLOG_PAGE_SIZE_OPTIONS,
+  getBlogPagePath,
+  getPageSlice,
+  getSortedPosts,
+  getTotalPages,
+  normalizeBlogPageSize,
+} from "../../../../../utils/blog";
+
+export async function getStaticPaths() {
+  const sortedPosts = await getSortedPosts();
+  const pageSizePaths = BLOG_PAGE_SIZE_OPTIONS.filter((size) => size !== BLOG_PAGE_SIZE);
+
+  return pageSizePaths.flatMap((pageSize) => {
+    const lastPage = getTotalPages(sortedPosts, pageSize);
+
+    return Array.from({ length: Math.max(0, lastPage - 1) }, (_, index) => {
+      const pageNumber = index + 2;
+
+      return {
+        params: { perPage: String(pageSize), page: String(pageNumber) },
+        props: { pageSize, pageNumber },
+      };
+    });
+  });
+}
+
+const pageSize = normalizeBlogPageSize(Astro.props.pageSize);
+const pageNumber = Number(Astro.props.pageNumber || 1);
+const sortedPosts = await getSortedPosts();
+const title = `CogniFocus Blog - Page ${pageNumber} (${pageSize} Per Page)`;
+const description = `Page ${pageNumber} of CogniFocus guides shown ${pageSize} posts per page, covering focus sessions, app blocking, and Android focus habits.`;
+const canonical = `https://cognifocus.app${getBlogPagePath(pageNumber, pageSize)}`;
+const page = {
+  currentPage: pageNumber,
+  lastPage: getTotalPages(sortedPosts, pageSize),
+};
+---
+
+<BlogListLayout
+  posts={getPageSlice(sortedPosts, pageNumber, pageSize)}
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={description}
+  eyebrow="CogniFocus Blog"
+  heading="CogniFocus Blog"
+  headingAccent=""
+  intro="More practical guides for protecting focus sessions, blocking distracting apps, and recovering faster when attention slips."
+  breadcrumbLabel="Blog"
+  pageContext={`Page ${page.currentPage} of ${page.lastPage}`}
+  page={page}
+  basePath={`/blog/per-page/${pageSize}`}
+  pageSize={pageSize}
+  robots="noindex, follow"
+/>
