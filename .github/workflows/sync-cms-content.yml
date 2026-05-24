@@ -63,13 +63,14 @@ jobs:
 
       - name: Commit refreshed fallback content
         run: |
-          if git diff --quiet -- src/content/blog src/content/releases; then
+          git add src/content/blog src/content/releases
+
+          if git diff --cached --quiet -- src/content/blog src/content/releases; then
             echo "Fallback content is already up to date."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/content/blog src/content/releases
           git commit -m "Sync CMS fallback content"
           git push
