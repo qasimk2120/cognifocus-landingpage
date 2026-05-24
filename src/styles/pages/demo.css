@@ -235,6 +235,10 @@ body.demo-page {
   text-wrap: balance;
 }
 
+.home-demo-heading .hero-heading-accent {
+  white-space: nowrap;
+}
+
 .home-demo-showcase .demo-video-shell {
   position: relative;
   width: min(100%, 1040px);
@@ -471,7 +475,11 @@ html[data-theme="light"] .hero-ios-waitlist:focus-visible {
 
   .home-demo-heading {
     font-size: clamp(1.8rem, 8vw, 2.6rem);
-    width: min(100%, 21rem);
+    width: min(100%, 23rem);
+  }
+
+  .home-demo-heading .hero-heading-accent {
+    font-size: clamp(1.62rem, 7.15vw, 1.8rem);
   }
 
   .home-demo-pill {
