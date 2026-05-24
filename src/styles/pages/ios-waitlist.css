@@ -192,6 +192,30 @@ body.ios-waitlist-page.cf-shell{
   user-select: none;
 }
 
+.ios-waitlist-demo-media {
+  width: min(100%, 640px);
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.ios-waitlist-demo-media .arcade-demo-embed {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+@media(max-width:991.98px){
+  .ios-waitlist-demo-media {
+    margin-inline: auto;
+  }
+}
+
+@media(max-width:575.98px){
+  .ios-waitlist-demo-media {
+    width: 100%;
+  }
+}
+
 .turnstile-modal {
   position: fixed;
   inset: 0;

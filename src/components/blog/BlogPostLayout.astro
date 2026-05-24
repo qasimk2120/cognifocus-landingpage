@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogWaitlistCTA from "./BlogWaitlistCTA.astro";
 
 const { post } = Astro.props;
 
@@ -110,6 +111,7 @@ const panelClass =
 
       {/* Trusted build-time article HTML generated from CMS markdown or legacy HTML. */}
       <Fragment set:html={post.bodyHtml} />
+      <BlogWaitlistCTA />
     </article>
   </main>
 </BaseLayout>

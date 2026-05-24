@@ -5,14 +5,19 @@ import HomeFAQ from "../components/home/HomeFAQ.astro";
 import HomeFinalCTA from "../components/home/HomeFinalCTA.astro";
 import HomeGoblinCards from "../components/home/HomeGoblinCards.astro";
 import HomeHero from "../components/home/HomeHero.astro";
+import HomeDemoSection from "../components/home/HomeDemoSection.astro";
 import HomeTestimonials from "../components/home/HomeTestimonials.astro";
 
-const title = "CogniFocus | Focus Timer & App Blocker for Android";
-const description = "CogniFocus is a focus timer and app blocker for Android with Goblin reactions, Shield blocking, recovery nudges, and an iOS waitlist for iPhone updates.";
+const title = "CogniFocus — Focus Timer & App Blocker That Fights Back";
+const description = "CogniFocus is a focus timer and app blocker with a Goblin companion that reacts when you drift to TikTok, Instagram, YouTube, and other distractions.";
 const canonical = "https://cognifocus.app/";
-const ogTitle = "CogniFocus \u007c Focus Timer & App Blocker for Android";
+const ogTitle = title;
 const ogDescription = description;
-const ogImageAlt = "CogniFocus landing page for a focus app that blocks distracting apps and reacts instantly";
+const ogImage = "https://cognifocus.app/assets/og/og-new.png";
+const twitterImage = "https://cognifocus.app/assets/og/og-twitter.png";
+const ogImageWidth = 1200;
+const ogImageHeight = 630;
+const ogImageAlt = "CogniFocus reactive focus app with a Goblin companion that blocks distractions";
 const schemas = [
   JSON.stringify({
     "@context": "https://schema.org",
@@ -48,8 +53,8 @@ const schemas = [
   JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "CogniFocus - Focus Timer & App Blocker for Android",
-    "description": "CogniFocus is available now on Android, with an iOS waitlist open for iPhone updates.",
+    "name": "CogniFocus - Focus Timer & App Blocker That Fights Back",
+    "description": "CogniFocus is a focus timer and app blocker with a Goblin companion that reacts when you drift to TikTok, Instagram, YouTube, and other distractions.",
     "url": "https://cognifocus.app/",
     "relatedLink": "https://cognifocus.app/ios-waitlist.html"
   }),
@@ -77,6 +82,10 @@ const schemas = [
   canonical={canonical}
   ogTitle={ogTitle}
   ogDescription={ogDescription}
+  ogImage={ogImage}
+  twitterImage={twitterImage}
+  ogImageWidth={ogImageWidth}
+  ogImageHeight={ogImageHeight}
   ogImageAlt={ogImageAlt}
   bodyClass="cf-home"
   launchBannerProps={{ includeIosNotification: false }}
@@ -103,6 +112,7 @@ const schemas = [
 
   <main id="main-content">
     <HomeHero />
+    <HomeDemoSection />
     <HomeTestimonials />
     <HomeGoblinCards />
     <HomeAttentionSpirals />

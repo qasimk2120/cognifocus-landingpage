@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import BlogCategoryNav from "./BlogCategoryNav.astro";
 import BlogPagination from "./BlogPagination.astro";
 import BlogPostList from "./BlogPostList.astro";
+import BlogWaitlistCTA from "./BlogWaitlistCTA.astro";
 
 const {
   posts,
@@ -75,6 +76,7 @@ const {
         pageSize={pageSize}
         pageSizeOptions={pageSizeOptions}
       />
+      <BlogWaitlistCTA />
     </section>
   </main>
 </BaseLayout>

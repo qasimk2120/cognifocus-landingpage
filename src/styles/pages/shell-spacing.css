@@ -1,5 +1,6 @@
 body.faq-page.cf-shell,
 body.download-page.cf-shell,
+body.demo-page.cf-shell,
 body.about-page.cf-shell,
 body.whats-new-page.cf-shell,
 body.privacy-page.cf-shell,
@@ -11,6 +12,7 @@ body.support-page.cf-shell {
 
 .cf-launch-ended body.faq-page.cf-shell,
 .cf-launch-ended body.download-page.cf-shell,
+.cf-launch-ended body.demo-page.cf-shell,
 .cf-launch-ended body.about-page.cf-shell,
 .cf-launch-ended body.whats-new-page.cf-shell,
 .cf-launch-ended body.privacy-page.cf-shell,
