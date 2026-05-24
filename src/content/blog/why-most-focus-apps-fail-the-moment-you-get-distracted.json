@@ -30,7 +30,7 @@
   "seoDescription": "Most focus apps count time but do nothing when attention slips. Here's why real-time reaction and recovery matter more than passive timers.",
   "coverImageUrl": "https://cognifocus.app/assets/og/og-image.png",
   "createdAt": "2026-05-22T09:00:00.000Z",
-  "createdBy": "cognielevate",
+  "createdBy": "cms-content-migration",
   "id": "why-most-focus-apps-fail-the-moment-you-get-distracted",
   "migration": {
     "importedAt": "2026-05-24T01:19:23.701Z",
@@ -39,5 +39,5 @@
   },
   "social": {},
   "status": "published",
-  "updatedBy": "cognielevate"
+  "updatedBy": "cms-content-migration"
 }
