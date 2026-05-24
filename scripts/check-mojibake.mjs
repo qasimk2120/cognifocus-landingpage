@@ -22,6 +22,11 @@ const mojibakePatterns = [
   { name: "latin-1 UTF-8 lead byte C2", pattern: /\u00C2[\u0080-\u00BF]/u },
   { name: "latin-1 UTF-8 lead byte C3", pattern: /\u00C3[\u0080-\u00BF]/u },
   { name: "mojibake punctuation", pattern: /\u00E2[\u0080-\u00BF]{1,2}/u },
+  {
+    name: "windows-1252 mojibake punctuation",
+    pattern:
+      /\u00E2[\u20AC\u201A-\u201E\u2020-\u2021\u02C6\u2030\u0160\u2039\u0152\u017D\u2018-\u201D\u2022\u2013-\u2014\u02DC\u2122\u0161\u203A\u0153\u017E\u0178]{1,2}/u,
+  },
   { name: "mojibake replacement sequence", pattern: /\u00EF\u00BF\u00BD/u },
   { name: "mojibake emoji sequence", pattern: /\u00F0[\u0080-\u00BF]{2,3}/u },
 ];
