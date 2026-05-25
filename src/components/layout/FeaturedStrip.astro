@@ -118,6 +118,17 @@ const badges = [
       height: "48",
     },
   },
+  {
+    href: "https://turbo0.com/item/cognifocus",
+    label: "Listed on Turbo0",
+    img: {
+      src: "https://img.turbo0.com/badge-listed-light.svg",
+      alt: "Listed on Turbo0",
+      title: "Listed on Turbo0",
+      width: "150",
+      height: "54",
+    },
+  },
 ];
 ---
 
@@ -168,3 +179,79 @@ const badges = [
     </div>
   </div>
 </section>
+<script>
+  (function () {
+    const wrap = document.querySelector('.featured-strip-track-wrap');
+    if (!wrap) return;
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const track = wrap.querySelector('.featured-strip-track');
+    if (!track) return;
+
+    // If there's not enough content to scroll, skip.
+    function canScroll() {
+      return track.scrollWidth > wrap.clientWidth + 2;
+    }
+
+    let rafId = null;
+    let last = 0;
+    const speed = 40; // pixels per second
+
+    function step(now) {
+      if (!last) last = now;
+      const dt = (now - last) / 1000;
+      last = now;
+
+      if (!canScroll()) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+        return;
+      }
+
+      wrap.scrollLeft += speed * dt;
+
+      // loop when reaching the end
+      if (wrap.scrollLeft >= track.scrollWidth - wrap.clientWidth - 1) {
+        wrap.scrollLeft = 0;
+      }
+
+      rafId = requestAnimationFrame(step);
+    }
+
+    function start() {
+      if (rafId == null) {
+        last = 0;
+        rafId = requestAnimationFrame(step);
+      }
+    }
+
+    function stop() {
+      if (rafId != null) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    // Pause on hover/focus for accessibility and manual interaction
+    wrap.addEventListener('mouseenter', stop);
+    wrap.addEventListener('mouseleave', start);
+    wrap.addEventListener('focusin', stop);
+    wrap.addEventListener('focusout', start);
+
+    // If user scrolls manually (wheel), pause briefly then resume
+    let wheelTimeout;
+    wrap.addEventListener('wheel', () => {
+      stop();
+      clearTimeout(wheelTimeout);
+      wheelTimeout = setTimeout(start, 1500);
+    }, { passive: true });
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => {
+        if (canScroll()) start();
+      }, { once: true });
+    } else {
+      if (canScroll()) start();
+    }
+  })();
+</script>
