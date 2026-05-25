@@ -72,48 +72,22 @@
 .featured-strip-badge img {
   display: block;
   width: auto;
-  height: 30px;
-  max-width: 240px;
+  height: 54px;
+  max-width: none;
   object-fit: contain;
 }
 
-.featured-strip-badge-startupfast img {
-  width: 150px;
-  height: 44px;
-  min-width: 150px;
-  min-height: 44px;
-  max-width: none;
-}
+/* Unified badge sizing: keep images a consistent visible height and
+   allow width to scale automatically to preserve aspect ratio. */
 
-.featured-strip-badge-startupfame img {
-  width: 171px;
+.featured-strip-badge img {
+  display: block;
+  width: auto;
   height: 54px;
-  min-width: 171px;
-  min-height: 54px;
   max-width: none;
+  object-fit: contain;
 }
-
-.featured-strip-badge-wired img {
-  width: 200px;
-  height: 54px;
-  min-width: 200px;
-  min-height: 54px;
-  max-width: none;
-}
-
-.featured-strip-badge-launchigniter img {
-  width: 212px;
-  height: 55px;
-  min-width: 212px;
-  min-height: 55px;
-  max-width: none;
-}
-
-.featured-strip-badge-betterlaunch img {
-  width: 200px;
-  height: auto;
-  max-width: none;
-}
+/* removed per-badge overrides — unified sizing rule applies to all badges */
 
 .featured-strip-theme-img--light {
   display: none;
@@ -138,36 +112,9 @@ html[data-theme="light"] .featured-strip-theme-img--light {
 }
 
 @media (max-width: 767.98px) {
+  /* Use a slightly smaller height on narrow screens so badges don't overpower layout */
   .featured-strip-badge img {
-    height: 26px;
-    max-width: 210px;
-  }
-
-  .featured-strip-badge-betterlaunch img {
-    width: 172px;
-    height: auto;
-    max-width: none;
-  }
-
-  .featured-strip-badge-startupfame img {
-    width: 147px;
-    height: 46px;
-    min-width: 147px;
-    min-height: 46px;
-  }
-
-  .featured-strip-badge-wired img {
-    width: 170px;
-    height: 48px;
-    min-width: 170px;
-    min-height: 48px;
-  }
-
-  .featured-strip-badge-launchigniter img {
-    width: 170px;
-    height: 44px;
-    min-width: 170px;
-    min-height: 44px;
+    height: 40px;
   }
 
   .featured-strip-track-wrap {
