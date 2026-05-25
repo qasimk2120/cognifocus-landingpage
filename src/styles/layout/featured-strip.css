@@ -93,6 +93,22 @@
   max-width: none;
 }
 
+.featured-strip-badge-wired img {
+  width: 200px;
+  height: 54px;
+  min-width: 200px;
+  min-height: 54px;
+  max-width: none;
+}
+
+.featured-strip-badge-launchigniter img {
+  width: 212px;
+  height: 55px;
+  min-width: 212px;
+  min-height: 55px;
+  max-width: none;
+}
+
 .featured-strip-badge-betterlaunch img {
   width: 200px;
   height: auto;
@@ -138,6 +154,20 @@ html[data-theme="light"] .featured-strip-theme-img--light {
     height: 46px;
     min-width: 147px;
     min-height: 46px;
+  }
+
+  .featured-strip-badge-wired img {
+    width: 170px;
+    height: 48px;
+    min-width: 170px;
+    min-height: 48px;
+  }
+
+  .featured-strip-badge-launchigniter img {
+    width: 170px;
+    height: 44px;
+    min-width: 170px;
+    min-height: 44px;
   }
 
   .featured-strip-track-wrap {
