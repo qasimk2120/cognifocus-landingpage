@@ -75,9 +75,9 @@ const badges = [
     href: "https://www.betterlaunch.co",
     label: "CogniFocus on Better Launch",
     className: "featured-strip-badge-betterlaunch",
-    themedImages: {
-      dark: "https://www.betterlaunch.co/badge-dark.svg",
-      light: "https://www.betterlaunch.co/badge-light.svg",
+    picture: {
+      lightSrc: "https://www.betterlaunch.co/badge-light.svg",
+      darkSrc: "https://www.betterlaunch.co/badge-dark.svg",
       alt: "Featured on Better Launch",
       title: "Featured on Better Launch",
       width: "200",
@@ -104,70 +104,44 @@ const badges = [
     <p class="featured-strip-title">Featured on</p>
     <div class="featured-strip-track-wrap" tabindex="0" aria-label="Featured directory badges">
       <div class="featured-strip-track">
-        {[false, true].map((isDuplicate) => (
-          <div class="featured-strip-group" aria-hidden={isDuplicate ? "true" : undefined}>
-            {badges.map((badge) => (
-              <a
-                href={badge.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={badge.title}
-                class:list={["featured-strip-badge", badge.className]}
-                aria-label={isDuplicate ? undefined : badge.label}
-                tabindex={isDuplicate ? "-1" : undefined}
-              >
-                {badge.themedImages ? (
-                  <>
-                    <img
-                      src={badge.themedImages.dark}
-                      alt={badge.themedImages.alt}
-                      title={badge.themedImages.title}
-                      width={badge.themedImages.width}
-                      height={badge.themedImages.height}
-                      loading="lazy"
-                      decoding="async"
-                      class="featured-strip-theme-img featured-strip-theme-img--dark"
-                    />
-                    <img
-                      src={badge.themedImages.light}
-                      alt=""
-                      title={badge.themedImages.title}
-                      width={badge.themedImages.width}
-                      height={badge.themedImages.height}
-                      loading="lazy"
-                      decoding="async"
-                      class="featured-strip-theme-img featured-strip-theme-img--light"
-                    />
-                  </>
-                ) : badge.picture ? (
-                  <picture>
-                    <source media="(prefers-color-scheme: light)" srcset={badge.picture.lightSrc} />
-                    <img
-                      src={badge.picture.darkSrc}
-                      alt={badge.picture.alt}
-                      title={badge.picture.title}
-                      width={badge.picture.width}
-                      height={badge.picture.height}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </picture>
-                ) : (
+        <div class="featured-strip-group">
+          {badges.map((badge) => (
+            <a
+              href={badge.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={badge.title}
+              class:list={["featured-strip-badge", badge.className]}
+              aria-label={badge.label}
+            >
+              {badge.picture ? (
+                <picture>
+                  <source media="(prefers-color-scheme: light)" srcset={badge.picture.lightSrc} />
                   <img
-                    src={badge.img.src}
-                    alt={badge.img.alt}
-                    title={badge.img.title}
-                    style={badge.img.style}
-                    width={badge.img.width}
-                    height={badge.img.height}
+                    src={badge.picture.darkSrc}
+                    alt={badge.picture.alt}
+                    title={badge.picture.title}
+                    width={badge.picture.width}
+                    height={badge.picture.height}
                     loading="lazy"
                     decoding="async"
                   />
-                )}
-              </a>
-            ))}
-          </div>
-        ))}
+                </picture>
+              ) : (
+                <img
+                  src={badge.img.src}
+                  alt={badge.img.alt}
+                  title={badge.img.title}
+                  style={badge.img.style}
+                  width={badge.img.width}
+                  height={badge.img.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </div>
