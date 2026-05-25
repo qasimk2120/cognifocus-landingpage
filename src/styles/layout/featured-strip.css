@@ -85,6 +85,14 @@
   max-width: none;
 }
 
+.featured-strip-badge-startupfame img {
+  width: 171px;
+  height: 54px;
+  min-width: 171px;
+  min-height: 54px;
+  max-width: none;
+}
+
 .featured-strip-badge-betterlaunch img {
   width: 200px;
   height: auto;
@@ -123,6 +131,13 @@ html[data-theme="light"] .featured-strip-theme-img--light {
     width: 172px;
     height: auto;
     max-width: none;
+  }
+
+  .featured-strip-badge-startupfame img {
+    width: 147px;
+    height: 46px;
+    min-width: 147px;
+    min-height: 46px;
   }
 
   .featured-strip-track-wrap {
