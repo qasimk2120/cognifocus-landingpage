@@ -8,48 +8,11 @@
 }
 
 body.cf-home {
-  background:
-    radial-gradient(
-      circle at 18% 15%,
-      rgba(var(--cf-mint-rgb), 0.13),
-      transparent 36%
-    ),
-    radial-gradient(
-      circle at 82% 4%,
-      rgba(var(--cf-cyan-rgb), 0.14),
-      transparent 38%
-    ),
-    radial-gradient(
-      circle at 54% 58%,
-      rgba(var(--cf-cobalt-rgb), 0.08),
-      transparent 42%
-    ),
-    var(--cf-black);
-  background-size:
-    150% 150%,
-    140% 140%,
-    180% 180%,
-    auto;
-  animation: cfAmbientToneDrift 28s ease-in-out infinite alternate;
+  background: var(--cf-bg-base);
 }
 
 body.cf-home::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    radial-gradient(circle, rgba(var(--cf-cyan-rgb), 0.16) 0 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(var(--cf-mint-rgb), 0.12) 0 1px, transparent 1.4px);
-  background-position:
-    8vw 18vh,
-    82vw 64vh;
-  background-size:
-    128px 128px,
-    176px 176px;
-  opacity: 0.16;
-  transform: translate3d(0, 0, 0);
-  animation: cfAmbientParticleDrift 34s linear infinite;
+  content: none;
 }
 
 .cf-motion-ready .cf-reveal {
@@ -222,16 +185,6 @@ body.cf-home::before {
 }
 
 @media (max-width: 767.98px), (hover: none) and (pointer: coarse) {
-  body.cf-home {
-    animation: none;
-    background-size: auto;
-  }
-
-  body.cf-home::before {
-    opacity: 0.08;
-    animation: none;
-  }
-
   .cf-motion-ready .cf-reveal-stagger {
     --cf-motion-reveal-distance: 10px;
     --cf-motion-reveal-blur: 3px;
@@ -239,27 +192,7 @@ body.cf-home::before {
 }
 
 html[data-theme="light"] body.cf-home {
-  background:
-    radial-gradient(
-      circle at 18% 15%,
-      rgba(var(--cf-mint-rgb), 0.09),
-      transparent 36%
-    ),
-    radial-gradient(
-      circle at 82% 4%,
-      rgba(var(--cf-cyan-rgb), 0.1),
-      transparent 38%
-    ),
-    radial-gradient(
-      circle at 54% 58%,
-      rgba(var(--cf-cobalt-rgb), 0.05),
-      transparent 42%
-    ),
-    var(--cf-light-bg);
-}
-
-html[data-theme="light"] body.cf-home::before {
-  opacity: 0.1;
+  background: var(--cf-bg-base);
 }
 
 html[data-theme="light"] .cf-behavior-companion__bubble {
@@ -297,33 +230,12 @@ html[data-theme="light"] .cf-behavior-companion__avatar {
 
 @media (prefers-color-scheme: light) {
   html:not([data-theme]) body.cf-home {
-    background:
-      radial-gradient(
-        circle at 18% 15%,
-        rgba(var(--cf-mint-rgb), 0.09),
-        transparent 36%
-      ),
-      radial-gradient(
-        circle at 82% 4%,
-        rgba(var(--cf-cyan-rgb), 0.1),
-        transparent 38%
-      ),
-      radial-gradient(
-        circle at 54% 58%,
-        rgba(var(--cf-cobalt-rgb), 0.05),
-        transparent 42%
-      ),
-      var(--cf-light-bg);
-  }
-
-  html:not([data-theme]) body.cf-home::before {
-    opacity: 0.1;
+    background: var(--cf-bg-base);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   body.cf-home,
-  body.cf-home::before,
   .cf-behavior-companion__avatar {
     animation: none !important;
   }

@@ -17,10 +17,24 @@ body.demo-page {
 .demo-hero h1 {
   margin: 0.55rem 0 0.85rem;
   color: var(--cf-text);
-  font-size: clamp(2.4rem, 5vw, 4.1rem);
+  font-size: clamp(2.45rem, 5.6vw, 4.55rem);
   font-weight: 760;
   line-height: 1.02;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+.demo-hero-heading {
+  max-width: 24ch;
+  margin-inline: auto !important;
+}
+
+.demo-hero-heading .hero-heading-line {
+  display: block;
+}
+
+.demo-hero-heading .hero-heading-accent {
+  color: var(--cf-cyan);
 }
 
 .demo-hero p:last-child {
@@ -49,16 +63,6 @@ body.demo-page {
   justify-content: center;
   gap: 0.85rem;
   margin-top: 1.3rem;
-}
-
-.demo-actions .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  min-height: 48px;
-  border-radius: 999px !important;
-  white-space: nowrap;
 }
 
 .demo-video-shell {
@@ -578,8 +582,9 @@ html[data-theme="light"] .hero-ios-waitlist:focus-visible {
     font-size: 0.68rem;
   }
 
-  .demo-actions .btn {
-    width: 100%;
-    white-space: normal;
+  .demo-actions.hero-cta .primary-cta,
+  .demo-actions.hero-cta .hero-ios-waitlist {
+    width: min(100%, 310px) !important;
+    max-width: 310px !important;
   }
 }
