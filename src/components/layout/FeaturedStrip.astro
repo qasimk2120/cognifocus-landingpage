@@ -1,139 +1,173 @@
 ---
 const { yoDirectoryInlineStyle = false } = Astro.props;
+
+const badges = [
+  {
+    href: "https://www.startupfa.st",
+    label: "CogniFocus on Startup Fast",
+    title: "Powered by Startup Fast",
+    className: "featured-strip-badge-startupfast",
+    img: {
+      src: "https://www.startupfa.st/images/badges/powered-by-light.svg",
+      alt: "Powered by Startup Fast badge",
+      title: "Powered by Startup Fast badge",
+      width: "150",
+      height: "44",
+    },
+  },
+  {
+    href: "https://dayslaunch.com",
+    label: "CogniFocus on Days Launch",
+    img: {
+      src: "https://dayslaunch.com/badages-awards.svg",
+      alt: "Days Launch badge",
+      title: "Days Launch badge",
+      width: "150",
+      height: "44",
+    },
+  },
+  {
+    href: "https://www.producthunt.com/products/cognifocus?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cognifocus",
+    label: "CogniFocus on Product Hunt",
+    img: {
+      src: "https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1136007&theme=light&t=1777557337082",
+      alt: "CogniFocus Product Hunt featured badge",
+      title: "CogniFocus Product Hunt featured badge",
+      width: "250",
+      height: "54",
+    },
+  },
+  {
+    href: "https://peerpush.net/p/cognifocus",
+    label: "CogniFocus on PeerPush",
+    img: {
+      src: "https://peerpush.net/p/cognifocus/badge.png",
+      alt: "CogniFocus PeerPush badge",
+      title: "CogniFocus PeerPush badge",
+      width: "150",
+      height: "54",
+    },
+  },
+  {
+    href: "https://startupbenchmarks.com",
+    label: "CogniFocus on Startup Benchmarks",
+    img: {
+      src: "https://startupbenchmarks.com/assets/images/badge.png",
+      alt: "Startup Benchmarks badge",
+      title: "Startup Benchmarks badge",
+      width: "150",
+      height: "54",
+    },
+  },
+  {
+    href: "https://yo.directory/",
+    label: "CogniFocus on Yo Directory",
+    img: {
+      src: "https://cdn.prod.website-files.com/65c1546fa73ea974db789e3d/65e1e171f89ebfa7bd0129ac_yodirectory-featured.png",
+      alt: "Yo Directory featured badge",
+      title: "Yo Directory featured badge",
+      width: "150",
+      height: "54",
+      style: yoDirectoryInlineStyle ? "width: 150px; height: 54px" : undefined,
+    },
+  },
+  {
+    href: "https://www.betterlaunch.co",
+    label: "CogniFocus on Better Launch",
+    className: "featured-strip-badge-betterlaunch",
+    themedImages: {
+      dark: "https://www.betterlaunch.co/badge-dark.svg",
+      light: "https://www.betterlaunch.co/badge-light.svg",
+      alt: "Featured on Better Launch",
+      title: "Featured on Better Launch",
+      width: "200",
+      height: "54",
+    },
+  },
+  {
+    href: "https://nicklaunches.com/products/cognifocus/",
+    label: "CogniFocus on Nick Launches",
+    picture: {
+      lightSrc: "https://nicklaunches.com/badges/featured.svg",
+      darkSrc: "https://nicklaunches.com/badges/featured-dark.svg",
+      alt: "Nick Launches featured badge",
+      title: "Nick Launches featured badge",
+      width: "244",
+      height: "56",
+    },
+  },
+];
 ---
 
 <section class="featured-strip" aria-label="Featured on directories">
   <div class="featured-strip-inner">
     <p class="featured-strip-title">Featured on</p>
-    <div class="featured-strip-track-wrap">
+    <div class="featured-strip-track-wrap" tabindex="0" aria-label="Featured directory badges">
       <div class="featured-strip-track">
-        <a
-          href="https://www.startupfa.st"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Powered by Startup Fast"
-          class="featured-strip-badge featured-strip-badge-startupfast"
-          aria-label="CogniFocus on Startup Fast"
-        >
-          <img
-            src="https://www.startupfa.st/images/badges/powered-by-light.svg"
-            alt="Powered by Startup Fast badge"
-            title="Powered by Startup Fast badge"
-            width="150"
-            height="44"
-            loading="lazy"
-            decoding="async"
-          />
-        </a>
-        <a
-          href="https://dayslaunch.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="featured-strip-badge"
-          aria-label="CogniFocus on Days Launch"
-        >
-          <img
-            src="https://dayslaunch.com/badages-awards.svg"
-            alt="Days Launch badge"
-            title="Days Launch badge"
-            loading="lazy"
-            decoding="async"
-            width="150"
-            height="44"
-          />
-        </a>
-        <a
-          class="featured-strip-badge"
-          href="https://www.producthunt.com/products/cognifocus?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cognifocus"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="CogniFocus on Product Hunt"
-        >
-          <img
-            src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1136007&theme=light&t=1777557337082"
-            alt="CogniFocus Product Hunt featured badge"
-            title="CogniFocus Product Hunt featured badge"
-            loading="lazy"
-            decoding="async"
-            width="250"
-            height="54"
-          />
-        </a>
-        <a
-          class="featured-strip-badge"
-          href="https://peerpush.net/p/cognifocus"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="CogniFocus on PeerPush"
-        >
-          <img
-            src="https://peerpush.net/p/cognifocus/badge.png"
-            alt="CogniFocus PeerPush badge"
-            title="CogniFocus PeerPush badge"
-            loading="lazy"
-            decoding="async"
-            width="150"
-            height="54"
-          />
-        </a>
-        <a
-          target="_blank"
-          href="https://startupbenchmarks.com"
-          rel="noopener noreferrer"
-          class="featured-strip-badge"
-          aria-label="CogniFocus on Startup Benchmarks"
-        >
-          <img
-            src="https://startupbenchmarks.com/assets/images/badge.png"
-            alt="Startup Benchmarks badge"
-            title="Startup Benchmarks badge"
-            height="54"
-            loading="lazy"
-            decoding="async"
-            width="150"
-          />
-        </a>
-        <a
-          href="https://yo.directory/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="featured-strip-badge"
-          aria-label="CogniFocus on Yo Directory"
-        >
-          <img
-            src="https://cdn.prod.website-files.com/65c1546fa73ea974db789e3d/65e1e171f89ebfa7bd0129ac_yodirectory-featured.png"
-            alt="Yo Directory featured badge"
-            title="Yo Directory featured badge"
-            style={yoDirectoryInlineStyle ? "width: 150px; height: 54px" : undefined}
-            width="150"
-            height="54"
-            loading="lazy"
-            decoding="async"
-          />
-        </a>
-        <a
-          href="https://nicklaunches.com/products/cognifocus/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="featured-strip-badge"
-          aria-label="CogniFocus on Nick Launches"
-        >
-          <picture>
-            <source
-              media="(prefers-color-scheme: light)"
-              srcset="https://nicklaunches.com/badges/featured.svg"
-            />
-            <img
-              src="https://nicklaunches.com/badges/featured-dark.svg"
-              alt="Nick Launches featured badge"
-              title="Nick Launches featured badge"
-              width="244"
-              height="56"
-              loading="lazy"
-              decoding="async"
-            />
-          </picture>
-        </a>
+        {[false, true].map((isDuplicate) => (
+          <div class="featured-strip-group" aria-hidden={isDuplicate ? "true" : undefined}>
+            {badges.map((badge) => (
+              <a
+                href={badge.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={badge.title}
+                class:list={["featured-strip-badge", badge.className]}
+                aria-label={isDuplicate ? undefined : badge.label}
+                tabindex={isDuplicate ? "-1" : undefined}
+              >
+                {badge.themedImages ? (
+                  <>
+                    <img
+                      src={badge.themedImages.dark}
+                      alt={badge.themedImages.alt}
+                      title={badge.themedImages.title}
+                      width={badge.themedImages.width}
+                      height={badge.themedImages.height}
+                      loading="lazy"
+                      decoding="async"
+                      class="featured-strip-theme-img featured-strip-theme-img--dark"
+                    />
+                    <img
+                      src={badge.themedImages.light}
+                      alt=""
+                      title={badge.themedImages.title}
+                      width={badge.themedImages.width}
+                      height={badge.themedImages.height}
+                      loading="lazy"
+                      decoding="async"
+                      class="featured-strip-theme-img featured-strip-theme-img--light"
+                    />
+                  </>
+                ) : badge.picture ? (
+                  <picture>
+                    <source media="(prefers-color-scheme: light)" srcset={badge.picture.lightSrc} />
+                    <img
+                      src={badge.picture.darkSrc}
+                      alt={badge.picture.alt}
+                      title={badge.picture.title}
+                      width={badge.picture.width}
+                      height={badge.picture.height}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </picture>
+                ) : (
+                  <img
+                    src={badge.img.src}
+                    alt={badge.img.alt}
+                    title={badge.img.title}
+                    style={badge.img.style}
+                    width={badge.img.width}
+                    height={badge.img.height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )}
+              </a>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   </div>

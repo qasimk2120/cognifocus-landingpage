@@ -25,23 +25,53 @@
   overflow-x: auto;
   overflow-y: hidden;
   scrollbar-width: thin;
-  -webkit-mask-image: none;
-  mask-image: none;
+  overscroll-behavior-x: contain;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 4%,
+    #000 96%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 4%,
+    #000 96%,
+    transparent
+  );
 }
 
 .featured-strip-track {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  width: max-content;
+  min-width: 100%;
+  animation: featuredStripMarquee 34s linear infinite;
+  will-change: transform;
+}
+
+.featured-strip-track-wrap:hover .featured-strip-track,
+.featured-strip-track-wrap:focus-within .featured-strip-track,
+.featured-strip-track-wrap:active .featured-strip-track {
+  animation-play-state: paused;
+}
+
+.featured-strip-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-start;
   gap: 0.7rem;
-  flex-wrap: wrap;
+  padding-right: 0.7rem;
+  white-space: nowrap;
 }
 
 .featured-strip-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex: 0 0 auto;
   background: transparent;
   border: none;
   padding: 0;
@@ -63,15 +93,62 @@
   max-width: none;
 }
 
+.featured-strip-badge-betterlaunch img {
+  width: 200px;
+  height: auto;
+  max-width: none;
+}
+
+.featured-strip-theme-img--light {
+  display: none;
+}
+
+html[data-theme="light"] .featured-strip-theme-img--dark {
+  display: none;
+}
+
+html[data-theme="light"] .featured-strip-theme-img--light {
+  display: block;
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme]) .featured-strip-theme-img--dark {
+    display: none;
+  }
+
+  html:not([data-theme]) .featured-strip-theme-img--light {
+    display: block;
+  }
+}
+
+@keyframes featuredStripMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (max-width: 767.98px) {
   .featured-strip-badge img {
     height: 26px;
     max-width: 210px;
   }
-  .featured-strip-track {
-    justify-content: flex-start;
-    width: max-content;
-    flex-wrap: nowrap;
+
+  .featured-strip-badge-betterlaunch img {
+    width: 172px;
+    height: auto;
+    max-width: none;
+  }
+
+  .featured-strip-track-wrap {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .featured-strip-group {
     padding-bottom: 0.2rem;
   }
 }
@@ -88,5 +165,16 @@
   .featured-strip-badge {
     background: transparent;
     border: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured-strip-track {
+    animation: none;
+    transform: none;
+  }
+
+  .featured-strip-group[aria-hidden="true"] {
+    display: none;
   }
 }
