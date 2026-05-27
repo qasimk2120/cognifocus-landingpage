@@ -29,6 +29,15 @@ export function initAttentionSpiralsCarousel() {
     `${autoScrollDelay}ms`,
   );
 
+  function restartActiveProgressFill() {
+    const activeDot = dots[activeIndex];
+    if (!activeDot || !controls?.classList.contains("is-autoplaying")) return;
+
+    activeDot.classList.remove("is-progressing");
+    activeDot.offsetWidth;
+    activeDot.classList.add("is-progressing");
+  }
+
   function getActiveIndex() {
     const carouselCenter = carousel.scrollLeft + carousel.clientWidth / 2;
 
@@ -45,7 +54,9 @@ export function initAttentionSpiralsCarousel() {
   }
 
   function setActiveIndex(index) {
-    activeIndex = Math.max(0, Math.min(index, cards.length - 1));
+    const nextActiveIndex = Math.max(0, Math.min(index, cards.length - 1));
+    const didChange = nextActiveIndex !== activeIndex;
+    activeIndex = nextActiveIndex;
 
     previousButton.disabled = activeIndex === 0;
     nextButton.disabled = activeIndex === cards.length - 1;
@@ -53,12 +64,15 @@ export function initAttentionSpiralsCarousel() {
     dots.forEach((dot, dotIndex) => {
       const isActive = dotIndex === activeIndex;
       dot.classList.toggle("is-active", isActive);
+      if (!isActive) dot.classList.remove("is-progressing");
       dot.setAttribute("aria-current", isActive ? "true" : "false");
       dot.setAttribute(
         "aria-label",
         `Show attention spiral ${dotIndex + 1}`,
       );
     });
+
+    if (didChange) restartActiveProgressFill();
   }
 
   function scrollToCard(index) {
@@ -116,6 +130,7 @@ export function initAttentionSpiralsCarousel() {
       scrollToCard(nextIndex);
     }, autoScrollDelay);
     controls?.classList.add("is-autoplaying");
+    restartActiveProgressFill();
   }
 
   function pauseAutoScrollForInteraction() {

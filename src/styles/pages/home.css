@@ -3108,7 +3108,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
 }
 
 .attention-spirals-carousel-controls.is-autoplaying
-  .attention-spirals-carousel-dot.is-active::before {
+  .attention-spirals-carousel-dot.is-active.is-progressing::before {
   animation: attentionSpiralsProgressFill
     var(--attention-spirals-progress-duration, 3400ms) linear forwards;
 }
