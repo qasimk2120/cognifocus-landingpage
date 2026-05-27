@@ -34,6 +34,14 @@ export function initGoblinBehaviorCards() {
   let autoScrollTimer = null;
   let resumeAutoScrollTimer = null;
   let isPointerActive = false;
+  let isCarouselVisible = false;
+
+  const controls = previousButton.closest(".goblin-cards-carousel-controls");
+  const section = carousel.closest("section") || carousel;
+  controls?.style.setProperty(
+    "--goblin-carousel-progress-duration",
+    `${autoScrollDelay}ms`,
+  );
 
   function getActiveIndex() {
     const carouselCenter = carousel.scrollLeft + carousel.clientWidth / 2;
@@ -71,12 +79,14 @@ export function initGoblinBehaviorCards() {
       window.clearInterval(autoScrollTimer);
       autoScrollTimer = null;
     }
+    controls?.classList.remove("is-autoplaying");
   }
 
   function startAutoScroll() {
     if (
       prefersReducedMotion ||
       !mobileCarouselQuery.matches ||
+      !isCarouselVisible ||
       autoScrollTimer ||
       cardList.length < 2
     ) {
@@ -89,6 +99,7 @@ export function initGoblinBehaviorCards() {
       const nextIndex = (getActiveIndex() + 1) % cardList.length;
       scrollToCard(nextIndex);
     }, autoScrollDelay);
+    controls?.classList.add("is-autoplaying");
   }
 
   function pauseAutoScrollForInteraction() {
@@ -164,5 +175,24 @@ export function initGoblinBehaviorCards() {
     startAutoScroll();
   });
   syncCarouselState();
-  startAutoScroll();
+
+  if ("IntersectionObserver" in window) {
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isCarouselVisible = entry.isIntersecting;
+        if (isCarouselVisible) {
+          syncCarouselState();
+          startAutoScroll();
+        } else {
+          stopAutoScroll();
+        }
+      },
+      { rootMargin: "0px 0px -18% 0px", threshold: 0.28 },
+    );
+
+    visibilityObserver.observe(section);
+  } else {
+    isCarouselVisible = true;
+    startAutoScroll();
+  }
 }

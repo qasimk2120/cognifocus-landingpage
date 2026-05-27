@@ -440,10 +440,13 @@
 }
 
 
-.vacuum-app-icon i {
+.vacuum-app-icon i,
+.vacuum-app-icon svg {
   position: relative;
   display: block;
   color: #ffffff;
+  width: 2rem;
+  height: 2rem;
   font-size: 2rem;
   line-height: 1;
   filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.26));
@@ -509,6 +512,7 @@
     linear-gradient(45deg, transparent 45%, #ff526a 46% 54%, transparent 55%),
     linear-gradient(-45deg, transparent 45%, #ff526a 46% 54%, transparent 55%);
   filter: drop-shadow(0 0 10px rgba(255, 82, 106, 0.48));
+  z-index: 2;
 }
 
 
@@ -1517,7 +1521,10 @@
     border-radius: 17px;
   }
 
-  .vacuum-app-icon i {
+  .vacuum-app-icon i,
+  .vacuum-app-icon svg {
+    width: clamp(1.45rem, 5vw, 1.72rem);
+    height: clamp(1.45rem, 5vw, 1.72rem);
     font-size: clamp(1.45rem, 5vw, 1.72rem);
   }
 }
@@ -1549,7 +1556,10 @@
     font-size: 0.76rem;
   }
 
-  .vacuum-app-icon i {
+  .vacuum-app-icon i,
+  .vacuum-app-icon svg {
+    width: 1.72rem;
+    height: 1.72rem;
     font-size: 1.72rem;
   }
 
@@ -1682,7 +1692,10 @@
     font-size: 0.76rem;
   }
 
-  .vacuum-app-icon i {
+  .vacuum-app-icon i,
+  .vacuum-app-icon svg {
+    width: 1.72rem;
+    height: 1.72rem;
     font-size: 1.72rem;
   }
 
@@ -2310,7 +2323,10 @@
     padding: 5px !important;
   }
 
-  .vacuum-app-icon i {
+  .vacuum-app-icon i,
+  .vacuum-app-icon svg {
+    width: 1.48rem !important;
+    height: 1.48rem !important;
     font-size: 1.48rem !important;
   }
 
@@ -2383,7 +2399,10 @@
     padding: 5px !important;
   }
 
-  .vacuum-app-icon i {
+  .vacuum-app-icon i,
+  .vacuum-app-icon svg {
+    width: 1.58rem !important;
+    height: 1.58rem !important;
     font-size: 1.58rem !important;
   }
 
@@ -3086,7 +3105,12 @@ html[data-theme="light"] .reaction-carousel-arrow {
 
 .attention-spirals-carousel-dot.is-active::before {
   transform: scaleX(1);
-  animation: attentionSpiralsProgressFill 4.5s linear forwards;
+}
+
+.attention-spirals-carousel-controls.is-autoplaying
+  .attention-spirals-carousel-dot.is-active::before {
+  animation: attentionSpiralsProgressFill
+    var(--attention-spirals-progress-duration, 3400ms) linear forwards;
 }
 .attention-spiral-card {
   position: relative;
@@ -3204,7 +3228,10 @@ html[data-theme="light"] .reaction-carousel-arrow {
     0 14px 30px rgba(0, 0, 0, 0.28),
     0 0 24px rgba(var(--cf-cyan-rgb), 0.16);
 }
-.spiral-icon i {
+.spiral-icon i,
+.spiral-icon svg {
+  width: 1.45rem;
+  height: 1.45rem;
   font-size: 1.45rem;
   line-height: 1;
   filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.28));
@@ -3472,75 +3499,6 @@ html[data-theme="light"] .reaction-carousel-arrow {
   }
   .attention-spiral-card p {
     color: var(--cf-light-muted);
-
-@media (max-width: 767.98px) {
-  .attention-spirals-grid {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    grid-template-columns: none !important;
-    align-items: stretch;
-    gap: 0.85rem !important;
-    width: 100vw;
-    max-width: none;
-    margin-inline: calc(50% - 50vw) !important;
-    margin-top: 1rem;
-    padding-inline: max(24px, 7.5vw);
-    padding-bottom: 0.65rem;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    overscroll-behavior-x: contain;
-    scroll-padding-inline: max(24px, 7.5vw);
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .attention-spirals-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .attention-spirals-grid > .attention-spiral-card {
-    flex: 0 0 min(84vw, 320px) !important;
-    width: min(84vw, 320px) !important;
-    max-width: min(84vw, 320px) !important;
-    scroll-snap-align: center;
-    scroll-snap-stop: always;
-  }
-
-  .attention-spirals-carousel-controls {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 0.75rem;
-    width: min(100%, 340px);
-    margin: 0.85rem auto 0;
-  }
-
-  .attention-spirals-carousel-bar {
-    display: block;
-    flex: 1 1 auto;
-    height: 8px;
-    border-radius: 999px;
-    overflow: hidden;
-    background: rgba(var(--cf-cyan-rgb), 0.12);
-    box-shadow: inset 0 0 0 1px rgba(var(--cf-cyan-rgb), 0.08);
-  }
-
-  .attention-spirals-carousel-bar-fill {
-    display: block;
-    width: 100%;
-    height: 100%;
-    border-radius: inherit;
-    background: linear-gradient(
-      90deg,
-      rgba(var(--cf-cyan-rgb), 0.42),
-      rgba(var(--cf-mint-rgb), 0.74)
-    );
-    transform-origin: left center;
-    transform: scaleX(var(--attention-spirals-carousel-progress, 0.18));
-  }
-}
   }
   .spiral-icon {
     border-color: rgba(var(--cf-cyan-rgb), 0.24);
@@ -3934,7 +3892,12 @@ html[data-theme="light"] .reaction-carousel-arrow {
 
 .goblin-cards-carousel-dot.is-active::before {
   transform: scaleX(1);
-  animation: goblinCarouselProgressFill 4.5s linear forwards;
+}
+
+.goblin-cards-carousel-controls.is-autoplaying
+  .goblin-cards-carousel-dot.is-active::before {
+  animation: goblinCarouselProgressFill
+    var(--goblin-carousel-progress-duration, 3200ms) linear forwards;
 }
 
 
@@ -5632,6 +5595,8 @@ html[data-theme="light"] .reaction-carousel-arrow {
   }
 
   .vacuum-app-icon,
+  .vacuum-cross,
+  .vacuum-goblin-success,
   .spiral-icon,
   .spiral-chip,
   .spiral-icon-orbit,
@@ -5643,6 +5608,13 @@ html[data-theme="light"] .reaction-carousel-arrow {
   .progress-diamond-chip {
     animation-duration: 8s !important;
     animation-timing-function: ease-in-out !important;
+  }
+
+  .vacuum-app-icon,
+  .vacuum-cross,
+  .vacuum-goblin-success {
+    animation-duration: 12s !important;
+    will-change: transform, opacity;
   }
 
   .reaction-goblin-face,

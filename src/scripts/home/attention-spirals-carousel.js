@@ -17,6 +17,17 @@ export function initAttentionSpiralsCarousel() {
   let autoScrollTimer = null;
   let resumeAutoScrollTimer = null;
   let isPointerActive = false;
+  let scrollRafId = null;
+  let programmaticScrollTimer = null;
+  let activeIndex = 0;
+  let isCarouselVisible = false;
+
+  const controls = previousButton.closest(".attention-spirals-carousel-controls");
+  const section = carousel.closest("section") || carousel;
+  controls?.style.setProperty(
+    "--attention-spirals-progress-duration",
+    `${autoScrollDelay}ms`,
+  );
 
   function getActiveIndex() {
     const carouselCenter = carousel.scrollLeft + carousel.clientWidth / 2;
@@ -33,13 +44,41 @@ export function initAttentionSpiralsCarousel() {
     }, 0);
   }
 
+  function setActiveIndex(index) {
+    activeIndex = Math.max(0, Math.min(index, cards.length - 1));
+
+    previousButton.disabled = activeIndex === 0;
+    nextButton.disabled = activeIndex === cards.length - 1;
+
+    dots.forEach((dot, dotIndex) => {
+      const isActive = dotIndex === activeIndex;
+      dot.classList.toggle("is-active", isActive);
+      dot.setAttribute("aria-current", isActive ? "true" : "false");
+      dot.setAttribute(
+        "aria-label",
+        `Show attention spiral ${dotIndex + 1}`,
+      );
+    });
+  }
+
   function scrollToCard(index) {
-    const targetCard = cards[Math.max(0, Math.min(index, cards.length - 1))];
+    const targetIndex = Math.max(0, Math.min(index, cards.length - 1));
+    const targetCard = cards[targetIndex];
     if (!targetCard) return;
 
     const left =
       targetCard.offsetLeft -
       (carousel.clientWidth - targetCard.offsetWidth) / 2;
+
+    setActiveIndex(targetIndex);
+
+    if (programmaticScrollTimer) {
+      window.clearTimeout(programmaticScrollTimer);
+    }
+    programmaticScrollTimer = window.setTimeout(() => {
+      programmaticScrollTimer = null;
+      setActiveIndex(getActiveIndex());
+    }, 720);
 
     carousel.scrollTo({
       left,
@@ -48,20 +87,7 @@ export function initAttentionSpiralsCarousel() {
   }
 
   function syncCarouselState() {
-    const activeIndex = getActiveIndex();
-
-    previousButton.disabled = activeIndex === 0;
-    nextButton.disabled = activeIndex === cards.length - 1;
-
-    dots.forEach((dot, index) => {
-      const isActive = index === activeIndex;
-      dot.classList.toggle("is-active", isActive);
-      dot.setAttribute("aria-current", isActive ? "true" : "false");
-      dot.setAttribute(
-        "aria-label",
-        `Show attention spiral ${index + 1}`,
-      );
-    });
+    setActiveIndex(getActiveIndex());
   }
 
   function stopAutoScroll() {
@@ -69,12 +95,14 @@ export function initAttentionSpiralsCarousel() {
       window.clearInterval(autoScrollTimer);
       autoScrollTimer = null;
     }
+    controls?.classList.remove("is-autoplaying");
   }
 
   function startAutoScroll() {
     if (
       prefersReducedMotion ||
       !mobileCarouselQuery.matches ||
+      !isCarouselVisible ||
       autoScrollTimer ||
       cards.length < 2
     ) {
@@ -87,6 +115,7 @@ export function initAttentionSpiralsCarousel() {
       const nextIndex = (getActiveIndex() + 1) % cards.length;
       scrollToCard(nextIndex);
     }, autoScrollDelay);
+    controls?.classList.add("is-autoplaying");
   }
 
   function pauseAutoScrollForInteraction() {
@@ -139,7 +168,12 @@ export function initAttentionSpiralsCarousel() {
   carousel.addEventListener("focusin", pauseAutoScrollForInteraction);
 
   carousel.addEventListener("scroll", () => {
-    window.requestAnimationFrame(syncCarouselState);
+    if (programmaticScrollTimer || scrollRafId) return;
+
+    scrollRafId = window.requestAnimationFrame(() => {
+      scrollRafId = null;
+      syncCarouselState();
+    });
   });
 
   window.addEventListener("resize", syncCarouselState);
@@ -149,5 +183,24 @@ export function initAttentionSpiralsCarousel() {
   });
 
   syncCarouselState();
-  startAutoScroll();
+
+  if ("IntersectionObserver" in window) {
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        isCarouselVisible = entry.isIntersecting;
+        if (isCarouselVisible) {
+          syncCarouselState();
+          startAutoScroll();
+        } else {
+          stopAutoScroll();
+        }
+      },
+      { rootMargin: "0px 0px -18% 0px", threshold: 0.28 },
+    );
+
+    visibilityObserver.observe(section);
+  } else {
+    isCarouselVisible = true;
+    startAutoScroll();
+  }
 }
