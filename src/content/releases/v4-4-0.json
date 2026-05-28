@@ -2,7 +2,7 @@
   "title": "Progression Feels Better Every Session (v4.4.0)",
   "version": "4.4.0",
   "slug": "v4-4-0",
-  "summary": "CogniFocus now gives a clearer focus progression system with smoother XP, live Diamonds rewards, and clearer Google sign-in and backup status across daily sessions.",
+  "summary": "CogniFocus now gives a clearer focus progression system with smoother XP, live Focus Shard rewards, and clearer Google sign-in and backup status across daily sessions.",
   "type": "app",
   "category": "app",
   "tags": [
@@ -11,20 +11,20 @@
   ],
   "highlights": [
     "Clearer XP progression and level feedback so your focus progress is easier to understand at a glance",
-    "Diamonds are now live, including milestone rewards and tier bonuses for Pro and Limitless users",
-    "Rewards now feel more connected across streaks, XP, and Diamonds after each session"
+    "Focus Shards are now live, including milestone rewards and tier bonuses for Pro and Limitless users",
+    "Rewards now feel more connected across streaks, XP, and Focus Shards after each session"
   ],
   "fixes": [],
   "improvements": [
     "Google sign-in and backup status are now easier to understand, including delayed sync updates while you're offline",
     "Settings received a cleaner footer and social layout, plus better mobile polish",
     "Local Dev Tools behavior is more stable when cloud sync is temporarily unavailable",
-    "Character and perk unlocks tied to Diamonds are planned for upcoming updates"
+    "Character and perk unlocks tied to Focus Shards are planned for upcoming updates"
   ],
   "notes": [],
   "publishedAt": "2026-04-30",
   "featured": false,
-  "bodyMarkdown": "## Highlights\n\n- Clearer XP progression and level feedback so your focus progress is easier to understand at a glance\n- Diamonds are now live, including milestone rewards and tier bonuses for Pro and Limitless users\n- Rewards now feel more connected across streaks, XP, and Diamonds after each session\n\n## Improvements\n\n- Google sign-in and backup status are now easier to understand, including delayed sync updates while you're offline\n- Settings received a cleaner footer and social layout, plus better mobile polish\n- Local Dev Tools behavior is more stable when cloud sync is temporarily unavailable\n- Character and perk unlocks tied to Diamonds are planned for upcoming updates\n\n## Why this matters\n\nProgression Feels Better Every Session (v4.4.0) is one of those tidy-up releases that does not need a parade, but it still helps the app feel less fussy. Small fixes matter here because CogniFocus is supposed to get out of your way fast. Tap in, start the thing, dodge the scroll spiral, continue your tiny heroic quest. That is the whole deal.\n\n- Clearer XP progression and level feedback so your focus progress is easier to understand at a glance gets a little more room to breathe.\n- Diamonds are now live, including milestone rewards and tier bonuses for Pro and Limitless users gets a little more room to breathe.\n- Rewards now feel more connected across streaks, XP, and Diamonds after each session gets a little more room to breathe.\n- Google sign-in and backup status are now easier to understand, including delayed sync updates while you're offline gets a little more room to breathe.\n\nSo yes, this is a smaller note. The point is still real: fewer weird little moments, clearer feedback, and less friction between you and the session you meant to start. The Goblin may still be dramatic about it, obviously, but the app should feel calmer where it counts.",
+  "bodyMarkdown": "## Highlights\n\n- Clearer XP progression and level feedback so your focus progress is easier to understand at a glance\n- Focus Shards are now live, including milestone rewards and tier bonuses for Pro and Limitless users\n- Rewards now feel more connected across streaks, XP, and Focus Shards after each session\n\n## Improvements\n\n- Google sign-in and backup status are now easier to understand, including delayed sync updates while you're offline\n- Settings received a cleaner footer and social layout, plus better mobile polish\n- Local Dev Tools behavior is more stable when cloud sync is temporarily unavailable\n- Character and perk unlocks tied to Focus Shards are planned for upcoming updates\n\n## Why this matters\n\nProgression Feels Better Every Session (v4.4.0) is one of those tidy-up releases that does not need a parade, but it still helps the app feel less fussy. Small fixes matter here because CogniFocus is supposed to get out of your way fast. Tap in, start the thing, dodge the scroll spiral, continue your tiny heroic quest. That is the whole deal.\n\n- Clearer XP progression and level feedback so your focus progress is easier to understand at a glance gets a little more room to breathe.\n- Focus Shards are now live, including milestone rewards and tier bonuses for Pro and Limitless users gets a little more room to breathe.\n- Rewards now feel more connected across streaks, XP, and Focus Shards after each session gets a little more room to breathe.\n- Google sign-in and backup status are now easier to understand, including delayed sync updates while you're offline gets a little more room to breathe.\n\nSo yes, this is a smaller note. The point is still real: fewer weird little moments, clearer feedback, and less friction between you and the session you meant to start. The Goblin may still be dramatic about it, obviously, but the app should feel calmer where it counts.",
   "canonical": "https://cognifocus.app/whats-new/v4-4-0.html",
   "createdAt": "2026-04-30T09:00:00.000Z",
   "createdBy": "cms-content-migration",

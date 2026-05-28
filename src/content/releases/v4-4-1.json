@@ -2,7 +2,7 @@
   "title": "What's New (v4.4.1)",
   "version": "4.4.1",
   "slug": "v4-4-1",
-  "summary": "XP and level progression are clearer, Diamonds rewards are live, session rewards feel better, backup status messaging is improved, and Settings is more polished on mobile.",
+  "summary": "XP and level progression are clearer, Focus Shard rewards are live, session rewards feel better, backup status messaging is improved, and Settings is more polished on mobile.",
   "type": "app",
   "category": "app",
   "tags": [
@@ -11,7 +11,7 @@
   ],
   "highlights": [
     "XP and level progress now feel clearer and smoother",
-    "Diamonds are now live with milestone and tier rewards",
+    "Focus Shards are now live with milestone and tier rewards",
     "Session reward moments are cleaner and more satisfying"
   ],
   "fixes": [],
@@ -23,7 +23,7 @@
   "notes": [],
   "publishedAt": "2026-05-01",
   "featured": false,
-  "bodyMarkdown": "## Highlights\n\n- XP and level progress now feel clearer and smoother\n- Diamonds are now live with milestone and tier rewards\n- Session reward moments are cleaner and more satisfying\n\n## Improvements\n\n- Google sign-in and backup status are now easier to understand\n- You now get clearer offline backup status messages\n- Settings got a cleaner, more polished mobile layout\n\n## Why this matters\n\nWhat's New (v4.4.1) is one of those tidy-up releases that does not need a parade, but it still helps the app feel less fussy. Small fixes matter here because CogniFocus is supposed to get out of your way fast. Tap in, start the thing, dodge the scroll spiral, continue your tiny heroic quest. That is the whole deal.\n\n- XP and level progress now feel clearer and smoother gets a little more room to breathe.\n- Diamonds are now live with milestone and tier rewards gets a little more room to breathe.\n- Session reward moments are cleaner and more satisfying gets a little more room to breathe.\n- Google sign-in and backup status are now easier to understand gets a little more room to breathe.\n\nSo yes, this is a smaller note. The point is still real: fewer weird little moments, clearer feedback, and less friction between you and the session you meant to start. The Goblin may still be dramatic about it, obviously, but the app should feel calmer where it counts.",
+  "bodyMarkdown": "## Highlights\n\n- XP and level progress now feel clearer and smoother\n- Focus Shards are now live with milestone and tier rewards\n- Session reward moments are cleaner and more satisfying\n\n## Improvements\n\n- Google sign-in and backup status are now easier to understand\n- You now get clearer offline backup status messages\n- Settings got a cleaner, more polished mobile layout\n\n## Why this matters\n\nWhat's New (v4.4.1) is one of those tidy-up releases that does not need a parade, but it still helps the app feel less fussy. Small fixes matter here because CogniFocus is supposed to get out of your way fast. Tap in, start the thing, dodge the scroll spiral, continue your tiny heroic quest. That is the whole deal.\n\n- XP and level progress now feel clearer and smoother gets a little more room to breathe.\n- Focus Shards are now live with milestone and tier rewards gets a little more room to breathe.\n- Session reward moments are cleaner and more satisfying gets a little more room to breathe.\n- Google sign-in and backup status are now easier to understand gets a little more room to breathe.\n\nSo yes, this is a smaller note. The point is still real: fewer weird little moments, clearer feedback, and less friction between you and the session you meant to start. The Goblin may still be dramatic about it, obviously, but the app should feel calmer where it counts.",
   "canonical": "https://cognifocus.app/whats-new/v4-4-1.html",
   "createdAt": "2026-05-01T09:00:00.000Z",
   "createdBy": "cms-content-migration",

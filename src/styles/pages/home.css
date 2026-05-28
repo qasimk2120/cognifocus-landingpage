@@ -4435,7 +4435,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
 
 .progress-graph-line,
 .progress-xp-chip,
-.progress-diamond-chip {
+.progress-shard-chip {
   position: absolute;
   display: inline-flex;
   align-items: center;
@@ -4482,7 +4482,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
 }
 
 
-.progress-diamond-chip {
+.progress-shard-chip {
   right: 17%;
   bottom: 10%;
   gap: 0.35rem;
@@ -4498,8 +4498,15 @@ html[data-theme="light"] .reaction-carousel-arrow {
 }
 
 
-.progress-diamond-chip i,
-.progress-diamond-chip span {
+.progress-shard-chip img {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(var(--cf-cyan-rgb), 0.18));
+}
+
+
+.progress-shard-chip span {
   font-size: 0.92rem;
   font-weight: 800;
 }
@@ -4574,7 +4581,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   }
 
   .progress-xp-chip,
-  .progress-diamond-chip {
+  .progress-shard-chip {
     min-width: 54px;
     min-height: 32px;
     font-size: 0.82rem;
@@ -4650,7 +4657,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   }
 
   .progress-xp-chip,
-  .progress-diamond-chip {
+  .progress-shard-chip {
     min-width: 50px;
     min-height: 30px;
     padding-inline: 0.55rem;
@@ -4795,7 +4802,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
       0 0 16px rgba(106, 191, 60, 0.12);
   }
 
-  .progress-diamond-chip {
+  .progress-shard-chip {
     box-shadow:
       0 12px 26px rgba(var(--cf-light-shadow-rgb), 0.12),
       0 0 16px rgba(var(--cf-cyan-rgb), 0.12);
@@ -4877,7 +4884,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   .success-spark,
   .progress-graph-line,
   .progress-xp-chip,
-  .progress-diamond-chip {
+  .progress-shard-chip {
     animation: none;
   }
 
@@ -5575,7 +5582,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   .goblin-shield-feature,
   .progress-graph-line,
   .progress-xp-chip,
-  .progress-diamond-chip,
+  .progress-shard-chip,
   .recovery-session-chip {
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
@@ -5605,7 +5612,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   .goblin-shield-feature,
   .progress-graph-line,
   .progress-xp-chip,
-  .progress-diamond-chip {
+  .progress-shard-chip {
     animation-duration: 8s !important;
     animation-timing-function: ease-in-out !important;
   }
@@ -5669,7 +5676,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   .goblin-shield-feature,
   .progress-graph-line,
   .progress-xp-chip,
-  .progress-diamond-chip {
+  .progress-shard-chip {
     animation: none !important;
   }
 
@@ -5707,7 +5714,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   .success-spark,
   .progress-graph-line,
   .progress-xp-chip,
-  .progress-diamond-chip,
+  .progress-shard-chip,
   .goblin-shield-avatar,
   .goblin-shield-feature,
   .tap-hint {
