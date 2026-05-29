@@ -1,0 +1,22 @@
+{
+  "name": "CogniFocus",
+  "short_name": "CogniFocus",
+  "description": "Focus timer and app blocker with Goblin companion reactions.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#060a13",
+  "theme_color": "#060a13",
+  "icons": [
+    {
+      "src": "/assets/logo/app-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logo/app-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

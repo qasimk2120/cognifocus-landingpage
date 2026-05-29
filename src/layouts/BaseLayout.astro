@@ -54,8 +54,9 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
     <meta name="robots" content={robots} />
     <slot name="head-after-robots" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/png" href={`${assetBase}/logo/app-logo.png`} />
-    <link rel="apple-touch-icon" href={`${assetBase}/logo/app-logo.png`} />
+    <link rel="icon" type="image/png" href={`/${assetBase}/logo/app-logo.png`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`/${assetBase}/logo/app-logo.png`} />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="color-scheme" content="dark light" />
     <script is:inline>
       const THEME_STORAGE_KEY = "cognifocus-theme";
@@ -110,9 +111,27 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
     <slot name="head-after-social" />
 
     <slot name="head-before-base-styles" />
-    {stylesheetsBeforeBase.map((href) => <link rel="stylesheet" href={href} />)}
-    <link rel="stylesheet" href={baseStylesheet} />
-    {stylesheets.map((href) => <link rel="stylesheet" href={href} />)}
+    {
+      stylesheetsBeforeBase.map((href) => (
+        <>
+          <link rel="preload" as="style" href={href} />
+          <link rel="stylesheet" href={href} media="print" onload="this.media='all'" />
+          <noscript><link rel="stylesheet" href={href} /></noscript>
+        </>
+      ))
+    }
+    <link rel="preload" as="style" href={baseStylesheet} />
+    <link rel="stylesheet" href={baseStylesheet} media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href={baseStylesheet} /></noscript>
+    {
+      stylesheets.map((href) => (
+        <>
+          <link rel="preload" as="style" href={href} />
+          <link rel="stylesheet" href={href} media="print" onload="this.media='all'" />
+          <noscript><link rel="stylesheet" href={href} /></noscript>
+        </>
+      ))
+    }
     <script>
       import "../scripts/entries/shared.js";
     </script>

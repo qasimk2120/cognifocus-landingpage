@@ -37,6 +37,9 @@
 }
 
 .cf-nav__logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
   flex: 0 0 120px;
 }
 
@@ -55,6 +58,10 @@
 }
 
 .cf-nav__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 8px;
   font-size: 14px;
   color: var(--cf-text-secondary);
   transition: color var(--cf-transition);
@@ -119,7 +126,12 @@
 .cf-mobile-menu__mobile-link {
   display: inline-flex;
   align-items: center;
+  min-height: 48px;
   gap: 8px;
+}
+
+.cf-nav__cta {
+  min-height: 48px;
 }
 
 .cf-nav__soon-badge {
@@ -366,6 +378,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: var(--cf-launch-banner-height);
   gap: 8px;
   font-size: 13px;
   line-height: 1.2;
@@ -410,6 +423,10 @@
 
 .cf-launch-banner__link {
   position: absolute;
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 6px;
   right: var(--cf-space-lg);
   color: var(--cf-cyan);
   font-weight: 500;
@@ -443,6 +460,8 @@
 
 .cf-launch-banner__ios {
   display: none;
+  align-items: center;
+  min-height: 48px;
   color: var(--cf-text-secondary);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -474,6 +493,8 @@
   .cf-launch-banner__link {
     position: static;
     display: inline-flex;
+    align-items: center;
+    min-height: 48px;
     flex: 0 0 auto;
     margin-left: auto;
     font-size: 12px;
