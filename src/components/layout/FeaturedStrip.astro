@@ -220,6 +220,34 @@ const badges = [
       height: "54",
     },
   },
+  {
+    href: "https://www.tinystartups.com/startup/cognifocus",
+    label: "Launched on Tiny Startups",
+    title: "CogniFocus - Launched on Tiny Startups",
+    className: "featured-strip-badge-tinystartups",
+    isHTML: true,
+    html: `<svg width="56" height="56" viewBox="0 0 100 100">
+    <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="#ffffff"/>
+  </svg>
+  <span style="display:flex;flex-direction:column;line-height:1.15">
+    <span style="font-family:monospace;font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.75)">Launched on</span>
+    <span style="font-size:22px;font-weight:800;letter-spacing:-0.025em;color:#fff">Tiny Startups</span>
+    <span style="font-size:11px;color:rgba(255,255,255,0.75);margin-top:4px">tinystartups.com</span>
+  </span>`,
+  },
+  {
+    href: "https://tools.launchllama.co?utm_source=badge&utm_medium=referral",
+    label: "CogniFocus on LaunchLlama",
+    title: "CogniFocus on LaunchLlama",
+    className: "featured-strip-badge-launchllama",
+    img: {
+      src: "https://tools.launchllama.co/badge.svg",
+      alt: "Featured on LaunchLlama",
+      title: "Featured on LaunchLlama",
+      width: "200",
+      height: "54",
+    },
+  },
 ];
 ---
 
@@ -237,8 +265,11 @@ const badges = [
               title={badge.title}
               class:list={["featured-strip-badge", badge.className]}
               aria-label={badge.label}
+              style={badge.isHTML ? "display:inline-flex;align-items:center;gap:14px;padding:16px 24px 16px 20px;border-radius:14px;background:linear-gradient(135deg,#3525E6,#D81FE0,#22B8F0);text-decoration:none;font-family:'Inter',system-ui,sans-serif" : undefined}
             >
-              {badge.picture ? (
+              {badge.isHTML ? (
+                <Fragment set:html={badge.html} />
+              ) : badge.picture ? (
                 <picture>
                   <source media="(prefers-color-scheme: light)" srcset={badge.picture.lightSrc} />
                   <img
