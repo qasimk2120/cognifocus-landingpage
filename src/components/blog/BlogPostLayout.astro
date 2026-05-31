@@ -93,11 +93,9 @@ const panelClass =
   <script slot="head-after-social" type="application/ld+json" set:html={JSON.stringify(webPageSchema)}></script>
   <link slot="head-after-social" rel="preconnect" href="https://fonts.googleapis.com" />
   <link slot="head-after-social" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    slot="head-after-social"
-    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
-    rel="stylesheet"
-  />
+  <link slot="head-after-social" rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap" />
+  <link slot="head-after-social" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript slot="head-after-social"><link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap" rel="stylesheet" /></noscript>
   <main class="container py-5 seo-guide-main blog-post-main">
     <article class={panelClass}>
       <nav class="blog-breadcrumb" aria-label="Breadcrumb">
@@ -107,7 +105,7 @@ const panelClass =
 
       <span class="feature-kicker">{post.category}</span>
       <h1 class="hero-heading mt-3">{post.articleTitle}</h1>
-      {post.displayDate && <p class="blog-meta mb-3">Published {post.displayDate}</p>}
+      {post.displayDate && <p class="blog-meta mb-3">Published {post.displayDate} &middot; <a href="/about.html">Qasim Khan</a>, Founder of CogniFocus</p>}
 
       {/* Trusted build-time article HTML generated from CMS markdown or legacy HTML. */}
       <Fragment set:html={post.bodyHtml} />

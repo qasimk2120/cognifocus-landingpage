@@ -20,7 +20,14 @@ const { category } = Astro.props;
 const posts = await getPostsByCategory(category.slug);
 const pagePosts = getPageSlice(posts, 1, BLOG_PAGE_SIZE);
 const title = `${category.label} | CogniFocus Blog`;
-const description = `CogniFocus ${category.label.toLowerCase()} articles about focus sessions, app blocking, distraction recovery, and better Android focus habits.`;
+const categoryDescriptions: Record<string, string> = {
+  "app-blocking": "Step-by-step guides to blocking Instagram, TikTok, YouTube, and Reddit on Android — so your CogniFocus Shield actually works.",
+  "product-comparisons": "See how CogniFocus compares to Forest, AppBlock, Freedom, Stay Focused, and OneSec — with honest side-by-sides.",
+  "adhd-friendly-focus": "App blocker and focus timer guides written for ADHD brains — short sessions, Goblin accountability, and patterns that actually stick.",
+  "focus-guides": "Practical guides for staying focused on Android — from stopping doomscrolling to building a focus habit that doesn't collapse after one distraction.",
+  "study-focus": "Focus timer and app blocking guides for study sessions — block the apps that steal your time before one quick check becomes a lost hour.",
+};
+const description = categoryDescriptions[category.slug] ?? `CogniFocus ${category.label.toLowerCase()} articles about focus sessions, app blocking, distraction recovery, and better Android focus habits.`;
 const canonical = `https://cognifocus.app${getCategoryPagePath(category.slug)}`;
 const page = {
   currentPage: 1,
