@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agentskills.io/schemas/agent-skills-index-v0.2.json",
+  "skills": [
+    {
+      "name": "cognifocus-site-discovery",
+      "type": "documentation",
+      "description": "Discover CogniFocus public content, markdown mirrors, and browser-facing support or waitlist endpoints.",
+      "url": "https://cognifocus.app/.well-known/agent-skills/cognifocus-site-discovery.md",
+      "sha256": "0377eb31fb0ba4e0109b7bafc914fefd5ac7ef900a71f399eadd9f4cdd67b1e0"
+    }
+  ]
+}

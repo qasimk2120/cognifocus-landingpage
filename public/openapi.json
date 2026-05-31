@@ -1,0 +1,92 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CogniFocus Public Web API",
+    "version": "1.0.0",
+    "description": "Public endpoints used by the CogniFocus marketing site for support requests and iOS waitlist signup."
+  },
+  "servers": [
+    {
+      "url": "https://europe-west1-cognifocuslandingpage.cloudfunctions.net",
+      "description": "Firebase Cloud Functions"
+    }
+  ],
+  "paths": {
+    "/joinIosWaitlist": {
+      "post": {
+        "operationId": "joinIosWaitlist",
+        "summary": "Join the CogniFocus iOS waitlist",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "source": {
+                    "type": "string"
+                  }
+                },
+                "required": ["email"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Waitlist request accepted."
+          },
+          "400": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    },
+    "/submitSupportRequest": {
+      "post": {
+        "operationId": "submitSupportRequest",
+        "summary": "Submit a CogniFocus support request",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": true,
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "topic": {
+                    "type": "string"
+                  }
+                },
+                "required": ["email", "message"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Support request accepted."
+          },
+          "400": {
+            "description": "Invalid request."
+          }
+        }
+      }
+    }
+  }
+}

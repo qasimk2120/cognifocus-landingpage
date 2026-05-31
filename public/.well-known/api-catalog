@@ -1,0 +1,29 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://cognifocus.app/",
+      "service-desc": [
+        {
+          "href": "https://cognifocus.app/openapi.json",
+          "type": "application/openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://cognifocus.app/llms.txt",
+          "type": "text/plain"
+        },
+        {
+          "href": "https://cognifocus.app/index.md",
+          "type": "text/markdown"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://cognifocus.app/",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}
