@@ -348,6 +348,22 @@
   cursor: wait;
 }
 
+.newsletter-turnstile-modal {
+  z-index: 9100;
+}
+
+.newsletter-turnstile-modal .turnstile-modal__panel {
+  background: linear-gradient(
+    145deg,
+    rgba(var(--cf-surface2-rgb), 0.96),
+    rgba(var(--cf-navy-rgb), 0.96)
+  );
+  border-color: rgba(var(--cf-cyan-rgb), 0.16);
+  box-shadow:
+    0 22px 54px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.05);
+}
+
 /* On very small screens: slide up as a bottom sheet */
 @media (max-width: 479.98px) {
   .newsletter-dialog-backdrop {
@@ -428,4 +444,33 @@
 :is(html[data-theme="light"], html:not([data-theme])) .newsletter-dialog__close:hover {
   color: var(--cf-light-text);
   background: rgba(var(--cf-light-text-rgb), 0.1);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-turnstile-modal {
+  background: rgba(var(--cf-light-shadow-rgb), 0.18);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-turnstile-modal .turnstile-modal__panel {
+  background: linear-gradient(
+    145deg,
+    rgba(var(--cf-light-card-rgb), 0.96),
+    rgba(var(--cf-light-surface-rgb), 0.94)
+  );
+  border-color: rgba(var(--cf-cyan-rgb), 0.18);
+  box-shadow:
+    0 20px 48px rgba(var(--cf-light-shadow-rgb), 0.12),
+    inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.66);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-turnstile-modal .turnstile-modal__close {
+  background: rgba(var(--cf-light-card-rgb), 0.8);
+  color: var(--cf-light-text);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-turnstile-modal .turnstile-modal__panel h2 {
+  color: var(--cf-light-text);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-turnstile-modal .turnstile-modal__panel p {
+  color: var(--cf-light-muted);
 }

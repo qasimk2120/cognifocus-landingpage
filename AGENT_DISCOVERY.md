@@ -6,6 +6,18 @@ CogniFocus is currently served from GitHub Pages behind Cloudflare. GitHub Pages
 
 Create these in Cloudflare Dashboard > Rules > Transform Rules > Response Header Transform Rules.
 
+### Content Security Policy
+
+- Rule name: `Site Content Security Policy`
+- Match expression: `(http.host eq "cognifocus.app")`
+- Operation: `Set static`
+- Header name: `Content-Security-Policy`
+- Value:
+
+```text
+default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://analytics.ahrefs.com https://static.cloudflareinsights.com https://eu-assets.i.posthog.com https://eu.i.posthog.com https://apis.google.com https://www.gstatic.com https://www.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://cognifocus.app https://cdn.jsdelivr.net https://startupfa.st https://www.startupfa.st https://dayslaunch.com https://www.producthunt.com https://api.producthunt.com https://peerpush.net https://startupbenchmarks.com https://cdn.prod.website-files.com https://nicklaunches.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://*.cloudfunctions.net https://*.run.app https://*.firebaseapp.com https://challenges.cloudflare.com https://analytics.ahrefs.com https://cloudflareinsights.com https://europe-west1-cognifocuslandingpage.cloudfunctions.net https://eu.i.posthog.com https://eu-assets.i.posthog.com; frame-src https://challenges.cloudflare.com https://*.firebaseapp.com https://*.google.com https://accounts.google.com; worker-src 'self' blob:; upgrade-insecure-requests
+```
+
 ### Homepage Link header
 
 - Rule name: `Agent discovery Link header`
