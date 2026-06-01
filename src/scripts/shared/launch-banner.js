@@ -13,10 +13,6 @@ export function initLaunchCountdown() {
 
     if (diff <= 0) {
       el.textContent = "\u2014 live now!";
-      if (banner) {
-        banner.style.display = "none";
-        document.documentElement.classList.add("cf-launch-ended");
-      }
       return;
     }
 
