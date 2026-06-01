@@ -100,6 +100,12 @@ export function initIosWaitlistBanner({
     iosWaitlistMessage.hidden = true;
 
     try {
+      const params = new URLSearchParams(window.location.search);
+      const utmSource = params.get("utm_source") || null;
+      const utmMedium = params.get("utm_medium") || null;
+      const utmCampaign = params.get("utm_campaign") || null;
+      const referrer = document.referrer || null;
+
       const response = await fetch(IOS_WAITLIST_ENDPOINT, {
         method: "POST",
         headers: JSON_FETCH_HEADERS,
@@ -108,8 +114,12 @@ export function initIosWaitlistBanner({
           name: iosWaitlistName ? iosWaitlistName.value.trim() : "",
           website,
           turnstileToken,
-          source: "download_page_ios_banner",
+          source: utmSource || "download_page_ios_banner",
           page: "/download.html",
+          utmSource,
+          utmMedium,
+          utmCampaign,
+          referrer,
         }),
       });
 

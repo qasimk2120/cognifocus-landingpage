@@ -1,0 +1,105 @@
+---
+/**
+ * NewsletterStrip — footer-adjacent newsletter capture section.
+ * Appears just above the site footer on every page.
+ *
+ * Email sending is deferred. The backend writes to Firestore only.
+ * See: FUNNEL_ARCHITECTURE.md → Newsletter / Launch Interest
+ */
+---
+
+<section class="newsletter-strip" aria-labelledby="newsletterStripTitle">
+  <div class="newsletter-strip__inner">
+    <div class="newsletter-strip__copy">
+      <p class="newsletter-strip__eyebrow">Rare updates only</p>
+      <h2 id="newsletterStripTitle" class="newsletter-strip__heading">
+        We email slowly. Your attention matters.
+      </h2>
+      <p class="newsletter-strip__sub">
+        Launch milestones, focus experiments, and the occasional Goblin dispatch.
+        Not a weekly newsletter. We email when we have something worth saying.
+      </p>
+    </div>
+
+    <div class="newsletter-strip__form-col">
+      <form
+        id="newsletterStripForm"
+        class="newsletter-strip__form"
+        novalidate
+        aria-label="Newsletter sign-up"
+      >
+        <div class="newsletter-strip__fields">
+          <div class="newsletter-field">
+            <label for="newsletterStripEmail" class="newsletter-field__label">Email</label>
+            <input
+              id="newsletterStripEmail"
+              name="email"
+              type="email"
+              autocomplete="email"
+              inputmode="email"
+              required
+              placeholder="you@example.com"
+              class="newsletter-field__input"
+            />
+          </div>
+
+          <div class="newsletter-field newsletter-field--name">
+            <label for="newsletterStripName" class="newsletter-field__label">
+              Name <span class="newsletter-field__optional">optional</span>
+            </label>
+            <input
+              id="newsletterStripName"
+              name="name"
+              type="text"
+              autocomplete="given-name"
+              placeholder="What should the Goblin call you?"
+              class="newsletter-field__input"
+            />
+          </div>
+        </div>
+
+        {/* Honeypot — hidden from humans, visible to bots */}
+        <div class="newsletter-honeypot" aria-hidden="true">
+          <label for="newsletterStripWebsite">Website</label>
+          <input
+            id="newsletterStripWebsite"
+            name="website"
+            type="text"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="newsletter-consent">
+          <input
+            id="newsletterStripConsent"
+            name="consent"
+            type="checkbox"
+            class="newsletter-consent__checkbox"
+            required
+          />
+          <label for="newsletterStripConsent" class="newsletter-consent__label">
+            Rare focus updates — launch milestones, product experiments, and Goblin dispatches.
+            We email slowly. Unsubscribe anytime.
+          </label>
+        </div>
+
+        <button
+          type="submit"
+          id="newsletterStripSubmit"
+          class="btn newsletter-strip__btn"
+        >
+          <span>Get Updates</span>
+        </button>
+      </form>
+
+      <div
+        id="newsletterStripMessage"
+        class="newsletter-message"
+        role="status"
+        aria-live="polite"
+        hidden
+      ></div>
+    </div>
+  </div>
+</section>

@@ -4,6 +4,8 @@ import Header from "../components/layout/Header.astro";
 import FeaturedStrip from "../components/layout/FeaturedStrip.astro";
 import Footer from "../components/layout/Footer.astro";
 import CookieConsent from "../components/analytics/CookieConsent.astro";
+import NewsletterStrip from "../components/newsletter/NewsletterStrip.astro";
+import NewsletterDialog from "../components/newsletter/NewsletterDialog.astro";
 import siteStylesheet from "../styles/site.css?url";
 import PostHog from "../components/analytics/PostHog.astro";
 
@@ -35,6 +37,7 @@ const {
   launchBannerProps = {},
   headerProps = {},
   showFeaturedStrip = true,
+  showNewsletterStrip = false,
   assetBase = "assets",
   rssHref,
   rssTitle = "CogniFocus Blog RSS",
@@ -136,6 +139,16 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
     <script>
       import "../scripts/entries/shared.js";
     </script>
+    {/*
+      Turnstile — loaded globally with render=explicit so it never auto-renders.
+      Forms call window.turnstile.render(...) explicitly on submit.
+      Required for newsletter strip and dialog which appear on every page.
+    */}
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+      async
+      defer
+    ></script>
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="nA1wJyb7Q7r3Ofb98mlDlg" async></script>
     <slot name="head" />
     <PostHog />
@@ -145,7 +158,12 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
     <Header assetBase={assetBase} {...headerProps} />
     <slot />
     {showFeaturedStrip && <FeaturedStrip {...featuredStripProps} />}
+    {showNewsletterStrip && <NewsletterStrip />}
     <Footer {...footerProps} assetBase={assetBase} />
+    <NewsletterDialog />
     <CookieConsent />
+    <script>
+      import "../scripts/entries/newsletter.js";
+    </script>
   </body>
 </html>

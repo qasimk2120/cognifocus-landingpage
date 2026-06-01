@@ -1,0 +1,148 @@
+---
+/**
+ * NewsletterDialog — delayed opt-in modal.
+ * Shows after 45 seconds if the user hasn't subscribed or dismissed recently.
+ * Controlled entirely by JavaScript (dialog.js + form.js).
+ *
+ * localStorage:
+ *   cognifocus_newsletter_joined           → "true" on join
+ *   cognifocus_newsletter_dialog_dismissed → timestamp on dismiss (suppressed for 7 days)
+ */
+---
+
+{/* Delayed dialog backdrop + panel */}
+<div
+  id="newsletterDialogContainer"
+  class="newsletter-dialog-backdrop"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="newsletterDialogTitle"
+  hidden
+>
+  <div class="newsletter-dialog">
+    <button
+      type="button"
+      id="newsletterDialogClose"
+      class="newsletter-dialog__close"
+      aria-label="Close"
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+
+    <div class="newsletter-dialog__copy">
+      <p class="newsletter-strip__eyebrow">Rare updates only</p>
+      <h2 id="newsletterDialogTitle" class="newsletter-dialog__heading">
+        We email slowly. Your attention matters.
+      </h2>
+      <p class="newsletter-dialog__sub">
+        Launch milestones, focus experiments, and the occasional Goblin dispatch.
+        Not a weekly newsletter.
+      </p>
+    </div>
+
+    <form
+      id="newsletterDialogForm"
+      class="newsletter-dialog__form"
+      novalidate
+      aria-label="Newsletter sign-up"
+    >
+      <div class="newsletter-field">
+        <label for="newsletterDialogEmail" class="newsletter-field__label">Email</label>
+        <input
+          id="newsletterDialogEmail"
+          name="email"
+          type="email"
+          autocomplete="email"
+          inputmode="email"
+          required
+          placeholder="you@example.com"
+          class="newsletter-field__input"
+        />
+      </div>
+
+      {/* Honeypot */}
+      <div class="newsletter-honeypot" aria-hidden="true">
+        <label for="newsletterDialogWebsite">Website</label>
+        <input
+          id="newsletterDialogWebsite"
+          name="website"
+          type="text"
+          tabindex="-1"
+          autocomplete="off"
+        />
+      </div>
+
+      {/* Name is intentionally omitted from dialog to reduce friction */}
+      <input id="newsletterDialogName" name="name" type="hidden" value="" />
+
+      <div class="newsletter-consent">
+        <input
+          id="newsletterDialogConsent"
+          name="consent"
+          type="checkbox"
+          class="newsletter-consent__checkbox"
+          required
+        />
+        <label for="newsletterDialogConsent" class="newsletter-consent__label">
+          Rare focus updates — launch milestones, product experiments, and Goblin dispatches.
+          We email slowly. Unsubscribe anytime.
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        id="newsletterDialogSubmit"
+        class="btn newsletter-dialog__btn"
+      >
+        <span>Get Updates</span>
+      </button>
+    </form>
+
+    <div
+      id="newsletterDialogMessage"
+      class="newsletter-message"
+      role="status"
+      aria-live="polite"
+      hidden
+    ></div>
+  </div>
+</div>
+
+{/* Shared Turnstile verification modal — used by both strip and dialog forms */}
+<aside
+  id="newsletterTurnstileModal"
+  class="turnstile-modal newsletter-turnstile-modal"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="newsletterTurnstileTitle"
+  aria-describedby="newsletterTurnstileBody"
+  hidden
+>
+  <div class="turnstile-modal__panel">
+    <button
+      type="button"
+      id="newsletterTurnstileClose"
+      class="turnstile-modal__close"
+      aria-label="Close verification"
+    >
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M11 3L3 11M3 3l8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <div class="turnstile-modal__copy">
+      <h2 id="newsletterTurnstileTitle">One sec | quick check</h2>
+      <p id="newsletterTurnstileBody">
+        Just making sure you're not a bot. Goblin's watching.
+      </p>
+      <p
+        class="turnstile-modal__message"
+        id="newsletterTurnstileMessage"
+        aria-live="polite"
+        hidden
+      ></p>
+    </div>
+    <div class="turnstile-modal__widget" id="newsletterTurnstileWidget"></div>
+  </div>
+</aside>

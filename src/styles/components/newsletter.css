@@ -1,0 +1,431 @@
+/* ============================================================
+   Newsletter — strip, dialog, shared form elements
+   ============================================================ */
+
+/* ─── Honeypot (always hidden) ─────────────────────────── */
+.newsletter-honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  tab-index: -1;
+}
+
+/* ─── Shared field styles ───────────────────────────────── */
+.newsletter-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.newsletter-field__label {
+  color: var(--cf-text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.newsletter-field__optional {
+  color: var(--cf-text-muted);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.newsletter-field__input {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: var(--cf-font-sans);
+  font-size: 15px;
+  color: var(--cf-text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--cf-border);
+  border-radius: var(--cf-r-input);
+  outline: none;
+  transition:
+    border-color var(--cf-transition),
+    background var(--cf-transition);
+}
+
+.newsletter-field__input::placeholder {
+  color: var(--cf-text-muted);
+}
+
+.newsletter-field__input:focus {
+  border-color: var(--cf-border-accent);
+  background: rgba(var(--cf-cyan-rgb), 0.04);
+}
+
+/* ─── Consent checkbox ──────────────────────────────────── */
+.newsletter-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.newsletter-consent__checkbox {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: var(--cf-cyan);
+  cursor: pointer;
+}
+
+.newsletter-consent__label {
+  color: var(--cf-text-secondary);
+  font-size: 13px;
+  line-height: 1.55;
+  cursor: pointer;
+}
+
+/* ─── Status message ────────────────────────────────────── */
+.newsletter-message {
+  margin-top: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: var(--cf-r-input);
+  border: 1px solid transparent;
+}
+
+.newsletter-message.is-success {
+  color: var(--cf-goblin);
+  background: var(--cf-goblin-12);
+  border-color: rgba(var(--cf-goblin-rgb), 0.22);
+}
+
+.newsletter-message.is-error {
+  color: var(--cf-danger);
+  background: rgba(var(--cf-danger-rgb), 0.1);
+  border-color: rgba(var(--cf-danger-rgb), 0.2);
+}
+
+/* ─── Newsletter Strip ──────────────────────────────────── */
+.newsletter-strip {
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(2.5rem, 5vw, 4rem);
+  border-top: 0.5px solid var(--cf-border);
+  background: var(--cf-bg-base);
+}
+
+.newsletter-strip__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+  width: min(calc(100vw - 48px), 1120px);
+  margin-inline: auto;
+}
+
+.newsletter-strip__eyebrow {
+  margin: 0 0 10px;
+  color: var(--cf-cyan);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.newsletter-strip__heading {
+  margin: 0 0 12px;
+  color: var(--cf-text-primary);
+  font-family: var(--cf-font-display);
+  font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.newsletter-strip__sub {
+  margin: 0;
+  color: var(--cf-text-secondary);
+  font-size: 15px;
+  line-height: 1.65;
+  max-width: 42ch;
+}
+
+.newsletter-strip__form-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.newsletter-strip__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+}
+
+.newsletter-strip__fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.newsletter-strip__btn {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--cf-bg-base);
+  background: var(--cf-cyan);
+  border: none;
+  border-radius: var(--cf-r-pill);
+  cursor: pointer;
+  transition:
+    background var(--cf-transition),
+    transform var(--cf-transition);
+}
+
+.newsletter-strip__btn:hover {
+  background: var(--cf-mint);
+  transform: translateY(-1px);
+}
+
+.newsletter-strip__btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+  transform: none;
+}
+
+@media (max-width: 767.98px) {
+  .newsletter-strip__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: min(calc(100vw - 32px), 540px);
+  }
+
+  .newsletter-strip__fields {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-strip__sub {
+    max-width: none;
+  }
+
+  .newsletter-strip__btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 959.98px) {
+  .newsletter-strip__inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 640px;
+  }
+
+  .newsletter-strip__fields {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ─── Newsletter Dialog — centered modal overlay ───────── */
+.newsletter-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  /* Dark semi-transparent scrim */
+  background: rgba(var(--cf-black-rgb), 0.62);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    opacity 0.26s ease,
+    backdrop-filter 0.26s ease;
+}
+
+.newsletter-dialog-backdrop.is-visible {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.newsletter-dialog {
+  position: relative;
+  width: min(480px, calc(100vw - 40px));
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+  padding: clamp(1.5rem, 4vw, 2rem);
+  background: var(--cf-bg-raised);
+  border: 1px solid var(--cf-border-accent);
+  border-radius: 20px;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(var(--cf-cyan-rgb), 0.1);
+  /* Entry: subtle scale + fade-up from center */
+  transform: translateY(-10px) scale(0.97);
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.newsletter-dialog-backdrop.is-visible .newsletter-dialog {
+  transform: translateY(0) scale(1);
+}
+
+.newsletter-dialog__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--cf-text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--cf-border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    color var(--cf-transition),
+    background var(--cf-transition);
+}
+
+.newsletter-dialog__close:hover {
+  color: var(--cf-text-primary);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.newsletter-dialog__copy {
+  margin-bottom: 16px;
+}
+
+.newsletter-dialog__heading {
+  margin: 0 0 8px;
+  padding-right: 24px;
+  color: var(--cf-text-primary);
+  font-family: var(--cf-font-display);
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.newsletter-dialog__sub {
+  margin: 0;
+  color: var(--cf-text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.newsletter-dialog__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.newsletter-dialog__btn {
+  width: 100%;
+  padding: 10px 20px;
+  margin-top: 2px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--cf-bg-base);
+  background: var(--cf-cyan);
+  border: none;
+  border-radius: var(--cf-r-pill);
+  cursor: pointer;
+  transition:
+    background var(--cf-transition),
+    transform var(--cf-transition);
+}
+
+.newsletter-dialog__btn:hover {
+  background: var(--cf-mint);
+}
+
+.newsletter-dialog__btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+/* On very small screens: slide up as a bottom sheet */
+@media (max-width: 479.98px) {
+  .newsletter-dialog-backdrop {
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0;
+    /* Skip blur on low-power mobile */
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .newsletter-dialog {
+    width: 100%;
+    max-height: 90vh;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    /* Reset: entry is slide-up, not scale */
+    transform: translateY(100%);
+  }
+
+  .newsletter-dialog-backdrop.is-visible .newsletter-dialog {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ─── Light theme overrides ─────────────────────────────── */
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-strip {
+  background: var(--cf-light-bg);
+  border-top-color: rgba(var(--cf-light-shadow-rgb), 0.1);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-strip__heading {
+  color: var(--cf-light-text);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-strip__sub,
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-field__label,
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-consent__label {
+  color: rgba(var(--cf-light-text-rgb), 0.7);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-field__input {
+  color: var(--cf-light-text);
+  background: rgba(var(--cf-light-card-rgb), 0.85);
+  border-color: rgba(var(--cf-light-shadow-rgb), 0.15);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-field__input::placeholder {
+  color: rgba(var(--cf-light-text-rgb), 0.35);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-dialog-backdrop {
+  background: rgba(var(--cf-light-shadow-rgb), 0.42);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-dialog {
+  background: rgba(var(--cf-light-card-rgb), 0.97);
+  border-color: rgba(var(--cf-cyan-rgb), 0.22);
+  box-shadow:
+    0 32px 80px rgba(var(--cf-light-shadow-rgb), 0.28),
+    0 0 0 1px rgba(var(--cf-cyan-rgb), 0.1);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-dialog__heading {
+  color: var(--cf-light-text);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-dialog__sub {
+  color: rgba(var(--cf-light-text-rgb), 0.65);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-dialog__close {
+  background: rgba(var(--cf-light-text-rgb), 0.06);
+  border-color: rgba(var(--cf-light-shadow-rgb), 0.12);
+  color: rgba(var(--cf-light-text-rgb), 0.5);
+}
+
+:is(html[data-theme="light"], html:not([data-theme])) .newsletter-dialog__close:hover {
+  color: var(--cf-light-text);
+  background: rgba(var(--cf-light-text-rgb), 0.1);
+}

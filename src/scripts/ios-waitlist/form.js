@@ -193,6 +193,12 @@ export function initIosWaitlistForm() {
     message.hidden = true;
 
     try {
+      const params = new URLSearchParams(window.location.search);
+      const utmSource = params.get("utm_source") || null;
+      const utmMedium = params.get("utm_medium") || null;
+      const utmCampaign = params.get("utm_campaign") || null;
+      const referrer = document.referrer || null;
+
       const response = await fetch(ENDPOINT, {
         method: "POST",
         headers: JSON_FETCH_HEADERS,
@@ -201,8 +207,12 @@ export function initIosWaitlistForm() {
           name,
           website,
           turnstileToken,
-          source: "ios_waitlist_page",
+          source: utmSource || "ios_waitlist_page",
           page: "/ios-waitlist.html",
+          utmSource,
+          utmMedium,
+          utmCampaign,
+          referrer,
         }),
       });
 
