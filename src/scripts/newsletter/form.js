@@ -3,9 +3,6 @@
  *
  * Both the footer strip and the delayed dialog share this logic.
  * A shared Turnstile modal is used (only one form can be active at a time).
- *
- * Newsletter email sending is intentionally deferred.
- * The backend writes to Firestore only — no outbound email is queued.
  */
 
 import {

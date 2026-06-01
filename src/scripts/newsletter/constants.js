@@ -1,6 +1,5 @@
 // Newsletter / launch interest capture — constants
 // Backend: joinNewsletter Cloud Function (cognifocuslandingpage project)
-// NOTE: Newsletter email sending is deferred. No emails are sent from this function.
 // Records are written to Firestore: newsletter/{email} + notifications/{autoId}.
 
 export const NEWSLETTER_ENDPOINT =

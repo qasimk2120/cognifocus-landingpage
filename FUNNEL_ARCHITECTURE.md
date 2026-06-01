@@ -14,7 +14,7 @@ These addresses are **receive and forward only**. We cannot send outbound from t
 | support@cognifocus.app | Public-facing support |
 | playstore@cognifocus.app | Google Play communications |
 
-**Deferred:** Outbound automated emails (onboarding, launch, recovery, newsletter) require a paid provider (e.g. Resend, Postmark, SendGrid). Do not implement until chosen.
+**Deferred:** Bulk campaigns, onboarding, launch, and recovery email programs remain deferred. The single consent-gated newsletter welcome email uses the existing Firebase Mail Extension queue.
 
 ---
 
@@ -147,7 +147,7 @@ updatedAt            // updated on every sync
 
 The backend uses the `mail` Firestore collection as a queue for the Firebase Extensions "Trigger Email" pattern. Documents written to `mail/{autoId}` are processed by the extension and sent via the configured SMTP provider.
 
-**Status:** The extension IS configured on the `cognifocuslandingpage` Firebase project. Confirmation emails to users and admin notifications to `getcognifocus@gmail.com` are sent via this mechanism on iOS waitlist and support requests.
+**Status:** The extension IS configured on the `cognifocuslandingpage` Firebase project. Confirmation emails to users, consent-gated newsletter welcome emails, and admin notifications to `getcognifocus@gmail.com` are sent via this mechanism.
 
 **For Cloudflare Email Routing addresses (hello@, support@, playstore@):** These are receive/forward only. Outbound sending from these addresses requires separate SMTP configuration.
 
@@ -182,7 +182,7 @@ shared/email/
   templates/
     iosWaitlistConfirmation.js   — iOS waitlist user email (ACTIVE)
     supportConfirmation.js       — Support user email (ACTIVE)
-    newsletterWelcome.js         — Newsletter welcome (EXISTS, NOT WIRED)
+    newsletterWelcome.js         - Newsletter welcome (ACTIVE)
   admin/
     waitlistAdminNotification.js     — Waitlist admin email (ACTIVE)
     supportAdminNotification.js      — Support admin email (ACTIVE)
@@ -249,27 +249,19 @@ node src/shared/email/preview.js
 - **Body:** Scannable — Email, Name, Type, Source, Consent, UTM fields
 - **Status: ACTIVE** — queued on every newsletter signup
 
+### 6. Newsletter Welcome - User Email
+- **File:** `shared/email/templates/newsletterWelcome.js`
+- **Subject:** `"The Goblin noticed you signed up"` or the launch-updates variant
+- **To:** user's email address
+- **Plaintext:** yes
+- **Unsubscribe:** includes body unsubscribe URL plus `List-Unsubscribe` and `List-Unsubscribe-Post` headers
+- **Consent gate:** queued only when `marketingConsent === true` and the stored status is `subscribed`
+- **Duplicate behavior:** existing subscribed users return `alreadyJoined: true`; the welcome email is not resent
+- **Status: ACTIVE** - queued only on first-time consented signup
+
 ---
 
-## Email Templates — Deferred / Not Yet Sent
-
-### Newsletter Welcome
-- **File:** `shared/email/templates/newsletterWelcome.js`
-- **Status: EXISTS, NOT WIRED** — template is production-ready but never sent
-- **Subject options:**
-  - `"The Goblin noticed you signed up"`
-  - `"You're in — here's what to expect from CogniFocus updates"`
-  - `"Focus notes incoming — welcome to the list"` (launch_updates variant)
-- **Preview text:** Goblin-flavored, anti-doomscrolling tone
-- **Body:** Welcome, what subscribers get, Android CTA, Goblin callout, unsubscribe note
-
-**To enable newsletter sending:**
-1. Open `functions/src/newsletter.js`
-2. Find the `NEWSLETTER WELCOME EMAIL (DISABLED)` comment block
-3. Import `newsletterWelcome` from `./shared/email/templates/newsletterWelcome`
-4. Uncomment the `queueMail()` call
-5. Deploy: `firebase deploy --only functions:joinNewsletter`
-6. Update this doc
+## Email Templates - Deferred / Not Yet Sent
 
 ### Onboarding / Recovery / Launch Emails (App)
 - Not implemented anywhere
@@ -409,17 +401,15 @@ All controlled in `shared/newsletter/config.js → FEATURES`:
 
 | Flag | Default | What it controls |
 |---|---|---|
-| `NEWSLETTER_SENDING_ENABLED` | `false` | Master switch for welcome emails |
+| `NEWSLETTER_SENDING_ENABLED` | `true` | Master switch for the single consent-gated welcome email |
 | `EMAIL_OPEN_TRACKING_ENABLED` | `false` | Tracking pixel injection |
 | `EMAIL_CLICK_TRACKING_ENABLED` | `false` | Redirect-based click tracking |
 | `CAMPAIGN_ANALYTICS_ENABLED` | `false` | Writes to `campaigns/` collection |
 
-**To enable newsletter sending:**
-1. Set `FEATURES.NEWSLETTER_SENDING_ENABLED = true` in `config.js`
-2. Uncomment the block in `newsletter.js`
-3. Deploy `joinNewsletter` and `unsubscribeNewsletter` functions
-4. Verify `unsubscribeNewsletter` works first (test with a real token)
-5. Update this doc
+**Newsletter welcome sending:**
+- Active only for first-time subscribed users with explicit `marketingConsent === true`.
+- Existing subscribed users are updated gracefully but do not receive another welcome email.
+- Bulk campaign sending remains deferred.
 
 ---
 
@@ -499,8 +489,9 @@ Any element with `data-newsletter-open` attribute opens the dialog on click. The
 - Imports `form.js` and `dialog.js` from `src/scripts/newsletter/`
 
 ### Newsletter Email Sending
-**NOT implemented.** `joinNewsletter` writes to Firestore only. No welcome email is queued.  
-Deferred until sending strategy is chosen (Resend/Postmark/Firebase Mail Extension config).
+**Welcome email active.** `joinNewsletter` queues one welcome email for first-time subscribed users with explicit `marketingConsent === true`.
+
+Bulk newsletter campaigns remain deferred. No tracking pixels, open tracking, click tracking, analytics SDKs, or campaign sends are enabled.
 
 ---
 
@@ -531,7 +522,7 @@ Deferred until sending strategy is chosen (Resend/Postmark/Firebase Mail Extensi
 
 | Feature | Blocker | Notes |
 |---|---|---|
-| Newsletter welcome email | No sending strategy chosen | Backend records Firestore only — no email queued |
+| Bulk newsletter campaigns | Campaign sending intentionally deferred | Welcome email is active; campaigns are not |
 | `joinNewsletter` deploy | Needs `firebase deploy` | New function, not yet live |
 | Marketing consent opt-in in app | No in-app UI | Field modelled; activate when consent screen is added |
 | Outbound from hello@/support@/playstore@ | Cloudflare Email Routing = receive only | Needs SMTP provider |
