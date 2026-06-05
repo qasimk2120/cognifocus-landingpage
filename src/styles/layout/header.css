@@ -131,7 +131,9 @@
 }
 
 .cf-nav__cta {
-  min-height: 48px;
+  min-height: 34px;
+  padding: 7px 16px;
+  font-size: 13px;
 }
 
 .cf-nav__soon-badge {
