@@ -3,6 +3,7 @@ export function initReactionCarousel() {
   if (!carousel) return;
 
   const track = carousel.querySelector("[data-reaction-track]");
+  const viewport = carousel.querySelector(".reaction-carousel-viewport");
   const slides = Array.from(carousel.querySelectorAll("[data-reaction-slide]"));
   const dots = Array.from(carousel.querySelectorAll("[data-reaction-dot]"));
   const previousButton = carousel.querySelector("[data-reaction-prev]");
@@ -23,6 +24,10 @@ export function initReactionCarousel() {
   let activePage = Math.floor(activeSlideIndex / slidesPerPage);
   let autoplayId = null;
 
+  // On mobile use scroll-based navigation to avoid transform/overflow-clip conflicts.
+  // On desktop use the existing transform approach.
+  const isMobile = () => !desktopQuery.matches;
+
   function getSlidesPerPage() {
     return desktopQuery.matches ? 2 : 1;
   }
@@ -39,9 +44,25 @@ export function initReactionCarousel() {
   function setActivePage(nextPage) {
     activePage = (nextPage + pageCount) % pageCount;
     activeSlideIndex = activePage * slidesPerPage;
-    const activeOffset = slides[activeSlideIndex]?.offsetLeft || 0;
 
-    track.style.transform = `translateX(-${activeOffset}px)`;
+    if (isMobile()) {
+      // Mobile: scroll the viewport to the target slide
+      const targetSlide = slides[activeSlideIndex];
+      if (targetSlide && viewport) {
+        const left =
+          targetSlide.offsetLeft -
+          (viewport.clientWidth - targetSlide.offsetWidth) / 2;
+        viewport.scrollTo({
+          left: Math.max(0, left),
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+        });
+      }
+    } else {
+      // Desktop: translate the track
+      // Re-read offsetLeft fresh to avoid stale layout values from lazy load
+      const activeOffset = slides[activeSlideIndex]?.offsetLeft || 0;
+      track.style.transform = `translateX(-${activeOffset}px)`;
+    }
 
     slides.forEach((slide, index) => {
       const isActive =
@@ -66,6 +87,11 @@ export function initReactionCarousel() {
       Math.floor(firstVisibleSlide / slidesPerPage),
       pageCount - 1,
     );
+
+    // Switch viewport overflow based on mode
+    if (viewport) {
+      viewport.style.overflowX = isMobile() ? "auto" : "hidden";
+    }
 
     syncDots();
     setActivePage(activePage);
@@ -105,6 +131,11 @@ export function initReactionCarousel() {
   });
 
   window.addEventListener("resize", syncResponsiveState);
+
+  // Recalculate after all resources load to fix stale offsetLeft from deferred images
+  window.addEventListener("load", () => {
+    syncResponsiveState();
+  }, { once: true });
 
   syncResponsiveState();
   startAutoplay();

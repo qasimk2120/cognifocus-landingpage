@@ -176,6 +176,11 @@ export function initAttentionSpiralsCarousel() {
     isPointerActive = false;
   });
 
+  // Safety reset — prevents isPointerActive sticking true if pointerup missed
+  carousel.addEventListener("pointerleave", () => {
+    isPointerActive = false;
+  });
+
   carousel.addEventListener("touchstart", pauseAutoScrollForInteraction, {
     passive: true,
   });
@@ -210,7 +215,7 @@ export function initAttentionSpiralsCarousel() {
           stopAutoScroll();
         }
       },
-      { rootMargin: "0px 0px -18% 0px", threshold: 0.28 },
+      { rootMargin: "0px", threshold: 0.1 },
     );
 
     visibilityObserver.observe(section);
