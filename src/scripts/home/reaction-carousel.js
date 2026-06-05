@@ -132,11 +132,20 @@ export function initReactionCarousel() {
 
   window.addEventListener("resize", syncResponsiveState);
 
-  // Recalculate after all resources load to fix stale offsetLeft from deferred images
-  window.addEventListener("load", () => {
-    syncResponsiveState();
-  }, { once: true });
+  // Defer init until layout is settled — DOMContentLoaded fires before images
+  // paint, so offsetLeft is 0 for all slides at that point.
+  // Use requestAnimationFrame inside window.load to guarantee both resources
+  // and a completed paint cycle before calculating positions.
+  function deferredInit() {
+    requestAnimationFrame(() => {
+      syncResponsiveState();
+      startAutoplay();
+    });
+  }
 
-  syncResponsiveState();
-  startAutoplay();
+  if (document.readyState === "complete") {
+    deferredInit();
+  } else {
+    window.addEventListener("load", deferredInit, { once: true });
+  }
 }
