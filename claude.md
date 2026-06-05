@@ -1,56 +1,38 @@
-# CogniFocus Landing Page Agent Rules
+# CogniFocus Landing Page — Claude Context
 
-CogniFocus is a behavioral focus companion, not a generic productivity app.
+Read `AI_CONTEXT.md` in this repo root for the full technical brain.
+Shared product docs → `../cognifocus-docs/`
 
-Core positioning:
+---
 
-- A focus app that reacts when you lose focus.
-- Focus timer + Distraction Shield + reactive Goblin companion.
-- The Goblin is the emotional accountability mechanic.
+## Copy & Content Rules
 
-Avoid:
+- CogniFocus is a behavioral focus companion — never describe it as a generic productivity app
+- Mention attention slips, app switching, doomscrolling, Shield, and Goblin accountability where relevant
+- Prefer concrete behavior examples over vague claims
+- Tone: internet-native, founder-authentic, emotionally aware
+- Never write AI-slop blog copy — specific, human, useful only
 
-- generic productivity SaaS language
-- corporate tone
-- AI-slop blog writing
-- vague motivational copy
-- manually editing generated CMS/blog output unless explicitly required
+## CMS / Blog Rules
 
-Landing page priorities:
+- Use `npm run sync:cms-content` and `npm run publish:cms-content` — do not manually edit `src/content/` files
+- Preserve slug, metadata, sitemap, and build/publish automation
+- Blog content must be useful and specific — no generic AI filler
+- Add internal links where natural
+- Keep titles, descriptions, OG data, and schema aligned with the article topic
+- Avoid duplicate or cannibalized articles
 
-- clear conversion path to install the Android app
-- strong SEO structure
-- mobile-first performance
-- emotionally reactive brand voice
-- fast, polished UX
-- content that feels human and specific
+## SEO Rules
 
-CMS / blog rules:
+- Semantic headings on every page
+- Unique metadata per page
+- Prefer question-based and intent-based blog topics
+- Maintain sitemap filter and canonical behavior
+- Never add pages to disallowed paths without updating both sitemap filter and robots config
 
-- Use the existing CMS/scripts for creating and publishing articles.
-- Preserve slug, metadata, sitemap, and build/publish automation.
-- Do not bypass the publishing scripts unless asked.
-- Blog content must be useful, specific, and not generic AI filler.
-- Add internal links where natural.
-- Keep titles, descriptions, OG data, and schema aligned with the article topic.
+## Avoid
 
-Copy rules:
-
-- Mention attention slips, app switching, doomscrolling, Shield, and Goblin accountability where relevant.
-- Prefer concrete behavior examples over vague claims.
-- Keep tone internet-native, founder-authentic, and emotionally aware.
-
-SEO rules:
-
-- Use semantic headings.
-- Keep metadata unique per page.
-- Avoid duplicate/cannibalized articles.
-- Prefer question-based and intent-based blog topics.
-- Maintain sitemap and canonical behavior.
-
-Before changing CMS/blog logic:
-
-- inspect existing scripts
-- understand the publishing flow
-- preserve automation
-- document any new command or workflow
+- Generic productivity SaaS language
+- Corporate tone
+- Manually editing CMS-generated output unless explicitly required
+- Bypassing publishing scripts
