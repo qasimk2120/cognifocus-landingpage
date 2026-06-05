@@ -2722,6 +2722,41 @@
   --reaction-tint-opacity: 0.024;
 }
 
+.reaction-slide--press {
+  --reaction-tint-rgb: var(--cf-amber-rgb);
+  --reaction-tint-opacity: 0.03;
+  border-color: rgba(var(--cf-amber-rgb), 0.2);
+}
+
+.reaction-press-label {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgb(var(--cf-amber-rgb));
+  margin-bottom: 0.6rem;
+}
+
+.reaction-press-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgb(var(--cf-amber-rgb));
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+.reaction-press-link:hover { opacity: 0.75; }
+
+.reaction-press-icon {
+  grid-column: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(var(--cf-amber-rgb), 0.4);
+}
+
 .reaction-slide-copy {
   position: relative;
   z-index: 1;
