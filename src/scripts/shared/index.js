@@ -16,7 +16,7 @@ export function initSharedSiteChrome() {
     initThemeToggles,
     initCookieConsent,
     upgradeDownloadCtas,
-    initBackToTopArrow,
+    // initBackToTopArrow, // removed
   ].forEach((init) => {
     try {
       init();

@@ -3733,6 +3733,22 @@ html[data-theme="light"] .reaction-carousel-arrow {
   color: rgba(var(--cf-muted-rgb), 0.86) !important;
   font-size: 0.86rem !important;
 }
+
+.final-focus-byline {
+  margin-top: 0.5rem;
+  font-size: 0.78rem !important;
+  color: rgba(var(--cf-muted-rgb), 0.55) !important;
+}
+
+.final-focus-byline-link {
+  color: rgba(var(--cf-cyan-rgb), 0.6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.final-focus-byline-link:hover {
+  color: var(--cf-cyan);
+}
 @media (max-width: 575.98px) {
   .final-focus-section {
     padding-top: 2.35rem !important;
