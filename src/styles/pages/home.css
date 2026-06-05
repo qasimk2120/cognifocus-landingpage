@@ -2675,6 +2675,7 @@
   gap: var(--reaction-card-gap);
   transition: transform 0.36s ease;
   will-change: transform;
+  position: relative;
 }
 
 .reaction-slide {

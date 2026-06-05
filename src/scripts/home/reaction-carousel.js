@@ -58,8 +58,10 @@ export function initReactionCarousel() {
         });
       }
     } else {
-      // Desktop: translate the track
-      // Re-read offsetLeft fresh to avoid stale layout values from lazy load
+      // Desktop: translate the track.
+      // offsetLeft is relative to offsetParent — with position:relative on the
+      // track, slide.offsetLeft is now correctly relative to the track itself (0
+      // for first slide, slideWidth+gap for second, etc.).
       const activeOffset = slides[activeSlideIndex]?.offsetLeft || 0;
       track.style.transform = `translateX(-${activeOffset}px)`;
     }

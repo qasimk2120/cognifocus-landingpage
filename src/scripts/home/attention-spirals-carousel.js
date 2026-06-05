@@ -39,12 +39,14 @@ export function initAttentionSpiralsCarousel() {
   }
 
   function getActiveIndex() {
+    // Use offsetLeft relative to the scroll container by subtracting carousel.offsetLeft
+    const carouselOrigin = carousel.offsetLeft;
     const carouselCenter = carousel.scrollLeft + carousel.clientWidth / 2;
 
     return cards.reduce((closestIndex, card, index) => {
-      const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      const cardCenter = (card.offsetLeft - carouselOrigin) + card.offsetWidth / 2;
       const closestCard = cards[closestIndex];
-      const closestCenter = closestCard.offsetLeft + closestCard.offsetWidth / 2;
+      const closestCenter = (closestCard.offsetLeft - carouselOrigin) + closestCard.offsetWidth / 2;
 
       return Math.abs(cardCenter - carouselCenter) <
         Math.abs(closestCenter - carouselCenter)
@@ -80,8 +82,11 @@ export function initAttentionSpiralsCarousel() {
     const targetCard = cards[targetIndex];
     if (!targetCard) return;
 
+    // offsetLeft is relative to offsetParent (may be higher than carousel).
+    // Subtract carousel.offsetLeft so the value is relative to the scroll container.
     const left =
       targetCard.offsetLeft -
+      carousel.offsetLeft -
       (carousel.clientWidth - targetCard.offsetWidth) / 2;
 
     setActiveIndex(targetIndex);
