@@ -29,9 +29,9 @@
   "id": "v4-5-1",
   "legacyCategoryLabel": "shield",
   "migration": {
-    "importedAt": "2026-05-24T01:19:28.701Z",
+    "source": "cognifocus-landingpage",
     "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-5-1.json",
-    "source": "cognifocus-landingpage"
+    "importedAt": "2026-06-06T04:28:55.823Z"
   },
   "social": {},
   "status": "published",

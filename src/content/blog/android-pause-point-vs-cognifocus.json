@@ -34,9 +34,9 @@
   "createdBy": "cms-content-migration",
   "id": "android-pause-point-vs-cognifocus",
   "migration": {
-    "importedAt": "2026-05-24T01:19:17.999Z",
+    "source": "cognifocus-landingpage",
     "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\android-pause-point-vs-cognifocus.json",
-    "source": "cognifocus-landingpage"
+    "importedAt": "2026-06-06T04:28:45.224Z"
   },
   "social": {},
   "status": "published",

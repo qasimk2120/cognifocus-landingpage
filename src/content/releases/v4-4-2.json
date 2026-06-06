@@ -28,9 +28,9 @@
   "id": "v4-4-2",
   "legacyCategoryLabel": "app",
   "migration": {
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-4-2.json",
     "source": "cognifocus-landingpage",
-    "importedAt": "2026-05-24T01:19:28.028Z"
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-4-2.json",
+    "importedAt": "2026-06-06T04:28:55.167Z"
   },
   "social": {},
   "status": "published",

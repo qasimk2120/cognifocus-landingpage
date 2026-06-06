@@ -32,8 +32,8 @@
   "legacyCategoryLabel": "shield",
   "migration": {
     "source": "cognifocus-landingpage",
-    "importedAt": "2026-05-24T01:19:26.456Z",
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-2-0.json"
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v4-2-0.json",
+    "importedAt": "2026-06-06T04:28:53.638Z"
   },
   "social": {},
   "status": "published",

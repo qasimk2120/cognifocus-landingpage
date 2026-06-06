@@ -41,8 +41,8 @@
   "id": "focus-friend-app-android",
   "migration": {
     "source": "cognifocus-landingpage",
-    "importedAt": "2026-05-24T01:19:21.381Z",
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\focus-friend-app-android.json"
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\focus-friend-app-android.json",
+    "importedAt": "2026-06-06T04:28:48.560Z"
   },
   "social": {},
   "status": "published",

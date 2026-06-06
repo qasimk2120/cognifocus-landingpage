@@ -35,8 +35,8 @@
   "id": "onesec-alternative-android",
   "migration": {
     "source": "cognifocus-landingpage",
-    "importedAt": "2026-05-24T01:19:23.198Z",
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\onesec-alternative-android.json"
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\onesec-alternative-android.json",
+    "importedAt": "2026-06-06T04:28:50.529Z"
   },
   "social": {},
   "status": "published",

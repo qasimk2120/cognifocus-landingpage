@@ -43,9 +43,9 @@
   "createdBy": "cms-content-migration",
   "id": "app-blocker-for-studying",
   "migration": {
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\app-blocker-for-studying.json",
     "source": "cognifocus-landingpage",
-    "importedAt": "2026-05-24T01:19:18.560Z"
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\app-blocker-for-studying.json",
+    "importedAt": "2026-06-06T04:28:45.803Z"
   },
   "social": {},
   "status": "published",
