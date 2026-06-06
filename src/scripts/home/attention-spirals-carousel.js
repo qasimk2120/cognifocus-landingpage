@@ -3,7 +3,6 @@ export function initAttentionSpiralsCarousel() {
   if (!carousel) return;
 
   const cards = Array.from(carousel.querySelectorAll(".attention-spiral-card"));
-  const dots = Array.from(carousel.querySelectorAll("[data-attention-spirals-dot]"));
   const previousButton = document.querySelector("[data-attention-spirals-prev]");
   const nextButton = document.querySelector("[data-attention-spirals-next]");
 
@@ -23,6 +22,10 @@ export function initAttentionSpiralsCarousel() {
   let isCarouselVisible = false;
 
   const controls = previousButton.closest(".attention-spirals-carousel-controls");
+  const dots = Array.from(
+    controls?.querySelectorAll("[data-attention-spirals-dot]") ??
+      document.querySelectorAll("[data-attention-spirals-dot]"),
+  );
   const section = carousel.closest("section") || carousel;
   controls?.style.setProperty(
     "--attention-spirals-progress-duration",

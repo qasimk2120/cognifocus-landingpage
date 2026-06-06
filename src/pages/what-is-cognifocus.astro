@@ -1,0 +1,629 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const title = "What is CogniFocus? | Focus Timer & App Blocker for Android";
+const description = "CogniFocus is a focus timer and app blocker for Android with a reactive Goblin companion that detects and interrupts distraction during sessions. Free to start, Pro available.";
+const canonical = "https://cognifocus.app/what-is-cognifocus.html";
+
+const schemaJson = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://cognifocus.app/#app",
+      "name": "CogniFocus",
+      "alternateName": ["CogniFocus Focus Timer", "CogniFocus App Blocker"],
+      "description": "CogniFocus is a focus timer and app blocker for Android that detects when you drift to distracting apps during a session and reacts in real time through a companion character called the Goblin.",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Android",
+      "url": "https://cognifocus.app",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=io.ionic.cognifocus",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "CogniFocus Free",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Block up to 3 apps, sessions up to 90 minutes, basic Goblin reactions and streaks"
+        },
+        {
+          "@type": "Offer",
+          "name": "CogniFocus Pro Monthly",
+          "price": "3.99",
+          "priceCurrency": "USD",
+          "description": "Block up to 7 apps, sessions up to 240 minutes, Manual Block, Planned Sessions, cloud sync"
+        },
+        {
+          "@type": "Offer",
+          "name": "CogniFocus Pro Yearly",
+          "price": "31.99",
+          "priceCurrency": "USD",
+          "description": "All Pro features, billed annually"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "5"
+      },
+      "featureList": [
+        "Focus timer with custom session durations",
+        "Distraction Shield — blocks selected apps during active sessions",
+        "Goblin companion with real-time mood reactions",
+        "Manual Block mode for proactive app blocking",
+        "DND Focus Mode — silences interruptions during sessions",
+        "Recovery nudges when focus slips mid-session",
+        "Streaks, XP, and Focus Shards progression system",
+        "Planned Sessions with reminders (Pro)",
+        "Cloud sync and full restore (Pro)",
+        "Android foreground service showing live session time"
+      ],
+      "creator": {
+        "@type": "Organization",
+        "name": "CogniElevate",
+        "url": "https://cognielevate.co"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is CogniFocus?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CogniFocus is a focus timer and app blocker for Android. It detects when you open a distracting app during a focus session and interrupts it through a reactive character called the Goblin. Unlike passive timers that keep counting while you scroll, CogniFocus actively responds to distraction behavior."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does CogniFocus work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You start a focus session and select which apps to block. If you attempt to open a blocked app during the session, CogniFocus's Distraction Shield interrupts it. The Goblin companion reacts with mood-based messages — neutral during calm sessions, annoyed or angry when distractions occur, and cheerful when sessions complete cleanly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is CogniFocus free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. CogniFocus is free to download and use. The free plan includes blocking up to 3 apps and sessions up to 90 minutes. Pro unlocks up to 7 blocked apps, sessions up to 240 minutes, Manual Block mode, Planned Sessions, and cloud sync."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes CogniFocus different from Forest or Freedom?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Forest uses a growing tree as a passive visual motivator — it does not actively block apps or react to distraction behavior. Freedom blocks sites and apps but does not provide real-time behavioral feedback. CogniFocus combines active app blocking with a reactive companion that responds specifically to distraction events during your session."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is CogniFocus available on iOS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CogniFocus is currently available on Android only. An iOS version is in development. You can join the iOS waitlist at cognifocus.app/ios-waitlist.html."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who makes CogniFocus?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CogniFocus is built by CogniElevate (COGNIELEVATE (SMC-PRIVATE) LIMITED), a technology company based in Lahore, Pakistan. The founder is Qasim Khan."
+          }
+        }
+      ]
+    }
+  ]
+});
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  bodyClass="cf-shell"
+>
+  <script slot="head-after-social" type="application/ld+json" set:html={schemaJson} />
+
+  <main id="main-content" class="wic-main">
+
+    <!-- HERO -->
+    <section class="wic-hero">
+      <div class="wic-container">
+        <p class="wic-kicker">Product reference</p>
+        <h1 class="wic-title">What is CogniFocus?</h1>
+        <p class="wic-lead">
+          CogniFocus is a <strong>focus timer and app blocker for Android</strong> that detects when you open a distracting app during a session and reacts in real time. Unlike passive timers that keep counting while you scroll, CogniFocus actively interrupts distraction through a companion character called the Goblin.
+        </p>
+        <div class="wic-cta-row">
+          <a href="https://play.google.com/store/apps/details?id=io.ionic.cognifocus" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download on Android</a>
+          <a href="/demo.html" class="btn btn-secondary btn-sm">See it in action</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK FACTS -->
+    <section class="wic-section" aria-labelledby="facts-heading">
+      <div class="wic-container">
+        <h2 id="facts-heading">Quick facts</h2>
+        <dl class="wic-facts-grid">
+          <div class="wic-fact">
+            <dt>Category</dt>
+            <dd>Focus timer, app blocker, productivity</dd>
+          </div>
+          <div class="wic-fact">
+            <dt>Platform</dt>
+            <dd>Android (iOS in development)</dd>
+          </div>
+          <div class="wic-fact">
+            <dt>Price</dt>
+            <dd>Free to start — Pro from $3.99/month</dd>
+          </div>
+          <div class="wic-fact">
+            <dt>Developer</dt>
+            <dd><a href="https://cognielevate.co" target="_blank" rel="noopener noreferrer">CogniElevate</a>, Lahore, Pakistan</dd>
+          </div>
+          <div class="wic-fact">
+            <dt>Released</dt>
+            <dd>2026</dd>
+          </div>
+          <div class="wic-fact">
+            <dt>Download</dt>
+            <dd><a href="https://play.google.com/store/apps/details?id=io.ionic.cognifocus" target="_blank" rel="noopener noreferrer">Google Play</a></dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="wic-section wic-section--alt" aria-labelledby="how-heading">
+      <div class="wic-container">
+        <h2 id="how-heading">How CogniFocus works</h2>
+        <ol class="wic-steps">
+          <li>
+            <strong>Start a focus session.</strong> Choose a duration and select which apps to block during the session.
+          </li>
+          <li>
+            <strong>Distraction Shield activates.</strong> If you attempt to open a blocked app, the Shield interrupts it and returns you to focus.
+          </li>
+          <li>
+            <strong>The Goblin reacts.</strong> The companion character responds to your behavior in real time — neutral during calm sessions, annoyed or angry when distraction occurs, cheerful when you complete a session cleanly.
+          </li>
+          <li>
+            <strong>Recovery nudges keep you going.</strong> If focus slips, CogniFocus prompts you to return rather than abandon the session.
+          </li>
+          <li>
+            <strong>Streaks and XP track progress.</strong> Focus Shards, streaks, and daily goals make improvement visible over time.
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="wic-section" aria-labelledby="features-heading">
+      <div class="wic-container">
+        <h2 id="features-heading">Features</h2>
+
+        <h3>Free plan</h3>
+        <ul class="wic-list">
+          <li>Focus timer with preset and custom durations</li>
+          <li>Block up to 3 apps during active sessions</li>
+          <li>Sessions up to 90 minutes</li>
+          <li>Distraction Shield (reactive blocking during sessions)</li>
+          <li>Goblin companion reactions and mood system</li>
+          <li>Streaks, XP, and Focus Shards</li>
+          <li>DND Focus Mode — silences interruptions</li>
+          <li>Basic progress tracking</li>
+        </ul>
+
+        <h3>Pro plan ($3.99/month or $31.99/year)</h3>
+        <ul class="wic-list">
+          <li>Everything in Free</li>
+          <li>Block up to 7 apps</li>
+          <li>Sessions up to 240 minutes</li>
+          <li>Manual Block mode — proactive blocking outside sessions</li>
+          <li>Planned Sessions with reminders (up to 5 active)</li>
+          <li>Recovery nudges</li>
+          <li>Cloud sync — session history, preferences, blocked apps</li>
+          <li>Full restore across devices</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- HOW IT DIFFERS -->
+    <section class="wic-section wic-section--alt" aria-labelledby="diff-heading">
+      <div class="wic-container">
+        <h2 id="diff-heading">How CogniFocus differs from other focus apps</h2>
+        <div class="wic-compare-table-wrap">
+          <table class="wic-compare-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>CogniFocus</th>
+                <th>Forest</th>
+                <th>Freedom</th>
+                <th>AppBlock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Active app blocking during sessions</td>
+                <td class="wic-yes">✓</td>
+                <td class="wic-no">✗</td>
+                <td class="wic-yes">✓</td>
+                <td class="wic-yes">✓</td>
+              </tr>
+              <tr>
+                <td>Real-time behavioral reactions</td>
+                <td class="wic-yes">✓</td>
+                <td class="wic-no">✗</td>
+                <td class="wic-no">✗</td>
+                <td class="wic-no">✗</td>
+              </tr>
+              <tr>
+                <td>Companion character</td>
+                <td class="wic-yes">✓ Goblin</td>
+                <td class="wic-yes">✓ Tree</td>
+                <td class="wic-no">✗</td>
+                <td class="wic-no">✗</td>
+              </tr>
+              <tr>
+                <td>Recovery nudges</td>
+                <td class="wic-yes">✓</td>
+                <td class="wic-no">✗</td>
+                <td class="wic-no">✗</td>
+                <td class="wic-no">✗</td>
+              </tr>
+              <tr>
+                <td>Android</td>
+                <td class="wic-yes">✓</td>
+                <td class="wic-yes">✓</td>
+                <td class="wic-yes">✓</td>
+                <td class="wic-yes">✓</td>
+              </tr>
+              <tr>
+                <td>Free tier available</td>
+                <td class="wic-yes">✓</td>
+                <td class="wic-yes">✓</td>
+                <td class="wic-partial">Limited</td>
+                <td class="wic-yes">✓</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="wic-compare-note">The key distinction: CogniFocus responds to distraction behavior during a session rather than relying on passive visual motivation or pre-scheduled blocks.</p>
+      </div>
+    </section>
+
+    <!-- WHO IS IT FOR -->
+    <section class="wic-section" aria-labelledby="audience-heading">
+      <div class="wic-container">
+        <h2 id="audience-heading">Who CogniFocus is for</h2>
+        <ul class="wic-list">
+          <li>Android users who open social apps (TikTok, Instagram, YouTube) out of habit during work or study</li>
+          <li>People with ADHD-style attention patterns who need active interruption, not passive reminders</li>
+          <li>Students who lose focus during study sessions</li>
+          <li>Anyone who has tried passive timers and found they ignore them</li>
+          <li>People who want behavioral feedback, not just time tracking</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="wic-section wic-section--alt" aria-labelledby="faq-heading">
+      <div class="wic-container wic-container--narrow">
+        <h2 id="faq-heading">Frequently asked questions</h2>
+
+        <div class="wic-faq-list">
+          {[
+            {
+              q: "What is CogniFocus?",
+              a: "CogniFocus is a focus timer and app blocker for Android. It detects when you open a distracting app during a focus session and interrupts it through a reactive companion called the Goblin."
+            },
+            {
+              q: "Is CogniFocus free?",
+              a: "Yes. The free plan includes blocking up to 3 apps and sessions up to 90 minutes. Pro adds more blocked apps, longer sessions, Manual Block, Planned Sessions, and cloud sync."
+            },
+            {
+              q: "What is the Goblin companion?",
+              a: "The Goblin is CogniFocus's companion character. It reacts in real time based on your session behavior — neutral when things are going well, annoyed or angry when distraction occurs, and cheerful when you complete a session cleanly. Its mood and messages adapt over time based on your patterns."
+            },
+            {
+              q: "How is CogniFocus different from Forest?",
+              a: "Forest uses a growing tree as passive motivation and does not actively block apps or react to distraction. CogniFocus combines active app blocking with a reactive companion that responds specifically to distraction events during your session."
+            },
+            {
+              q: "Is CogniFocus available on iPhone?",
+              a: "Not yet. CogniFocus is currently Android only. An iOS version is in development — you can join the waitlist at cognifocus.app/ios-waitlist.html."
+            },
+            {
+              q: "Who built CogniFocus?",
+              a: "CogniFocus is built by CogniElevate, a technology company based in Lahore, Pakistan. The founder is Qasim Khan."
+            },
+            {
+              q: "Does CogniFocus work for ADHD?",
+              a: "CogniFocus was designed for people with ADHD-style distraction patterns — it provides active interruption rather than passive reminders, which is more effective for impulsive app-opening behavior."
+            }
+          ].map(({ q, a }) => (
+            <div class="wic-faq-item">
+              <h3>{q}</h3>
+              <p>{a}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="wic-section">
+      <div class="wic-container wic-container--narrow wic-cta-section">
+        <h2>Try CogniFocus free on Android</h2>
+        <p>Start your first focus session in under a minute. No account required.</p>
+        <div class="wic-cta-row">
+          <a href="https://play.google.com/store/apps/details?id=io.ionic.cognifocus" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Download Free on Android</a>
+          <a href="/pricing.html" class="btn btn-secondary btn-sm">See plans</a>
+        </div>
+        <p class="wic-also">Also: <a href="/ios-waitlist.html">iOS waitlist</a> · <a href="/demo.html">Demo</a> · <a href="/about.html">About CogniFocus</a></p>
+      </div>
+    </section>
+
+  </main>
+</BaseLayout>
+
+<style>
+.wic-main {
+  color: var(--cf-text);
+}
+
+.wic-container {
+  max-width: 820px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.wic-container--narrow {
+  max-width: 680px;
+}
+
+.wic-section {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+
+.wic-section--alt {
+  background: var(--cf-surface);
+}
+
+.wic-hero {
+  padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--cf-border);
+}
+
+.wic-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cf-cyan);
+  margin-bottom: 1rem;
+}
+
+.wic-title {
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.wic-lead {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--cf-muted);
+  line-height: 1.75;
+  max-width: 58ch;
+  margin-bottom: 2rem;
+}
+
+.wic-lead strong {
+  color: var(--cf-text);
+  font-weight: 600;
+}
+
+.wic-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 1.75rem 0 0.75rem;
+  color: var(--cf-text);
+}
+
+.wic-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1px;
+  background: var(--cf-border);
+  border: 1px solid var(--cf-border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.wic-fact {
+  background: var(--cf-surface);
+  padding: 1.1rem 1.25rem;
+}
+
+.wic-fact dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cf-muted);
+  margin-bottom: 0.3rem;
+}
+
+.wic-fact dd {
+  font-size: 0.95rem;
+  color: var(--cf-text);
+  font-weight: 500;
+}
+
+.wic-fact dd a {
+  color: var(--cf-cyan);
+  text-decoration: none;
+}
+
+.wic-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding-left: 0;
+  counter-reset: steps;
+  list-style: none;
+}
+
+.wic-steps li {
+  counter-increment: steps;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  color: var(--cf-muted);
+  line-height: 1.7;
+}
+
+.wic-steps li::before {
+  content: counter(steps);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--cf-cyan-08);
+  border: 1px solid rgba(var(--cf-cyan-rgb), 0.25);
+  color: var(--cf-cyan);
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.wic-steps li strong {
+  color: var(--cf-text);
+}
+
+.wic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding-left: 1.25rem;
+  color: var(--cf-muted);
+  line-height: 1.7;
+}
+
+.wic-compare-table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--cf-border);
+  margin-bottom: 1rem;
+}
+
+.wic-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.wic-compare-table th {
+  background: var(--cf-surface2);
+  padding: 0.85rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--cf-text);
+  white-space: nowrap;
+  border-bottom: 1px solid var(--cf-border);
+}
+
+.wic-compare-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--cf-border);
+  color: var(--cf-muted);
+}
+
+.wic-compare-table tr:last-child td { border-bottom: none; }
+
+.wic-compare-table th:first-child,
+.wic-compare-table td:first-child { font-weight: 500; color: var(--cf-text); }
+
+.wic-yes { color: var(--cf-cyan) !important; font-weight: 600; }
+.wic-no { color: var(--cf-muted); opacity: 0.5; }
+.wic-partial { color: var(--cf-amber, #f59e0b); font-weight: 600; }
+
+.wic-compare-note {
+  font-size: 0.85rem;
+  color: var(--cf-muted);
+  font-style: italic;
+}
+
+.wic-faq-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.wic-faq-item {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--cf-border);
+}
+
+.wic-faq-item:last-child { border-bottom: none; }
+
+.wic-faq-item h3 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+  color: var(--cf-text);
+}
+
+.wic-faq-item p {
+  font-size: 0.93rem;
+  color: var(--cf-muted);
+  margin: 0;
+  line-height: 1.7;
+}
+
+.wic-cta-section {
+  text-align: center;
+}
+
+.wic-cta-section h2 { margin-bottom: 0.75rem; }
+.wic-cta-section > p { color: var(--cf-muted); margin-bottom: 1.75rem; }
+.wic-cta-section .wic-cta-row { justify-content: center; }
+
+.wic-also {
+  margin-top: 1.25rem;
+  font-size: 0.82rem;
+  color: var(--cf-muted);
+}
+
+.wic-also a {
+  color: var(--cf-cyan);
+  text-decoration: none;
+}
+</style>
