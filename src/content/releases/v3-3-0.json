@@ -29,8 +29,8 @@
   "legacyCategoryLabel": "content",
   "migration": {
     "source": "cognifocus-landingpage",
-    "importedAt": "2026-05-24T01:19:25.545Z",
-    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v3-3-0.json"
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v3-3-0.json",
+    "importedAt": "2026-06-06T04:28:52.764Z"
   },
   "social": {},
   "status": "published",

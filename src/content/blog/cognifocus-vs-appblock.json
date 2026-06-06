@@ -38,9 +38,9 @@
   "createdBy": "cms-content-migration",
   "id": "cognifocus-vs-appblock",
   "migration": {
+    "source": "cognifocus-landingpage",
     "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\cognifocus-vs-appblock.json",
-    "importedAt": "2026-05-24T01:19:20.066Z",
-    "source": "cognifocus-landingpage"
+    "importedAt": "2026-06-06T04:28:47.231Z"
   },
   "social": {},
   "status": "published",

@@ -39,9 +39,9 @@
   "createdBy": "cms-content-migration",
   "id": "focus-companion-app-android",
   "migration": {
-    "importedAt": "2026-05-24T01:19:21.110Z",
+    "source": "cognifocus-landingpage",
     "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\focus-companion-app-android.json",
-    "source": "cognifocus-landingpage"
+    "importedAt": "2026-06-06T04:28:48.287Z"
   },
   "social": {},
   "status": "published",
