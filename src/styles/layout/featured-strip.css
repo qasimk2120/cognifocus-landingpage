@@ -69,25 +69,14 @@
   padding: 0;
 }
 
+/* Unified badge sizing — images scale by height, width auto */
 .featured-strip-badge img {
   display: block;
   width: auto;
-  height: 40px;
-  max-width: none;
+  height: 44px;
+  max-width: 200px;
   object-fit: contain;
 }
-
-/* Unified badge sizing: keep images a consistent visible height and
-   allow width to scale automatically to preserve aspect ratio. */
-
-.featured-strip-badge img {
-  display: block;
-  width: auto;
-  height: 54px;
-  max-width: none;
-  object-fit: contain;
-}
-/* removed per-badge overrides — unified sizing rule applies to all badges */
 
 .featured-strip-theme-img--light {
   display: none;
