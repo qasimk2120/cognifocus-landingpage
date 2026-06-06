@@ -11,7 +11,8 @@ param(
   [switch]$CheckOnly,
   [switch]$DeployIfNoCommit,
   [switch]$WatchDeploy,
-  [switch]$SyncBack
+  [switch]$SyncBack,
+  [switch]$SyncFirst
 )
 
 $ErrorActionPreference = "Stop"
@@ -92,11 +93,20 @@ $ContentPaths = @("src/content/blog", "src/content/releases")
 Set-Location $script:RepoRoot
 
 if (-not $BackendPath) {
-  $BackendPath = Join-Path $script:RepoRoot "..\cognifocus-waiting-list-backend"
+  $BackendPath = Join-Path $script:RepoRoot "..\cognifocus-backend"
 }
 
 $BackendPath = Resolve-Path $BackendPath
 $ImportScript = Join-Path $BackendPath "scripts\import-cms-content.js"
+
+# Set Google credentials automatically from the service account key in the backend folder
+$ServiceAccountKey = Get-ChildItem $BackendPath -Filter "*firebase-adminsdk*.json" -ErrorAction SilentlyContinue | Select-Object -First 1
+if ($ServiceAccountKey) {
+  $env:GOOGLE_APPLICATION_CREDENTIALS = $ServiceAccountKey.FullName
+  Write-Host "Using service account: $($ServiceAccountKey.Name)" -ForegroundColor DarkGray
+} elseif (-not $env:GOOGLE_APPLICATION_CREDENTIALS) {
+  throw "No Firebase service account key found in $BackendPath and GOOGLE_APPLICATION_CREDENTIALS is not set."
+}
 
 Write-Step "Checking repository state"
 $currentBranch = (& git rev-parse --abbrev-ref HEAD).Trim()
@@ -121,6 +131,14 @@ if (-not $SkipRemoteCheck) {
   if ($behindCount -gt 0) {
     throw "Local $Branch is behind origin/$Branch by $behindCount commit(s). Pull first, then rerun this command."
   }
+}
+
+if ($SyncFirst) {
+  Write-Step "SyncFirst: pulling Firestore -> local JSON before publish"
+  Invoke-CommandChecked "Syncing Firestore -> local JSON (npm run sync:cms-content)" {
+    & npm.cmd run sync:cms-content
+  }
+  Write-Host "SyncFirst complete. Local JSON is now up to date with Firestore." -ForegroundColor Green
 }
 
 Invoke-CommandChecked "Checking for mojibake" {
