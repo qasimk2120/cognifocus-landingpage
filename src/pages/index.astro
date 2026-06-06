@@ -61,14 +61,18 @@ const schemas = [
       "ratingValue": "5",
       "bestRating": "5",
       "worstRating": "1",
-      "ratingCount": "5"
+      "ratingCount": "6"
     }
   }),
   JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "CogniFocus",
-    "url": "https://cognifocus.app/"
+    "url": "https://cognifocus.app/",
+    "potentialAction": {
+      "@type": "DownloadAction",
+      "target": "https://play.google.com/store/apps/details?id=io.ionic.cognifocus"
+    }
   }),
   JSON.stringify({
     "@context": "https://schema.org",
@@ -92,6 +96,38 @@ const schemas = [
       "https://www.pinterest.com/getcognifocus/",
       "https://www.producthunt.com/products/cognifocus"
     ]
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": { "@type": "SoftwareApplication", "name": "CogniFocus" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "author": { "@type": "Person", "name": "Beta Tester" },
+    "reviewBody": "The neutral look is almost worse than a notification. It feels like the app noticed I was about to drift before I did."
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": { "@type": "SoftwareApplication", "name": "CogniFocus" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "author": { "@type": "Person", "name": "Study Session User" },
+    "reviewBody": "I opened TikTok out of habit and the annoyed Goblin snapped me out of autopilot faster than any timer I have used."
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": { "@type": "SoftwareApplication", "name": "CogniFocus" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "author": { "@type": "Person", "name": "Early Access User" },
+    "reviewBody": "Went from 8 Instagram breaks per study session to maybe 1. The Goblin celebrating the clean session made me want to keep the streak alive."
+  }),
+  JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Review",
+    "itemReviewed": { "@type": "SoftwareApplication", "name": "CogniFocus" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "author": { "@type": "Person", "name": "Focus Sprint User" },
+    "reviewBody": "The angry reaction is ridiculous in the best way. It turns one more scroll into a tiny moment of accountability."
   })
 ];
 ---
@@ -120,15 +156,12 @@ const schemas = [
   <link slot="head-after-icon" rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     slot="head-after-icon"
-    rel="preload"
-    as="style"
-    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
-  />
-  <link
-    slot="head-after-icon"
     href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap"
     rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
   />
+  <noscript slot="head-after-icon"><link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400..800&family=Funnel+Sans:wght@300..800&display=swap" rel="stylesheet" /></noscript>
   {schemas.map((schema) => <script slot="head-after-social" type="application/ld+json" set:html={schema}></script>)}
 
   <main id="main-content">

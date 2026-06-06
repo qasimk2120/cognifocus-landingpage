@@ -6,7 +6,7 @@ const description = "Compare CogniFocus plans. Start free, upgrade to Pro for st
 const canonical = "https://cognifocus.app/pricing.html";
 const ogTitle = "CogniFocus Pricing";
 const ogDescription = "Compare CogniFocus plans. Start free, upgrade to Pro for stronger Shield protection, planned sessions, and recovery support.";
-const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"SoftwareApplication\",\n        \"name\": \"CogniFocus\",\n        \"applicationCategory\": \"ProductivityApplication\",\n        \"operatingSystem\": \"Android\",\n        \"url\": \"https://cognifocus.app/pricing.html\",\n        \"downloadUrl\": \"https://play.google.com/store/apps/details?id=io.ionic.cognifocus\",\n        \"offers\": [\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Free\",\n            \"price\": \"0\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Free\"\n          },\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Pro Monthly\",\n            \"price\": \"3.99\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Subscription\",\n            \"description\": \"Monthly CogniFocus Pro subscription with a 7-day trial\"\n          },\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Pro Yearly\",\n            \"price\": \"31.99\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Subscription\",\n            \"description\": \"Yearly CogniFocus Pro subscription without a trial\"\n          }\n        ],\n        \"aggregateRating\": {\n          \"@type\": \"AggregateRating\",\n          \"ratingValue\": \"5\",\n          \"bestRating\": \"5\",\n          \"worstRating\": \"1\",\n          \"ratingCount\": \"5\"\n        }\n      }";
+const schemaJson = "{\n        \"@context\": \"https://schema.org\",\n        \"@type\": \"SoftwareApplication\",\n        \"name\": \"CogniFocus\",\n        \"applicationCategory\": \"ProductivityApplication\",\n        \"operatingSystem\": \"Android\",\n        \"url\": \"https://cognifocus.app/pricing.html\",\n        \"downloadUrl\": \"https://play.google.com/store/apps/details?id=io.ionic.cognifocus\",\n        \"offers\": [\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Free\",\n            \"price\": \"0\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Free\"\n          },\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Pro Monthly\",\n            \"price\": \"3.99\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Subscription\",\n            \"description\": \"Monthly CogniFocus Pro subscription with a 7-day trial\"\n          },\n          {\n            \"@type\": \"Offer\",\n            \"name\": \"CogniFocus Pro Yearly\",\n            \"price\": \"31.99\",\n            \"priceCurrency\": \"USD\",\n            \"category\": \"Subscription\",\n            \"description\": \"Yearly CogniFocus Pro subscription without a trial\"\n          }\n        ],\n        \"aggregateRating\": {\n          \"@type\": \"AggregateRating\",\n          \"ratingValue\": \"5\",\n          \"bestRating\": \"5\",\n          \"worstRating\": \"1\",\n          \"ratingCount\": \"6\"\n        }\n      }";
 const faqSchemaJson = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -24,7 +24,7 @@ const faqSchemaJson = JSON.stringify({
       name: "How much is Pro Yearly?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "$31.99/year. That's about $2.67/month \u007c saves you 33% versus monthly. Billed once a year through Google Play.",
+        text: "$31.99/year. That's about $2.67/month, saving you 33% versus monthly. Billed once a year through Google Play.",
       },
     },
     {
@@ -32,7 +32,7 @@ const faqSchemaJson = JSON.stringify({
       name: "Where do I manage billing?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Through Google Play. Tap your profile, then Subscriptions. Goblin can't help you there \u007c that's Google's turf.",
+        text: "Through Google Play. Tap your profile, then Subscriptions. Goblin can't help you there. That's Google's turf.",
       },
     },
   ],
@@ -106,10 +106,9 @@ const faqSchemaJson = JSON.stringify({
               <ul class="pricing-list">
                 <li>Stronger Shield capacity</li>
                 <li>Manual Block when you need direct protection</li>
-                <li>Planned Sessions and reminders</li>
-                <li>Cloud sync &#124; switch phones without losing your streak</li>
-                <li>Planned Sessions &#124; schedule focus blocks in advance</li>
+                <li>Planned Sessions, schedule focus blocks in advance</li>
                 <li>Focus reminders</li>
+                <li>Cloud sync, switch phones without losing your streak</li>
                 <li>Recovery nudges when focus slips</li>
                 <li>Pro restore support</li>
               </ul>
@@ -126,7 +125,7 @@ const faqSchemaJson = JSON.stringify({
                 <span class="pricing-label">Pro Yearly</span>
                 <h2>Best Value</h2>
                 <p class="pricing-price">$2.67 <span>/ month</span></p>
-                <p class="pricing-micro">About 14&cent; a day &mdash; less than a coffee</p>
+                <p class="pricing-micro">About 14&cent; a day. Less than a coffee.</p>
                 <p class="pricing-note">
                   Billed yearly at $31.99. About $2.67/month
                 </p>
@@ -134,10 +133,9 @@ const faqSchemaJson = JSON.stringify({
               <ul class="pricing-list">
                 <li>Stronger Shield capacity</li>
                 <li>Manual Block when you need direct protection</li>
-                <li>Planned Sessions and reminders</li>
-                <li>Cloud sync &#124; switch phones without losing your streak</li>
-                <li>Planned Sessions &#124; schedule focus blocks in advance</li>
+                <li>Planned Sessions, schedule focus blocks in advance</li>
                 <li>Focus reminders</li>
+                <li>Cloud sync, switch phones without losing your streak</li>
                 <li>Recovery nudges when focus slips</li>
                 <li>Pro restore support</li>
                 <li>Lower yearly price</li>
@@ -223,7 +221,7 @@ const faqSchemaJson = JSON.stringify({
             </summary>
             <div class="cf-faq-body">
               <div class="cf-faq-content">
-                $31.99/year. That's about $2.67/month &#124; saves you 33%
+                $31.99/year. That's about $2.67/month, saving you 33%
                 versus monthly. Billed once a year through Google Play.
               </div>
             </div>
@@ -237,7 +235,7 @@ const faqSchemaJson = JSON.stringify({
             <div class="cf-faq-body">
               <div class="cf-faq-content">
                 Through Google Play. Tap your profile, then Subscriptions.
-                Goblin can't help you there &#124; that's Google's turf.
+                Goblin can't help you there. That's Google's turf.
               </div>
             </div>
           </details>
