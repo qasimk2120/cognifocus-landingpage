@@ -304,6 +304,18 @@ body.support-page.cf-shell{
   display:none;
 }
 
+.support-email-alt {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--cf-text-muted, rgba(255,255,255,0.55));
+}
+.support-email-alt a {
+  color: var(--cf-mint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .support-card.is-turnstile-active > :not(.turnstile-modal) {
   filter: blur(4px);
   pointer-events: none;
