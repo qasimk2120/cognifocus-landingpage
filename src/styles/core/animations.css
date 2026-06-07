@@ -17,19 +17,17 @@ body.cf-home::before {
 
 .cf-motion-ready .cf-reveal {
   opacity: 0;
-  filter: blur(var(--cf-motion-reveal-blur));
   translate: 0 var(--cf-motion-reveal-distance);
   transition:
     opacity var(--cf-motion-reveal-duration) var(--cf-motion-ease),
-    filter var(--cf-motion-reveal-duration) var(--cf-motion-ease),
     translate var(--cf-motion-reveal-duration) var(--cf-motion-ease);
   transition-delay: var(--cf-reveal-delay, 0ms);
-  will-change: opacity, filter, translate;
+  /* will-change removed: pre-promoting 58 layers at load caused Style & Layout 2,677ms.
+     opacity + translate transitions are compositor-eligible without the hint. */
 }
 
 .cf-motion-ready .cf-reveal.is-visible {
   opacity: 1;
-  filter: blur(0);
   translate: 0 0;
 }
 

@@ -133,20 +133,25 @@
 
       const anim = pick(faceAnims);
 
-      void faceEl.offsetWidth; // force reflow
+      // Reset animation without forced reflow — yield a frame then apply
+      faceEl.style.animationName = "none";
+      requestAnimationFrame(() => {
+        faceEl.style.animationName = "";
+        faceEl.style.animation = `${anim.name} ${anim.ms}ms ease-in-out forwards`;
 
-      faceEl.style.animation = `${anim.name} ${anim.ms}ms ease-in-out forwards`;
-
-      setTimeout(() => {
-        faceEl.style.animation = "none";
-        faceEl.style.opacity   = "0";
-        // Gap of 2–5s before next face
-        setTimeout(playFace, rand(2000, 5000));
-      }, anim.ms);
+        setTimeout(() => {
+          faceEl.style.animation = "none";
+          faceEl.style.opacity   = "0";
+          // Gap of 2–5s before next face
+          setTimeout(playFace, rand(2000, 5000));
+        }, anim.ms);
+      });
     }
 
-    // --- Shard particles: independent, staggered loops ---
-    shards.forEach((shard, i) => {
+    // --- Shard particles: build starters, fire from startAmbient (after load+idle) ---
+    // Each starter is a closure that kicks off that shard's loop with a staggered delay.
+    // Collecting them here (not calling them) keeps shard[0] off the critical path.
+    const shardStarters = shards.map((shard, i) => {
       function playShard() {
         shard.style.animation = "none";
         shard.style.opacity   = "0";
@@ -159,22 +164,41 @@
 
         const ms = Math.round(rand(6000, 10000));
 
-        void shard.offsetWidth;
+        // Reset without forced reflow
+        shard.style.animationName = "none";
+        requestAnimationFrame(() => {
+          shard.style.animationName = "";
+          shard.style.animation = `shardRise ${ms}ms ease-in-out forwards`;
 
-        shard.style.animation = `shardRise ${ms}ms ease-in-out forwards`;
-
-        setTimeout(() => {
-          shard.style.animation = "none";
-          shard.style.opacity   = "0";
-          setTimeout(playShard, rand(3000, 8000));
-        }, ms);
+          setTimeout(() => {
+            shard.style.animation = "none";
+            shard.style.opacity   = "0";
+            setTimeout(playShard, rand(3000, 8000));
+          }, ms);
+        });
       }
 
-      // Stagger shard starts
-      setTimeout(playShard, i * rand(2000, 4000));
+      // Return a starter — stagger each shard by index after ambient begins
+      return () => setTimeout(playShard, i * rand(1000, 2500));
     });
 
-    // Start face loop after a short delay
-    setTimeout(playFace, 1200);
+    // Start face loop + shards after page load + idle — keeps LCP window clear
+    const startAmbient = () => {
+      const run = () => {
+        setTimeout(playFace, 500);
+        shardStarters.forEach((start) => start());
+      };
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(run, { timeout: 3000 });
+      } else {
+        setTimeout(run, 2000);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      startAmbient();
+    } else {
+      window.addEventListener("load", startAmbient, { once: true });
+    }
   })();
 </script>

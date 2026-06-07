@@ -103,3 +103,42 @@
     </div>
   </div>
 </section>
+
+<script>
+  // Lazy-load Turnstile only when the newsletter strip scrolls into view.
+  // Replaces the global head script removed from BaseLayout.
+  (function () {
+    const TURNSTILE_URL =
+      "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+
+    function loadTurnstile() {
+      if (document.querySelector(`script[src="${TURNSTILE_URL}"]`)) return;
+      const s = document.createElement("script");
+      s.src = TURNSTILE_URL;
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+
+    const strip = document.querySelector(".newsletter-strip");
+    if (!strip) return;
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            loadTurnstile();
+            io.disconnect();
+          }
+        },
+        { rootMargin: "200px" }
+      );
+      io.observe(strip);
+    } else {
+      // Fallback: load after page is idle
+      window.addEventListener("load", () => setTimeout(loadTurnstile, 1000), {
+        once: true,
+      });
+    }
+  })();
+</script>

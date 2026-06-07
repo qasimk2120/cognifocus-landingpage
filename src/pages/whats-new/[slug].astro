@@ -8,14 +8,20 @@ import {
 } from "../../utils/releases.js";
 
 export async function getStaticPaths() {
-  return (await getSortedReleases()).map((release) => ({
+  const releases = await getSortedReleases();
+  return releases.map((release, index) => ({
     params: { slug: release.slug },
-    props: { release },
+    props: {
+      release,
+      prevRelease: releases[index + 1] ?? null,
+      nextRelease: releases[index - 1] ?? null,
+    },
   }));
 }
 
 const { slug } = Astro.params;
 const release = Astro.props.release || (await getReleaseBySlug(slug));
+const { prevRelease, nextRelease } = Astro.props;
 
 if (!release) {
   throw new Error(`Missing published release note content for ${slug}`);
@@ -100,6 +106,20 @@ const sections = getReleaseDetailSections(release);
             </ul>
           </section>
         ))
+      )}
+      {(prevRelease || nextRelease) && (
+        <nav class="blog-post-nav" aria-label="Release navigation" style="display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border-subtle,#e5e7eb)">
+          {prevRelease ? (
+            <a href={prevRelease.canonical || `/whats-new/${prevRelease.slug}.html`} rel="prev" style="flex:1;text-align:left">
+              &larr; {prevRelease.title}
+            </a>
+          ) : <span style="flex:1" />}
+          {nextRelease ? (
+            <a href={nextRelease.canonical || `/whats-new/${nextRelease.slug}.html`} rel="next" style="flex:1;text-align:right">
+              {nextRelease.title} &rarr;
+            </a>
+          ) : <span style="flex:1" />}
+        </nav>
       )}
     </article>
   </main>

@@ -146,3 +146,37 @@
     <div class="turnstile-modal__widget" id="newsletterTurnstileWidget"></div>
   </div>
 </aside>
+
+<script>
+  // Ensure Turnstile is loaded before the dialog can be used.
+  // NewsletterStrip lazy-loads it on scroll; this handles pages where only
+  // the dialog appears (no strip). Deduplication prevents double-loading.
+  (function () {
+    const TURNSTILE_URL =
+      "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+
+    function loadTurnstile() {
+      if (document.querySelector(`script[src="${TURNSTILE_URL}"]`)) return;
+      const s = document.createElement("script");
+      s.src = TURNSTILE_URL;
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+
+    // Load when user scrolls 30% down the page — likely before dialog triggers
+    let loaded = false;
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (loaded) return;
+        const scrolled = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+        if (scrolled > 0.3) {
+          loaded = true;
+          loadTurnstile();
+        }
+      },
+      { passive: true }
+    );
+  })();
+</script>

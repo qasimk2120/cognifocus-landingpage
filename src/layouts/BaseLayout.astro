@@ -150,16 +150,6 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
     <script>
       import "../scripts/entries/shared.js";
     </script>
-    {/*
-      Turnstile — loaded globally with render=explicit so it never auto-renders.
-      Forms call window.turnstile.render(...) explicitly on submit.
-      Required for newsletter strip and dialog which appear on every page.
-    */}
-    <script
-      src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
-      async
-      defer
-    ></script>
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="nA1wJyb7Q7r3Ofb98mlDlg" async></script>
     <slot name="head" />
     <PostHog />
@@ -185,7 +175,22 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
     <NewsletterDialog />
     <CookieConsent />
     <script>
-      import "../scripts/entries/newsletter.js";
+      // Dynamic import deferred to load + idle — breaks the newsletter → form →
+      // waitlist-response.js chain off the 417ms critical network path.
+      // Dialog auto-triggers at 45s, strip is below the fold — safe to defer.
+      const loadNewsletter = () => import("../scripts/entries/newsletter.js");
+      const afterIdle = (fn: () => void) => {
+        if ("requestIdleCallback" in window) {
+          (window as any).requestIdleCallback(fn, { timeout: 4000 });
+        } else {
+          setTimeout(fn, 1000);
+        }
+      };
+      if (document.readyState === "complete") {
+        afterIdle(loadNewsletter);
+      } else {
+        window.addEventListener("load", () => afterIdle(loadNewsletter), { once: true });
+      }
     </script>
   </body>
 </html>

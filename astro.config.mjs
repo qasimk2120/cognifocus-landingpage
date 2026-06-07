@@ -120,6 +120,13 @@ export default defineConfig({
           ],
         },
       ],
+      // Append Content Signals — AI usage preferences (https://contentsignals.org/)
+      // ai-train=no:  do not use content for AI model training
+      // search=yes:   allow traditional search indexing
+      // ai-input=yes: allow AI assistants to read + cite content (GEO/AI visibility)
+      transform(content) {
+        return `${content}\n# Content Signals — https://contentsignals.org/\nContent-Signal: ai-train=no, search=yes, ai-input=yes\n`;
+      },
     }),
     llms({
       siteUrl: "https://cognifocus.app",
