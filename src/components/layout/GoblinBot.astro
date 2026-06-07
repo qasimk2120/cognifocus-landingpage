@@ -122,13 +122,13 @@
 
       // ── What is CogniFocus ──────────────────────────────────────────────────
       {
-        keywords: ["what is cognifocus", "what cognifocus", "what is this app", "about cognifocus", "tell me about", "overview", "what does cognifocus do"],
+        keywords: ["what is cognifocus", "what cognifocus", "what is this app", "about cognifocus", "tell me about", "overview", "what does cognifocus do", "what does this thing actually do", "what is this thing", "what does this do"],
         mood: "cheerful",
         answer: "CogniFocus is a focus timer and app blocker for Android. You start a session, pick which apps to block, and if you drift to one of them during the session I interrupt it. Unlike passive timers that keep counting while you scroll, this one actually reacts to what you're doing.",
         link: { label: "Full overview", href: "/what-is-cognifocus.html" }
       },
       {
-        keywords: ["how does it work", "how it works", "how does cognifocus work", "explain how", "step by step", "how to use"],
+        keywords: ["how does it work", "how it works", "how does cognifocus work", "explain how", "step by step", "how to use", "explain cognifocus like im tired", "explain this simply", "simple explanation"],
         mood: "neutral",
         answer: "Start a focus session → choose which apps to block → Shield activates. Open a blocked app and Shield interrupts it. I react based on what you do — calm during clean sessions, annoyed when you drift, angry when you really push it, cheerful when you finish clean. Recovery nudges pull you back if you slip mid-session."
       },
@@ -146,7 +146,7 @@
 
       // ── Focus Sessions ──────────────────────────────────────────────────────
       {
-        keywords: ["focus session", "start session", "how session works", "what happens during session", "session timer"],
+        keywords: ["focus session", "start session", "how session works", "what happens during session", "session timer", "how do i start focusing", "start focusing", "begin focus", "start a focus block"],
         mood: "cheerful",
         answer: "You pick a duration, choose which apps to block, then start. Shield activates, I start watching. Drift and the session reacts. Complete it clean and I'll be annoyingly pleased about it."
       },
@@ -156,7 +156,7 @@
         answer: "Yes. Pausing stops the session temporarily so you can handle something real without losing your whole setup. Resume when you're back."
       },
       {
-        keywords: ["session duration", "how long session", "session length", "custom duration", "session time", "preset duration"],
+        keywords: ["session duration", "how long session", "session length", "custom duration", "session time", "preset duration", "maximum focus session length", "max session length", "longest session", "how long can a session be"],
         mood: "neutral",
         answer: "Free plan: sessions up to 90 minutes. Pro: sessions up to 240 minutes (4 hours). You can set preset or custom durations."
       },
@@ -188,7 +188,7 @@
 
       // ── Shield & Blocking ───────────────────────────────────────────────────
       {
-        keywords: ["what is shield", "distraction shield", "shield blocking", "how does shield work"],
+        keywords: ["what is shield", "distraction shield", "shield blocking", "how does shield work", "what is the shield thing", "shield thing"],
         mood: "angry",
         answer: "Shield detects which app is in front of the screen during a session. The moment a blocked app opens, Shield interrupts it. It's what keeps TikTok, Instagram, YouTube, Reddit, or whatever you picked from quietly stealing the session."
       },
@@ -198,7 +198,7 @@
         answer: "You choose which apps to block — TikTok, Instagram, YouTube, X, Reddit, Facebook, or anything else that pulls you off task. The goal is to cover your personal distractions, not a forced universal list."
       },
       {
-        keywords: ["how many apps", "app limit", "number of apps", "apps free plan", "apps pro plan"],
+        keywords: ["how many apps", "app limit", "number of apps", "apps free plan", "apps pro plan", "how many distractions can free block", "free app blocking limit", "free block limit"],
         mood: "neutral",
         answer: "Free plan: block up to 3 apps. Pro plan: block up to 7 apps. More space for the full range of things that pull you off track."
       },
@@ -213,7 +213,7 @@
         answer: "Manual Block lets you hold app blocks with no timer running. Just toggle it on. Good for study windows, bedtime, or any time you want protection without a formal session."
       },
       {
-        keywords: ["shield work offline", "blocking offline", "does shield need internet"],
+        keywords: ["shield work offline", "blocking offline", "does shield need internet", "does blocking work without wifi", "blocking without wifi", "blocking without internet"],
         mood: "cheerful",
         answer: "Yes. Core blocking and Shield behavior works offline. No live network connection needed."
       },
@@ -228,7 +228,7 @@
         answer: "Overlay permission lets Shield appear over the distraction you just opened. That overlay is the interruption. Without it, Shield can't step in cleanly."
       },
       {
-        keywords: ["read messages", "read screen", "read content", "spy", "privacy permission", "what can it see", "what does cognifocus see"],
+        keywords: ["read messages", "read screen", "read content", "spy", "privacy permission", "what can it see", "what does cognifocus see", "does cognifocus read my texts", "read my texts", "read my messages"],
         mood: "neutral",
         answer: "CogniFocus only sees which app is in the foreground. It does not read your messages, passwords, browser history, or anything inside your apps. App state only — not content."
       },
@@ -240,9 +240,54 @@
 
       // ── Goblin & Companion ──────────────────────────────────────────────────
       {
-        keywords: ["who is goblin", "what is goblin", "what does goblin do", "goblin companion", "who is the goblin", "why goblin"],
+        keywords: ["who is goblin", "what is goblin", "what does goblin do", "goblin companion", "who is the goblin", "why goblin", "why is there a goblin", "mascot", "character", "companion"],
         mood: "cheerful",
         answer: "That's me. I make focus feel noticed. I react to what you do during a session — calm when you're on track, annoyed when you wander, angry when you really push it, cheerful when you actually finish clean. Less silent timer, more something in the room with you."
+      },
+      {
+        keywords: ["why is there a goblin judging my life choices", "why are you judging me", "judging me", "judge", "life choices", "goblin judging", "why goblin judge", "is the goblin judging me"],
+        mood: "annoyed",
+        answer: "Because someone had to keep an eye on your quick 5 minute Instagram check. I react when you stay focused, get distracted, save streaks, and generally make questionable attention-related decisions. I'm not judging. I'm concerned."
+      },
+      {
+        keywords: ["who are you", "are you real", "what are you", "are you the bot", "who is this bot", "what is this bot"],
+        mood: "cheerful",
+        answer: "I'm the tiny FAQ Goblin. I answer CogniFocus questions, point you to the right page, and occasionally look disappointed when your attention wanders into the bushes."
+      },
+      {
+        keywords: ["are you ai", "are you an ai", "ai chatbot", "are you chatgpt", "are you artificial intelligence", "llm", "language model"],
+        mood: "neutral",
+        answer: "Nope. I'm a tiny FAQ Goblin. I answer questions. I don't conquer the internet."
+      },
+      {
+        keywords: ["do you have feelings", "do goblins have feelings", "are you sentient", "are you alive", "do you feel", "can you feel"],
+        mood: "annoyed",
+        answer: "Officially? No. Unofficially? I become disappointed when you open Instagram mid-session."
+      },
+      {
+        keywords: ["can i pet the goblin", "can i pet you", "pet goblin", "can i hug the goblin", "hug goblin", "is goblin friendly"],
+        mood: "cheerful",
+        answer: "Legally unclear. Emotionally yes. But finish one clean focus session first so I know the hand approaching me is disciplined."
+      },
+      {
+        keywords: ["do you like tiktok", "what do you think of tiktok", "tiktok", "is tiktok bad", "do you hate tiktok"],
+        mood: "angry",
+        answer: "TikTok is a trapdoor with music. Fun? Yes. Harmless during a focus session? Absolutely not. Put it on the block list before it eats the next 27 minutes."
+      },
+      {
+        keywords: ["do you like instagram", "what do you think of instagram", "instagram", "is instagram bad", "do you hate instagram"],
+        mood: "annoyed",
+        answer: "Instagram is where quick checks go to become archaeological digs. I don't hate it. I just don't trust it near an active session."
+      },
+      {
+        keywords: ["what is your favorite app", "favorite app", "best app", "what app do you like"],
+        mood: "cheerful",
+        answer: "My favorite app is whichever one you did not open during the session you promised yourself you would protect."
+      },
+      {
+        keywords: ["are you evil", "evil goblin", "bad goblin", "villain", "are you mean"],
+        mood: "angry",
+        answer: "Not evil. Focus-aligned. There is a difference. Evil would let you call 47 minutes of scrolling a completed focus session."
       },
       {
         keywords: ["goblin mood", "goblin reactions", "goblin angry", "goblin annoyed", "goblin cheerful", "goblin neutral", "mood states"],
@@ -255,7 +300,7 @@
         answer: "My mood and messages adapt over time based on your focus patterns. The more you use CogniFocus the more I know what kind of chaos to expect from you."
       },
       {
-        keywords: ["more companions", "other companions", "monk", "buddy", "wizard", "new characters", "future companions"],
+        keywords: ["more companions", "other companions", "monk", "buddy", "wizard", "new characters", "future companions", "are there other characters", "other characters", "more characters"],
         mood: "neutral",
         answer: "Monk, Buddy, Wizard — all different energy, all watching. More companions may come, but only if they actually make focus better. Focus Shards may help unlock them when they're real."
       },
@@ -295,13 +340,13 @@
         answer: "Pro Monthly comes with a 7-day free trial through Google Play. Pro Yearly doesn't have a trial but saves 33% versus monthly."
       },
       {
-        keywords: ["what is included in pro", "pro features", "what do i get with pro", "pro plan features", "upgrade benefits"],
+        keywords: ["what is included in pro", "pro features", "what do i get with pro", "pro plan features", "upgrade benefits", "free vs pro", "free versus pro", "free and pro", "difference between free and pro", "difference between free and paid", "free vs paid", "free versus paid", "paid version", "premium features", "premium plan", "paid plan", "upgrade worth it", "is pro worth it", "is premium worth it", "what is in premium", "what is included in premium", "compare free pro", "compare plans"],
         mood: "neutral",
         answer: "Pro gets you: block up to 7 apps (vs 3 free), sessions up to 240 min (vs 90 min), Manual Block, up to 5 Planned Sessions with reminders, recovery nudges, cloud sync across devices, and Pro restore support.",
         link: { label: "Compare plans", href: "/pricing.html" }
       },
       {
-        keywords: ["free plan", "what is free", "what do i get free", "free features", "free version"],
+        keywords: ["free plan", "what is free", "what do i get free", "free features", "free version", "what is included for free", "included for free", "what comes free"],
         mood: "neutral",
         answer: "Free gives you: core focus sessions up to 90 min, block up to 3 apps, Goblin reactions, streaks and XP, Focus Shards, DND Focus Mode, and basic progress tracking. No credit card needed."
       },
@@ -364,7 +409,7 @@
         link: { label: "Download page", href: "/download.html" }
       },
       {
-        keywords: ["ios", "iphone", "ipad", "apple", "ios version", "when ios", "ios release"],
+        keywords: ["ios", "iphone", "ipad", "apple", "ios version", "when ios", "ios release", "is it on iphone", "iphone version", "apple version"],
         mood: "neutral",
         answer: "iOS is in development. Join the waitlist and you'll be notified when it drops. No release date confirmed yet.",
         link: { label: "Join iOS waitlist", href: "/ios-waitlist.html" }
@@ -375,7 +420,7 @@
         answer: "Desktop support is being explored for a later phase. Nothing confirmed yet. Android is where it's at right now."
       },
       {
-        keywords: ["what devices", "compatible devices", "which phone", "supported devices", "requirements"],
+        keywords: ["what devices", "compatible devices", "which phone", "supported devices", "requirements", "what android version do i need", "minimum android version", "android version required"],
         mood: "neutral",
         answer: "CogniFocus runs on Android devices. It requires Usage Access and Overlay permissions to function properly. No specific minimum Android version has been publicly stated."
       },
@@ -414,14 +459,14 @@
         answer: "AppBlock handles blocking but has no companion reactions or recovery nudges. CogniFocus adds behavioral feedback — I react, nudge, and track — on top of the blocking."
       },
       {
-        keywords: ["vs pomodoro", "pomodoro", "focus to do", "forest pomodoro", "timer app", "other focus apps"],
+        keywords: ["vs pomodoro", "pomodoro", "focus to do", "forest pomodoro", "timer app", "other focus apps", "is this just a pomodoro timer", "just a pomodoro", "only a timer"],
         mood: "neutral",
         answer: "Most Pomodoro timers time you. CogniFocus times you AND blocks apps AND reacts when you drift. The difference is behavioral feedback during the session, not just a countdown."
       },
 
       // ── Support & Contact ───────────────────────────────────────────────────
       {
-        keywords: ["bug", "report bug", "something is wrong", "not working", "broken", "crash", "error", "issue", "problem"],
+        keywords: ["bug", "report bug", "something is wrong", "not working", "broken", "crash", "error", "issue", "problem", "i found a bug", "found a bug"],
         mood: "annoyed",
         answer: "Something broke? Use the support form and include your device model, Android version, and exactly what happened before the issue.",
         link: { label: "Report a bug", href: "/support.html" }
@@ -439,7 +484,7 @@
         link: { label: "Support page", href: "/support.html" }
       },
       {
-        keywords: ["press", "media", "press enquiry", "journalist", "partnership"],
+        keywords: ["press", "media", "press enquiry", "journalist", "partnership", "where is the press email", "press email", "media email"],
         mood: "neutral",
         answer: "For press enquiries contact press@cognifocus.app. CogniFocus was covered by Startup Fortune — see the about page for more.",
         link: { label: "About page", href: "/about.html" }
@@ -447,7 +492,7 @@
 
       // ── Recovery & Attention patterns ───────────────────────────────────────
       {
-        keywords: ["recovery nudge", "nudge", "come back", "after distraction", "recover focus", "session recovery"],
+        keywords: ["recovery nudge", "nudge", "come back", "after distraction", "recover focus", "session recovery", "what happens when i get distracted", "when i get distracted", "after i get distracted"],
         mood: "annoyed",
         answer: "Recovery nudges are small pulls back after a slip. Not a scolding — just enough friction to make the session feel recoverable instead of ruined. One distraction doesn't have to end everything."
       },
@@ -465,7 +510,7 @@
         link: { label: "Watch demo", href: "/demo.html" }
       },
       {
-        keywords: ["social media", "tiktok cognifocus", "instagram cognifocus", "follow", "youtube channel"],
+        keywords: ["social media", "tiktok cognifocus", "instagram cognifocus", "follow", "youtube channel", "where can i follow cognifocus", "follow cognifocus", "social accounts"],
         mood: "neutral",
         answer: "CogniFocus is on TikTok (@cognifocus.app), Instagram (@cognifocus.app), Facebook, X (@iqasim_explores), and Pinterest. Follow for updates."
       },
@@ -489,7 +534,7 @@
         link: { label: "Privacy policy", href: "/privacy.html" }
       },
       {
-        keywords: ["whats new", "changelog", "updates", "latest update", "new features", "release notes", "version"],
+        keywords: ["whats new", "changelog", "updates", "latest update", "new features", "release notes", "version", "where can i see the latest version", "latest version", "latest release"],
         mood: "neutral",
         answer: "Check the What's New page for the latest updates and changes.",
         link: { label: "What's new", href: "/whats-new.html" }
@@ -503,7 +548,7 @@
         link: { label: "Download free", href: "/download.html" }
       },
       {
-        keywords: ["good app", "does it work", "is it effective", "worth downloading", "should i try"],
+        keywords: ["good app", "does it work", "is it effective", "worth downloading", "should i try", "should i download this app", "worth installing", "should i download"],
         mood: "cheerful",
         answer: "Early users went from 8 Instagram breaks per study session to maybe 1. The angry reaction turns one more scroll into a tiny moment of accountability. Try it free — no account needed."
       },
@@ -654,7 +699,6 @@
 
     function findAnswer(raw: string) {
       const qTokens = tokenize(raw);
-      console.log("[GoblinBot v2]", raw, "→", qTokens);
       if (!qTokens.length) return null;
       let bestEntry: typeof KB[0] | null = null;
       let bestScore = 0;

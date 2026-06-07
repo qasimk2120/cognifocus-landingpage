@@ -5,6 +5,7 @@
     "build": "astro build",
     "postbuild": "npm run check:mojibake -- --include-dist",
     "preview": "astro preview",
+    "test:goblin-bot": "node scripts/test-goblin-bot-queries.mjs",
     "check:mojibake": "node scripts/check-mojibake.mjs",
     "sync:cms-content": "node scripts/sync-cms-content.mjs",
     "publish:cms-content": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/publish-cms-content.ps1"
