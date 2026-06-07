@@ -310,6 +310,30 @@ const cases = [
     query: "what happens when I get distracted",
     includes: "Recovery nudges",
   },
+  {
+    query: "how does this help productivity",
+    includes: "protects the moment where productivity usually dies",
+  },
+  {
+    query: "will CogniFocus make me productive",
+    includes: "No app can make you productive",
+  },
+  {
+    query: "how does it help me stay focused",
+    includes: "interrupts the drift",
+  },
+  {
+    query: "does this help with studying",
+    includes: "study sessions",
+  },
+  {
+    query: "can it stop procrastination",
+    includes: "doesn't delete procrastination",
+  },
+  {
+    query: "how does it improve focus",
+    includes: "turning distraction into a visible event",
+  },
 ];
 
 let failures = 0;
