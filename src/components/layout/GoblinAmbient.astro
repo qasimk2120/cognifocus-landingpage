@@ -43,37 +43,37 @@
 
   /* 1. Gentle float upward */
   @keyframes goblinDrift {
-    0%   { opacity: 0;     transform: translateY(0px)   rotate(-5deg) scale(0.94); }
-    15%  { opacity: 0.06;  }
-    50%  { opacity: 0.06;  transform: translateY(-26px) rotate(4deg)  scale(1.02); }
-    85%  { opacity: 0.06;  }
-    100% { opacity: 0;     transform: translateY(0px)   rotate(-5deg) scale(0.94); }
+    0%   { opacity: 0;    transform: translateY(0px)   rotate(-5deg) scale(0.94); }
+    15%  { opacity: 0.22; }
+    50%  { opacity: 0.22; transform: translateY(-26px) rotate(4deg)  scale(1.02); }
+    85%  { opacity: 0.22; }
+    100% { opacity: 0;    transform: translateY(0px)   rotate(-5deg) scale(0.94); }
   }
 
   /* 2. Pulse-bob — breathes in/out with a little wobble */
   @keyframes goblinBob {
-    0%   { opacity: 0;     transform: scale(0.82) rotate(0deg);   }
-    12%  { opacity: 0.06;  }
-    35%  { opacity: 0.06;  transform: scale(1.1)  rotate(-4deg);  }
-    65%  { opacity: 0.06;  transform: scale(0.9)  rotate(4deg);   }
-    88%  { opacity: 0.06;  }
-    100% { opacity: 0;     transform: scale(0.82) rotate(0deg);   }
+    0%   { opacity: 0;    transform: scale(0.82) rotate(0deg);   }
+    12%  { opacity: 0.22; }
+    35%  { opacity: 0.22; transform: scale(1.1)  rotate(-4deg);  }
+    65%  { opacity: 0.22; transform: scale(0.9)  rotate(4deg);   }
+    88%  { opacity: 0.22; }
+    100% { opacity: 0;    transform: scale(0.82) rotate(0deg);   }
   }
 
   /* 3. Peek — rises from below, lingers, sinks back */
   @keyframes goblinPeek {
-    0%   { opacity: 0;     transform: translateY(32px) rotate(6deg)  scale(0.88); }
-    18%  { opacity: 0.06;  transform: translateY(0px)  rotate(-2deg) scale(1);    }
-    75%  { opacity: 0.06;  transform: translateY(-10px) rotate(2deg) scale(1);    }
-    100% { opacity: 0;     transform: translateY(32px) rotate(6deg)  scale(0.88); }
+    0%   { opacity: 0;    transform: translateY(32px)  rotate(6deg)  scale(0.88); }
+    18%  { opacity: 0.22; transform: translateY(0px)   rotate(-2deg) scale(1);    }
+    75%  { opacity: 0.22; transform: translateY(-10px) rotate(2deg)  scale(1);    }
+    100% { opacity: 0;    transform: translateY(32px)  rotate(6deg)  scale(0.88); }
   }
 
   /* --- Shard animation: drifts straight up and fades --- */
   @keyframes shardRise {
-    0%   { opacity: 0;     transform: translateY(0px)  rotate(0deg)   scale(0.7);  }
-    20%  { opacity: 0.08;  }
-    70%  { opacity: 0.08;  transform: translateY(-40px) rotate(20deg) scale(1);    }
-    100% { opacity: 0;     transform: translateY(-60px) rotate(30deg) scale(0.8);  }
+    0%   { opacity: 0;    transform: translateY(0px)   rotate(0deg)   scale(0.7); }
+    20%  { opacity: 0.25; }
+    70%  { opacity: 0.25; transform: translateY(-40px) rotate(20deg)  scale(1);   }
+    100% { opacity: 0;    transform: translateY(-60px) rotate(30deg)  scale(0.8); }
   }
 
   @media (prefers-reduced-motion: reduce) {
