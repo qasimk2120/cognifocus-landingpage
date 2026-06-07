@@ -250,6 +250,7 @@
 .gbot-msg-user {
   align-self: flex-end;
   flex-direction: row-reverse;
+  max-width: 74%;
 }
 
 .gbot-msg-face {
@@ -279,10 +280,51 @@
 }
 
 .gbot-msg-user .gbot-bubble {
-  background: rgba(0, 200, 224, 0.12);
-  border: 1px solid rgba(0, 200, 224, 0.2);
-  border-bottom-right-radius: 4px;
+  max-width: 100%;
+  padding: 8px 12px;
+  background:
+    linear-gradient(145deg, rgba(0, 200, 224, 0.16), rgba(0, 106, 128, 0.12));
+  border: 1px solid rgba(0, 200, 224, 0.34);
+  border-bottom-right-radius: 5px;
   color: var(--cf-text-primary);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.35;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.gbot-msg-thinking {
+  align-items: center;
+}
+
+.gbot-msg-thinking .gbot-msg-face {
+  animation: gbot-thinking-face 1.8s ease-in-out infinite;
+}
+
+.gbot-typing-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 48px;
+  width: auto;
+  padding: 10px 13px;
+}
+
+.gbot-typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cf-goblin);
+  opacity: 0.35;
+  animation: gbot-typing-dot 1.15s ease-in-out infinite;
+}
+
+.gbot-typing-dot:nth-child(2) {
+  animation-delay: 0.16s;
+}
+
+.gbot-typing-dot:nth-child(3) {
+  animation-delay: 0.32s;
 }
 
 .gbot-bubble-link {
@@ -426,8 +468,9 @@ html:not([data-theme]) .gbot-msg-bot .gbot-bubble {
 
 html[data-theme="light"] .gbot-msg-user .gbot-bubble,
 html:not([data-theme]) .gbot-msg-user .gbot-bubble {
-  background: rgba(0, 200, 224, 0.1);
-  border-color: rgba(0, 200, 224, 0.22);
+  background:
+    linear-gradient(145deg, rgba(0, 200, 224, 0.16), rgba(0, 120, 150, 0.1));
+  border-color: rgba(0, 150, 170, 0.28);
   color: var(--cf-light-text);
 }
 
@@ -495,6 +538,33 @@ html:not([data-theme]) .gbot-input-wrap {
 @keyframes gbot-dot-pulse {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.4; }
+}
+
+@keyframes gbot-typing-dot {
+  0%, 70%, 100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes gbot-thinking-face {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gbot-msg-thinking .gbot-msg-face,
+  .gbot-typing-dot {
+    animation: none;
+  }
+
+  .gbot-typing-dot {
+    opacity: 0.75;
+  }
 }
 
 /* ── Mobile adjustments ──────────────────────────────────────────────────── */

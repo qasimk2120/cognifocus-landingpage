@@ -674,6 +674,42 @@
       });
     }
 
+    function addThinkingMessage() {
+      const wrap = document.createElement("div");
+      wrap.className = "gbot-msg gbot-msg-bot gbot-msg-thinking";
+      wrap.setAttribute("aria-label", "Goblin is thinking");
+
+      const face = document.createElement("img");
+      face.src = "/assets/characters/goblin/face/neutral.png";
+      face.alt = "";
+      face.className = "gbot-msg-face";
+      face.width = 24;
+      face.height = 24;
+      face.loading = "lazy";
+      face.decoding = "async";
+
+      const bubble = document.createElement("div");
+      bubble.className = "gbot-bubble gbot-typing-bubble";
+      bubble.setAttribute("aria-hidden", "true");
+
+      for (let i = 0; i < 3; i += 1) {
+        const dot = document.createElement("span");
+        dot.className = "gbot-typing-dot";
+        bubble.appendChild(dot);
+      }
+
+      wrap.appendChild(face);
+      wrap.appendChild(bubble);
+      messages.appendChild(wrap);
+      setFace("neutral");
+
+      requestAnimationFrame(() => {
+        messages.scrollTop = messages.scrollHeight;
+      });
+
+      return wrap;
+    }
+
     function renderQuickReplies(items: typeof QUICK_REPLIES) {
       quickArea.innerHTML = "";
       items.forEach(({ label, query }) => {
@@ -746,8 +782,10 @@
       const text = displayText ?? query;
       addMessage("user", text);
       quickArea.innerHTML = "";
+      const thinkingMessage = addThinkingMessage();
 
       setTimeout(() => {
+        thinkingMessage.remove();
         const entry = findAnswer(query);
         if (entry) {
           addMessage("bot", entry.answer, entry.mood, entry.link);
@@ -755,7 +793,7 @@
           addMessage("bot", FALLBACK.text, FALLBACK.mood, FALLBACK.link);
         }
         renderQuickReplies(QUICK_REPLIES);
-      }, 320);
+      }, 3000);
     }
 
     function openPanel() {
