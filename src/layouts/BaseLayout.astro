@@ -3,6 +3,7 @@ import LaunchBanner from "../components/layout/LaunchBanner.astro";
 import Header from "../components/layout/Header.astro";
 import FeaturedStrip from "../components/layout/FeaturedStrip.astro";
 import Footer from "../components/layout/Footer.astro";
+import GoblinAmbient from "../components/layout/GoblinAmbient.astro";
 import CookieConsent from "../components/analytics/CookieConsent.astro";
 import NewsletterStrip from "../components/newsletter/NewsletterStrip.astro";
 import NewsletterDialog from "../components/newsletter/NewsletterDialog.astro";
@@ -174,6 +175,7 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
       ></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <GoblinAmbient />
     <LaunchBanner {...launchBannerProps} />
     <Header assetBase={assetBase} {...headerProps} />
     <slot />

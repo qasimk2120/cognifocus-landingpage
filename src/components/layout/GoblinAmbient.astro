@@ -1,0 +1,180 @@
+---
+// Ambient background layer — goblin faces + focus shards.
+// Sequential: one element at a time, random position, 3 movement styles.
+// Fixed, z-index 0, pointer-events: none. Zero layout impact.
+---
+
+<!-- Face pool — JS picks one at a time and reuses the element -->
+<div class="goblin-ambient" aria-hidden="true">
+  <img class="goblin-ambient__face" src="" alt="" decoding="async" />
+  <!-- Focus-shard particles (SVG img tags so they inherit opacity control) -->
+  <img class="goblin-ambient__shard" src="/assets/icons/focus-shards/focus-shard-single.svg" alt="" decoding="async" />
+  <img class="goblin-ambient__shard" src="/assets/icons/focus-shards/focus-shard-single.svg" alt="" decoding="async" />
+  <img class="goblin-ambient__shard" src="/assets/icons/focus-shards/focus-shard-single.svg" alt="" decoding="async" />
+</div>
+
+<style>
+  .goblin-ambient {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    user-select: none;
+  }
+
+  .goblin-ambient__face,
+  .goblin-ambient__shard {
+    position: absolute;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  .goblin-ambient__face {
+    object-fit: contain;
+    border-radius: 50%;
+  }
+
+  .goblin-ambient__shard {
+    object-fit: contain;
+  }
+
+  /* --- 3 face movement styles --- */
+
+  /* 1. Gentle float upward */
+  @keyframes goblinDrift {
+    0%   { opacity: 0;     transform: translateY(0px)   rotate(-5deg) scale(0.94); }
+    15%  { opacity: 0.06;  }
+    50%  { opacity: 0.06;  transform: translateY(-26px) rotate(4deg)  scale(1.02); }
+    85%  { opacity: 0.06;  }
+    100% { opacity: 0;     transform: translateY(0px)   rotate(-5deg) scale(0.94); }
+  }
+
+  /* 2. Pulse-bob — breathes in/out with a little wobble */
+  @keyframes goblinBob {
+    0%   { opacity: 0;     transform: scale(0.82) rotate(0deg);   }
+    12%  { opacity: 0.06;  }
+    35%  { opacity: 0.06;  transform: scale(1.1)  rotate(-4deg);  }
+    65%  { opacity: 0.06;  transform: scale(0.9)  rotate(4deg);   }
+    88%  { opacity: 0.06;  }
+    100% { opacity: 0;     transform: scale(0.82) rotate(0deg);   }
+  }
+
+  /* 3. Peek — rises from below, lingers, sinks back */
+  @keyframes goblinPeek {
+    0%   { opacity: 0;     transform: translateY(32px) rotate(6deg)  scale(0.88); }
+    18%  { opacity: 0.06;  transform: translateY(0px)  rotate(-2deg) scale(1);    }
+    75%  { opacity: 0.06;  transform: translateY(-10px) rotate(2deg) scale(1);    }
+    100% { opacity: 0;     transform: translateY(32px) rotate(6deg)  scale(0.88); }
+  }
+
+  /* --- Shard animation: drifts straight up and fades --- */
+  @keyframes shardRise {
+    0%   { opacity: 0;     transform: translateY(0px)  rotate(0deg)   scale(0.7);  }
+    20%  { opacity: 0.08;  }
+    70%  { opacity: 0.08;  transform: translateY(-40px) rotate(20deg) scale(1);    }
+    100% { opacity: 0;     transform: translateY(-60px) rotate(30deg) scale(0.8);  }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .goblin-ambient { display: none; }
+  }
+</style>
+
+<script>
+  (function () {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const faceEl  = document.querySelector<HTMLImageElement>(".goblin-ambient__face");
+    const shards  = Array.from(document.querySelectorAll<HTMLElement>(".goblin-ambient__shard"));
+
+    if (!faceEl) return;
+
+    const faceImages = [
+      "/assets/characters/goblin/face/cheerful.png",
+      "/assets/characters/goblin/face/annoyed.png",
+      "/assets/characters/goblin/face/angry.png",
+      "/assets/characters/goblin/face/neutral.png",
+    ];
+
+    const faceAnims = [
+      { name: "goblinDrift", ms: 13000 },
+      { name: "goblinBob",   ms: 10000 },
+      { name: "goblinPeek",  ms: 12000 },
+    ];
+
+    function rand(min: number, max: number) {
+      return min + Math.random() * (max - min);
+    }
+
+    function pick<T>(arr: T[]): T {
+      return arr[Math.floor(rand(0, arr.length))];
+    }
+
+    // --- Goblin face loop: one at a time, random position & animation ---
+    let lastFace = "";
+    function playFace() {
+      faceEl.style.animation = "none";
+      faceEl.style.opacity   = "0";
+
+      // Pick a different face image each time
+      let img = pick(faceImages);
+      if (img === lastFace && faceImages.length > 1) {
+        img = faceImages[(faceImages.indexOf(img) + 1) % faceImages.length];
+      }
+      lastFace = img;
+      faceEl.src = img;
+
+      const sz = Math.round(rand(58, 90));
+      faceEl.style.width  = `${sz}px`;
+      faceEl.style.height = `${sz}px`;
+      faceEl.style.top    = `${rand(8, 80)}%`;
+      faceEl.style.left   = `${rand(6, 82)}%`;
+
+      const anim = pick(faceAnims);
+
+      void faceEl.offsetWidth; // force reflow
+
+      faceEl.style.animation = `${anim.name} ${anim.ms}ms ease-in-out forwards`;
+
+      setTimeout(() => {
+        faceEl.style.animation = "none";
+        faceEl.style.opacity   = "0";
+        // Gap of 2–5s before next face
+        setTimeout(playFace, rand(2000, 5000));
+      }, anim.ms);
+    }
+
+    // --- Shard particles: independent, staggered loops ---
+    shards.forEach((shard, i) => {
+      function playShard() {
+        shard.style.animation = "none";
+        shard.style.opacity   = "0";
+
+        const sz = Math.round(rand(14, 28));
+        shard.style.width  = `${sz}px`;
+        shard.style.height = `${sz}px`;
+        shard.style.top    = `${rand(10, 88)}%`;
+        shard.style.left   = `${rand(5, 90)}%`;
+
+        const ms = Math.round(rand(6000, 10000));
+
+        void shard.offsetWidth;
+
+        shard.style.animation = `shardRise ${ms}ms ease-in-out forwards`;
+
+        setTimeout(() => {
+          shard.style.animation = "none";
+          shard.style.opacity   = "0";
+          setTimeout(playShard, rand(3000, 8000));
+        }, ms);
+      }
+
+      // Stagger shard starts
+      setTimeout(playShard, i * rand(2000, 4000));
+    });
+
+    // Start face loop after a short delay
+    setTimeout(playFace, 1200);
+  })();
+</script>
