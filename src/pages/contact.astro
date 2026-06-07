@@ -1,0 +1,190 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteIcon from "../components/shared/SiteIcon.astro";
+import contactStylesheet from "../styles/pages/contact.css?url";
+
+const title = "Contact Us | CogniFocus";
+const description =
+  "Get in touch with the CogniFocus team for partnerships, media inquiries, feedback, or general questions.";
+const canonical = "https://cognifocus.app/contact.html";
+const ogTitle = "Contact Us | CogniFocus";
+const ogDescription =
+  "Have a question, partnership opportunity, or media inquiry? We'd love to hear from you.";
+
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact CogniFocus",
+  url: "https://cognifocus.app/contact.html",
+  description:
+    "Contact the CogniFocus team for partnerships, press inquiries, collaborations, or general questions.",
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "CogniFocus",
+  url: "https://cognifocus.app",
+  logo: "https://cognifocus.app/assets/logo/text-logo.png",
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      email: "hello@cognifocus.app",
+      contactType: "customer support",
+      areaServed: "Worldwide",
+      availableLanguage: "English",
+    },
+    {
+      "@type": "ContactPoint",
+      email: "press@cognifocus.app",
+      contactType: "public relations",
+      areaServed: "Worldwide",
+      availableLanguage: "English",
+    },
+  ],
+  sameAs: [
+    "https://x.com/iqasim_explores",
+    "https://www.instagram.com/cognifocus.app/",
+    "https://www.tiktok.com/@cognifocus.app",
+    "https://www.facebook.com/share/1Am7kCzkjG/",
+    "https://www.producthunt.com/products/cognifocus",
+  ],
+};
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogImageAlt="Contact CogniFocus"
+  bodyClass="contact-page cf-shell"
+  showFeaturedStrip={false}
+  stylesheets={[contactStylesheet]}
+>
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(contactPageSchema, null, 2)}
+  />
+  <script
+    slot="head"
+    type="application/ld+json"
+    set:html={JSON.stringify(organizationSchema, null, 2)}
+  />
+
+  <main id="main-content" class="contact-main">
+    <header class="contact-hero legal-hero container">
+      <p class="feature-kicker contact-eyebrow">Contact</p>
+      <h1>
+        Get in{" "}
+        <span class="hero-heading-line hero-heading-accent">touch</span>
+      </h1>
+      <p class="contact-subtitle legal-subtitle">
+        Have a question, partnership opportunity, media inquiry, or feedback
+        about CogniFocus? We&rsquo;d love to hear from you.
+      </p>
+    </header>
+
+    <section class="contact-content legal-main">
+
+      {/* — Support redirect — */}
+      <article class="legal-card legal-card-highlight contact-card-support" aria-labelledby="contact-support">
+        <div class="legal-card-header">
+          <div class="legal-icon contact-icon-support" aria-hidden="true">
+            <SiteIcon name="mdi:lifebuoy" aria-hidden="true" />
+          </div>
+          <div>
+            <h2 id="contact-support">Need help with the app?</h2>
+            <p>
+              For technical support, account issues, bug reports, or feature
+              requests, the support page is the fastest route. The Goblin is
+              listening.
+            </p>
+            <a href="/support.html" class="btn btn-primary contact-support-btn">
+              Go to Support
+            </a>
+          </div>
+        </div>
+      </article>
+
+      {/* — General inquiries — */}
+      <article class="legal-card" aria-labelledby="contact-general">
+        <div class="legal-card-header">
+          <div class="legal-icon" aria-hidden="true">
+            <SiteIcon name="mdi:email-outline" aria-hidden="true" />
+          </div>
+          <div>
+            <h2 id="contact-general">General &amp; business inquiries</h2>
+            <p>
+              For partnerships, press inquiries, collaborations, or general
+              questions, reach us directly by email.
+            </p>
+            <dl class="contact-facts">
+              <div>
+                <dt>Email</dt>
+                <dd>
+                  <a href="mailto:hello@cognifocus.app">hello@cognifocus.app</a>
+                </dd>
+              </div>
+              <div>
+                <dt>Press &amp; media</dt>
+                <dd>
+                  <a href="mailto:press@cognifocus.app">press@cognifocus.app</a>
+                </dd>
+              </div>
+            </dl>
+            <p class="contact-response-note">
+              <SiteIcon name="mdi:clock-outline" aria-hidden="true" />
+              We typically respond within 24&ndash;48 hours.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      {/* — About CogniFocus — */}
+      <article class="legal-card" aria-labelledby="contact-about">
+        <div class="legal-card-header">
+          <div class="legal-icon" aria-hidden="true">
+            <SiteIcon name="mdi:information-outline" aria-hidden="true" />
+          </div>
+          <div>
+            <h2 id="contact-about">About CogniFocus</h2>
+            <p>
+              CogniFocus is a focus timer and app blocker built to help people
+              reduce distractions, stop app switching, and build stronger focus
+              habits. It reacts when you drift — not just tracks time.
+            </p>
+            <p>
+              Built by Qasim Khan, founder of{" "}
+              <a
+                href="https://cognielevate.co"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                CogniElevate
+              </a>
+              , based in Lahore, Pakistan.
+            </p>
+            <nav class="contact-quick-links" aria-label="Quick links">
+              <a href="/about.html" class="contact-quick-link">
+                <SiteIcon name="mdi:account-circle-outline" aria-hidden="true" />
+                <span>About page</span>
+              </a>
+              <a href="/faq.html" class="contact-quick-link">
+                <SiteIcon name="mdi:message-question-outline" aria-hidden="true" />
+                <span>FAQ</span>
+              </a>
+              <a href="/privacy.html" class="contact-quick-link">
+                <SiteIcon name="mdi:shield-check-outline" aria-hidden="true" />
+                <span>Privacy</span>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+</BaseLayout>
