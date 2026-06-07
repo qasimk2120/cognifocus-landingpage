@@ -1,0 +1,745 @@
+---
+// GoblinBot — site-wide FAQ chatbot widget
+// Keyword-matches against the FAQ knowledge base. Falls back to /support.html.
+---
+
+<div id="goblin-bot" class="gbot" aria-live="polite" aria-label="Goblin support chat">
+  <!-- Trigger button -->
+  <button
+    id="gbot-trigger"
+    class="gbot-trigger"
+    type="button"
+    aria-label="Open Goblin chat"
+    aria-expanded="false"
+    aria-controls="gbot-panel"
+  >
+    <img
+      src="/assets/characters/goblin/face/cheerful.png"
+      alt=""
+      aria-hidden="true"
+      class="gbot-trigger-face gbot-face-cheerful"
+      width="44"
+      height="44"
+      loading="lazy"
+      decoding="async"
+    />
+    <img
+      src="/assets/characters/goblin/face/annoyed.png"
+      alt=""
+      aria-hidden="true"
+      class="gbot-trigger-face gbot-face-annoyed"
+      width="44"
+      height="44"
+      loading="lazy"
+      decoding="async"
+    />
+    <span class="gbot-trigger-label">Ask Goblin</span>
+    <span class="gbot-trigger-badge" id="gbot-badge" hidden aria-label="New message">1</span>
+  </button>
+
+  <!-- Chat panel -->
+  <div
+    id="gbot-panel"
+    class="gbot-panel"
+    role="dialog"
+    aria-modal="false"
+    aria-label="Goblin chat"
+    hidden
+  >
+    <!-- Header -->
+    <div class="gbot-header">
+      <div class="gbot-header-identity">
+        <img
+          id="gbot-header-face"
+          src="/assets/characters/goblin/face/cheerful.png"
+          alt="Goblin"
+          class="gbot-header-face"
+          width="32"
+          height="32"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="gbot-header-meta">
+          <span class="gbot-header-name">Goblin</span>
+          <span class="gbot-header-status">
+            <span class="gbot-status-dot" aria-hidden="true"></span>
+            Online
+          </span>
+        </div>
+      </div>
+      <button
+        id="gbot-close"
+        class="gbot-close"
+        type="button"
+        aria-label="Close Goblin chat"
+      >
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M12 4L4 12M4 4l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div id="gbot-messages" class="gbot-messages" role="log" aria-live="polite" aria-label="Chat messages">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Quick replies -->
+    <div id="gbot-quick-replies" class="gbot-quick-replies" aria-label="Quick topics">
+      <!-- Populated by JS -->
+    </div>
+
+    <!-- Input -->
+    <div class="gbot-input-wrap">
+      <input
+        id="gbot-input"
+        type="text"
+        class="gbot-input"
+        placeholder="Ask me anything..."
+        maxlength="200"
+        autocomplete="off"
+        aria-label="Type your question"
+      />
+      <button
+        id="gbot-send"
+        type="button"
+        class="gbot-send"
+        aria-label="Send message"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (() => {
+    // ── Knowledge base ────────────────────────────────────────────────────────
+    const KB = [
+
+      // ── What is CogniFocus ──────────────────────────────────────────────────
+      {
+        keywords: ["what is cognifocus", "what cognifocus", "what is this app", "about cognifocus", "tell me about", "overview", "what does cognifocus do"],
+        mood: "cheerful",
+        answer: "CogniFocus is a focus timer and app blocker for Android. You start a session, pick which apps to block, and if you drift to one of them during the session I interrupt it. Unlike passive timers that keep counting while you scroll, this one actually reacts to what you're doing.",
+        link: { label: "Full overview", href: "/what-is-cognifocus.html" }
+      },
+      {
+        keywords: ["how does it work", "how it works", "how does cognifocus work", "explain how", "step by step", "how to use"],
+        mood: "neutral",
+        answer: "Start a focus session → choose which apps to block → Shield activates. Open a blocked app and Shield interrupts it. I react based on what you do — calm during clean sessions, annoyed when you drift, angry when you really push it, cheerful when you finish clean. Recovery nudges pull you back if you slip mid-session."
+      },
+      {
+        keywords: ["why was it built", "why cognifocus", "origin", "story", "who built", "who made", "founder", "founded", "who founded", "who created", "who started", "creator", "qasim", "qasim khan", "cognielevate", "made by", "built by", "who is behind", "who owns"],
+        mood: "neutral",
+        answer: "Built by Qasim Khan, founder of CogniElevate (Lahore, Pakistan). He kept losing focus sessions to 'just one quick check.' The timer kept running, the session showed as complete, but 20 minutes were gone. Most focus apps time you — CogniFocus was built to react to you.",
+        link: { label: "About page", href: "/about.html" }
+      },
+      {
+        keywords: ["who is it for", "who should use", "is it for me", "target audience", "adhd", "attention deficit", "students", "study"],
+        mood: "cheerful",
+        answer: "Built for people who open TikTok, Instagram, YouTube out of habit during work or study. Especially useful for ADHD-style attention patterns that need active interruption rather than passive reminders. If you've tried passive timers and keep ignoring them, this is for you."
+      },
+
+      // ── Focus Sessions ──────────────────────────────────────────────────────
+      {
+        keywords: ["focus session", "start session", "how session works", "what happens during session", "session timer"],
+        mood: "cheerful",
+        answer: "You pick a duration, choose which apps to block, then start. Shield activates, I start watching. Drift and the session reacts. Complete it clean and I'll be annoyingly pleased about it."
+      },
+      {
+        keywords: ["pause session", "pause", "can i pause", "stop temporarily", "take a break mid session"],
+        mood: "neutral",
+        answer: "Yes. Pausing stops the session temporarily so you can handle something real without losing your whole setup. Resume when you're back."
+      },
+      {
+        keywords: ["session duration", "how long session", "session length", "custom duration", "session time", "preset duration"],
+        mood: "neutral",
+        answer: "Free plan: sessions up to 90 minutes. Pro: sessions up to 240 minutes (4 hours). You can set preset or custom durations."
+      },
+      {
+        keywords: ["leave the app", "switch away", "go to another app", "leave during session", "minimize cognifocus"],
+        mood: "annoyed",
+        answer: "You can leave CogniFocus during a session. If Shield is active and you open a blocked app, Shield steps in and redirects you. The session keeps running in the background as a foreground service — you'll see it in your notification bar."
+      },
+      {
+        keywords: ["foreground service", "notification bar", "notification", "live timer", "background timer"],
+        mood: "neutral",
+        answer: "CogniFocus runs a foreground service during sessions that shows the live session timer in your notification bar. That's how it keeps tracking and blocking even when you're outside the app."
+      },
+      {
+        keywords: ["planned session", "schedule session", "scheduled session", "schedule focus", "recurring session", "book session"],
+        mood: "neutral",
+        answer: "Planned Sessions are focus blocks you schedule in advance — up to 5 active at a time. Useful for recurring routines so the next session is already waiting. This is a Pro feature."
+      },
+      {
+        keywords: ["reminders", "focus reminder", "session reminder", "reminder notification"],
+        mood: "neutral",
+        answer: "Pro includes focus reminders to prompt you to start sessions. They work alongside Planned Sessions to keep your schedule intact."
+      },
+      {
+        keywords: ["no account", "account required", "sign up", "register", "login", "create account"],
+        mood: "cheerful",
+        answer: "You can start your first focus session without creating an account. No credit card required for the free plan either."
+      },
+
+      // ── Shield & Blocking ───────────────────────────────────────────────────
+      {
+        keywords: ["what is shield", "distraction shield", "shield blocking", "how does shield work"],
+        mood: "angry",
+        answer: "Shield detects which app is in front of the screen during a session. The moment a blocked app opens, Shield interrupts it. It's what keeps TikTok, Instagram, YouTube, Reddit, or whatever you picked from quietly stealing the session."
+      },
+      {
+        keywords: ["block tiktok", "block instagram", "block youtube", "block reddit", "block facebook", "block social media", "block apps", "which apps can be blocked", "what apps blocked"],
+        mood: "angry",
+        answer: "You choose which apps to block — TikTok, Instagram, YouTube, X, Reddit, Facebook, or anything else that pulls you off task. The goal is to cover your personal distractions, not a forced universal list."
+      },
+      {
+        keywords: ["how many apps", "app limit", "number of apps", "apps free plan", "apps pro plan"],
+        mood: "neutral",
+        answer: "Free plan: block up to 3 apps. Pro plan: block up to 7 apps. More space for the full range of things that pull you off track."
+      },
+      {
+        keywords: ["shield active sessions only", "shield outside session", "shield always on", "does shield work all the time"],
+        mood: "neutral",
+        answer: "Shield is strongest during active sessions — it reacts the moment a blocked app opens. For protection outside sessions, use Manual Block instead."
+      },
+      {
+        keywords: ["manual block", "block without session", "block outside session", "always block", "constant block", "block all day"],
+        mood: "neutral",
+        answer: "Manual Block lets you hold app blocks with no timer running. Just toggle it on. Good for study windows, bedtime, or any time you want protection without a formal session."
+      },
+      {
+        keywords: ["shield work offline", "blocking offline", "does shield need internet"],
+        mood: "cheerful",
+        answer: "Yes. Core blocking and Shield behavior works offline. No live network connection needed."
+      },
+      {
+        keywords: ["usage access", "why usage access", "usage access permission", "app usage permission"],
+        mood: "neutral",
+        answer: "Android needs Usage Access to let CogniFocus detect which app is in the foreground. Shield uses that signal to react to blocked apps. It doesn't read your messages or app content — just the app name that's on screen."
+      },
+      {
+        keywords: ["overlay permission", "draw over other apps", "why overlay", "overlay"],
+        mood: "neutral",
+        answer: "Overlay permission lets Shield appear over the distraction you just opened. That overlay is the interruption. Without it, Shield can't step in cleanly."
+      },
+      {
+        keywords: ["read messages", "read screen", "read content", "spy", "privacy permission", "what can it see", "what does cognifocus see"],
+        mood: "neutral",
+        answer: "CogniFocus only sees which app is in the foreground. It does not read your messages, passwords, browser history, or anything inside your apps. App state only — not content."
+      },
+      {
+        keywords: ["dnd focus mode", "do not disturb", "silence notifications", "focus dnd", "notification silencing"],
+        mood: "neutral",
+        answer: "DND Focus Mode silences interruptions during sessions. It's included in the free plan. Full Focus DND (a stricter version) is on the roadmap."
+      },
+
+      // ── Goblin & Companion ──────────────────────────────────────────────────
+      {
+        keywords: ["who is goblin", "what is goblin", "what does goblin do", "goblin companion", "who is the goblin", "why goblin"],
+        mood: "cheerful",
+        answer: "That's me. I make focus feel noticed. I react to what you do during a session — calm when you're on track, annoyed when you wander, angry when you really push it, cheerful when you actually finish clean. Less silent timer, more something in the room with you."
+      },
+      {
+        keywords: ["goblin mood", "goblin reactions", "goblin angry", "goblin annoyed", "goblin cheerful", "goblin neutral", "mood states"],
+        mood: "annoyed",
+        answer: "I have four moods: neutral (watching), annoyed (you opened something you shouldn't), angry (you really opened TikTok), and cheerful (you finished clean). The mood matches what you actually did — not just a random mascot face."
+      },
+      {
+        keywords: ["goblin affinity", "affinity system", "goblin adapt", "goblin learns", "companion adapts"],
+        mood: "cheerful",
+        answer: "My mood and messages adapt over time based on your focus patterns. The more you use CogniFocus the more I know what kind of chaos to expect from you."
+      },
+      {
+        keywords: ["more companions", "other companions", "monk", "buddy", "wizard", "new characters", "future companions"],
+        mood: "neutral",
+        answer: "Monk, Buddy, Wizard — all different energy, all watching. More companions may come, but only if they actually make focus better. Focus Shards may help unlock them when they're real."
+      },
+
+      // ── Progress & Gamification ─────────────────────────────────────────────
+      {
+        keywords: ["streaks", "daily streak", "streak system", "how streaks work", "streak reset"],
+        mood: "cheerful",
+        answer: "Streaks track consecutive days where you hit your focus goals. They give the day a shape without turning focus into a noisy scoreboard. Streak rewards can also add bonus Focus Shards."
+      },
+      {
+        keywords: ["xp", "experience points", "how xp works", "gain xp", "earn xp"],
+        mood: "cheerful",
+        answer: "You earn XP by completing sessions. It makes your effort visible and tracks progress over time — not a competitive leaderboard, just a record that you showed up."
+      },
+      {
+        keywords: ["focus shard", "shards", "what are shards", "earn shards", "shard reserve"],
+        mood: "cheerful",
+        answer: "Focus Shards are pieces of recovered focus earned by completing sessions, maintaining streaks, and recovering from distractions. They build up in your shard reserve and power progression and future unlocks. Earned shards won't be reset by future updates."
+      },
+      {
+        keywords: ["daily goal", "progress tracking", "focus goal", "goals", "how to track progress"],
+        mood: "neutral",
+        answer: "CogniFocus tracks daily focus goals, session history, streaks, and XP. All of it is visible from the app so you can see whether the habit is actually building."
+      },
+
+      // ── Pro / Premium / Pricing ─────────────────────────────────────────────
+      {
+        keywords: ["how much is pro", "pro price", "pro cost", "pro monthly", "pro yearly", "subscription price", "pricing", "how much does it cost", "cost"],
+        mood: "neutral",
+        answer: "Pro Monthly: $3.99/month after a 7-day free trial. Pro Yearly: $31.99/year (about $2.67/month, saving 33%). Both billed through Google Play.",
+        link: { label: "See all plans", href: "/pricing.html" }
+      },
+      {
+        keywords: ["free trial", "trial", "7 day trial", "try pro", "test pro"],
+        mood: "cheerful",
+        answer: "Pro Monthly comes with a 7-day free trial through Google Play. Pro Yearly doesn't have a trial but saves 33% versus monthly."
+      },
+      {
+        keywords: ["what is included in pro", "pro features", "what do i get with pro", "pro plan features", "upgrade benefits"],
+        mood: "neutral",
+        answer: "Pro gets you: block up to 7 apps (vs 3 free), sessions up to 240 min (vs 90 min), Manual Block, up to 5 Planned Sessions with reminders, recovery nudges, cloud sync across devices, and Pro restore support.",
+        link: { label: "Compare plans", href: "/pricing.html" }
+      },
+      {
+        keywords: ["free plan", "what is free", "what do i get free", "free features", "free version"],
+        mood: "neutral",
+        answer: "Free gives you: core focus sessions up to 90 min, block up to 3 apps, Goblin reactions, streaks and XP, Focus Shards, DND Focus Mode, and basic progress tracking. No credit card needed."
+      },
+      {
+        keywords: ["cancel subscription", "cancel pro", "how to cancel", "refund", "cancellation"],
+        mood: "neutral",
+        answer: "Manage or cancel through Google Play — tap your profile, then Subscriptions. That's Google's territory; I can't touch it from here."
+      },
+      {
+        keywords: ["billing", "manage billing", "google play billing", "where is billing", "payment"],
+        mood: "neutral",
+        answer: "Billing runs through Google Play. Tap your profile in Play Store → Subscriptions to manage or cancel. Everything goes through Google — not CogniFocus directly."
+      },
+      {
+        keywords: ["restore", "restore purchase", "restore pro", "lost pro", "switched phone", "new phone"],
+        mood: "neutral",
+        answer: "Pro restore support is included with Pro. Cloud sync also carries your session history and preferences across devices. If you're having trouble restoring, contact support.",
+        link: { label: "Contact support", href: "/support.html" }
+      },
+      {
+        keywords: ["cloud sync", "sync across devices", "sync phone", "switch device", "multiple devices"],
+        mood: "neutral",
+        answer: "Pro includes cloud sync. Your session history, blocked app list, and preferences sync so you don't lose your streak when you switch phones."
+      },
+      {
+        keywords: ["is it worth it", "should i upgrade", "worth upgrading", "is pro worth"],
+        mood: "cheerful",
+        answer: "Pro is for users who want CogniFocus to protect the habit, not just time a session. If 3 apps and 90-minute sessions cover your problem, free is fine. If your distraction list is longer and you want Planned Sessions and recovery nudges, Pro earns it."
+      },
+
+      // ── Privacy & Data ──────────────────────────────────────────────────────
+      {
+        keywords: ["privacy", "is it safe", "is it secure", "data privacy", "safe to use"],
+        mood: "neutral",
+        answer: "CogniFocus works from app state — which app is in front — not from reading your content. It doesn't read messages, passwords, or screen text. It doesn't upload your full app usage history either.",
+        link: { label: "Privacy policy", href: "/privacy.html" }
+      },
+      {
+        keywords: ["data sold", "sell data", "share data", "third party", "data sharing"],
+        mood: "neutral",
+        answer: "No. CogniFocus doesn't sell or share your behavior or personal data. Built to focus on the session — not monetize your habits."
+      },
+      {
+        keywords: ["what data is stored", "what is collected", "data collection", "what data cognifocus collects"],
+        mood: "neutral",
+        answer: "Only what's needed to keep your account and progress consistent. Session data, preferences, and your blocked app list. Private content — messages, screen text, passwords — is never touched."
+      },
+      {
+        keywords: ["delete account", "delete my data", "remove account", "account deletion", "gdpr", "right to erasure"],
+        mood: "neutral",
+        answer: "You can delete your account and data through the in-app deletion flow. Use the email tied to your CogniFocus account when contacting support about account requests.",
+        link: { label: "Account deletion", href: "/delete-account.html" }
+      },
+
+      // ── Platform & Download ─────────────────────────────────────────────────
+      {
+        keywords: ["android", "download android", "google play", "play store", "get the app", "download", "install"],
+        mood: "cheerful",
+        answer: "CogniFocus is live on Android — free to download from Google Play. No credit card needed to start.",
+        link: { label: "Download page", href: "/download.html" }
+      },
+      {
+        keywords: ["ios", "iphone", "ipad", "apple", "ios version", "when ios", "ios release"],
+        mood: "neutral",
+        answer: "iOS is in development. Join the waitlist and you'll be notified when it drops. No release date confirmed yet.",
+        link: { label: "Join iOS waitlist", href: "/ios-waitlist.html" }
+      },
+      {
+        keywords: ["desktop", "pc", "windows", "mac", "laptop", "desktop app", "web app"],
+        mood: "neutral",
+        answer: "Desktop support is being explored for a later phase. Nothing confirmed yet. Android is where it's at right now."
+      },
+      {
+        keywords: ["what devices", "compatible devices", "which phone", "supported devices", "requirements"],
+        mood: "neutral",
+        answer: "CogniFocus runs on Android devices. It requires Usage Access and Overlay permissions to function properly. No specific minimum Android version has been publicly stated."
+      },
+
+      // ── Roadmap ─────────────────────────────────────────────────────────────
+      {
+        keywords: ["roadmap", "future features", "coming soon", "what's next", "upcoming", "planned features"],
+        mood: "neutral",
+        answer: "On the roadmap: Ghost Mode, Focus DND (full notification silencing), uninstall protection, and stricter lock rules. None of these are live yet. I won't pretend they are."
+      },
+      {
+        keywords: ["ghost mode", "ghost", "incognito mode"],
+        mood: "neutral",
+        answer: "Ghost Mode is on the roadmap — it'll make the Shield harder to detect and route around. Not live yet."
+      },
+      {
+        keywords: ["uninstall protection", "cant uninstall", "prevent uninstall", "uninstall block"],
+        mood: "neutral",
+        answer: "Uninstall protection is on the roadmap. Right now you can still uninstall CogniFocus — that's being addressed in a future Shield upgrade."
+      },
+
+      // ── Comparisons ─────────────────────────────────────────────────────────
+      {
+        keywords: ["vs forest", "forest app", "compare forest", "forest vs cognifocus", "forest alternative", "better than forest"],
+        mood: "neutral",
+        answer: "Forest grows a tree as passive motivation — it doesn't actively block apps or react to distraction behavior. CogniFocus combines active blocking with a real-time behavioral reaction. Different approach: passive vs reactive."
+      },
+      {
+        keywords: ["vs freedom", "freedom app", "freedom vs cognifocus", "compare freedom"],
+        mood: "neutral",
+        answer: "Freedom blocks sites and apps but doesn't give real-time behavioral feedback. CogniFocus reacts specifically to distraction events during your session — the companion, nudges, mood shifts. It's blocking + reaction, not just blocking."
+      },
+      {
+        keywords: ["vs appblock", "appblock", "compare appblock", "other app blockers"],
+        mood: "neutral",
+        answer: "AppBlock handles blocking but has no companion reactions or recovery nudges. CogniFocus adds behavioral feedback — I react, nudge, and track — on top of the blocking."
+      },
+      {
+        keywords: ["vs pomodoro", "pomodoro", "focus to do", "forest pomodoro", "timer app", "other focus apps"],
+        mood: "neutral",
+        answer: "Most Pomodoro timers time you. CogniFocus times you AND blocks apps AND reacts when you drift. The difference is behavioral feedback during the session, not just a countdown."
+      },
+
+      // ── Support & Contact ───────────────────────────────────────────────────
+      {
+        keywords: ["bug", "report bug", "something is wrong", "not working", "broken", "crash", "error", "issue", "problem"],
+        mood: "annoyed",
+        answer: "Something broke? Use the support form and include your device model, Android version, and exactly what happened before the issue.",
+        link: { label: "Report a bug", href: "/support.html" }
+      },
+      {
+        keywords: ["contact", "contact support", "get help", "talk to someone", "reach out", "email support"],
+        mood: "neutral",
+        answer: "Hit up the support page. Include your device details and what you were trying to do. Email works too: support@cognifocus.app",
+        link: { label: "Contact support", href: "/support.html" }
+      },
+      {
+        keywords: ["email", "support email", "contact email", "hello", "hello@cognifocus", "support@cognifocus"],
+        mood: "neutral",
+        answer: "General contact: hello@cognifocus.app. Support: support@cognifocus.app. Press: press@cognifocus.app. Or use the support form on the site.",
+        link: { label: "Support page", href: "/support.html" }
+      },
+      {
+        keywords: ["press", "media", "press enquiry", "journalist", "partnership"],
+        mood: "neutral",
+        answer: "For press enquiries contact press@cognifocus.app. CogniFocus was covered by Startup Fortune — see the about page for more.",
+        link: { label: "About page", href: "/about.html" }
+      },
+
+      // ── Recovery & Attention patterns ───────────────────────────────────────
+      {
+        keywords: ["recovery nudge", "nudge", "come back", "after distraction", "recover focus", "session recovery"],
+        mood: "annoyed",
+        answer: "Recovery nudges are small pulls back after a slip. Not a scolding — just enough friction to make the session feel recoverable instead of ruined. One distraction doesn't have to end everything."
+      },
+      {
+        keywords: ["attention spiral", "quick check", "one quick check", "habit scroll", "muscle memory", "autopilot"],
+        mood: "angry",
+        answer: "That's exactly what CogniFocus is built for — the 'just one quick check' that turns into 27 minutes on Instagram. The app switcher, the timer ignorer, the muscle-memory scroller. I'm here for all of it."
+      },
+
+      // ── Demo & Media ────────────────────────────────────────────────────────
+      {
+        keywords: ["demo", "watch demo", "see it in action", "preview", "video", "how it looks"],
+        mood: "cheerful",
+        answer: "There's a full demo showing how CogniFocus works — Shield blocking, Goblin reactions, the whole loop.",
+        link: { label: "Watch demo", href: "/demo.html" }
+      },
+      {
+        keywords: ["social media", "tiktok cognifocus", "instagram cognifocus", "follow", "youtube channel"],
+        mood: "neutral",
+        answer: "CogniFocus is on TikTok (@cognifocus.app), Instagram (@cognifocus.app), Facebook, X (@iqasim_explores), and Pinterest. Follow for updates."
+      },
+      {
+        keywords: ["product hunt", "producthunt", "reviews", "ratings", "stars"],
+        mood: "cheerful",
+        answer: "CogniFocus is on Product Hunt with a 5-star rating from early access users. Also covered by Startup Fortune."
+      },
+
+      // ── FAQ & Help pages ────────────────────────────────────────────────────
+      {
+        keywords: ["faq", "frequently asked", "all questions", "more questions", "help page"],
+        mood: "neutral",
+        answer: "Everything you might want is on the FAQ page — focus sessions, Shield, Goblin, Pro, privacy, support.",
+        link: { label: "Read the FAQ", href: "/faq.html" }
+      },
+      {
+        keywords: ["privacy policy", "terms", "terms of service", "legal", "terms and conditions"],
+        mood: "neutral",
+        answer: "Privacy policy and terms are both on the site.",
+        link: { label: "Privacy policy", href: "/privacy.html" }
+      },
+      {
+        keywords: ["whats new", "changelog", "updates", "latest update", "new features", "release notes", "version"],
+        mood: "neutral",
+        answer: "Check the What's New page for the latest updates and changes.",
+        link: { label: "What's new", href: "/whats-new.html" }
+      },
+
+      // ── General catch-alls ──────────────────────────────────────────────────
+      {
+        keywords: ["is it free", "free to download", "free app", "does it cost money"],
+        mood: "cheerful",
+        answer: "Yes — free to download, free to start. No credit card. Core sessions, basic blocking, and Goblin reactions are all in the free plan.",
+        link: { label: "Download free", href: "/download.html" }
+      },
+      {
+        keywords: ["good app", "does it work", "is it effective", "worth downloading", "should i try"],
+        mood: "cheerful",
+        answer: "Early users went from 8 Instagram breaks per study session to maybe 1. The angry reaction turns one more scroll into a tiny moment of accountability. Try it free — no account needed."
+      },
+      {
+        keywords: ["offline", "no internet", "no wifi", "airplane mode", "works without internet"],
+        mood: "cheerful",
+        answer: "Core blocking and session behavior works offline. No live network connection required."
+      },
+    ];
+
+    const QUICK_REPLIES = [
+      { label: "Focus sessions", query: "focus session" },
+      { label: "Shield & blocking", query: "shield" },
+      { label: "Goblin & progress", query: "goblin" },
+      { label: "Pro features", query: "pro" },
+      { label: "Privacy", query: "data" },
+      { label: "iOS coming?", query: "ios" },
+    ];
+
+    const GREETING = {
+      mood: "cheerful",
+      text: "Yeah, I'm here. What do you need?"
+    };
+
+    const FALLBACK = {
+      mood: "annoyed",
+      text: "That one's beyond me. Head to support and a real human will sort it out.",
+      link: { label: "Contact support", href: "/support.html" }
+    };
+
+    // ── DOM refs ───────────────────────────────────────────────────────────────
+    const bot        = document.getElementById("goblin-bot");
+    const trigger    = document.getElementById("gbot-trigger");
+    const panel      = document.getElementById("gbot-panel");
+    const closeBtn   = document.getElementById("gbot-close");
+    const messages   = document.getElementById("gbot-messages");
+    const quickArea  = document.getElementById("gbot-quick-replies");
+    const input      = document.getElementById("gbot-input") as HTMLInputElement;
+    const sendBtn    = document.getElementById("gbot-send");
+    const headerFace = document.getElementById("gbot-header-face") as HTMLImageElement;
+    const badge      = document.getElementById("gbot-badge");
+
+    if (!bot || !trigger || !panel || !closeBtn || !messages || !quickArea || !input || !sendBtn || !headerFace || !badge) return;
+
+    let isOpen = false;
+    let greeted = false;
+
+    // ── Helpers ────────────────────────────────────────────────────────────────
+    function setFace(mood: string) {
+      const map: Record<string, string> = {
+        cheerful: "/assets/characters/goblin/face/cheerful.png",
+        annoyed:  "/assets/characters/goblin/face/annoyed.png",
+        angry:    "/assets/characters/goblin/face/angry.png",
+        neutral:  "/assets/characters/goblin/face/neutral.png",
+      };
+      headerFace.src = map[mood] ?? map.neutral;
+    }
+
+    function addMessage(role: "bot" | "user", text: string, mood?: string, link?: { label: string; href: string }) {
+      const wrap = document.createElement("div");
+      wrap.className = `gbot-msg gbot-msg-${role}`;
+
+      if (role === "bot" && mood) {
+        const face = document.createElement("img");
+        face.src = `/assets/characters/goblin/face/${mood}.png`;
+        face.alt = "";
+        face.className = "gbot-msg-face";
+        face.width = 24;
+        face.height = 24;
+        face.loading = "lazy";
+        face.decoding = "async";
+        wrap.appendChild(face);
+        setFace(mood);
+      }
+
+      const bubble = document.createElement("div");
+      bubble.className = "gbot-bubble";
+      bubble.textContent = text;
+
+      if (link) {
+        const a = document.createElement("a");
+        a.href = link.href;
+        a.textContent = link.label;
+        a.className = "gbot-bubble-link";
+        bubble.appendChild(document.createElement("br"));
+        bubble.appendChild(a);
+      }
+
+      wrap.appendChild(bubble);
+      messages.appendChild(wrap);
+      requestAnimationFrame(() => {
+        messages.scrollTop = messages.scrollHeight;
+      });
+    }
+
+    function renderQuickReplies(items: typeof QUICK_REPLIES) {
+      quickArea.innerHTML = "";
+      items.forEach(({ label, query }) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "gbot-chip";
+        btn.textContent = label;
+        btn.addEventListener("click", () => handleQuery(query, label));
+        quickArea.appendChild(btn);
+      });
+    }
+
+    // ── Query engine ─────────────────────────────────────────────────────────────
+    const STOP_WORDS = new Set([
+      "a","an","the","is","it","its","in","of","to","for","me","my",
+      "can","i","do","does","what","how","why","are","be","will","has",
+      "have","on","at","or","and","about","that","this","with","from",
+      "get","use","tell","want","would","should","could","if","any","all"
+    ]);
+
+    function stem(w: string): string {
+      if (w.length <= 4) return w;
+      if (w.endsWith("ing") && w.length > 6) return w.slice(0, -3);
+      if (w.endsWith("tion") && w.length > 7) return w.slice(0, -4);
+      if (w.endsWith("ed") && w.length > 5) return w.slice(0, -2);
+      if (w.endsWith("er") && w.length > 5) return w.slice(0, -2);
+      if (w.endsWith("ly") && w.length > 5) return w.slice(0, -2);
+      if (w.endsWith("s") && w.length > 4) return w.slice(0, -1);
+      return w;
+    }
+
+    function tokenize(text: string): string[] {
+      return text
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, " ")
+        .split(/\s+/)
+        .filter(t => t.length > 1 && !STOP_WORDS.has(t))
+        .map(stem);
+    }
+
+    function scoreEntry(qTokens: string[], entry: typeof KB[0]): number {
+      let best = 0;
+      for (const phrase of entry.keywords) {
+        const pTokens = tokenize(phrase);
+        if (!pTokens.length) continue;
+        const matches = qTokens.filter(qt => pTokens.includes(qt)).length;
+        if (!matches) continue;
+        const score = matches / Math.max(pTokens.length, qTokens.length);
+        if (score > best) best = score;
+      }
+      return best;
+    }
+
+    function findAnswer(raw: string) {
+      const qTokens = tokenize(raw);
+      console.log("[GoblinBot v2]", raw, "→", qTokens);
+      if (!qTokens.length) return null;
+      let bestEntry: typeof KB[0] | null = null;
+      let bestScore = 0;
+      for (const entry of KB) {
+        const score = scoreEntry(qTokens, entry);
+        if (score > bestScore) {
+          bestScore = score;
+          bestEntry = entry;
+        }
+      }
+      return bestScore >= 0.3 ? bestEntry : null;
+    }
+
+    function handleQuery(query: string, displayText?: string) {
+      const text = displayText ?? query;
+      addMessage("user", text);
+      quickArea.innerHTML = "";
+
+      setTimeout(() => {
+        const entry = findAnswer(query);
+        if (entry) {
+          addMessage("bot", entry.answer, entry.mood, entry.link);
+        } else {
+          addMessage("bot", FALLBACK.text, FALLBACK.mood, FALLBACK.link);
+        }
+        renderQuickReplies(QUICK_REPLIES);
+      }, 320);
+    }
+
+    function openPanel() {
+      isOpen = true;
+      panel.hidden = false;
+      trigger.setAttribute("aria-expanded", "true");
+      bot.classList.add("is-open");
+      badge.hidden = true;
+
+      if (!greeted) {
+        greeted = true;
+        setTimeout(() => {
+          addMessage("bot", GREETING.text, GREETING.mood);
+          renderQuickReplies(QUICK_REPLIES);
+        }, 200);
+      }
+
+      setTimeout(() => input.focus(), 300);
+    }
+
+    function closePanel() {
+      isOpen = false;
+      panel.hidden = true;
+      trigger.setAttribute("aria-expanded", "false");
+      bot.classList.remove("is-open");
+      trigger.focus();
+    }
+
+    // ── Events ─────────────────────────────────────────────────────────────────
+    trigger.addEventListener("click", () => isOpen ? closePanel() : openPanel());
+    closeBtn.addEventListener("click", closePanel);
+
+    sendBtn.addEventListener("click", () => {
+      const val = input.value.trim();
+      if (!val) return;
+      handleQuery(val);
+      input.value = "";
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        const val = input.value.trim();
+        if (!val) return;
+        handleQuery(val);
+        input.value = "";
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && isOpen) closePanel();
+    });
+
+    // Show badge after 8s if user hasn't opened yet
+    setTimeout(() => {
+      if (!greeted) {
+        badge.hidden = false;
+        bot.classList.add("has-badge");
+      }
+    }, 8000);
+  })();
+</script>

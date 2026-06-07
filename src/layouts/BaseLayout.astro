@@ -4,6 +4,7 @@ import Header from "../components/layout/Header.astro";
 import FeaturedStrip from "../components/layout/FeaturedStrip.astro";
 import Footer from "../components/layout/Footer.astro";
 import GoblinAmbient from "../components/layout/GoblinAmbient.astro";
+import GoblinBot from "../components/layout/GoblinBot.astro";
 import CookieConsent from "../components/analytics/CookieConsent.astro";
 import NewsletterStrip from "../components/newsletter/NewsletterStrip.astro";
 import NewsletterDialog from "../components/newsletter/NewsletterDialog.astro";
@@ -174,6 +175,7 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
     <Footer {...footerProps} assetBase={assetBase} />
     <NewsletterDialog />
     <CookieConsent />
+    <GoblinBot />
     <script>
       // Dynamic import deferred to load + idle — breaks the newsletter → form →
       // waitlist-response.js chain off the 417ms critical network path.
