@@ -13,6 +13,22 @@ Shared product docs → `../cognifocus-docs/`
 - Tone: internet-native, founder-authentic, emotionally aware
 - Never write AI-slop blog copy — specific, human, useful only
 
+## Brain — MANDATORY before any blog/CMS work
+
+Before writing or editing any blog JSON, query the brain via QMD (collection: `obsidian-mind`):
+- `CogniFocus_Writing_Rules` — no Oxford comma, no em dashes, direct voice
+- `CogniFocus_CMS_Workflow` — JSON required fields, direction of truth, publish flags
+- `CogniFocus_SEO_Brain` — keyword strategy, topic gaps, canonical rules
+
+QMD query example:
+```json
+{
+  "searches": [{"type": "lex", "query": "CogniFocus writing rules CMS blog"}],
+  "intent": "get blog content constraints before writing",
+  "collection": "obsidian-mind"
+}
+```
+
 ## CMS / Blog Rules
 
 - Use `npm run sync:cms-content` and `npm run publish:cms-content` — do not manually edit `src/content/` files
