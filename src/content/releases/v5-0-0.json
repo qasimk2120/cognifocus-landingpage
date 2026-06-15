@@ -26,12 +26,17 @@
   "featured": true,
   "bodyMarkdown": "## Highlights\n\n- Completely redesigned onboarding and app atmosphere\n- Massive UI/UX overhaul across large parts of the app\n- New Focus Shards progression system\n\n## Improvements\n\n- Improved Goblin reactions, animations, and progression feedback\n- Better Shield flows, interruption handling, and overall polish\n\n## Why this matters\n\nv5.0.0 is not a tweak. The onboarding flow was rebuilt from the ground up so new users land in a clearer, calmer atmosphere before their first session starts. The UI/UX overhaul touches most of the app: spacing, transitions, visual hierarchy and the way the Goblin reacts to what you do during a session.\n\nFocus Shards replace a placeholder progression system with something real. Every session earns Shards, and Shards unlock milestones. The Goblin now reacts more accurately to your behavior, whether you're on a streak, slipping, or coming back after a rough day.\n\nShield flows are cleaner under the hood. Interruption handling is more predictable and the finish-session path has fewer dead ends. If you've been using CogniFocus for a while, this one should feel noticeably different.",
   "canonical": "https://cognifocus.app/whats-new/v5-0-0.html",
-  "createdAt": "2026-05-28T19:44:00.000Z",
-  "createdBy": "cms-agent",
+  "createdAt": "2026-05-28T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
   "id": "v5-0-0",
   "legacyCategoryLabel": "app",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v5-0-0.json",
+    "importedAt": "2026-06-15T08:40:27.665Z"
+  },
   "social": {},
   "status": "published",
-  "updatedAt": "2026-05-28T19:44:00.000Z",
-  "updatedBy": "cms-agent"
+  "updatedAt": "2026-05-28T09:00:00.000Z",
+  "updatedBy": "cms-content-migration"
 }

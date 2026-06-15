@@ -26,12 +26,17 @@
   "featured": true,
   "bodyMarkdown": "## Highlights\n\n- New DND Focus Mode can silence phone interruptions during focus sessions\n- Savage Mode is now available for Pro users who want sharper lines\n\n## Improvements\n\n- Shield target setup is cleaner, with app picking inside the Targets Missing card\n- First-session guidance is smoother, with clearer header and footer walkthroughs\n- Morning, afternoon, evening, and night greetings now appear more reliably\n\n## Why this matters\n\nFocus Modes (v5.1.0) adds real OS-level control to your sessions. DND Focus Mode lets CogniFocus ask Android to silence calls and notifications during a focus block, not just block apps. That means fewer interruptions without needing to manually toggle Do Not Disturb before every session.\n\nSavage Mode is for Pro users who want less softening in the app's feedback. The Goblin does not pull punches when this is on.\n\nShield got a small but useful fix: the app-picker now lives inside the Targets Missing card directly so the setup flow has one fewer step. First-session walkthroughs are cleaner and the time-of-day greetings now fire more reliably.",
   "canonical": "https://cognifocus.app/whats-new/v5-1-0.html",
-  "createdAt": "2026-05-31T16:29:00.000Z",
-  "createdBy": "cms-agent",
+  "createdAt": "2026-05-31T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
   "id": "v5-1-0",
   "legacyCategoryLabel": "app",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\releases\\v5-1-0.json",
+    "importedAt": "2026-06-15T08:40:27.883Z"
+  },
   "social": {},
   "status": "published",
-  "updatedAt": "2026-05-31T16:29:00.000Z",
-  "updatedBy": "cms-agent"
+  "updatedAt": "2026-05-31T09:00:00.000Z",
+  "updatedBy": "cms-content-migration"
 }
