@@ -30,6 +30,7 @@ Output: fully static (Astro `output: "static"`)
 npm run dev                  # local dev server
 npm run build                # production build (runs mojibake check pre/post)
 npm run preview              # preview built output
+npm run add:badge            # copy badge embed HTML first; imports it from the Windows clipboard
 npm run sync:cms-content     # pull blog + release notes from CMS into src/content/
 npm run publish:cms-content  # publish CMS content via PowerShell script
 ```
