@@ -81,7 +81,7 @@ body.faq-page {
   gap: 0.55rem;
   min-height: 2.4rem;
   padding: 0.4rem 0.8rem;
-  border-radius: 999px;
+  border-radius: 8px;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.18);
   background: rgba(var(--cf-light-card-rgb), 0.05);
   color: var(--cf-text);
@@ -338,7 +338,7 @@ body.faq-page {
   gap: 0.5rem;
   min-height: 2.4rem;
   padding: 0.4rem 0.75rem;
-  border-radius: 999px;
+  border-radius: 8px;
   border: 1px solid var(--app-border, rgba(var(--cf-cyan-rgb), 0.18));
   background: rgba(var(--cf-light-card-rgb), 0.05);
   color: var(--app-text-primary, var(--cf-text));

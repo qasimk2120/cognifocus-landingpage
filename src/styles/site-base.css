@@ -419,7 +419,7 @@ button {
   color: var(--cf-black);
   border: none;
   padding: 10px 18px;
-  border-radius: 999px;
+  border-radius: 8px;
   font-weight: 700;
   letter-spacing: 0.3px;
   box-shadow:
@@ -532,7 +532,7 @@ button {
   }
 }
 .btn-ghost {
-  border-radius: 999px;
+  border-radius: 8px;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.3);
   color: var(--cf-text);
   background: transparent;
@@ -697,21 +697,6 @@ small {
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
 }
-.feature-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  margin-bottom: 1rem;
-  padding: 0.45rem 0.85rem;
-  border: 1px solid rgba(var(--cf-cyan-rgb), 0.28);
-  border-radius: 999px;
-  background: rgba(var(--cf-cyan-rgb), 0.08);
-  color: var(--cf-cyan);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
 .feature-panel h3 {
   color: var(--cf-text);
   font-weight: 700;
@@ -757,7 +742,7 @@ small {
   padding: 0.35rem 0.75rem;
   margin-bottom: 0.9rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.22);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-cyan-rgb), 0.08);
   color: var(--cf-cyan);
   font-size: 0.8rem;
@@ -853,7 +838,7 @@ small {
   line-height: 1 !important;
   font-weight: 800 !important;
   text-transform: none !important;
-  border-radius: 999px !important;
+  border-radius: 8px !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 0.6rem !important;
@@ -919,7 +904,6 @@ small {
   .hero-proof-item span {
     color: var(--cf-light-muted);
   }
-  .feature-kicker,
   .how-step {
     color: var(--cf-light-accent);
     background: rgba(var(--cf-cyan-rgb), 0.08);
@@ -1087,7 +1071,6 @@ li,
   font-size: var(--cf-type-body);
   font-weight: var(--cf-weight-regular);
 }
-.feature-kicker,
 .testimonials-label,
 .download-store-cta__eyebrow,
 .timeline-version,

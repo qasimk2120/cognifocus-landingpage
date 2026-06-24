@@ -357,7 +357,7 @@
 .gbot-chip {
   background: rgba(106, 191, 60, 0.08);
   border: 1px solid rgba(106, 191, 60, 0.22);
-  border-radius: 100px;
+  border-radius: 8px;
   padding: 5px 12px;
   font-size: 12px;
   font-weight: 500;

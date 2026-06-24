@@ -37,7 +37,7 @@ const webPageSchema = {
   url: post.canonical,
   speakable: {
     "@type": "SpeakableSpecification",
-    cssSelector: ["h1.hero-heading", ".feature-kicker", ".blog-meta"],
+    cssSelector: ["h1.hero-heading", ".blog-meta"],
   },
 };
 
@@ -102,7 +102,6 @@ const panelClass =
         <span>{post.breadcrumbLabel || post.articleTitle}</span>
       </nav>
 
-      <span class="feature-kicker">{post.category}</span>
       <h1 class="hero-heading mt-3">{post.articleTitle}</h1>
       {post.displayDate && <p class="blog-meta mb-3">Published {post.displayDate} &middot; <a href="/about.html">Qasim Khan</a>, Founder of CogniFocus</p>}
 

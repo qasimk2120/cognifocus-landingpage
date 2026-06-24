@@ -123,7 +123,7 @@ body.support-page.cf-shell{
   gap:0.48rem;
   min-height:2.45rem;
   padding:0.42rem 0.78rem;
-  border-radius:999px;
+  border-radius: 8px;
   border:1px solid rgba(var(--cf-cyan-rgb), 0.18);
   background:rgba(var(--cf-light-card-rgb), 0.05);
   color:var(--cf-text);
@@ -245,7 +245,7 @@ body.support-page.cf-shell{
   justify-content:center;
   gap:0.55rem;
   min-height:52px;
-  border-radius:999px !important;
+  border-radius: 8px !important;
   width:100%;
   position:relative;
   overflow:hidden;
@@ -266,7 +266,7 @@ body.support-page.cf-shell{
   width:1.55rem;
   height:1.55rem;
   flex:0 0 1.55rem;
-  border-radius:999px;
+  border-radius: 8px;
   background:rgba(var(--cf-black-rgb), 0.14);
   box-shadow:
     inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.14),

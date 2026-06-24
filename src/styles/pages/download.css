@@ -343,7 +343,7 @@ body.download-page {
     padding: 1.3rem 1rem;
   }
   .play-store-btn {
-    border-radius: 999px !important;
+    border-radius: 8px !important;
   }
 }
 /* iOS retention banner on download page */
@@ -400,7 +400,7 @@ body.download-page {
   min-height: 50px;
   justify-content: center;
   gap: 0.45rem;
-  border-radius: 999px !important;
+  border-radius: 8px !important;
   text-transform: none !important;
 }
 .download-ios-cta i {
@@ -430,7 +430,7 @@ body.download-page {
   width: 100%;
   padding: 0.85rem 1rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.2);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-black-rgb), 0.34);
   color: var(--cf-text);
   font: inherit;
@@ -458,7 +458,7 @@ body.download-page {
   width: 100%;
   justify-content: center;
   min-height: 50px;
-  border-radius: 999px !important;
+  border-radius: 8px !important;
   gap: 0.45rem;
   color: var(--cf-cyan) !important;
   border-color: rgba(var(--cf-cyan-rgb), 0.32) !important;

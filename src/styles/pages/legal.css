@@ -26,7 +26,7 @@ body.privacy-page {
   margin: 0 auto 0.75rem;
   padding: 0.4rem 0.78rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.16);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-light-card-rgb), 0.04);
   color: var(--cf-cyan);
   font-size: 0.78rem;
@@ -52,7 +52,7 @@ body.privacy-page {
   min-height: 2rem;
   padding: 0.35rem 0.72rem;
   border: 1px solid rgba(var(--cf-mint-rgb), 0.22);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-mint-rgb), 0.08);
   color: var(--cf-text);
   font-size: 0.86rem;
@@ -85,7 +85,7 @@ body.privacy-page {
   min-height: 36px;
   padding: 0.45rem 0.75rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.16);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-light-card-rgb), 0.04);
   color: var(--cf-text-secondary);
   font-size: 0.86rem;
@@ -106,7 +106,7 @@ body.privacy-page {
   position: relative;
   height: 5px;
   margin: 0 0 1.6rem;
-  border-radius: 999px;
+  border-radius: 8px;
   background: linear-gradient(
     90deg,
     rgba(var(--cf-cyan-rgb), 0),
@@ -122,7 +122,7 @@ body.privacy-page {
 .policy-pill-divider span {
   position: absolute;
   inset: 1px 12%;
-  border-radius: 999px;
+  border-radius: 8px;
   background: linear-gradient(
     90deg,
     rgba(var(--cf-light-card-rgb), 0),

@@ -181,7 +181,7 @@
   align-items: center;
   min-height: 2.25rem;
   padding: 0.42rem 0.75rem;
-  border-radius: 999px;
+  border-radius: 8px;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.18);
   color: var(--cf-muted);
   font-size: 0.9rem;
@@ -298,7 +298,7 @@
   min-height: 2.45rem;
   padding: 0.35rem 0.45rem 0.35rem 0.85rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.24);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-light-card-rgb), 0.08);
   color: rgba(var(--cf-muted-rgb), 0.92);
   font-size: 0.9rem;
@@ -308,7 +308,7 @@
   min-height: 2rem;
   padding: 0.25rem 2rem 0.25rem 0.75rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.28);
-  border-radius: 999px;
+  border-radius: 8px;
   background-color: rgba(var(--cf-black-rgb), 0.42);
   color: var(--cf-text);
   font: inherit;
@@ -348,7 +348,7 @@
   gap: 0.45rem;
   min-height: 2.45rem;
   padding: 0.45rem 0.9rem;
-  border-radius: 999px;
+  border-radius: 8px;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.28);
   background: rgba(var(--cf-light-card-rgb), 0.08);
   color: var(--cf-text);
@@ -503,9 +503,6 @@
 }
 .blog-waitlist-copy {
   min-width: 0;
-}
-.blog-waitlist-copy .feature-kicker {
-  margin-bottom: 0.35rem;
 }
 .blog-waitlist-copy h2 {
   margin: 0 0 0.35rem;

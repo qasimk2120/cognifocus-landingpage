@@ -330,7 +330,7 @@ body.admin-page {
   display: inline-flex;
   width: fit-content;
   padding: 4px 8px;
-  border-radius: 999px;
+  border-radius: 8px;
   background: var(--admin-surface-2);
   color: var(--admin-muted);
   font-size: 12px;
@@ -353,7 +353,7 @@ body.admin-page {
   display: inline-flex;
   width: fit-content;
   padding: 4px 8px;
-  border-radius: 999px;
+  border-radius: 8px;
   font-size: 12px;
   font-weight: 800;
 }

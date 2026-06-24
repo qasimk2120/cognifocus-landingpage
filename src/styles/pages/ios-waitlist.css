@@ -680,7 +680,7 @@ body.ios-waitlist-page {
     min-height: 52px;
     margin-left: 0;
     margin-right: 0;
-    border-radius: 999px !important;
+    border-radius: 8px !important;
   }
   .ios-waitlist-card-divider {
     margin-top: 0.2rem;
@@ -742,7 +742,7 @@ body.ios-waitlist-page {
   }
   .ios-waitlist-submit {
     max-width: none;
-    border-radius: 999px !important;
+    border-radius: 8px !important;
   }
   .ios-waitlist-message {
     width: 100%;
@@ -770,7 +770,7 @@ body.ios-waitlist-page {
   width: 1.55rem;
   height: 1.55rem;
   flex: 0 0 1.55rem;
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-black-rgb), 0.14);
   box-shadow:
     inset 0 1px 0 rgba(var(--cf-light-card-rgb), 0.14),

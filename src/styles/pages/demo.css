@@ -105,7 +105,7 @@ body.demo-page {
   max-width: calc(100% - 1.4rem);
   padding: 0.62rem 0.95rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.18);
-  border-radius: 999px;
+  border-radius: 8px;
   background: linear-gradient(
     180deg,
     rgba(var(--cf-light-card-rgb), 0.14),
@@ -208,7 +208,7 @@ body.demo-page {
   place-items: center;
   width: clamp(4rem, 7vw, 5rem);
   height: clamp(4rem, 7vw, 5rem);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-black-rgb), 0.75);
   box-shadow:
     0 14px 40px rgba(var(--cf-black-rgb), 0.34),
@@ -290,7 +290,7 @@ body.demo-page {
   margin: 0;
   padding: 0.48rem 0.95rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.18);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-light-card-rgb), 0.05);
   color: var(--cf-cyan);
   font-size: 0.74rem;

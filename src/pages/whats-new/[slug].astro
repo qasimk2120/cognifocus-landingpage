@@ -90,7 +90,6 @@ const sections = getReleaseDetailSections(release);
         <span>{release.title}</span>
       </nav>
 
-      <span class="feature-kicker">{release.category}</span>
       <h1 class="hero-heading mt-3">{release.title}</h1>
       {release.publishedAt && <p class="blog-meta mb-3">Published {formatReleaseDate(release.publishedAt)}</p>}
       <p class="hero-muted-override">{release.summary}</p>

@@ -586,7 +586,7 @@
   display: inline-flex;
   align-items: center;
   padding: 0.46rem 0.88rem;
-  border-radius: 999px;
+  border-radius: 8px;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.35);
   background: rgba(var(--cf-cyan-rgb), 0.07);
   color: var(--cf-text);
@@ -1124,7 +1124,7 @@
   flex: 0 0 auto;
   min-width: auto;
   white-space: nowrap;
-  border-radius: 999px !important;
+  border-radius: 8px !important;
   box-shadow: none !important;
   display: inline-flex !important;
   align-items: center !important;
@@ -2636,7 +2636,7 @@
   min-height: 2.5rem;
   padding: 0.55rem 0.8rem;
   border: 1px solid var(--cf-border);
-  border-radius: 999px;
+  border-radius: 8px;
   color: var(--cf-text);
   background: rgba(var(--cf-surface2-rgb), 0.58);
   font-weight: 800;
@@ -2985,7 +2985,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   margin-bottom: 1rem;
   padding: 0.45rem 0.85rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.28);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-cyan-rgb), 0.08);
   color: var(--cf-cyan);
   font-size: 0.82rem;
@@ -3322,7 +3322,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   min-height: 28px;
   padding: 0.32rem 0.58rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.22);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-black-rgb), 0.48);
   color: var(--cf-text);
   font-size: 0.72rem;
@@ -3880,7 +3880,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   align-items: center;
   padding: 0.38rem 0.72rem;
   border: 1px solid rgba(var(--cf-cyan-rgb), 0.16);
-  border-radius: 999px;
+  border-radius: 8px;
   background: rgba(var(--cf-cyan-rgb), 0.06);
   color: var(--cf-text);
   font-size: 0.76rem;
@@ -4285,7 +4285,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   bottom: 1.1rem;
   padding: 0.28rem 0.62rem;
   border: 1px solid rgba(106, 191, 60, 0.24);
-  border-radius: 999px;
+  border-radius: 8px;
   color: var(--cf-goblin);
   background: rgba(106, 191, 60, 0.1);
   font-size: 0.72rem;
@@ -4525,7 +4525,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   min-width: 58px;
   min-height: 34px;
   padding-inline: 0.72rem;
-  border-radius: 999px;
+  border-radius: 8px;
   font-size: 0.9rem;
   font-weight: 800;
   letter-spacing: 0.04em;
@@ -4541,7 +4541,7 @@ html[data-theme="light"] .reaction-carousel-arrow {
   min-width: 62px;
   min-height: 36px;
   padding-inline: 0.68rem;
-  border-radius: 999px;
+  border-radius: 8px;
   color: var(--cf-cyan);
   border-color: rgba(var(--cf-cyan-rgb), 0.28);
   background: rgba(var(--cf-cyan-rgb), 0.1);
