@@ -11,7 +11,13 @@
   "displayDate": "July 3, 2026",
   "category": "Product Comparisons",
   "categorySlug": "product-comparisons",
-  "tags": ["cognifocus", "opal", "free alternative", "android", "no vpn"],
+  "tags": [
+    "cognifocus",
+    "opal",
+    "free alternative",
+    "android",
+    "no vpn"
+  ],
   "excerpt": "CogniFocus is a free alternative to Opal for Android. It blocks apps with a native Android plugin instead of a VPN tunnel, and core blocking has no $99 a year paywall.",
   "bodyClass": "seo-guide-page blog-page cf-shell",
   "hasBlogCss": true,
@@ -30,9 +36,14 @@
   "seoDescription": "CogniFocus is a free alternative to Opal for Android. No VPN battery drain, no $99 a year paywall on core app blocking.",
   "coverImageUrl": "https://cognifocus.app/assets/og/og-image.png",
   "createdAt": "2026-07-03T09:00:00.000Z",
-  "createdBy": "blog-post-skill",
+  "createdBy": "cms-content-migration",
   "id": "free-alternative-to-opal-android",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\free-alternative-to-opal-android.json",
+    "importedAt": "2026-07-02T23:29:22.018Z"
+  },
   "social": {},
   "status": "published",
-  "updatedBy": "blog-post-skill"
+  "updatedBy": "cms-content-migration"
 }
