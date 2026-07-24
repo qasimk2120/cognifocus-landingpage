@@ -343,6 +343,11 @@ body.admin-page {
   color: var(--cf-mint);
 }
 
+.admin-status-scheduled {
+  background: rgba(var(--cf-cyan-rgb), 0.12);
+  color: var(--cf-cyan);
+}
+
 .admin-status-archived {
   background: rgba(var(--cf-danger-rgb), 0.1);
   color: var(--admin-danger);

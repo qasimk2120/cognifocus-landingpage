@@ -295,19 +295,33 @@ function renderField([name, label, type, required], item = {}) {
     name === "coverImageUrl" ? ` maxlength="${IMAGE_PATH_MAX_LENGTH}"` : "";
 
   if (name === "publishedAt") {
+    const status = String(item.status || "").toLowerCase();
+    const isPublished = status === "published";
     const publishedLabel = value
       ? normalizeDateTimeValue(value)
       : "";
-    const publishedHint = value
+    const publishedHint = isPublished
       ? "Set automatically when this item was first published."
-      : "This will be set automatically the first time you publish.";
+      : "Required for scheduled posts. Pick a future date and time.";
 
-    return `
+    if (isPublished) {
+      return `
       <label>
         ${label}
         <input type="datetime-local" name="${name}" value="${escapeHtml(
           publishedLabel,
         )}" readonly disabled />
+        <span class="admin-helper-text">${publishedHint}</span>
+      </label>
+    `;
+    }
+
+    return `
+      <label>
+        ${label}
+        <input type="datetime-local" name="${name}" value="${escapeHtml(
+          publishedLabel || todayDateTime(),
+        )}" />
         <span class="admin-helper-text">${publishedHint}</span>
       </label>
     `;
@@ -320,7 +334,7 @@ function renderField([name, label, type, required], item = {}) {
       <label>
         ${label}
         <select name="${name}"${requiredAttribute}>
-          ${["draft", "published", "archived"]
+          ${["draft", "scheduled", "published", "archived"]
             .map(
               (option) =>
                 `<option value="${option}"${
@@ -1020,6 +1034,16 @@ function readPayload(form, resource, requestedStatus) {
     const element = form.elements[name];
 
     if (name === "publishedAt") {
+      if (requestedStatus === "published" || requestedStatus === "draft") {
+        continue;
+      }
+
+      const raw = String(formData.get(name) || "").trim();
+
+      if (raw) {
+        payload[name] = new Date(raw).toISOString();
+      }
+
       continue;
     }
 
@@ -1123,6 +1147,7 @@ async function renderForm(resource, mode, item = {}) {
         <a class="admin-button" href="${config.basePath}">Back</a>
         ${renderViewAction(resource, item, "normal")}
         <button type="submit" class="admin-button" data-save-status="draft">Save Draft</button>
+        <button type="submit" class="admin-button" data-save-status="scheduled">Schedule</button>
         <button type="submit" class="admin-button admin-button-primary" data-save-status="published">Publish</button>
         ${
           isEdit
@@ -1162,6 +1187,24 @@ async function renderForm(resource, mode, item = {}) {
       message.textContent = imagePathLengthError;
       message.dataset.type = "error";
       return;
+    }
+
+    if (requestedStatus === "scheduled") {
+      const publishAt = String(form.elements.publishedAt?.value || "").trim();
+
+      if (!publishAt) {
+        message.textContent = "Pick a publish date and time for scheduled posts.";
+        message.dataset.type = "error";
+        return;
+      }
+
+      if (Number.isNaN(new Date(publishAt).getTime()) || new Date(publishAt).getTime() <= Date.now()) {
+        message.textContent = "Scheduled publish time must be in the future.";
+        message.dataset.type = "error";
+        return;
+      }
+
+      payload.publishedAt = new Date(publishAt).toISOString();
     }
 
     state.saving = true;
