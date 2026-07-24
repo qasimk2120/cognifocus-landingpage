@@ -1,5 +1,5 @@
 ---
-import BlogListLayout from "../../../../../components/blog/BlogListLayout.astro";
+import BlogListLayout from "../../../components/blog/BlogListLayout.astro";
 import {
   BLOG_PAGE_SIZE,
   BLOG_PAGE_SIZE_OPTIONS,
@@ -8,7 +8,7 @@ import {
   getSortedPosts,
   getTotalPages,
   normalizeBlogPageSize,
-} from "../../../../../utils/blog";
+} from "../../../utils/blog";
 
 export async function getStaticPaths() {
   const pageSizePaths = BLOG_PAGE_SIZE_OPTIONS.filter((size) => size !== BLOG_PAGE_SIZE);

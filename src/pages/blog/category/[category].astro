@@ -1,5 +1,5 @@
 ---
-import BlogListLayout from "../../../../../components/blog/BlogListLayout.astro";
+import BlogListLayout from "../../../components/blog/BlogListLayout.astro";
 import {
   BLOG_PAGE_SIZE,
   getActiveCategories,
@@ -7,7 +7,7 @@ import {
   getPageSlice,
   getTotalPages,
   getPostsByCategory,
-} from "../../../../../utils/blog";
+} from "../../../utils/blog";
 
 export async function getStaticPaths() {
   return (await getActiveCategories()).map((category) => ({
