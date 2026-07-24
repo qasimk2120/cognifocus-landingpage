@@ -7,6 +7,7 @@ import { normalizeBlogTextFields } from "./text-normalize.js";
 
 export const BLOG_PAGE_SIZE = 6;
 export const BLOG_PAGE_SIZE_OPTIONS = [6, 12, 24];
+export const BLOG_ROOT_PATH = "/blog.html";
 
 export const BLOG_CATEGORIES = [
   { label: "Focus Guides", slug: "focus-guides" },
@@ -132,7 +133,7 @@ export const getBlogPagePath = (pageNumber, pageSize = BLOG_PAGE_SIZE) => {
   const normalizedPageSize = normalizeBlogPageSize(pageSize);
 
   if (normalizedPageSize === BLOG_PAGE_SIZE) {
-    return pageNumber <= 1 ? "/blog/" : `/blog/page/${pageNumber}.html`;
+    return pageNumber <= 1 ? BLOG_ROOT_PATH : `/blog/page/${pageNumber}.html`;
   }
 
   return pageNumber <= 1
