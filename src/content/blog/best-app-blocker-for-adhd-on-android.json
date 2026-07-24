@@ -38,9 +38,14 @@
   "seoDescription": "If your attention keeps jumping between apps, the best app blocker for ADHD on Android is one that starts fast, blocks in real time and helps you recover without giving up.",
   "coverImageUrl": "https://cognifocus.app/assets/og/og-image.png",
   "createdAt": "2026-07-24T09:00:00.000Z",
-  "createdBy": "copilot",
+  "createdBy": "cms-content-migration",
   "id": "best-app-blocker-for-adhd-on-android",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\best-app-blocker-for-adhd-on-android.json",
+    "importedAt": "2026-07-24T16:44:49.113Z"
+  },
   "social": {},
   "status": "published",
-  "updatedBy": "copilot"
+  "updatedBy": "cms-content-migration"
 }
