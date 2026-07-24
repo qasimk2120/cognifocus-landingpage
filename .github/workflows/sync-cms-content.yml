@@ -6,7 +6,7 @@ on:
       prune:
         description: Delete local fallback JSON files that are no longer published in CMS
         required: false
-        default: "true"
+        default: "false"
         type: choice
         options:
           - "true"

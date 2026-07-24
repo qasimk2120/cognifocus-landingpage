@@ -103,4 +103,4 @@ jobs:
           gh workflow run sync-cms-content.yml \
             --repo ${{ github.repository }} \
             --ref ${{ github.ref_name }} \
-            -f prune=true
+            -f prune=false
