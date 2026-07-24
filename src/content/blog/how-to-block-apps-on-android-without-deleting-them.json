@@ -30,5 +30,15 @@
   "featured": true,
   "seoTitle": "How to Block Apps on Android Without Deleting Them (2026 Guide)",
   "seoDescription": "Learn how to block distracting Android apps during work or study sessions without uninstalling them. Step-by-step methods using native Android features and CogniFocus Shield.",
-  "status": "published"
+  "createdAt": "2026-07-24T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
+  "id": "how-to-block-apps-on-android-without-deleting-them",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\how-to-block-apps-on-android-without-deleting-them.json",
+    "importedAt": "2026-07-24T11:06:29.212Z"
+  },
+  "social": {},
+  "status": "published",
+  "updatedBy": "cms-content-migration"
 }
