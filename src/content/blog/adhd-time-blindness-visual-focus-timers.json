@@ -30,5 +30,15 @@
   "featured": true,
   "seoTitle": "ADHD Time Blindness: How Visual Focus Timers Help You Stay on Track",
   "seoDescription": "Struggling with time blindness? Learn why traditional clocks fail ADHD brains and how visual focus timers create tangible time awareness.",
-  "status": "published"
+  "createdAt": "2026-07-24T09:00:00.000Z",
+  "createdBy": "cms-content-migration",
+  "id": "adhd-time-blindness-visual-focus-timers",
+  "migration": {
+    "source": "cognifocus-landingpage",
+    "sourcePath": "..\\cognifocus-landingpage\\src\\content\\blog\\adhd-time-blindness-visual-focus-timers.json",
+    "importedAt": "2026-07-24T11:09:54.952Z"
+  },
+  "social": {},
+  "status": "published",
+  "updatedBy": "cms-content-migration"
 }
