@@ -154,6 +154,11 @@ const twitterAttr = twitterAttribute === "property" ? "property" : "name";
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="nA1wJyb7Q7r3Ofb98mlDlg" async></script>
     <slot name="head" />
     <PostHog />
+    <!-- Metricool Tracker -->
+    <script is:inline>
+      function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"de3442d1c1a78eb4de1f34ec477da853"})});
+    </script>
+    <!-- End Metricool Tracker -->
   </head>
   <body class={bodyClass} {...bodyAttributes}>
     <!-- Google Tag Manager (noscript) -->
