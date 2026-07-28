@@ -26,6 +26,7 @@ const pageNumber = page.currentPage;
 const title = `${category.label} | CogniFocus Blog — Page ${pageNumber}`;
 const description = `More CogniFocus ${category.label.toLowerCase()} articles about focus sessions, app blocking, distraction recovery, and Android focus habits.`;
 const canonical = `https://cognifocus.app${getCategoryPagePath(category.slug, pageNumber)}`;
+const robots = "noindex, follow";
 ---
 
 <BlogListLayout
@@ -45,5 +46,5 @@ const canonical = `https://cognifocus.app${getCategoryPagePath(category.slug, pa
   page={page}
   basePath={`/blog/category/${category.slug}`}
   pageSize={BLOG_PAGE_SIZE}
-  robots="noindex, follow"
+  robots={robots}
 />

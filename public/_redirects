@@ -16,3 +16,6 @@
 /admin/releases/:id/ /admin/releases/edit.html 200
 /admin/distribution /admin/distribution.html 200
 /admin/distribution/ /admin/distribution.html 200
+/blog/category/:slug/ /blog/category/:slug.html 301
+/blog/per-page/:size/ /blog/per-page/:size.html 301
+/blog/category/:slug/per-page/:size/ /blog/category/:slug/per-page/:size.html 301

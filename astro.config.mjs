@@ -83,11 +83,14 @@ export default defineConfig({
           page.includes("/blog/page/") ||
           (page.includes("/blog/category/") && page.includes("/page/"));
 
+        if (isBlogPagination) {
+          return false;
+        }
+
         return (
           !page.startsWith("https://cognifocus.app/admin") &&
           !page.includes("/blog/per-page/") &&
           !page.includes("/per-page/") &&
-          !isBlogPagination &&
           page !== "https://cognifocus.app/404" &&
           page !== "https://cognifocus.app/404.html" &&
           page !== "https://cognifocus.app/blog/stop-app-switching" &&
