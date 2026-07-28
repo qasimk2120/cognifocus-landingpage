@@ -1,5 +1,5 @@
 ---
-import { formatBlogDate } from "../../utils/blog";
+import { formatBlogDate, getCategoryPagePath } from "../../utils/blog";
 import SiteIcon from "../shared/SiteIcon.astro";
 
 const { posts } = Astro.props;
@@ -24,7 +24,7 @@ const { posts } = Astro.props;
               <>
                 {" "}
                 <span aria-hidden="true">|</span>{" "}
-                <a href={`/blog/category/${post.categorySlug}/`}>{post.category}</a>
+                <a href={getCategoryPagePath(post.categorySlug)}>{post.category}</a>
               </>
             )}
           </p>

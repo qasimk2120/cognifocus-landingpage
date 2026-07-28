@@ -11,26 +11,29 @@ const {
 
 const currentPageSize = normalizeBlogPageSize(pageSize);
 const defaultBasePath = (basePath || "/blog").replace(/\/per-page\/\d+$/, "");
+const getRootHref = (path) => {
+  const normalizedPath = (path || "/blog").replace(/\/$/, "");
+
+  return `${normalizedPath}.html`.replace(/\/+/g, "/");
+};
 
 const normalizePageHref = (href) => {
   if (!href) {
     return href;
   }
 
-  return href
-    .replace(/\/page\/1(?:\.html)?\/?$/, "/")
-    .replace(/\/page\/(\d+)\/?$/, "/page/$1.html");
+  return href.replace(/\/page\/(\d+)\/?$/, "/page/$1.html");
 };
 
 const getPageHref = (pageNumber) =>
   pageNumber <= 1
-    ? `${basePath}/`.replace(/\/+/g, "/")
+    ? getRootHref(basePath)
     : `${basePath}/page/${pageNumber}.html`.replace(/\/+/g, "/");
 
 const getPageSizeHref = (size) =>
   normalizeBlogPageSize(size) === BLOG_PAGE_SIZE
-    ? `${defaultBasePath}/`.replace(/\/+/g, "/")
-    : `${defaultBasePath}/per-page/${size}/`.replace(/\/+/g, "/");
+    ? getRootHref(defaultBasePath)
+    : `${defaultBasePath}/per-page/${size}.html`.replace(/\/+/g, "/");
 
 const getPageNumbers = () => {
   const currentPage = page?.currentPage ?? 1;

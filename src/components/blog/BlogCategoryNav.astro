@@ -1,5 +1,5 @@
 ---
-import { getActiveCategories } from "../../utils/blog";
+import { getActiveCategories, getCategoryPagePath } from "../../utils/blog";
 
 const { activeCategorySlug = "" } = Astro.props;
 const categories = await getActiveCategories();
@@ -16,7 +16,7 @@ const categories = await getActiveCategories();
   {
     categories.map((category) => (
       <a
-        href={`/blog/category/${category.slug}/`}
+        href={getCategoryPagePath(category.slug)}
         class:list={[
           "blog-category-link",
           { "is-active": activeCategorySlug === category.slug },

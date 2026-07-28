@@ -137,7 +137,7 @@ export const getBlogPagePath = (pageNumber, pageSize = BLOG_PAGE_SIZE) => {
   }
 
   return pageNumber <= 1
-    ? `/blog/per-page/${normalizedPageSize}/`
+    ? `/blog/per-page/${normalizedPageSize}.html`
     : `/blog/per-page/${normalizedPageSize}/page/${pageNumber}.html`;
 };
 
@@ -150,11 +150,11 @@ export const getCategoryPagePath = (
 
   if (normalizedPageSize === BLOG_PAGE_SIZE) {
     return pageNumber <= 1
-      ? `/blog/category/${categorySlug}/`
+      ? `/blog/category/${categorySlug}.html`
       : `/blog/category/${categorySlug}/page/${pageNumber}.html`;
   }
 
   return pageNumber <= 1
-    ? `/blog/category/${categorySlug}/per-page/${normalizedPageSize}/`
+    ? `/blog/category/${categorySlug}/per-page/${normalizedPageSize}.html`
     : `/blog/category/${categorySlug}/per-page/${normalizedPageSize}/page/${pageNumber}.html`;
 };
